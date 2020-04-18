@@ -171,15 +171,6 @@ section img {
   -moz-user-select: none;
   -o-user-select: none;
 }
-section .title-text {
-  width: 95%;
-  height: 10%;
-  border-radius: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 @media (max-width: 420px) {
   section {
     flex-direction: row;
@@ -191,7 +182,7 @@ section .title-text {
   section {
     flex-direction: column;
     justify-content: center;
-    align-items: space-between;
+    align-items: center;
   }
 }
 @media (min-width: 1025px) {
@@ -203,6 +194,15 @@ section .title-text {
   section p {
     font-size: 2.5rem;
   }
+}
+section .title-text {
+  width: 95%;
+  height: 10%;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .projects-section {
   background-color: #5c4a72;
@@ -233,4 +233,28 @@ section .title-text {
 }
 .titles-section .titles-title {
   background: #f6c78a;
+}
+a {
+  display: flex;
+}
+@media (max-width: 420px) {
+  a {
+    flex-direction: row;
+    justify-content: center;
+    align-items: space-between;
+  }
+}
+@media (min-width: 421px) and (max-width: 1024px) {
+  a {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (min-width: 1025px) {
+  a {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
