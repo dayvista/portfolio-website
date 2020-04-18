@@ -2,9 +2,9 @@ import React from "react";
 
 import "../styles/css/App.css";
 
-import Social from "./Sections/Social";
-import Resume from "./Sections/Resume";
 import Projects from "./Sections/Projects";
+import Resume from "./Sections/Resume";
+import Social from "./Sections/Social";
 import About from "./Sections/About";
 
 const App = () => {
