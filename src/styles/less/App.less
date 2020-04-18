@@ -1,0 +1,70 @@
+@import "reset";
+@import (reference) "variables";
+@import (reference) "mixins";
+
+// CSS (less)
+html {
+  font-size: 62.5%;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
+.display {
+  display: flex;
+
+  @media (max-width: 420px) {
+    .flex-attributes(column, flex-start, flex-start);
+  }
+
+  @media (min-width: 421px) and (max-width: 1024px) {
+    .flex-attributes(row, flex-start, flex-start);
+  }
+
+  @media (min-width: 1025px) {
+    .flex-attributes(row, flex-start, flex-start);
+  }
+}
+
+section {
+  width: 20vw;
+  height: 100vh;
+
+  p,
+  img {
+    user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+  }
+
+  .title-text {
+    width: 95%;
+    height: 10%;
+    border-radius: 0.5rem;
+
+    display: flex;
+    .flex-attributes(column, center, center);
+  }
+
+  display: flex;
+
+  @media (max-width: 420px) {
+    .flex-attributes(row, center, space-between);
+  }
+
+  @media (min-width: 421px) and (max-width: 1024px) {
+    .flex-attributes(column, center, space-between);
+  }
+
+  @media (min-width: 1025px) {
+    .flex-attributes(column, center, center);
+    p {
+      font-size: 2.5rem;
+    }
+  }
+}
