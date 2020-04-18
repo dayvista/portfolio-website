@@ -204,3 +204,33 @@ section .title-text {
     font-size: 2.5rem;
   }
 }
+.projects-section {
+  background-color: #5c4a72;
+}
+.projects-section .projects-title {
+  background: #755e91;
+}
+.resume-section {
+  background-color: #a3586d;
+}
+.resume-section .resume-title {
+  background: #b67889;
+}
+.social-section {
+  background-color: #f46a4e;
+}
+.social-section .social-title {
+  background: #f7927e;
+}
+.about-section {
+  background-color: #f4874b;
+}
+.about-section .about-title {
+  background: #f7a77b;
+}
+.titles-section {
+  background-color: #f3b05a;
+}
+.titles-section .titles-title {
+  background: #f6c78a;
+}
