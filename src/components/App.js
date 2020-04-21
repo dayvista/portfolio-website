@@ -3,13 +3,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import "../styles/css/App.css";
+import "../styles/css/Sections/Titles.css";
 
 import Projects from "./Sections/Projects";
 import Resume from "./Sections/Resume";
 import Social from "./Sections/Social";
 import About from "./Sections/About";
-
-import Icon from "./Icons/Icon";
 
 const App = () => {
   return (
@@ -22,7 +21,17 @@ const App = () => {
           <Switch>
             <Route path="/projects" component={Projects} />
           </Switch>
-          <div>{/* Icon with link goes here */}</div>
+          <a
+            id="projects-icon"
+            href="https://github.com/dayvista"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="../images/svg/github.svg"></img>
+          </a>
+          <Link id="back-arrow-icon" to="">
+            <img src="../images/svg/back-arrow.svg"></img>
+          </Link>
         </section>
         <section className="resume-section">
           <div className="title-text resume-title">
@@ -31,7 +40,14 @@ const App = () => {
           <Switch>
             <Route path="/resume" component={Resume} />
           </Switch>
-          <div>{/* Icon with link goes here */}</div>
+          <a
+            id="resume-icon"
+            href="https://linkedin.com/in/wjdiii"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="../images/svg/linkedin.svg"></img>
+          </a>
         </section>
         <section className="social-section">
           <div className="title-text social-title">
@@ -40,7 +56,14 @@ const App = () => {
           <Switch>
             <Route path="/social" component={Social} />
           </Switch>
-          <div>{/* Icon with link goes here */}</div>
+          <a
+            id="social-icon"
+            href="https://twitter.com/dayvista_dev"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="../images/svg/twitter.svg"></img>
+          </a>
         </section>
         <section className="about-section">
           <div className="title-text about-title">
@@ -49,19 +72,25 @@ const App = () => {
           <Switch>
             <Route path="/about" component={About} />
           </Switch>
-          <div>{/* Icon with link goes here */}</div>
+          <a
+            id="projects-icon"
+            href="mailto:liam@dayvista.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="../images/svg/email.svg"></img>
+          </a>
         </section>
         <section className="titles-section">
           <div className="title-text titles-title">
             <p>William Davis</p>
           </div>
-          <div>{/* Logo goes here */}</div>
+          <div id="titles-logo">
+            <img src="../images/svg/sunrise.svg"></img>
+          </div>
           <div className="title-text titles-title">
             <p>Web Developer</p>
           </div>
-          <Link to="">
-            <Icon name="back-arrow" />
-          </Link>
         </section>
       </div>
     </Router>

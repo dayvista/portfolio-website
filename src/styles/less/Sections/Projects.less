@@ -1,0 +1,35 @@
+@import "../variables";
+@import "../mixins";
+
+#projects-icon {
+  img {
+    width: 7.5vw;
+    height: auto;
+
+    display: default;
+  }
+}
+
+#back-arrow-icon {
+  img {
+    width: 5vw;
+    height: auto;
+
+    display: none;
+  }
+
+  margin-top: 0;
+
+  display: flex;
+  @media (max-width: 420px) {
+    .flex-attributes(row, center, space-between);
+  }
+
+  @media (min-width: 421px) and (max-width: 1024px) {
+    .flex-attributes(column, center, center);
+  }
+
+  @media (min-width: 1025px) {
+    .flex-attributes(column, center, center);
+  }
+}

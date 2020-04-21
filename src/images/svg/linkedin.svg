@@ -1,16 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg 
-    role="img" 
-    xmlns="http://www.w3.org/2000/svg" 
-    width="1000mm"
-    height="1000mm"
-    viewBox="0 0 1000 1000"
-    style="max-width:1.6em; height: auto;">
-    
-    <path 
-        id="path" 
-        style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;"
-        d="M 75 0C 75 0 75 0 75 0C 33 0 0 33 0 75C 0 75 0 925 0 925C 0 967 33 1000 75 1000C 75 1000 925 1000 925 1000C 967 1000 1000 967 1000 925C 1000 925 1000 75 1000 75C 1000 33 967 0 925 0C 925 0 75 0 75 0M 75 50C 75 50 925 50 925 50C 939 50 950 61 950 75C 950 75 950 925 950 925C 950 939 939 950 925 950C 925 950 75 950 75 950C 61 950 50 939 50 925C 50 925 50 75 50 75C 50 61 61 50 75 50 M 336 332C 336 332 336 789 336 789C 336 789 211 789 211 789C 211 789 211 332 211 332C 211 332 336 332 336 332M 346 206C 346 206 346 206 346 206C 346 247 313 280 273 280C 233 280 201 247 201 206C 201 166 233 133 273 133C 313 133 346 166 346 206M 834 508C 834 508 834 789 834 789C 834 789 709 789 709 789C 709 789 709 556 709 556C 709 416 543 427 543 556C 543 556 543 789 543 789C 543 789 419 789 419 789C 419 789 419 332 419 332C 419 332 543 332 543 332C 543 332 543 406 543 406C 601 298 834 290 834 508"
-        transform="">
-    </path>    
+<svg id="emoji" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <g id="color">
+    <path fill="#ecdbe0" d="m36.17 40.25c0.03332-2.77 2.556-5.509 5.729-5.218 3.173 0.2911 4.667 2.452 4.556 5.878l0.04873 10.45h4.249l0.02948-11.47c0.0059-2.791-0.05766-5.311-1.858-7.335-2.16-2.441-6.294-2.484-8.757-1.386-1.829 0.8623-1.838 0.8754-4.04 3.04l0.04317-3.772h-4.249l-2e-6 20.93h4.249z"/>
+    <circle cx="23.69" cy="23.12" r="2.481" fill="#ecdbe0" fill-rule="evenodd" paint-order="normal"/>
+    <path fill="#ecdbe0" d="m21.54 51.3h4.249l1.66e-4 -20.93h-4.249z"/>
+  </g>
+  <g id="line">
+    <circle cx="23.78" cy="23.21" r="2.481" fill="none" stroke="#ecdbe0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.33" paint-order="normal"/>
+    <path fill="none" stroke="#ecdbe0" stroke-linejoin="round" stroke-width="2" d="m36.26 40.33c0.03332-2.77 2.556-5.509 5.729-5.218 3.173 0.2911 4.667 2.452 4.556 5.878l0.04873 10.45h4.249l0.02948-11.47c0.0059-2.791-0.05766-5.311-1.858-7.335-2.16-2.441-6.294-2.484-8.757-1.386-1.829 0.8623-1.838 0.8754-4.04 3.04l0.04317-3.772h-4.249l-2e-6 20.93h4.249z"/>
+    <path fill="none" stroke="#ecdbe0" stroke-linejoin="round" stroke-width="2" d="m21.62 51.39h4.249l1.66e-4 -20.93h-4.249z"/>
+    <rect x="12.12" y="12.12" rx="3" ry="3" width="47.77" height="47.77" fill="none" stroke="#ecdbe0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.33" paint-order="normal"/>
+  </g>
 </svg>

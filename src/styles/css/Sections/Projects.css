@@ -1,0 +1,35 @@
+#projects-icon img {
+  width: 7.5vw;
+  height: auto;
+  display: default;
+}
+#back-arrow-icon {
+  margin-top: 0;
+  display: flex;
+}
+#back-arrow-icon img {
+  width: 5vw;
+  height: auto;
+  display: none;
+}
+@media (max-width: 420px) {
+  #back-arrow-icon {
+    flex-direction: row;
+    justify-content: center;
+    align-items: space-between;
+  }
+}
+@media (min-width: 421px) and (max-width: 1024px) {
+  #back-arrow-icon {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (min-width: 1025px) {
+  #back-arrow-icon {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

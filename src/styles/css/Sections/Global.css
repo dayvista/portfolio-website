@@ -1,30 +1,71 @@
 .projects-section {
   background-color: #5c4a72;
+  color: #050406;
 }
 .projects-section .projects-title {
-  background: #755e91;
+  background: #9c89b2;
+  transition: background 0.25s, box-shadow 0.25s;
+}
+.projects-section .projects-title:hover {
+  background: #a999bc;
+  box-shadow: 0px 0px 5px 0px #050406;
+  -moz-box-shadow: 0px 0px 5px 0px #050406;
+  -webkit-box-shadow: 0px 0px 5px 0px #050406;
 }
 .resume-section {
   background-color: #a3586d;
+  color: #2f191f;
 }
 .resume-section .resume-title {
-  background: #b67889;
+  background: #dabac3;
+  transition: background 0.25s, box-shadow 0.25s;
+}
+.resume-section .resume-title:hover {
+  background: #dabac3;
+  box-shadow: 0px 0px 5px 0px #2f191f;
+  -moz-box-shadow: 0px 0px 5px 0px #2f191f;
+  -webkit-box-shadow: 0px 0px 5px 0px #2f191f;
 }
 .social-section {
   background-color: #f46a4e;
+  color: #7b1b08;
 }
 .social-section .social-title {
-  background: #f7927e;
+  background: #fbcfc6;
+  transition: background 0.25s, box-shadow 0.25s;
+}
+.social-section .social-title:hover {
+  background: #fcd9d2;
+  box-shadow: 0px 0px 5px 0px #871e08;
+  -moz-box-shadow: 0px 0px 5px 0px #871e08;
+  -webkit-box-shadow: 0px 0px 5px 0px #871e08;
 }
 .about-section {
   background-color: #f4874b;
+  color: #843408;
 }
 .about-section .about-title {
-  background: #f7a77b;
+  background: #fbd7c3;
+  transition: background 0.25s, box-shadow 0.25s;
+}
+.about-section .about-title:hover {
+  background: #fcdfcf;
+  box-shadow: 0px 0px 5px 0px #843408;
+  -moz-box-shadow: 0px 0px 5px 0px #843408;
+  -webkit-box-shadow: 0px 0px 5px 0px #843408;
 }
 .titles-section {
   background-color: #f3b05a;
+  color: #90560a;
 }
 .titles-section .titles-title {
-  background: #f6c78a;
+  background: #fce9d1;
+  transition: background 0.25s, box-shadow 0.25s;
+  z-index: 0;
+}
+.titles-section .titles-title:hover {
+  background: #fdefdd;
+  box-shadow: 0px 0px 5px 0px #a8640c;
+  -moz-box-shadow: 0px 0px 5px 0px #a8640c;
+  -webkit-box-shadow: 0px 0px 5px 0px #a8640c;
 }
