@@ -6,14 +6,14 @@
   color: darken(@color-1-purple, 35%);
 
   .projects-title {
-    background: lighten(@color-1-purple, 25%);
+    background: lighten(@color-1-purple, 30%);
     transition: background 0.25s, box-shadow 0.25s;
 
     &:hover {
-      background: lighten(@color-1-purple, 30%);
-      box-shadow: 0px 0px 5px 0px darken(@color-1-purple, 35%);
-      -moz-box-shadow: 0px 0px 5px 0px darken(@color-1-purple, 35%);
-      -webkit-box-shadow: 0px 0px 5px 0px darken(@color-1-purple, 35%);
+      background: lighten(@color-1-purple, 35%);
+      box-shadow: @bs-dimensions darken(@color-1-purple, 35%);
+      -moz-box-shadow: @bs-dimensions darken(@color-1-purple, 35%);
+      -webkit-box-shadow: @bs-dimensions darken(@color-1-purple, 35%);
     }
   }
 }
@@ -27,10 +27,10 @@
     transition: background 0.25s, box-shadow 0.25s;
 
     &:hover {
-      background: lighten(@color-2-blue, 30%);
-      box-shadow: 0px 0px 5px 0px darken(@color-2-blue, 35%);
-      -moz-box-shadow: 0px 0px 5px 0px darken(@color-2-blue, 35%);
-      -webkit-box-shadow: 0px 0px 5px 0px darken(@color-2-blue, 35%);
+      background: lighten(@color-2-blue, 33%);
+      box-shadow: @bs-dimensions darken(@color-2-blue, 35%);
+      -moz-box-shadow: @bs-dimensions darken(@color-2-blue, 35%);
+      -webkit-box-shadow: @bs-dimensions darken(@color-2-blue, 35%);
     }
   }
 }
@@ -45,9 +45,9 @@
 
     &:hover {
       background: lighten(@color-3-red, 27.5%);
-      box-shadow: 0px 0px 5px 0px darken(@color-3-red, 35%);
-      -moz-box-shadow: 0px 0px 5px 0px darken(@color-3-red, 35%);
-      -webkit-box-shadow: 0px 0px 5px 0px darken(@color-3-red, 35%);
+      box-shadow: @bs-dimensions darken(@color-3-red, 35%);
+      -moz-box-shadow: @bs-dimensions darken(@color-3-red, 35%);
+      -webkit-box-shadow: @bs-dimensions darken(@color-3-red, 35%);
     }
   }
 }
@@ -62,9 +62,9 @@
 
     &:hover {
       background: lighten(@color-4-orange, 27.5%);
-      box-shadow: 0px 0px 5px 0px darken(@color-4-orange, 35%);
-      -moz-box-shadow: 0px 0px 5px 0px darken(@color-4-orange, 35%);
-      -webkit-box-shadow: 0px 0px 5px 0px darken(@color-4-orange, 35%);
+      box-shadow: @bs-dimensions darken(@color-4-orange, 35%);
+      -moz-box-shadow: @bs-dimensions darken(@color-4-orange, 35%);
+      -webkit-box-shadow: @bs-dimensions darken(@color-4-orange, 35%);
     }
   }
 }
@@ -80,9 +80,14 @@
 
     &:hover {
       background: lighten(@color-5-yellow, 27.5%);
-      box-shadow: 0px 0px 5px 0px darken(@color-5-yellow, 30%);
-      -moz-box-shadow: 0px 0px 5px 0px darken(@color-5-yellow, 30%);
-      -webkit-box-shadow: 0px 0px 5px 0px darken(@color-5-yellow, 30%);
+      box-shadow: @bs-dimensions darken(@color-5-yellow, 30%);
+      -moz-box-shadow: @bs-dimensions darken(@color-5-yellow, 30%);
+      -webkit-box-shadow: @bs-dimensions darken(@color-5-yellow, 30%);
     }
   }
+}
+
+svg {
+  width: 7.5vw;
+  height: auto;
 }

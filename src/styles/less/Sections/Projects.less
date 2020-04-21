@@ -1,20 +1,31 @@
-@import "../variables";
-@import "../mixins";
+@import (reference) "../variables";
+@import (reference) "../mixins";
 
-#projects-icon {
-  img {
-    width: 7.5vw;
-    height: auto;
-
-    display: default;
+// Icon SVG hover transition
+#github-icon {
+  transition: filter 0.3s, -webkit-filter 0.3s;
+  g {
+    path {
+      transition: stroke 0.3s;
+    }
+  }
+  &:hover {
+    filter: drop-shadow(0px 2px 2px #050406);
+    -webkit-filter: drop-shadow(0px 2px 2px #050406);
+    g {
+      path {
+        stroke: #e0dae7;
+      }
+    }
   }
 }
 
+// Back arrow formatting
+
 #back-arrow-icon {
-  img {
+  svg {
     width: 5vw;
     height: auto;
-
     display: none;
   }
 

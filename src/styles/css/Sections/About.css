@@ -1,4 +1,13 @@
-#about-icon img {
-  width: 7.5vw;
-  height: auto;
+#email-icon {
+  transition: filter 0.3s, -webkit-filter 0.3s;
+}
+#email-icon g path {
+  transition: stroke 0.3s;
+}
+#email-icon:hover {
+  filter: drop-shadow(0px 2px 2px #843408);
+  -webkit-filter: drop-shadow(0px 2px 2px #843408);
+}
+#email-icon:hover g path {
+  stroke: #fefcfa;
 }

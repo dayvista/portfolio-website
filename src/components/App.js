@@ -10,6 +10,8 @@ import Resume from "./Sections/Resume";
 import Social from "./Sections/Social";
 import About from "./Sections/About";
 
+import Icon from "./Icon/IconIndex";
+
 const App = () => {
   return (
     <Router>
@@ -27,10 +29,10 @@ const App = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="../images/svg/github.svg"></img>
+            <Icon name="github" />
           </a>
           <Link id="back-arrow-icon" to="">
-            <img src="../images/svg/back-arrow.svg"></img>
+            <Icon name="back-arrow" />
           </Link>
         </section>
         <section className="resume-section">
@@ -46,7 +48,7 @@ const App = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="../images/svg/linkedin.svg"></img>
+            <Icon name="linkedin" />
           </a>
         </section>
         <section className="social-section">
@@ -62,7 +64,7 @@ const App = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="../images/svg/twitter.svg"></img>
+            <Icon name="twitter" />
           </a>
         </section>
         <section className="about-section">
@@ -73,12 +75,12 @@ const App = () => {
             <Route path="/about" component={About} />
           </Switch>
           <a
-            id="projects-icon"
+            id="about-icon"
             href="mailto:liam@dayvista.dev"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="../images/svg/email.svg"></img>
+            <Icon name="email" />
           </a>
         </section>
         <section className="titles-section">
@@ -86,7 +88,7 @@ const App = () => {
             <p>William Davis</p>
           </div>
           <div id="titles-logo">
-            <img src="../images/svg/sunrise.svg"></img>
+            <Icon name="sunrise" />
           </div>
           <div className="title-text titles-title">
             <p>Web Developer</p>
