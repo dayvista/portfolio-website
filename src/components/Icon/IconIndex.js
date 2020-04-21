@@ -9,6 +9,7 @@ import LinkedIn from "./Icons/LinkedIn";
 import Twitter from "./Icons/Twitter";
 import Email from "./Icons/Email";
 import Sunrise from "./Icons/Sunrise";
+import Selfie from "./Icons/Selfie";
 
 const Icon = (props) => {
   switch (props.name) {
@@ -24,6 +25,8 @@ const Icon = (props) => {
       return <Email {...props} />;
     case "sunrise":
       return <Sunrise {...props} />;
+    case "selfie":
+      return <Selfie {...props} />;
     default:
       return <div />;
   }

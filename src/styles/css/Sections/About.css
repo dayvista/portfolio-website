@@ -11,3 +11,7 @@
 #email-icon:hover g path {
   stroke: #fefcfa;
 }
+#selfie {
+  width: 15vw;
+  height: auto;
+}

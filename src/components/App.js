@@ -82,6 +82,7 @@ const App = () => {
           >
             <Icon name="email" />
           </a>
+          <Icon name="selfie" />
         </section>
         <section className="titles-section">
           <div className="title-text titles-title">
