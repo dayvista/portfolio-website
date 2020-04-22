@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useSprings, animated } from "react-spring";
 
 import "../styles/css/App.css";
 import "../styles/css/Sections/Titles.css";
@@ -15,6 +16,8 @@ import sectionData from "./Sections/data/sectionData.json";
 import Icon from "./Icon/IconIndex";
 
 const App = () => {
+  const [index, setIndex] = useState(null);
+
   const importComponent = (section) => {
     if (section === "about") {
       return About;
