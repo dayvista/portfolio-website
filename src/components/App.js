@@ -10,80 +10,58 @@ import Resume from "./Sections/Resume";
 import Social from "./Sections/Social";
 import About from "./Sections/About";
 
+import sectionData from "./Sections/data/sectionData.json";
+
 import Icon from "./Icon/IconIndex";
 
 const App = () => {
+  const importComponent = (section) => {
+    if (section === "about") {
+      return About;
+    } else if (section === "social") {
+      return Social;
+    } else if (section === "resume") {
+      return Resume;
+    } else if (section === "projects") {
+      return Projects;
+    }
+  };
+
   return (
     <Router>
       <div className="display">
-        <section className="projects-section">
-          <div className="title-text projects-title">
-            <p>Projects</p>
-          </div>
-          <Switch>
-            <Route path="/projects" component={Projects} />
-          </Switch>
-          <a
-            id="projects-icon"
-            href="https://github.com/dayvista"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon name="github" />
-          </a>
-          <Link id="back-arrow-icon" to="">
-            <Icon name="back-arrow" />
-          </Link>
-        </section>
-        <section className="resume-section">
-          <div className="title-text resume-title">
-            <p>Resume</p>
-          </div>
-          <Switch>
-            <Route path="/resume" component={Resume} />
-          </Switch>
-          <a
-            id="resume-icon"
-            href="https://linkedin.com/in/wjdiii"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon name="linkedin" />
-          </a>
-        </section>
-        <section className="social-section">
-          <div className="title-text social-title">
-            <p>Social</p>
-          </div>
-          <Switch>
-            <Route path="/social" component={Social} />
-          </Switch>
-          <a
-            id="social-icon"
-            href="https://twitter.com/dayvista_dev"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon name="twitter" />
-          </a>
-        </section>
-        <section className="about-section">
-          <div className="title-text about-title">
-            <p>About</p>
-          </div>
-          <Switch>
-            <Route path="/about" component={About} />
-          </Switch>
-          <a
-            id="about-icon"
-            href="mailto:liam@dayvista.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon name="email" />
-          </a>
-          <Icon name="selfie" />
-        </section>
+        {sectionData.map((section) => (
+          <section key={section.name} className={`${section.name}-section`}>
+            <Link
+              className={`title-text ${section.name}-title`}
+              to={`/${section.name}`}
+            >
+              <p>{section.text}</p>
+            </Link>
+            <Switch>
+              <Route
+                path={`/${section.name}`}
+                component={importComponent(section.name)}
+              />
+            </Switch>
+            <a
+              id={`${section.name}-icon`}
+              href={section.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name={section.icon} />
+            </a>
+            {/* Ternary operator used to inject back-arrow SVG icon into projects section */}
+            {section.backarrow ? (
+              <Link id="back-arrow-icon" to="">
+                <Icon name="back-arrow" />
+              </Link>
+            ) : (
+              <div />
+            )}
+          </section>
+        ))}
         <section className="titles-section">
           <div className="title-text titles-title">
             <p>William Davis</p>
