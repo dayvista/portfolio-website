@@ -11,7 +11,7 @@ import Resume from "./Sections/Resume";
 import Social from "./Sections/Social";
 import About from "./Sections/About";
 
-import sectionData from "./Sections/data/sectionData.json";
+import sectionData from "./Sections/data/section-data";
 
 import Icon from "./Icon/IconIndex";
 
@@ -19,22 +19,24 @@ import Icon from "./Icon/IconIndex";
 // and https://medium.com/better-programming/create-animated-apps-with-react-spring-e3af98ab014f
 
 const App = () => {
-  // const [index, useIndex] = useState(null);
+  const [index, setIndex] = useState(null);
 
-  // const springs = useSprings();
+  const springs = useSprings(
+    sectionData.length,
+    sectionData.map((section, i) => ({
+      width: index === null ? "20vw" : index === i ? "80vw" : "5vw",
+    }))
+  );
 
   // const [springProps, setSpringProps] = useSpring();
 
-  // const handleClick = (i) => {};
-
-  useEffect(() => {
-    console.log(document.querySelectorAll("section"));
-  });
+  const onSectionClick = (event, i) => {};
 
   return (
     <Router>
-      <div className="display">
+      <div className="container">
         {sectionData.map((section, i) => (
+          // springs.map(() => {})
           <section key={i} id={i} className={`${section.name}-section`}>
             {/* Ternary operator used to place Links and component Routes */}
             {section.name !== "titles" ? (
@@ -42,6 +44,10 @@ const App = () => {
                 <Link
                   className={`title-text ${section.name}-title`}
                   to={`/${section.name}`}
+                  onClick={() => {
+                    setIndex(i);
+                    onSectionClick(event, i);
+                  }}
                 >
                   <p>{section.text}</p>
                 </Link>
@@ -57,6 +63,7 @@ const App = () => {
                 <p>William Davis</p>
               </div>
             )}
+            {/* Ternary to insert icons/logo */}
             {section.name !== "titles" ? (
               <a
                 id={`${section.name}-icon`}
@@ -76,7 +83,7 @@ const App = () => {
                 </div>
               </Fragment>
             )}
-            {/* Ternary operator used to place back-arrow SVG icon into projects section */}
+            {/* Ternary used to place back-arrow SVG icon into projects section */}
             {section.backarrow ? (
               <Link id="back-arrow-icon" to="">
                 <Icon name="back-arrow" />

@@ -134,25 +134,25 @@ body {
   font-family: "Montserrat", sans-serif;
   color: white;
 }
-.display {
+.container {
   display: flex;
 }
 @media (max-width: 420px) {
-  .display {
+  .container {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
   }
 }
 @media (min-width: 421px) and (max-width: 1024px) {
-  .display {
+  .container {
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
   }
 }
 @media (min-width: 1025px) {
-  .display {
+  .container {
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
