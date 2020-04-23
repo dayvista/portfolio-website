@@ -14,17 +14,17 @@ module.exports = {
     publicPath: "/",
     path: path.join(__dirname, "/build"),
     filename: "index.bundle.min.js",
-    chunkFilename: "index.bundle.js"
+    chunkFilename: "index.bundle.js",
   },
   devServer: {
     inline: true,
     contentBase: "./src",
     port: 3000,
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   devtool: debug ? "cheap-module-eval-source-map" : false,
   resolve: {
-    extensions: [".js", ".jsx"]
+    extensions: [".js", ".jsx"],
   },
   module: {
     rules: [
@@ -38,25 +38,25 @@ module.exports = {
             "@babel/plugin-proposal-class-properties",
             "@babel/plugin-syntax-dynamic-import",
             "@babel/plugin-proposal-object-rest-spread",
-            ["@babel/plugin-proposal-decorators", { legacy: true }]
-          ]
-        }
+            ["@babel/plugin-proposal-decorators", { legacy: true }],
+          ],
+        },
       },
       {
         test: /\.(sa|sc|c)ss$/,
         use: debug
           ? [
               {
-                loader: "style-loader"
+                loader: "style-loader",
               },
               {
-                loader: "css-loader"
+                loader: "css-loader",
               },
               {
-                loader: "sass-loader"
-              }
+                loader: "sass-loader",
+              },
             ]
-          : [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+          : [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
         test: /\.(eot|ttf|woff|woff2|otf|svg)$/,
@@ -65,11 +65,11 @@ module.exports = {
             loader: "url-loader",
             options: {
               limit: 100000,
-              name: "./assets/fonts/[name].[ext]"
+              name: "./assets/fonts/[name].[ext]",
               // publicPath: '../'
-            }
-          }
-        ]
+            },
+          },
+        ],
       },
       {
         test: /\.(gif|png|jpe?g)$/i,
@@ -77,10 +77,10 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              outputPath: "assets/images/"
-            }
-          }
-        ]
+              outputPath: "assets/images/",
+            },
+          },
+        ],
       },
       {
         test: /\.(aif|iff|m3u|m4a|mid|mpa|mp3|wav|wma)$/i,
@@ -88,12 +88,12 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              outputPath: "assets/audio/"
-            }
-          }
-        ]
-      }
-    ]
+              outputPath: "assets/audio/",
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: debug
     ? [
@@ -103,16 +103,16 @@ module.exports = {
           // add errors to webpack instead of warnings
           failOnError: true,
           // set the current working directory for displaying module paths
-          cwd: process.cwd()
+          cwd: process.cwd(),
         }),
         new HTMLWebpackPlugin({
-          template: "./src/index.html"
-        })
+          template: "./public/index.html",
+        }),
       ]
     : [
         // define NODE_ENV to remove unnecessary code
         new webpack.DefinePlugin({
-          "process.env.NODE_ENV": JSON.stringify("production")
+          "process.env.NODE_ENV": JSON.stringify("production"),
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.AggressiveMergingPlugin(), // Merge chunks
@@ -121,20 +121,20 @@ module.exports = {
           // Options similar to the same options in webpackOptions.output
           // both options are optional
           filename: "[name].css",
-          chunkFilename: "[id].css"
+          chunkFilename: "[id].css",
         }),
         new webpack.LoaderOptionsPlugin({
-          minimize: true
+          minimize: true,
         }),
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
         new HTMLWebpackPlugin({
-          template: "./src/index.html"
+          template: "./public/index.html",
         }),
         new CompressionPlugin({
           test: /\.(html|css|js|gif|svg|ico|woff|ttf|eot)$/,
-          exclude: /(node_modules)/
+          exclude: /(node_modules)/,
         }),
-        new BundleAnalyzerPlugin()
+        new BundleAnalyzerPlugin(),
       ],
   optimization: {
     minimizer: [
@@ -145,9 +145,9 @@ module.exports = {
         terserOptions: {
           ie8: true,
           safari10: true,
-          sourceMap: true
-        }
-      })
-    ]
-  }
+          sourceMap: true,
+        },
+      }),
+    ],
+  },
 };

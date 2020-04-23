@@ -23,5 +23,11 @@
     "text": "About",
     "icon": "email",
     "link": "mailto:liam@dayvista.dev"
+  },
+  {
+    "name": "titles",
+    "upperText": "William Davis",
+    "lowerText": "Web Developer",
+    "icon": "sunrise"
   }
 ]
