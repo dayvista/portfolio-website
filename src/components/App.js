@@ -1,7 +1,6 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { animated, useSpring, useSprings } from "react-spring";
 
 import "../styles/css/App.css";
 import "../styles/css/Sections/Titles.css";
@@ -15,46 +14,51 @@ import sectionData from "./Sections/data/section-data";
 
 import Icon from "./Icon/IconIndex";
 
-// Refer to https://codesandbox.io/s/react-spring-usesprings-u7rsl?file=/src/pages/index.js
-// and https://medium.com/better-programming/create-animated-apps-with-react-spring-e3af98ab014f
-
 const App = () => {
   const [index, setIndex] = useState(null);
 
-  const springs = useSprings(
-    sectionData.length,
-    sectionData.map((section, i) => ({
-      width: index === null ? "20vw" : index === i ? "80vw" : "5vw",
-    }))
-  );
+  const handleClick = (event) => {
+    let selectedId = "";
 
-  // const [springProps, setSpringProps] = useSpring();
+    if (event.target.parentElement.id) {
+      selectedId = event.target.parentElement.id;
+    } else if (event.target.parentElement.parentElement.id) {
+      selectedId = event.target.parentElement.parentElement.id;
+    }
 
-  const onSectionClick = (event, i) => {};
+    for (let i = 0; i < sectionData.length; i++) {
+      if (i === parseInt(selectedId)) {
+        document.getElementById(selectedId).style["width"] = "80vw";
+      } else {
+        document.getElementById(i.toString()).style["width"] = "5vw";
+      }
+    }
+  };
 
   return (
     <Router>
       <div className="container">
-        {sectionData.map((section, i) => (
-          // springs.map(() => {})
-          <section key={i} id={i} className={`${section.name}-section`}>
+        {sectionData.map((props, i) => (
+          <section
+            key={i}
+            id={i}
+            className={`${props.name}-section`}
+            style={props.width}
+          >
             {/* Ternary operator used to place Links and component Routes */}
-            {section.name !== "titles" ? (
+            {props.name !== "titles" ? (
               <Fragment>
                 <Link
-                  className={`title-text ${section.name}-title`}
-                  to={`/${section.name}`}
-                  onClick={() => {
-                    setIndex(i);
-                    onSectionClick(event, i);
-                  }}
+                  className={`title-text ${props.name}-title`}
+                  to={`/${props.name}`}
+                  onClick={handleClick}
                 >
-                  <p>{section.text}</p>
+                  <p>{props.text}</p>
                 </Link>
                 <Switch>
                   <Route
-                    path={`/${section.name}`}
-                    component={importComponent(section.name)}
+                    path={`/${props.name}`}
+                    component={componentName(props.name)}
                   />
                 </Switch>
               </Fragment>
@@ -64,14 +68,14 @@ const App = () => {
               </div>
             )}
             {/* Ternary to insert icons/logo */}
-            {section.name !== "titles" ? (
+            {props.name !== "titles" ? (
               <a
-                id={`${section.name}-icon`}
-                href={section.link}
+                id={`${props.name}-icon`}
+                href={props.link}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Icon name={section.icon} />
+                <Icon name={props.icon} />
               </a>
             ) : (
               <Fragment>
@@ -84,7 +88,7 @@ const App = () => {
               </Fragment>
             )}
             {/* Ternary used to place back-arrow SVG icon into projects section */}
-            {section.backarrow ? (
+            {props.backarrow ? (
               <Link id="back-arrow-icon" to="">
                 <Icon name="back-arrow" />
               </Link>
@@ -98,7 +102,7 @@ const App = () => {
   );
 };
 
-const importComponent = (section) => {
+const componentName = (section) => {
   if (section === "about") {
     return About;
   } else if (section === "social") {

@@ -4,7 +4,7 @@ import Icon from "../Icon/IconIndex";
 
 import "../../styles/css/Sections/About.css";
 
-const About = (props) => {
+const About = () => {
   return (
     <div>
       <Icon name="selfie" />
