@@ -16,15 +16,11 @@ body {
 .container {
   display: flex;
 
-  @media (max-width: 420px) {
-    .flex-attributes(column, flex-start, flex-start);
+  @media (max-width: 500px) {
+    .flex-attributes(column-reverse, flex-start, flex-start);
   }
 
-  @media (min-width: 421px) and (max-width: 1024px) {
-    .flex-attributes(row, flex-start, flex-start);
-  }
-
-  @media (min-width: 1025px) {
+  @media (min-width: 501px) {
     .flex-attributes(row, flex-start, flex-start);
   }
 }
@@ -44,13 +40,11 @@ section {
     .flex-attributes(row, center, space-between);
   }
 
-  @media (min-width: 501px) and (max-width: 1024px) {
+  @media (min-width: 501px) {
     .flex-attributes(column, center, center);
   }
 
   @media (min-width: 1025px) {
-    .flex-attributes(column, center, center);
-
     p {
       font-size: 2.5rem;
     }

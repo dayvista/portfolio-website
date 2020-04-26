@@ -39,21 +39,34 @@ const App = () => {
     };
   }, []);
 
-  const projectsSpring = useSpring({
-    width: index === null ? "20vw" : index === "projects" ? "80vw" : "5vw",
-    from: {
-      width: "20vw",
-      height: "100vh",
-    },
-  });
+  const setPage = () => {
+    if (window.location.href.includes("projects")) {
+      setIndex("projects");
+    } else if (window.location.href.includes("resume")) {
+      setIndex("resume");
+    } else if (window.location.href.includes("social")) {
+      setIndex("social");
+    } else if (window.location.href.includes("about")) {
+      setIndex("about");
+    }
+  };
 
-  const projectsSpringMobile = useSpring({
-    height: index === null ? "20vh" : index === "projects" ? "80vh" : "5vh",
-    from: {
-      width: "100vw",
-      height: "20vh",
-    },
-  });
+  useEffect(() => {
+    setPage();
+    window.addEventListener("popstate", () => {
+      setPage();
+    });
+
+    return () => {
+      window.removeEventListener("popstate", () => {
+        setPage();
+      });
+    };
+  }, []);
+
+  const setSelectedIndex = (section) => {
+    setIndex(section);
+  };
 
   const resumeSpring = useSpring({
     width: index === null ? "20vw" : index === "resume" ? "80vw" : "5vw",
@@ -122,34 +135,11 @@ const App = () => {
   return (
     <Router>
       <div className="container">
-        <animated.section
-          className="projects-section"
-          style={
-            !mediaQueryListener.matches ? projectsSpring : projectsSpringMobile
-          }
-        >
-          <Link
-            className="title-text projects-title"
-            to="/projects"
-            onClick={() => setIndex("projects")}
-          >
-            <p>Projects</p>
-          </Link>
-          <Switch>
-            <Route path="/projects" component={Projects} />
-          </Switch>
-          <a
-            id="projects-icon"
-            href="https://github.com/dayvista"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon name="github" />
-          </a>
-          <Link id="back-arrow-icon" to="">
-            <Icon name="back-arrow" />
-          </Link>
-        </animated.section>
+        <Projects
+          index={index}
+          mql={mediaQueryListener}
+          changeIndex={setSelectedIndex}
+        />
         <animated.section
           className="resume-section"
           style={
