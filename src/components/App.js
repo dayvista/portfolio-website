@@ -20,7 +20,7 @@ const App = () => {
   const [index, setIndex] = useState(null);
   const [phonePortraitView, setPhonePortraitView] = useState(false);
 
-  let mql = window.matchMedia("(max-width: 500px)");
+  let mediaQueryListener = window.matchMedia("(max-width: 500px)");
 
   useEffect(() => {
     const mediaQueryResponse = (mql) => {
@@ -31,13 +31,13 @@ const App = () => {
       }
     };
 
-    mediaQueryResponse(mql);
-    mql.addListener(mediaQueryResponse);
+    mediaQueryResponse(mediaQueryListener);
+    mediaQueryListener.addListener(mediaQueryResponse);
 
     return () => {
-      mql.removeListener(mediaQueryResponse);
+      mediaQueryListener.removeListener(mediaQueryResponse);
     };
-  });
+  }, []);
 
   const projectsSpring = useSpring({
     width: index === null ? "20vw" : index === "projects" ? "80vw" : "5vw",
@@ -124,7 +124,9 @@ const App = () => {
       <div className="container">
         <animated.section
           className="projects-section"
-          style={!mql.matches ? projectsSpring : projectsSpringMobile}
+          style={
+            !mediaQueryListener.matches ? projectsSpring : projectsSpringMobile
+          }
         >
           <Link
             className="title-text projects-title"
@@ -150,7 +152,9 @@ const App = () => {
         </animated.section>
         <animated.section
           className="resume-section"
-          style={!mql.matches ? resumeSpring : resumeSpringMobile}
+          style={
+            !mediaQueryListener.matches ? resumeSpring : resumeSpringMobile
+          }
         >
           <Link
             className="title-text resume-title"
@@ -173,7 +177,9 @@ const App = () => {
         </animated.section>
         <animated.section
           className="social-section"
-          style={!mql.matches ? socialSpring : socialSpringMobile}
+          style={
+            !mediaQueryListener.matches ? socialSpring : socialSpringMobile
+          }
         >
           <Link
             className="title-text social-title"
@@ -196,7 +202,7 @@ const App = () => {
         </animated.section>
         <animated.section
           className="about-section"
-          style={!mql.matches ? aboutSpring : aboutSpringMobile}
+          style={!mediaQueryListener.matches ? aboutSpring : aboutSpringMobile}
         >
           <Link
             className="title-text about-title"
@@ -219,7 +225,9 @@ const App = () => {
         </animated.section>
         <animated.section
           className="titles-section"
-          style={!mql.matches ? titlesSpring : titlesSpringMobile}
+          style={
+            !mediaQueryListener.matches ? titlesSpring : titlesSpringMobile
+          }
         >
           <div className="title-text titles-title">
             <p>William Davis</p>
