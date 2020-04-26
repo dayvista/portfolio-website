@@ -159,8 +159,6 @@ body {
   }
 }
 section {
-  width: 20vw;
-  height: 100vh;
   display: flex;
 }
 section p,
@@ -171,14 +169,14 @@ section img {
   -moz-user-select: none;
   -o-user-select: none;
 }
-@media (max-width: 420px) {
+@media (max-width: 500px) {
   section {
     flex-direction: row;
     justify-content: center;
     align-items: space-between;
   }
 }
-@media (min-width: 421px) and (max-width: 1024px) {
+@media (min-width: 501px) and (max-width: 1024px) {
   section {
     flex-direction: column;
     justify-content: center;

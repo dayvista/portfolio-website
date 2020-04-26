@@ -30,9 +30,6 @@ body {
 }
 
 section {
-  width: 20vw;
-  height: 100vh;
-
   p,
   img {
     user-select: none;
@@ -43,11 +40,11 @@ section {
   }
 
   display: flex;
-  @media (max-width: 420px) {
+  @media (max-width: 500px) {
     .flex-attributes(row, center, space-between);
   }
 
-  @media (min-width: 421px) and (max-width: 1024px) {
+  @media (min-width: 501px) and (max-width: 1024px) {
     .flex-attributes(column, center, center);
   }
 
