@@ -1,20 +1,19 @@
 // Library dependencies
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { animated, useSpring } from "react-spring";
+import { BrowserRouter as Router } from "react-router-dom";
 
 // Stylesheets
 import "../styles/css/App.css";
 import "../styles/css/Sections/Titles.css";
 
 // Components
+import sectionData from "./Sections/data/sectionData";
+
 import Projects from "./Sections/Projects";
 import Resume from "./Sections/Resume";
 import Social from "./Sections/Social";
 import About from "./Sections/About";
-
-import Icon from "./Icon/IconIndex";
+import Titles from "./Sections/Titles";
 
 const App = () => {
   const [index, setIndex] = useState(null);
@@ -68,167 +67,38 @@ const App = () => {
     setIndex(section);
   };
 
-  const resumeSpring = useSpring({
-    width: index === null ? "20vw" : index === "resume" ? "80vw" : "5vw",
-    from: {
-      width: "20vw",
-      height: "100vh",
-    },
-  });
-
-  const resumeSpringMobile = useSpring({
-    height: index === null ? "20vh" : index === "resume" ? "80vh" : "5vh",
-    from: {
-      width: "100vw",
-      height: "20vh",
-    },
-  });
-
-  const socialSpring = useSpring({
-    width: index === null ? "20vw" : index === "social" ? "80vw" : "5vw",
-    from: {
-      width: "20vw",
-      height: "100vh",
-    },
-  });
-
-  const socialSpringMobile = useSpring({
-    height: index === null ? "20vh" : index === "social" ? "80vh" : "5vh",
-    from: {
-      width: "100vw",
-      height: "20vh",
-    },
-  });
-
-  const aboutSpring = useSpring({
-    width: index === null ? "20vw" : index === "about" ? "80vw" : "5vw",
-    from: {
-      width: "20vw",
-      height: "100vh",
-    },
-  });
-
-  const aboutSpringMobile = useSpring({
-    height: index === null ? "20vh" : index === "about" ? "80vh" : "5vh",
-    from: {
-      width: "100vw",
-      height: "20vh",
-    },
-  });
-
-  const titlesSpring = useSpring({
-    width: index === null ? "20vw" : index === "titles" ? "80vw" : "5vw",
-    from: {
-      width: "20vw",
-      height: "100vh",
-    },
-  });
-
-  const titlesSpringMobile = useSpring({
-    height: index === null ? "20vh" : index === "titles" ? "80vh" : "5vh",
-    from: {
-      width: "100vw",
-      height: "20vh",
-    },
-  });
-
   return (
     <Router>
       <div className="container">
         <Projects
           index={index}
-          mql={mediaQueryListener}
+          phonePortraitView={phonePortraitView}
+          changeIndex={setSelectedIndex}
+          sectionData={sectionData[0]}
+        />
+        <Resume
+          index={index}
+          phonePortraitView={phonePortraitView}
+          changeIndex={setSelectedIndex}
+          sectionData={sectionData[1]}
+        />
+        <Social
+          index={index}
+          phonePortraitView={phonePortraitView}
+          changeIndex={setSelectedIndex}
+          sectionData={sectionData[2]}
+        />
+        <About
+          index={index}
+          phonePortraitView={phonePortraitView}
+          changeIndex={setSelectedIndex}
+          sectionData={sectionData[3]}
+        />
+        <Titles
+          index={index}
+          phonePortraitView={phonePortraitView}
           changeIndex={setSelectedIndex}
         />
-        <animated.section
-          className="resume-section"
-          style={
-            !mediaQueryListener.matches ? resumeSpring : resumeSpringMobile
-          }
-        >
-          <Link
-            className="title-text resume-title"
-            to="/resume"
-            onClick={() => setIndex("resume")}
-          >
-            <p>Resume</p>
-          </Link>
-          <Switch>
-            <Route path="/resume" component={Resume} />
-          </Switch>
-          <a
-            id="resume-icon"
-            href="https://linkedin.com/in/wjdiii"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon name="linkedin" />
-          </a>
-        </animated.section>
-        <animated.section
-          className="social-section"
-          style={
-            !mediaQueryListener.matches ? socialSpring : socialSpringMobile
-          }
-        >
-          <Link
-            className="title-text social-title"
-            to="/social"
-            onClick={() => setIndex("social")}
-          >
-            <p>Social</p>
-          </Link>
-          <Switch>
-            <Route path="/social" component={Social} />
-          </Switch>
-          <a
-            id="social-icon"
-            href="https://twitter.com/dayvista_dev"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon name="twitter" />
-          </a>
-        </animated.section>
-        <animated.section
-          className="about-section"
-          style={!mediaQueryListener.matches ? aboutSpring : aboutSpringMobile}
-        >
-          <Link
-            className="title-text about-title"
-            to="/about"
-            onClick={() => setIndex("about")}
-          >
-            <p>About</p>
-          </Link>
-          <Switch>
-            <Route path="/about" component={About} />
-          </Switch>
-          <a
-            id="about-icon"
-            href="mailto:liam@dayvista.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon name="email" />
-          </a>
-        </animated.section>
-        <animated.section
-          className="titles-section"
-          style={
-            !mediaQueryListener.matches ? titlesSpring : titlesSpringMobile
-          }
-        >
-          <div className="title-text titles-title">
-            <p>William Davis</p>
-          </div>
-          <div id="titles-logo">
-            <Icon name="sunrise" />
-          </div>
-          <div className="title-text titles-title">
-            <p>Web Developer</p>
-          </div>
-        </animated.section>
       </div>
     </Router>
   );

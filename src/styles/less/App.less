@@ -68,4 +68,29 @@ section {
   }
 }
 
+// Back arrow formatting
+
+.back-arrow-icon {
+  svg {
+    width: 5vw;
+    height: auto;
+    display: none;
+  }
+
+  // margin-top: 0;
+
+  display: flex;
+  @media (max-width: 420px) {
+    .flex-attributes(row, center, space-between);
+  }
+
+  @media (min-width: 421px) and (max-width: 1024px) {
+    .flex-attributes(column, center, center);
+  }
+
+  @media (min-width: 1025px) {
+    .flex-attributes(column, center, center);
+  }
+}
+
 @import "./Sections/Global";

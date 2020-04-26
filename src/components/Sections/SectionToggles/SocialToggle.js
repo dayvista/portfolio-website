@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../../styles/css/Sections/Resume.css";
+import "../../../styles/css/Sections/Social.css";
 
 const SocialToggle = () => {
   return <div>{/* Section content goes here */}</div>;

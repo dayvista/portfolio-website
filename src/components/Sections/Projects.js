@@ -1,32 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Switch, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { animated, useSpring } from "react-spring";
 
 import Icon from "../Icon/IconIndex";
 
-import "../../styles/css/Sections/Projects.css";
+import ProjectsToggle from "./SectionToggles/ProjectsToggle";
 
-const Projects = ({ index, mql, changeIndex }) => {
-  let mediaQueryListener = window.matchMedia("(max-width: 500px)");
-
-  useEffect(() => {
-    const mediaQueryResponse = (mql) => {
-      if (mql.matches) {
-        setPhonePortraitView(true);
-      } else {
-        setPhonePortraitView(false);
-      }
-    };
-
-    mediaQueryResponse(mediaQueryListener);
-    mediaQueryListener.addListener(mediaQueryResponse);
-
-    return () => {
-      mediaQueryListener.removeListener(mediaQueryResponse);
-    };
-  }, []);
-
+const Projects = ({ index, phonePortraitView, changeIndex, sectionData }) => {
   const projectsSpring = useSpring({
     width: index === null ? "20vw" : index === "projects" ? "80vw" : "5vw",
     from: {
@@ -49,30 +30,33 @@ const Projects = ({ index, mql, changeIndex }) => {
 
   return (
     <animated.section
-      className="projects-section"
-      style={
-        !mediaQueryListener.matches ? projectsSpring : projectsSpringMobile
-      }
+      className={`${sectionData.name}-section`}
+      style={!phonePortraitView ? projectsSpring : projectsSpringMobile}
     >
       <Link
-        className="title-text projects-title"
-        to="/projects"
+        className={`title-text ${sectionData.name}-title`}
+        to={`/${sectionData.name}`}
         onClick={handleClick}
       >
-        <p>Projects</p>
+        <p>{sectionData.text}</p>
       </Link>
       <Switch>
-        <Route path="/projects" component={Projects} />
+        <Route path={`/${sectionData.name}`} component={ProjectsToggle} />
       </Switch>
       <a
-        id="projects-icon"
-        href="https://github.com/dayvista"
+        id={`${sectionData.name}-icon`}
+        href={`${sectionData.link}`}
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Icon name="github" />
+        <Icon name={`${sectionData.icon}`} />
       </a>
-      <Link id="back-arrow-icon" to="">
+      <Link
+        id={`back-arrow-${sectionData.name}`}
+        className="back-arrow-icon"
+        to=""
+        onClick={handleClick}
+      >
         <Icon name="back-arrow" />
       </Link>
     </animated.section>

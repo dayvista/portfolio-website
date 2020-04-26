@@ -1,8 +1,8 @@
 import React from "react";
 
-import Icon from "../Icon/IconIndex";
+import Icon from "../../Icon/IconIndex";
 
-import "../../styles/css/Sections/About.css";
+import "../../../styles/css/Sections/About.css";
 
 const AboutToggle = () => {
   return (
