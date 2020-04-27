@@ -36,23 +36,52 @@ section {
   }
 
   display: flex;
+
+  // Mobile displays
   @media (max-width: 500px) {
-    .flex-attributes(row, center, space-between);
+    width: 100vw;
+    .flex-attributes(row, center, center);
+
+    a {
+      svg {
+        height: 5vw;
+      }
+    }
   }
 
+  // Tablet displays
+  @media (min-width: 501px) and (max-width: 1024px) {
+    p {
+      font-size: 1.15rem;
+    }
+  }
+
+  // Tablet and Desktop displays
   @media (min-width: 501px) {
+    height: 100vh;
     .flex-attributes(column, center, center);
+
+    // .title-text {
+    // margin-bottom: auto;
+    // }
+
+    a {
+      // margin-top: auto;
+
+      svg {
+        width: 5vw;
+      }
+    }
   }
 
+  // Tablet and Desktop displays
   @media (min-width: 1025px) {
     p {
-      font-size: 2.5rem;
+      font-size: 2.25rem;
     }
   }
 
   .title-text {
-    width: 95%;
-    height: 10%;
     border-radius: 0.5rem;
     font-weight: bold;
     cursor: pointer;
@@ -61,35 +90,52 @@ section {
 
     display: flex;
     .flex-attributes(column, center, center);
+
+    @media (max-width: 500px) {
+      width: 60%;
+      height: 60%;
+      margin: 0 1rem;
+    }
+
+    @media (min-width: 501px) {
+      width: 95%;
+      height: 10%;
+    }
   }
 
   .titles-title {
     cursor: default;
+
+    @media (max-width: 500px) {
+      width: 40%;
+    }
   }
 }
 
 // Back arrow formatting
 
 .back-arrow-icon {
-  svg {
-    width: 5vw;
-    height: auto;
-    display: none;
-  }
-
   // margin-top: 0;
 
   display: flex;
-  @media (max-width: 420px) {
+  @media (max-width: 500px) {
     .flex-attributes(row, center, space-between);
   }
 
-  @media (min-width: 421px) and (max-width: 1024px) {
+  @media (min-width: 501px) and (max-width: 1024px) {
     .flex-attributes(column, center, center);
   }
 
   @media (min-width: 1025px) {
     .flex-attributes(column, center, center);
+  }
+
+  @media (min-width: 501px) {
+    svg {
+      width: 5vw;
+      height: auto;
+      display: none;
+    }
   }
 }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Switch, Route } from "react-router-dom";
+import { BrowserRouter as Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { animated, useSpring } from "react-spring";
 
@@ -40,9 +40,7 @@ const Social = ({ index, phonePortraitView, changeIndex, sectionData }) => {
       >
         <p>{sectionData.text}</p>
       </Link>
-      <Switch>
-        <Route path={`/${sectionData.name}`} component={SocialToggle} />
-      </Switch>
+      <Route path={`/${sectionData.name}`} component={SocialToggle} />
       <a
         id={`${sectionData.name}-icon`}
         href={`${sectionData.link}`}

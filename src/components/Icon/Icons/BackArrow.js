@@ -3,7 +3,12 @@
 import React from "react";
 
 const BackArrow = ({ style = {}, stroke = "#ddd6e5" }) => (
-  <svg style={style} viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    id="back-arrow-svg"
+    style={style}
+    viewBox="0 0 72 72"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <g id="line">
       <g>
         <polyline

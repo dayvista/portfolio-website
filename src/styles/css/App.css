@@ -164,26 +164,37 @@ section img {
 }
 @media (max-width: 500px) {
   section {
+    width: 100vw;
     flex-direction: row;
     justify-content: center;
-    align-items: space-between;
+    align-items: center;
+  }
+  section a svg {
+    height: 5vw;
+  }
+}
+@media (min-width: 501px) and (max-width: 1024px) {
+  section p {
+    font-size: 1.15rem;
   }
 }
 @media (min-width: 501px) {
   section {
+    height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
+  section a svg {
+    width: 5vw;
+  }
 }
 @media (min-width: 1025px) {
   section p {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 }
 section .title-text {
-  width: 95%;
-  height: 10%;
   border-radius: 0.5rem;
   font-weight: bold;
   cursor: pointer;
@@ -194,25 +205,38 @@ section .title-text {
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 500px) {
+  section .title-text {
+    width: 60%;
+    height: 60%;
+    margin: 0 1rem;
+  }
+}
+@media (min-width: 501px) {
+  section .title-text {
+    width: 95%;
+    height: 10%;
+  }
+}
 section .titles-title {
   cursor: default;
+}
+@media (max-width: 500px) {
+  section .titles-title {
+    width: 40%;
+  }
 }
 .back-arrow-icon {
   display: flex;
 }
-.back-arrow-icon svg {
-  width: 5vw;
-  height: auto;
-  display: none;
-}
-@media (max-width: 420px) {
+@media (max-width: 500px) {
   .back-arrow-icon {
     flex-direction: row;
     justify-content: center;
     align-items: space-between;
   }
 }
-@media (min-width: 421px) and (max-width: 1024px) {
+@media (min-width: 501px) and (max-width: 1024px) {
   .back-arrow-icon {
     flex-direction: column;
     justify-content: center;
@@ -224,6 +248,13 @@ section .titles-title {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+}
+@media (min-width: 501px) {
+  .back-arrow-icon svg {
+    width: 5vw;
+    height: auto;
+    display: none;
   }
 }
 .projects-section {

@@ -4,7 +4,7 @@ import React from "react";
 
 const Twitter = ({ style = {}, stroke = "#fde3de" }) => (
   <svg
-    id="twitter-icon"
+    id="twitter-svg"
     style={style}
     viewBox="0 0 72 72"
     xmlns="http://www.w3.org/2000/svg"

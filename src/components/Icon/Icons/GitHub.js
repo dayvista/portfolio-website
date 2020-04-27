@@ -9,7 +9,7 @@ const GitHub = ({
   height = "75px",
 }) => (
   <svg
-    id="github-icon"
+    id="github-svg"
     style={style}
     width={width}
     height={height}

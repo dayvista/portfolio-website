@@ -20,10 +20,6 @@ const Titles = ({ index, phonePortraitView, changeIndex }) => {
     },
   });
 
-  const handleClick = () => {
-    changeIndex("social");
-  };
-
   return (
     <animated.section
       className="titles-section"

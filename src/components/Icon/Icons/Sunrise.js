@@ -3,7 +3,12 @@
 import React from "react";
 
 const Sunrise = ({ style = {}, stroke = "#492b05" }) => (
-  <svg style={style} viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    id="sunrise-svg"
+    style={style}
+    viewBox="0 0 72 72"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <g id="line">
       <path
         fill="none"

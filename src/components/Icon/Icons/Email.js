@@ -4,7 +4,7 @@ import React from "react";
 
 const Email = ({ style = {}, stroke = "#fef7f3" }) => (
   <svg
-    id="email-icon"
+    id="email-svg"
     x="0"
     y="0"
     style={style}

@@ -4,7 +4,7 @@ import React from "react";
 
 const LinkedIn = ({ style = {}, fill = "#ddd6e5", stroke = "#ddd6e5" }) => (
   <svg
-    id="linkedin-icon"
+    id="linkedin-svg"
     style={style}
     viewBox="0 0 72 72"
     version="1.1"

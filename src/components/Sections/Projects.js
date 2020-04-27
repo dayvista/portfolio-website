@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Switch, Route } from "react-router-dom";
+import { BrowserRouter as Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { animated, useSpring } from "react-spring";
 
@@ -12,14 +12,12 @@ const Projects = ({ index, phonePortraitView, changeIndex, sectionData }) => {
     width: index === null ? "20vw" : index === "projects" ? "80vw" : "5vw",
     from: {
       width: "20vw",
-      height: "100vh",
     },
   });
 
   const projectsSpringMobile = useSpring({
     height: index === null ? "20vh" : index === "projects" ? "80vh" : "5vh",
     from: {
-      width: "100vw",
       height: "20vh",
     },
   });
@@ -40,9 +38,9 @@ const Projects = ({ index, phonePortraitView, changeIndex, sectionData }) => {
       >
         <p>{sectionData.text}</p>
       </Link>
-      <Switch>
-        <Route path={`/${sectionData.name}`} component={ProjectsToggle} />
-      </Switch>
+      {/* <Switch> */}
+      <Route path={`/${sectionData.name}`} component={ProjectsToggle} />
+      {/* </Switch> */}
       <a
         id={`${sectionData.name}-icon`}
         href={`${sectionData.link}`}
