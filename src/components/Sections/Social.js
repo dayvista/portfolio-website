@@ -70,7 +70,7 @@ const Social = ({ index, phonePortraitView, changeIndex, sectionData }) => {
         to=""
         onClick={handleClick}
       >
-        <Icon name="back-arrow" />
+        <Icon name="back-arrow" stroke="#fde3de" />
       </Link>
     </animated.section>
   );

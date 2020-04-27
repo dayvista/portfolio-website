@@ -2,7 +2,7 @@
 
 import React from "react";
 
-const BackArrow = ({ style = {}, stroke = "#ddd6e5" }) => (
+const BackArrow = ({ style = {}, stroke }) => (
   <svg
     id="back-arrow-svg"
     style={style}

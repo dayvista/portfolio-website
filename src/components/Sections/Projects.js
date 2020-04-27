@@ -70,7 +70,7 @@ const Projects = ({ index, phonePortraitView, changeIndex, sectionData }) => {
         to=""
         onClick={handleClick}
       >
-        <Icon name="back-arrow" />
+        <Icon name="back-arrow" stroke="#ddd6e5" />
       </Link>
     </animated.section>
   );

@@ -5,8 +5,8 @@ import Icon from "../Icon/IconIndex";
 
 const Titles = ({ index, phonePortraitView, changeIndex, sectionData }) => {
   const { width, opacity, ...titlesSpringProps } = useSpring({
-    width: index === null ? "20vw" : index === "titles" ? "80vw" : "5vw",
-    opacity: (index === null) | (index === "titles") ? 1 : 0,
+    width: index === null ? "20vw" : "5vw",
+    opacity: index === null ? 1 : 0,
     from: {
       width: "20vw",
       opacity: 1,
@@ -14,7 +14,7 @@ const Titles = ({ index, phonePortraitView, changeIndex, sectionData }) => {
   });
 
   const { height, ...titlesSpringMobileProps } = useSpring({
-    height: index === null ? "20vh" : index === "titles" ? "80vh" : "5vh",
+    height: index === null ? "20vh" : "5vh",
     from: {
       height: "20vh",
     },
@@ -29,19 +29,25 @@ const Titles = ({ index, phonePortraitView, changeIndex, sectionData }) => {
           : { height, ...titlesSpringMobileProps }
       }
     >
-      <div className="title-text titles-title">
+      <animated.div
+        className="title-text titles-title"
+        style={{ opacity, ...titlesSpringProps }}
+      >
         <animated.p style={{ opacity, ...titlesSpringProps }}>
           William Davis
         </animated.p>
-      </div>
+      </animated.div>
       <div id="titles-logo">
-        <Icon name="sunrise" />
+        <Icon name="sunrise" index={index} />
       </div>
-      <div className="title-text titles-title">
+      <animated.div
+        className="title-text titles-title"
+        style={{ opacity, ...titlesSpringProps }}
+      >
         <animated.p style={{ opacity, ...titlesSpringProps }}>
           Web Developer
         </animated.p>
-      </div>
+      </animated.div>
     </animated.section>
   );
 };
