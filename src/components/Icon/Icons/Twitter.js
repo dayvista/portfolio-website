@@ -2,10 +2,10 @@
 
 import React from "react";
 
-const Twitter = ({ style = {}, stroke = "#fde3de" }) => (
+const Twitter = ({ style = {}, className, stroke = "#fde3de", id }) => (
   <svg
-    id="twitter-svg"
-    style={style}
+    id={id}
+    className={className}
     viewBox="0 0 72 72"
     xmlns="http://www.w3.org/2000/svg"
   >

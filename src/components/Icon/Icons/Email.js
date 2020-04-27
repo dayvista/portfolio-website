@@ -2,9 +2,10 @@
 
 import React from "react";
 
-const Email = ({ style = {}, stroke = "#fef7f3" }) => (
+const Email = ({ style = {}, id, className, stroke = "#fef7f3" }) => (
   <svg
-    id="email-svg"
+    id={id}
+    className={className}
     x="0"
     y="0"
     style={style}

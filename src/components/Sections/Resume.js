@@ -33,6 +33,18 @@ const Resume = ({ index, phonePortraitView, changeIndex, sectionData }) => {
     },
   });
 
+  const iconSpring = useSpring({
+    width: index === null ? "5vw" : "0vw",
+    opacity: index === null ? 1 : 0,
+    pointerEvents: index === null ? "auto" : "none",
+
+    from: {
+      width: "5vw",
+      opacity: 1,
+      pointerEvents: "auto",
+    },
+  });
+
   const handleClick = () => {
     changeIndex("resume");
   };
@@ -56,14 +68,15 @@ const Resume = ({ index, phonePortraitView, changeIndex, sectionData }) => {
         </animated.p>
       </Link>
       {index === `${sectionData.name}` && <ResumeToggle />}
-      <a
+      <animated.a
         id={`${sectionData.name}-icon`}
         href={`${sectionData.link}`}
         target="_blank"
         rel="noopener noreferrer"
+        style={iconSpring}
       >
-        <Icon name={`${sectionData.icon}`} />
-      </a>
+        <Icon name={`${sectionData.icon}`} id={`${sectionData.icon}-svg`} />
+      </animated.a>
       <Link
         id={`back-arrow-${sectionData.name}`}
         className="back-arrow-icon"

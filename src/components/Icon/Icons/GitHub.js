@@ -4,12 +4,15 @@ import React from "react";
 
 const GitHub = ({
   style = {},
+  id,
+  className,
   stroke = "#ddd6e5",
   width = "75px",
   height = "75px",
 }) => (
   <svg
-    id="github-svg"
+    id={id}
+    className={className}
     style={style}
     width={width}
     height={height}

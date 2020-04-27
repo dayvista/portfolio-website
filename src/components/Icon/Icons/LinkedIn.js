@@ -2,9 +2,16 @@
 
 import React from "react";
 
-const LinkedIn = ({ style = {}, fill = "#ddd6e5", stroke = "#ddd6e5" }) => (
+const LinkedIn = ({
+  style = {},
+  id,
+  className,
+  fill = "#ddd6e5",
+  stroke = "#ddd6e5",
+}) => (
   <svg
-    id="linkedin-svg"
+    id={id}
+    className={className}
     style={style}
     viewBox="0 0 72 72"
     version="1.1"

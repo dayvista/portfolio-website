@@ -11,6 +11,15 @@ html {
 body {
   font-family: "Montserrat", sans-serif;
   color: white;
+
+  // background gradient
+  background: rgb(92, 74, 114);
+  background: linear-gradient(
+    90deg,
+    rgba(92, 74, 114, 1) 0%,
+    rgba(244, 106, 78, 1) 50%,
+    rgba(243, 176, 90, 1) 100%
+  );
 }
 
 .container {
@@ -92,7 +101,7 @@ section {
     }
 
     @media (min-width: 501px) {
-      width: 95%;
+      width: 70%;
       height: 10%;
     }
   }
@@ -122,7 +131,11 @@ section {
 
 // Back arrow formatting
 .back-arrow-icon {
-  // margin-top: 0;
+  svg {
+    width: 5vw;
+    height: auto;
+    display: none;
+  }
 
   display: flex;
   @media (max-width: 500px) {
@@ -135,14 +148,6 @@ section {
 
   @media (min-width: 1025px) {
     .flex-attributes(column, center, center);
-  }
-
-  @media (min-width: 501px) {
-    svg {
-      width: 5vw;
-      height: auto;
-      display: none;
-    }
   }
 }
 

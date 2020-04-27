@@ -3,6 +3,8 @@ import { animated, useSpring } from "react-spring";
 
 import Icon from "../Icon/IconIndex";
 
+const stroke = "#FAEDDB";
+
 const Titles = ({ index, phonePortraitView }) => {
   const { width, opacity, ...titlesSpringProps } = useSpring({
     width: index === null ? "20vw" : "5vw",
@@ -20,6 +22,18 @@ const Titles = ({ index, phonePortraitView }) => {
     },
   });
 
+  const iconsSpring = useSpring({
+    width: index === null ? "0vw" : "5vw",
+    opacity: index === null ? 0 : 1,
+    pointerEvents: index === null ? "none" : "auto",
+
+    from: {
+      width: "0vw",
+      opacity: 0,
+      pointerEvents: "none",
+    },
+  });
+
   return (
     <animated.section
       className="titles-section"
@@ -34,16 +48,23 @@ const Titles = ({ index, phonePortraitView }) => {
         href="https://github.com/dayvista"
         target="_blank"
         rel="noopener noreferrer"
+        style={iconsSpring}
       >
-        <Icon name="github" />
+        <Icon name="github" className="sidebar-icon" stroke={stroke} />
       </animated.a>
       <animated.a
         id="linkedin-icon"
         href="https://linkedin.com/in/wjdiii"
         target="_blank"
         rel="noopener noreferrer"
+        style={iconsSpring}
       >
-        <Icon name="linkedin" />
+        <Icon
+          name="linkedin"
+          className="sidebar-icon"
+          stroke={stroke}
+          fill="#FDF6EC"
+        />
       </animated.a>
       <animated.div
         className="title-text titles-title"
@@ -63,23 +84,25 @@ const Titles = ({ index, phonePortraitView }) => {
         <animated.p style={{ opacity, ...titlesSpringProps }}>
           Web Developer
         </animated.p>
-        <animated.a
-          id="twitter-icon"
-          href="https://twitter.com/dayvista_dev"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Icon name="twitter" />
-        </animated.a>
-        <animated.a
-          id="email-icon"
-          href="mailto:liam@dayvista.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Icon name="email" />
-        </animated.a>
       </animated.div>
+      <animated.a
+        id="twitter-icon"
+        href="https://twitter.com/dayvista_dev"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={iconsSpring}
+      >
+        <Icon name="twitter" className="sidebar-icon" stroke={stroke} />
+      </animated.a>
+      <animated.a
+        id="email-icon"
+        href="mailto:liam@dayvista.dev"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={iconsSpring}
+      >
+        <Icon name="email" className="sidebar-icon" stroke={stroke} />
+      </animated.a>
     </animated.section>
   );
 };
