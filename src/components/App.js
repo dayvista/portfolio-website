@@ -47,6 +47,8 @@ const App = () => {
       setIndex("social");
     } else if (window.location.href.includes("about")) {
       setIndex("about");
+    } else {
+      setIndex(null);
     }
   };
 
@@ -98,6 +100,7 @@ const App = () => {
           index={index}
           phonePortraitView={phonePortraitView}
           changeIndex={setSelectedIndex}
+          sectionData={sectionData[4]}
         />
       </div>
     </Router>

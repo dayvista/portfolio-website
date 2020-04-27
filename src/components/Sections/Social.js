@@ -1,5 +1,4 @@
 import React from "react";
-import { BrowserRouter as Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { animated, useSpring } from "react-spring";
 
@@ -8,18 +7,28 @@ import Icon from "../Icon/IconIndex";
 import SocialToggle from "./SectionToggles/SocialToggle";
 
 const Social = ({ index, phonePortraitView, changeIndex, sectionData }) => {
-  const socialSpring = useSpring({
-    width: index === null ? "20vw" : index === "social" ? "80vw" : "5vw",
+  const { width, opacity, ...socialSpringProps } = useSpring({
+    width:
+      index === null
+        ? "20vw"
+        : index === `${sectionData.name}`
+        ? "80vw"
+        : "5vw",
+    opacity: (index === null) | (index === `${sectionData.name}`) ? 1 : 0,
     from: {
       width: "20vw",
-      height: "100vh",
+      opacity: 1,
     },
   });
 
-  const socialSpringMobile = useSpring({
-    height: index === null ? "20vh" : index === "social" ? "80vh" : "5vh",
+  const { height, ...socialSpringMobileProps } = useSpring({
+    height:
+      index === null
+        ? "20vh"
+        : index === `${sectionData.name}`
+        ? "80vh"
+        : "5vh",
     from: {
-      width: "100vw",
       height: "20vh",
     },
   });
@@ -31,16 +40,22 @@ const Social = ({ index, phonePortraitView, changeIndex, sectionData }) => {
   return (
     <animated.section
       className={`${sectionData.name}-section`}
-      style={!phonePortraitView ? socialSpring : socialSpringMobile}
+      style={
+        !phonePortraitView
+          ? { width, ...socialSpringProps }
+          : { height, ...socialSpringMobileProps }
+      }
     >
       <Link
         className={`title-text ${sectionData.name}-title`}
         to={`/${sectionData.name}`}
         onClick={handleClick}
       >
-        <p>{sectionData.text}</p>
+        <animated.p style={{ opacity, ...socialSpringProps }}>
+          {sectionData.text}
+        </animated.p>
       </Link>
-      <Route path={`/${sectionData.name}`} component={SocialToggle} />
+      {index === `${sectionData.name}` && <SocialToggle />}
       <a
         id={`${sectionData.name}-icon`}
         href={`${sectionData.link}`}

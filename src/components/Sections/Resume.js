@@ -1,5 +1,4 @@
 import React from "react";
-import { BrowserRouter as Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { animated, useSpring } from "react-spring";
 
@@ -8,15 +7,27 @@ import Icon from "../Icon/IconIndex";
 import ResumeToggle from "./SectionToggles/ResumeToggle";
 
 const Resume = ({ index, phonePortraitView, changeIndex, sectionData }) => {
-  const resumeSpring = useSpring({
-    width: index === null ? "20vw" : index === "resume" ? "80vw" : "5vw",
+  const { width, opacity, ...resumeSpringProps } = useSpring({
+    width:
+      index === null
+        ? "20vw"
+        : index === `${sectionData.name}`
+        ? "80vw"
+        : "5vw",
+    opacity: (index === null) | (index === `${sectionData.name}`) ? 1 : 0,
     from: {
       width: "20vw",
+      opacity: 1,
     },
   });
 
-  const resumeSpringMobile = useSpring({
-    height: index === null ? "20vh" : index === "resume" ? "80vh" : "5vh",
+  const { height, ...resumeSpringMobileProps } = useSpring({
+    height:
+      index === null
+        ? "20vh"
+        : index === `${sectionData.name}`
+        ? "80vh"
+        : "5vh",
     from: {
       height: "20vh",
     },
@@ -29,16 +40,22 @@ const Resume = ({ index, phonePortraitView, changeIndex, sectionData }) => {
   return (
     <animated.section
       className={`${sectionData.name}-section`}
-      style={!phonePortraitView ? resumeSpring : resumeSpringMobile}
+      style={
+        !phonePortraitView
+          ? { width, ...resumeSpringProps }
+          : { height, ...resumeSpringMobileProps }
+      }
     >
       <Link
         className={`title-text ${sectionData.name}-title`}
         to={`/${sectionData.name}`}
         onClick={handleClick}
       >
-        <p>{sectionData.text}</p>
+        <animated.p style={{ opacity, ...resumeSpringProps }}>
+          {sectionData.text}
+        </animated.p>
       </Link>
-      <Route path={`/${sectionData.name}`} component={ResumeToggle} />
+      {index === `${sectionData.name}` && <ResumeToggle />}
       <a
         id={`${sectionData.name}-icon`}
         href={`${sectionData.link}`}

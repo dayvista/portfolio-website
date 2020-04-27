@@ -1,5 +1,4 @@
 import React from "react";
-import { BrowserRouter as Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { animated, useSpring } from "react-spring";
 
@@ -8,15 +7,27 @@ import Icon from "../Icon/IconIndex";
 import ProjectsToggle from "./SectionToggles/ProjectsToggle";
 
 const Projects = ({ index, phonePortraitView, changeIndex, sectionData }) => {
-  const projectsSpring = useSpring({
-    width: index === null ? "20vw" : index === "projects" ? "80vw" : "5vw",
+  const { width, opacity, ...projectsSpringProps } = useSpring({
+    width:
+      index === null
+        ? "20vw"
+        : index === `${sectionData.name}`
+        ? "80vw"
+        : "5vw",
+    opacity: (index === null) | (index === `${sectionData.name}`) ? 1 : 0,
     from: {
       width: "20vw",
+      opacity: 1,
     },
   });
 
-  const projectsSpringMobile = useSpring({
-    height: index === null ? "20vh" : index === "projects" ? "80vh" : "5vh",
+  const { height, ...projectsSpringMobileProps } = useSpring({
+    height:
+      index === null
+        ? "20vh"
+        : index === `${sectionData.name}`
+        ? "80vh"
+        : "5vh",
     from: {
       height: "20vh",
     },
@@ -29,18 +40,22 @@ const Projects = ({ index, phonePortraitView, changeIndex, sectionData }) => {
   return (
     <animated.section
       className={`${sectionData.name}-section`}
-      style={!phonePortraitView ? projectsSpring : projectsSpringMobile}
+      style={
+        !phonePortraitView
+          ? { width, ...projectsSpringProps }
+          : { height, ...projectsSpringMobileProps }
+      }
     >
       <Link
         className={`title-text ${sectionData.name}-title`}
         to={`/${sectionData.name}`}
         onClick={handleClick}
       >
-        <p>{sectionData.text}</p>
+        <animated.p style={{ opacity, ...projectsSpringProps }}>
+          {sectionData.text}
+        </animated.p>
       </Link>
-      {/* <Switch> */}
-      <Route path={`/${sectionData.name}`} component={ProjectsToggle} />
-      {/* </Switch> */}
+      {index === `${sectionData.name}` && <ProjectsToggle />}
       <a
         id={`${sectionData.name}-icon`}
         href={`${sectionData.link}`}

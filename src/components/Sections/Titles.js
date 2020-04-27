@@ -3,19 +3,19 @@ import { animated, useSpring } from "react-spring";
 
 import Icon from "../Icon/IconIndex";
 
-const Titles = ({ index, phonePortraitView, changeIndex }) => {
-  const titlesSpring = useSpring({
+const Titles = ({ index, phonePortraitView, changeIndex, sectionData }) => {
+  const { width, opacity, ...titlesSpringProps } = useSpring({
     width: index === null ? "20vw" : index === "titles" ? "80vw" : "5vw",
+    opacity: (index === null) | (index === "titles") ? 1 : 0,
     from: {
       width: "20vw",
-      height: "100vh",
+      opacity: 1,
     },
   });
 
-  const titlesSpringMobile = useSpring({
+  const { height, ...titlesSpringMobileProps } = useSpring({
     height: index === null ? "20vh" : index === "titles" ? "80vh" : "5vh",
     from: {
-      width: "100vw",
       height: "20vh",
     },
   });
@@ -23,16 +23,24 @@ const Titles = ({ index, phonePortraitView, changeIndex }) => {
   return (
     <animated.section
       className="titles-section"
-      style={!phonePortraitView ? titlesSpring : titlesSpringMobile}
+      style={
+        !phonePortraitView
+          ? { width, ...titlesSpringProps }
+          : { height, ...titlesSpringMobileProps }
+      }
     >
       <div className="title-text titles-title">
-        <p>William Davis</p>
+        <animated.p style={{ opacity, ...titlesSpringProps }}>
+          William Davis
+        </animated.p>
       </div>
       <div id="titles-logo">
         <Icon name="sunrise" />
       </div>
       <div className="title-text titles-title">
-        <p>Web Developer</p>
+        <animated.p style={{ opacity, ...titlesSpringProps }}>
+          Web Developer
+        </animated.p>
       </div>
     </animated.section>
   );
