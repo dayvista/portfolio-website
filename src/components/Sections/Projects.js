@@ -39,7 +39,7 @@ const Projects = ({ index, phonePortraitView, changeIndex, sectionData }) => {
 
   return (
     <animated.section
-      className={`${sectionData.name}-section`}
+      className={`main-section ${sectionData.name}-section`}
       style={
         !phonePortraitView
           ? { width, ...projectsSpringProps }
@@ -47,7 +47,7 @@ const Projects = ({ index, phonePortraitView, changeIndex, sectionData }) => {
       }
     >
       <Link
-        className={`title-text ${sectionData.name}-title`}
+        className={`title-text main-text ${sectionData.name}-title`}
         to={`/${sectionData.name}`}
         onClick={handleClick}
       >

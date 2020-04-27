@@ -1,22 +1,22 @@
-#linkedin-icon {
+#linkedin-svg {
   transition: filter 0.3s, -webkit-filter 0.3s;
 }
-#linkedin-icon g path,
-#linkedin-icon g circle,
-#linkedin-icon g rect {
+#linkedin-svg g path,
+#linkedin-svg g circle,
+#linkedin-svg g rect {
   transition: stroke 0.3s, fill 0.3s;
 }
-#linkedin-icon:hover {
+#linkedin-svg:hover {
   filter: drop-shadow(0px 2px 2px #2f191f);
   -webkit-filter: drop-shadow(0px 2px 2px #2f191f);
 }
-#linkedin-icon:hover #color path,
-#linkedin-icon:hover #color circle,
-#linkedin-icon:hover #color rect {
+#linkedin-svg:hover #color path,
+#linkedin-svg:hover #color circle,
+#linkedin-svg:hover #color rect {
   fill: #e3dde9;
 }
-#linkedin-icon:hover #line path,
-#linkedin-icon:hover #line circle,
-#linkedin-icon:hover #line rect {
+#linkedin-svg:hover #line path,
+#linkedin-svg:hover #line circle,
+#linkedin-svg:hover #line rect {
   stroke: #e3dde9;
 }

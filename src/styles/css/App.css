@@ -178,20 +178,17 @@ section img {
     font-size: 1.15rem;
   }
 }
-@media (min-width: 501px) {
-  section {
-    height: 100vh;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  section a svg {
-    width: 5vw;
-  }
-}
 @media (min-width: 1025px) {
   section p {
     font-size: 2.25rem;
+  }
+}
+@media (min-width: 501px) {
+  section {
+    height: 100vh;
+  }
+  section a svg {
+    width: 5vw;
   }
 }
 section .title-text {
@@ -200,6 +197,7 @@ section .title-text {
   cursor: pointer;
   text-decoration: none;
   color: inherit;
+  margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -224,6 +222,26 @@ section .titles-title {
 @media (max-width: 500px) {
   section .titles-title {
     width: 40%;
+  }
+}
+.main-section {
+  display: flex;
+}
+@media (min-width: 501px) {
+  .main-section {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+.titles-section {
+  display: flex;
+}
+@media (min-width: 501px) {
+  .titles-section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 .back-arrow-icon {

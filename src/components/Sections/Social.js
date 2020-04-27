@@ -7,7 +7,7 @@ import Icon from "../Icon/IconIndex";
 import SocialToggle from "./SectionToggles/SocialToggle";
 
 const Social = ({ index, phonePortraitView, changeIndex, sectionData }) => {
-  const { width, opacity, ...socialSpringProps } = useSpring({
+  const { width, opacity, justifyContent, ...socialSpringProps } = useSpring({
     width:
       index === null
         ? "20vw"
@@ -39,7 +39,7 @@ const Social = ({ index, phonePortraitView, changeIndex, sectionData }) => {
 
   return (
     <animated.section
-      className={`${sectionData.name}-section`}
+      className={`main-section ${sectionData.name}-section`}
       style={
         !phonePortraitView
           ? { width, ...socialSpringProps }
@@ -47,7 +47,7 @@ const Social = ({ index, phonePortraitView, changeIndex, sectionData }) => {
       }
     >
       <Link
-        className={`title-text ${sectionData.name}-title`}
+        className={`title-text main-text ${sectionData.name}-title`}
         to={`/${sectionData.name}`}
         onClick={handleClick}
       >

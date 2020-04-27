@@ -39,7 +39,7 @@ const About = ({ index, phonePortraitView, changeIndex, sectionData }) => {
 
   return (
     <animated.section
-      className={`${sectionData.name}-section`}
+      className={`main-section ${sectionData.name}-section`}
       style={
         !phonePortraitView
           ? { width, ...aboutSpringProps }
@@ -47,7 +47,7 @@ const About = ({ index, phonePortraitView, changeIndex, sectionData }) => {
       }
     >
       <Link
-        className={`title-text ${sectionData.name}-title`}
+        className={`title-text main-text ${sectionData.name}-title`}
         to="/about"
         onClick={handleClick}
       >
@@ -55,7 +55,6 @@ const About = ({ index, phonePortraitView, changeIndex, sectionData }) => {
           {sectionData.text}
         </animated.p>
       </Link>
-      {index === `${sectionData.name}` && <AboutToggle />}
       <a
         id={`${sectionData.name}-icon`}
         href={`${sectionData.link}`}
@@ -64,6 +63,7 @@ const About = ({ index, phonePortraitView, changeIndex, sectionData }) => {
       >
         <Icon name={`${sectionData.icon}`} />
       </a>
+      <AboutToggle index={index} sectionData={sectionData} />
       <Link
         id={`back-arrow-${sectionData.name}`}
         className="back-arrow-icon"

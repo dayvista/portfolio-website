@@ -7,7 +7,7 @@ import Icon from "../Icon/IconIndex";
 import ResumeToggle from "./SectionToggles/ResumeToggle";
 
 const Resume = ({ index, phonePortraitView, changeIndex, sectionData }) => {
-  const { width, opacity, ...resumeSpringProps } = useSpring({
+  const { width, opacity, justifyContent, ...resumeSpringProps } = useSpring({
     width:
       index === null
         ? "20vw"
@@ -39,7 +39,7 @@ const Resume = ({ index, phonePortraitView, changeIndex, sectionData }) => {
 
   return (
     <animated.section
-      className={`${sectionData.name}-section`}
+      className={`main-section ${sectionData.name}-section`}
       style={
         !phonePortraitView
           ? { width, ...resumeSpringProps }
@@ -47,7 +47,7 @@ const Resume = ({ index, phonePortraitView, changeIndex, sectionData }) => {
       }
     >
       <Link
-        className={`title-text ${sectionData.name}-title`}
+        className={`title-text main-text ${sectionData.name}-title`}
         to={`/${sectionData.name}`}
         onClick={handleClick}
       >

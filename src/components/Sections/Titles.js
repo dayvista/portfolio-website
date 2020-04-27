@@ -3,7 +3,7 @@ import { animated, useSpring } from "react-spring";
 
 import Icon from "../Icon/IconIndex";
 
-const Titles = ({ index, phonePortraitView, changeIndex, sectionData }) => {
+const Titles = ({ index, phonePortraitView }) => {
   const { width, opacity, ...titlesSpringProps } = useSpring({
     width: index === null ? "20vw" : "5vw",
     opacity: index === null ? 1 : 0,
@@ -29,6 +29,22 @@ const Titles = ({ index, phonePortraitView, changeIndex, sectionData }) => {
           : { height, ...titlesSpringMobileProps }
       }
     >
+      <animated.a
+        id="github-icon"
+        href="https://github.com/dayvista"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon name="github" />
+      </animated.a>
+      <animated.a
+        id="linkedin-icon"
+        href="https://linkedin.com/in/wjdiii"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon name="linkedin" />
+      </animated.a>
       <animated.div
         className="title-text titles-title"
         style={{ opacity, ...titlesSpringProps }}
@@ -47,6 +63,22 @@ const Titles = ({ index, phonePortraitView, changeIndex, sectionData }) => {
         <animated.p style={{ opacity, ...titlesSpringProps }}>
           Web Developer
         </animated.p>
+        <animated.a
+          id="twitter-icon"
+          href="https://twitter.com/dayvista_dev"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon name="twitter" />
+        </animated.a>
+        <animated.a
+          id="email-icon"
+          href="mailto:liam@dayvista.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon name="email" />
+        </animated.a>
       </animated.div>
     </animated.section>
   );
