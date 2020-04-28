@@ -94,7 +94,12 @@ const About = ({ index, phonePortraitView, changeIndex, sectionData }) => {
             exact
             path="/about"
             render={(props) => (
-              <AboutToggle {...props} index={index} sectionData={sectionData} />
+              <AboutToggle
+                {...props}
+                index={index}
+                sectionData={sectionData}
+                phonePortraitView={phonePortraitView}
+              />
             )}
           />
         </Switch>

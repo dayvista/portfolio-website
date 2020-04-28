@@ -5,7 +5,7 @@
 // CSS (less)
 html {
   font-size: 62.5%;
-  overflow: hidden;
+  position: fixed;
 }
 
 body {
@@ -17,16 +17,22 @@ body {
   background: linear-gradient(
     90deg,
     rgba(92, 74, 114, 1) 0%,
+    rgba(163, 88, 109, 1) 25%,
     rgba(244, 106, 78, 1) 50%,
+    rgba(244, 135, 75, 1) 75%,
     rgba(243, 176, 90, 1) 100%
   );
 }
 
 .container {
   display: flex;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  max-height: 100%;
 
   @media (max-width: 500px) {
-    .flex-attributes(column, flex-start, flex-start);
+    .flex-attributes(column-reverse, flex-start, flex-start);
   }
 
   @media (min-width: 501px) {
@@ -42,6 +48,10 @@ section {
     -khtml-user-select: none;
     -moz-user-select: none;
     -o-user-select: none;
+  }
+
+  p {
+    text-align: center;
   }
 
   display: flex;
@@ -61,7 +71,7 @@ section {
   // Tablet displays
   @media (min-width: 501px) and (max-width: 1024px) {
     p {
-      font-size: 1.15rem;
+      font-size: 1.25rem;
     }
   }
 
