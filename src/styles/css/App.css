@@ -178,6 +178,9 @@ section p {
     justify-content: center;
     align-items: center;
   }
+  section p {
+    font-size: 2rem;
+  }
   section a svg {
     height: 5vw;
   }
