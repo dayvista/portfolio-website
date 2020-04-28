@@ -21,6 +21,7 @@
   "homepage": "https://github.com/dayvista/dayvista.github.io#readme",
   "dependencies": {
     "chokidar": "^3.3.1",
+    "flubber": "^0.4.2",
     "minimist": "^1.2.5",
     "mkdirp": "^1.0.3",
     "react": "^16.13.0",

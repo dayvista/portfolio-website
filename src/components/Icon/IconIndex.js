@@ -3,7 +3,7 @@
 
 import React from "react";
 
-import BackArrow from "./Icons/BackArrow";
+import HomeButton from "./Icons/HomeButton";
 import GitHub from "./Icons/GitHub";
 import LinkedIn from "./Icons/LinkedIn";
 import Twitter from "./Icons/Twitter";
@@ -13,8 +13,6 @@ import Selfie from "./Icons/Selfie";
 
 const Icon = (props) => {
   switch (props.name) {
-    case "back-arrow":
-      return <BackArrow {...props} />;
     case "github":
       return <GitHub {...props} />;
     case "linkedin":
@@ -25,6 +23,8 @@ const Icon = (props) => {
       return <Email {...props} />;
     case "sunrise":
       return <Sunrise {...props} />;
+    case "home-button":
+      return <HomeButton {...props} />;
     case "selfie":
       return <Selfie {...props} />;
     default:

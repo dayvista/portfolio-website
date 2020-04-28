@@ -8,21 +8,19 @@ import Icon from "../Icon/IconIndex";
 import ResumeToggle from "./SectionToggles/ResumeToggle";
 
 const Resume = ({ index, phonePortraitView, changeIndex, sectionData }) => {
-  const { width, opacity, justifyContent, ...resumeSpringProps } = useSpring({
+  const sectionSpring = useSpring({
     width:
       index === null
         ? "20vw"
         : index === `${sectionData.name}`
         ? "80vw"
         : "5vw",
-    opacity: (index === null) | (index === `${sectionData.name}`) ? 1 : 0,
     from: {
       width: "20vw",
-      opacity: 1,
     },
   });
 
-  const { height, ...resumeSpringMobileProps } = useSpring({
+  const sectionMobileSpring = useSpring({
     height:
       index === null
         ? "20vh"
@@ -31,6 +29,13 @@ const Resume = ({ index, phonePortraitView, changeIndex, sectionData }) => {
         : "5vh",
     from: {
       height: "20vh",
+    },
+  });
+
+  const textSpring = useSpring({
+    opacity: (index === null) | (index === `${sectionData.name}`) ? 1 : 0,
+    from: {
+      opacity: 1,
     },
   });
 
@@ -56,11 +61,7 @@ const Resume = ({ index, phonePortraitView, changeIndex, sectionData }) => {
     <Router>
       <animated.section
         className={`main-section ${sectionData.name}-section`}
-        style={
-          !phonePortraitView
-            ? { width, ...resumeSpringProps }
-            : { height, ...resumeSpringMobileProps }
-        }
+        style={!phonePortraitView ? sectionSpring : sectionMobileSpring}
       >
         <Link
           className={`title-text main-text ${sectionData.name}-title`}
@@ -77,9 +78,7 @@ const Resume = ({ index, phonePortraitView, changeIndex, sectionData }) => {
               : { cursor: "pointer" }
           }
         >
-          <animated.p style={{ opacity, ...resumeSpringProps }}>
-            {sectionData.text}
-          </animated.p>
+          <animated.p style={textSpring}>{sectionData.text}</animated.p>
         </Link>
         <Switch>
           <Route
@@ -101,7 +100,11 @@ const Resume = ({ index, phonePortraitView, changeIndex, sectionData }) => {
           rel="noopener noreferrer"
           style={iconSpring}
         >
-          <Icon name={`${sectionData.icon}`} id={`${sectionData.icon}-svg`} />
+          <Icon
+            name={`${sectionData.icon}`}
+            id={`${sectionData.icon}-svg`}
+            index={index}
+          />
         </animated.a>
       </animated.section>
     </Router>

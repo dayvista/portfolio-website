@@ -64,5 +64,4 @@ const LinkedIn = ({ style = {}, id, className, stroke = "#ddd6e5" }) => (
     </g>
   </svg>
 );
-
 export default LinkedIn;
