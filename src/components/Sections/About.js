@@ -99,14 +99,6 @@ const About = ({ index, phonePortraitView, changeIndex, sectionData }) => {
             )}
           />
         </Switch>
-        <Link
-          id={`back-arrow-${sectionData.name}`}
-          className="back-arrow-icon"
-          to=""
-          onClick={handleClick}
-        >
-          <Icon name="back-arrow" stroke="#fef7f3" />
-        </Link>
       </animated.section>
     </Router>
   );

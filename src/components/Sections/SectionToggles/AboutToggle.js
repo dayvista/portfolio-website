@@ -17,7 +17,7 @@ const AboutToggle = ({ index, sectionData }) => {
 
   return (
     <animated.div className="about-toggle" style={toggled}>
-      <Icon name="selfie" />
+      <Icon name="selfie" fill="#602606" />
     </animated.div>
   );
 };

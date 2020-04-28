@@ -102,14 +102,6 @@ const Social = ({ index, phonePortraitView, changeIndex, sectionData }) => {
         >
           <Icon name={`${sectionData.icon}`} id={`${sectionData.icon}-svg`} />
         </animated.a>
-        <Link
-          id={`back-arrow-${sectionData.name}`}
-          className="back-arrow-icon"
-          to=""
-          onClick={handleClick}
-        >
-          <Icon name="back-arrow" stroke="#fde3de" />
-        </Link>
       </animated.section>
     </Router>
   );

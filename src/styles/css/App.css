@@ -252,7 +252,6 @@ section .titles-title {
 .back-arrow-icon svg {
   width: 5vw;
   height: auto;
-  display: none;
 }
 @media (max-width: 500px) {
   .back-arrow-icon {

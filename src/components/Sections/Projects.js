@@ -103,14 +103,6 @@ const Projects = ({ index, phonePortraitView, changeIndex, sectionData }) => {
         >
           <Icon name={`${sectionData.icon}`} id={`${sectionData.icon}-svg`} />
         </animated.a>
-        <Link
-          id={`back-arrow-${sectionData.name}`}
-          className="back-arrow-icon"
-          to=""
-          onClick={handleClick}
-        >
-          <Icon name="back-arrow" stroke="#ddd6e5" />
-        </Link>
       </animated.section>
     </Router>
   );
