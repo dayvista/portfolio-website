@@ -1,6 +1,5 @@
 // Library dependencies
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 
 // Stylesheets
 import "../styles/css/App.css";
@@ -70,40 +69,38 @@ const App = () => {
   };
 
   return (
-    <Router>
-      <div className="container">
-        <Projects
-          index={index}
-          phonePortraitView={phonePortraitView}
-          changeIndex={setSelectedIndex}
-          sectionData={sectionData[0]}
-        />
-        <Resume
-          index={index}
-          phonePortraitView={phonePortraitView}
-          changeIndex={setSelectedIndex}
-          sectionData={sectionData[1]}
-        />
-        <Social
-          index={index}
-          phonePortraitView={phonePortraitView}
-          changeIndex={setSelectedIndex}
-          sectionData={sectionData[2]}
-        />
-        <About
-          index={index}
-          phonePortraitView={phonePortraitView}
-          changeIndex={setSelectedIndex}
-          sectionData={sectionData[3]}
-        />
-        <Titles
-          index={index}
-          phonePortraitView={phonePortraitView}
-          changeIndex={setSelectedIndex}
-          sectionData={sectionData[4]}
-        />
-      </div>
-    </Router>
+    <div className="container">
+      <Projects
+        index={index}
+        phonePortraitView={phonePortraitView}
+        changeIndex={setSelectedIndex}
+        sectionData={sectionData[0]}
+      />
+      <Resume
+        index={index}
+        phonePortraitView={phonePortraitView}
+        changeIndex={setSelectedIndex}
+        sectionData={sectionData[1]}
+      />
+      <Social
+        index={index}
+        phonePortraitView={phonePortraitView}
+        changeIndex={setSelectedIndex}
+        sectionData={sectionData[2]}
+      />
+      <About
+        index={index}
+        phonePortraitView={phonePortraitView}
+        changeIndex={setSelectedIndex}
+        sectionData={sectionData[3]}
+      />
+      <Titles
+        index={index}
+        phonePortraitView={phonePortraitView}
+        changeIndex={setSelectedIndex}
+        sectionData={sectionData[4]}
+      />
+    </div>
   );
 };
 

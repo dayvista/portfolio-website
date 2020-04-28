@@ -2,6 +2,11 @@
 @import (reference) "../mixins";
 
 // Icon SVG hover transition
+.about-toggle {
+  background: lighten(@color-4-orange, 25%);
+  border-radius: 0.5rem;
+}
+
 #email-svg {
   transition: filter 0.3s, -webkit-filter 0.3s;
   g {
@@ -21,9 +26,9 @@
 }
 
 #selfie {
-  width: 75%;
-  height: auto;
-  border: 0.5rem solid #2a0f00;
+  width: 25%;
+  margin-left: 0.5rem;
+  border: 0.5rem solid @color-4-orange;
   border-radius: 0.5rem;
   transition: filter 0.3s, -webkit-filter 0.3s;
 }

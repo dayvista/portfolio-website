@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { animated, useSpring } from "react-spring";
 
@@ -35,11 +36,13 @@ const About = ({ index, phonePortraitView, changeIndex, sectionData }) => {
 
   const iconSpring = useSpring({
     width: index === null ? "5vw" : "0vw",
+    height: index === null ? "5vh" : "0vh",
     opacity: index === null ? 1 : 0,
     pointerEvents: index === null ? "auto" : "none",
 
     from: {
       width: "5vw",
+      height: "5vh",
       opacity: 1,
       pointerEvents: "auto",
     },
@@ -50,42 +53,52 @@ const About = ({ index, phonePortraitView, changeIndex, sectionData }) => {
   };
 
   return (
-    <animated.section
-      className={`main-section ${sectionData.name}-section`}
-      style={
-        !phonePortraitView
-          ? { width, ...aboutSpringProps }
-          : { height, ...aboutSpringMobileProps }
-      }
-    >
-      <Link
-        className={`title-text main-text ${sectionData.name}-title`}
-        to="/about"
-        onClick={handleClick}
+    <Router>
+      <animated.section
+        className={`main-section ${sectionData.name}-section`}
+        style={
+          !phonePortraitView
+            ? { width, ...aboutSpringProps }
+            : { height, ...aboutSpringMobileProps }
+        }
       >
-        <animated.p style={{ opacity, ...aboutSpringProps }}>
-          {sectionData.text}
-        </animated.p>
-      </Link>
-      <animated.a
-        id={`${sectionData.name}-icon`}
-        href={`${sectionData.link}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={iconSpring}
-      >
-        <Icon name={`${sectionData.icon}`} id={`${sectionData.icon}-svg`} />
-      </animated.a>
-      <AboutToggle index={index} sectionData={sectionData} />
-      <Link
-        id={`back-arrow-${sectionData.name}`}
-        className="back-arrow-icon"
-        to=""
-        onClick={handleClick}
-      >
-        <Icon name="back-arrow" stroke="#fef7f3" />
-      </Link>
-    </animated.section>
+        <Link
+          className={`title-text main-text ${sectionData.name}-title`}
+          to="/about"
+          onClick={handleClick}
+        >
+          <animated.p style={{ opacity, ...aboutSpringProps }}>
+            {sectionData.text}
+          </animated.p>
+        </Link>
+        <animated.a
+          id={`${sectionData.name}-icon`}
+          href={`${sectionData.link}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={iconSpring}
+        >
+          <Icon name={`${sectionData.icon}`} id={`${sectionData.icon}-svg`} />
+        </animated.a>
+        <Switch>
+          <Route
+            exact
+            path="/about"
+            render={(props) => (
+              <AboutToggle {...props} index={index} sectionData={sectionData} />
+            )}
+          />
+        </Switch>
+        <Link
+          id={`back-arrow-${sectionData.name}`}
+          className="back-arrow-icon"
+          to=""
+          onClick={handleClick}
+        >
+          <Icon name="back-arrow" stroke="#fef7f3" />
+        </Link>
+      </animated.section>
+    </Router>
   );
 };
 

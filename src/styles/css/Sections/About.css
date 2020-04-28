@@ -1,3 +1,7 @@
+.about-toggle {
+  background: #fbd7c3;
+  border-radius: 0.5rem;
+}
 #email-svg {
   transition: filter 0.3s, -webkit-filter 0.3s;
 }
@@ -12,9 +16,9 @@
   stroke: #fefcfa;
 }
 #selfie {
-  width: 75%;
-  height: auto;
-  border: 0.5rem solid #2a0f00;
+  width: 25%;
+  margin-left: 0.5rem;
+  border: 0.5rem solid #f4874b;
   border-radius: 0.5rem;
   transition: filter 0.3s, -webkit-filter 0.3s;
 }
