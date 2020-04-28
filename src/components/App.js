@@ -117,7 +117,6 @@ const App = () => {
           index={index}
           phonePortraitView={phonePortraitView}
           changeIndex={setSelectedIndex}
-          sectionData={sectionData[4]}
         />
       </animated.div>
     </Fragment>

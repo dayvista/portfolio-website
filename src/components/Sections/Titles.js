@@ -8,35 +8,27 @@ import Icon from "../Icon/IconIndex";
 const stroke = "#FAEDDB";
 const homeStroke = "#492b05";
 
-const Titles = ({ index, phonePortraitView, changeIndex, sectionData }) => {
+const Titles = ({ index, phonePortraitView, changeIndex }) => {
   const sectionSpring = useSpring({
-    width:
-      index === null
-        ? "20vw"
-        : index === `${sectionData.name}`
-        ? "80vw"
-        : "5vw",
+    width: index === null ? "20vw" : "5vw",
     from: {
       width: "20vw",
     },
   });
 
   const sectionMobileSpring = useSpring({
-    height:
-      index === null
-        ? "20vh"
-        : index === `${sectionData.name}`
-        ? "80vh"
-        : "5vh",
+    height: index === null ? "20vh" : "5vh",
     from: {
       height: "20vh",
     },
   });
 
   const textSpring = useSpring({
-    opacity: (index === null) | (index === `${sectionData.name}`) ? 1 : 0,
+    opacity: index === null ? 1 : 0,
+    fontSize: index === null ? "2vw" : "0vw",
     from: {
       opacity: 1,
+      fontSize: "2vw",
     },
   });
 
@@ -81,7 +73,11 @@ const Titles = ({ index, phonePortraitView, changeIndex, sectionData }) => {
           <Icon name="linkedin" className="sidebar-icon" stroke={stroke} />
         </animated.a>
         <animated.div className="title-text titles-title" style={textSpring}>
-          <animated.p style={textSpring}>William Davis</animated.p>
+          <animated.p style={textSpring}>
+            William
+            <br />
+            Davis
+          </animated.p>
         </animated.div>
         <div id="titles-logo">
           <Icon name="sunrise" index={index} />
@@ -90,7 +86,11 @@ const Titles = ({ index, phonePortraitView, changeIndex, sectionData }) => {
           <Icon name="home-button" index={index} stroke={homeStroke} />
         </Link>
         <animated.div className="title-text titles-title" style={textSpring}>
-          <animated.p style={textSpring}>Web Developer</animated.p>
+          <animated.p style={textSpring}>
+            Web
+            <br />
+            Developer
+          </animated.p>
         </animated.div>
         <animated.a
           id="twitter-icon"
