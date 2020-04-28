@@ -2,13 +2,7 @@
 
 import React from "react";
 
-const LinkedIn = ({
-  style = {},
-  id,
-  className,
-  fill = "#ddd6e5",
-  stroke = "#ddd6e5",
-}) => (
+const LinkedIn = ({ style = {}, id, className, stroke = "#ddd6e5" }) => (
   <svg
     id={id}
     className={className}
@@ -18,59 +12,54 @@ const LinkedIn = ({
     xmlns="http://www.w3.org/2000/svg"
   >
     <g id="color">
+      <rect x="11" y="11" rx="3" width="50" height="50" fill="none" />
+      <rect x="20" y="30" width="6" height="21" fill={stroke} />
+      <circle cx="23" cy="22" r="3.5" fill={stroke} />
       <path
-        fill={fill}
-        d="m36.17 40.25c0.03332-2.77 2.556-5.509 5.729-5.218 3.173 0.2911 4.667 2.452 4.556 5.878l0.04873 10.45h4.249l0.02948-11.47c0.0059-2.791-0.05766-5.311-1.858-7.335-2.16-2.441-6.294-2.484-8.757-1.386-1.829 0.8623-1.838 0.8754-4.04 3.04l0.04317-3.772h-4.249l-2e-6 20.93h4.249z"
+        fill={stroke}
+        d="m42.5 35c-2.209 0-4 1.168-4 4.5v11.5h-6v-21h6v2.21h-0.0016a7.981 7.981 0 0 1 6.002-2.71c4.418 0 8 3.3 8 9v12.5h-6v-11.5c0-3.332-1.791-4.5-4-4.5"
       />
-      <circle
-        cx="23.69"
-        cy="23.12"
-        r="2.481"
-        fill={fill}
-        fillRule="evenodd"
-        paintOrder="normal"
-      />
-      <path fill={fill} d="m21.54 51.3h4.249l1.66e-4 -20.93h-4.249z" />
     </g>
     <g id="line">
-      <circle
-        cx="23.78"
-        cy="23.21"
-        r="2.481"
+      <rect
+        x="11"
+        y="11"
+        rx="3"
+        width="50"
+        height="50"
         fill="none"
         stroke={stroke}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2.33"
-        paintOrder="normal"
-      />
-      <path
-        fill="none"
-        stroke={stroke}
-        strokeLinejoin="round"
+        strokeMiterlimit="10"
         strokeWidth="2"
-        d="m36.26 40.33c0.03332-2.77 2.556-5.509 5.729-5.218 3.173 0.2911 4.667 2.452 4.556 5.878l0.04873 10.45h4.249l0.02948-11.47c0.0059-2.791-0.05766-5.311-1.858-7.335-2.16-2.441-6.294-2.484-8.757-1.386-1.829 0.8623-1.838 0.8754-4.04 3.04l0.04317-3.772h-4.249l-2e-6 20.93h4.249z"
-      />
-      <path
-        fill="none"
-        stroke={stroke}
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="m21.62 51.39h4.249l1.66e-4 -20.93h-4.249z"
       />
       <rect
-        x="12.12"
-        y="12.12"
-        rx="3"
-        ry="3"
-        width="47.77"
-        height="47.77"
+        x="20"
+        y="30"
+        width="6"
+        height="21"
         fill="none"
         stroke={stroke}
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="2.33"
-        paintOrder="normal"
+        strokeWidth="2"
+      />
+      <circle
+        cx="23"
+        cy="22"
+        r="3.5"
+        fill="none"
+        stroke={stroke}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      />
+      <path
+        fill="none"
+        stroke={stroke}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="m42.5 35c-2.209 0-4 1.168-4 4.5v11.5h-6v-21h6v2.21h-0.0016a7.981 7.981 0 0 1 6.002-2.71c4.418 0 8 3.3 8 9v12.5h-6v-11.5c0-3.332-1.791-4.5-4-4.5"
       />
     </g>
   </svg>

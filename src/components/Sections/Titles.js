@@ -59,12 +59,7 @@ const Titles = ({ index, phonePortraitView }) => {
         rel="noopener noreferrer"
         style={iconsSpring}
       >
-        <Icon
-          name="linkedin"
-          className="sidebar-icon"
-          stroke={stroke}
-          fill="#FDF6EC"
-        />
+        <Icon name="linkedin" className="sidebar-icon" stroke={stroke} />
       </animated.a>
       <animated.div
         className="title-text titles-title"
