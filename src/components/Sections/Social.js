@@ -8,21 +8,19 @@ import Icon from "../Icon/IconIndex";
 import SocialToggle from "./SectionToggles/SocialToggle";
 
 const Social = ({ index, phonePortraitView, changeIndex, sectionData }) => {
-  const { width, opacity, justifyContent, ...socialSpringProps } = useSpring({
+  const socialSpring = useSpring({
     width:
       index === null
         ? "20vw"
         : index === `${sectionData.name}`
         ? "80vw"
         : "5vw",
-    opacity: (index === null) | (index === `${sectionData.name}`) ? 1 : 0,
     from: {
       width: "20vw",
-      opacity: 1,
     },
   });
 
-  const { height, ...socialSpringMobileProps } = useSpring({
+  const socialMobileSpring = useSpring({
     height:
       index === null
         ? "20vh"
@@ -31,6 +29,13 @@ const Social = ({ index, phonePortraitView, changeIndex, sectionData }) => {
         : "5vh",
     from: {
       height: "20vh",
+    },
+  });
+
+  const textSpring = useSpring({
+    opacity: (index === null) | (index === `${sectionData.name}`) ? 1 : 0,
+    from: {
+      opacity: 1,
     },
   });
 
@@ -56,11 +61,7 @@ const Social = ({ index, phonePortraitView, changeIndex, sectionData }) => {
     <Router>
       <animated.section
         className={`main-section ${sectionData.name}-section`}
-        style={
-          !phonePortraitView
-            ? { width, ...socialSpringProps }
-            : { height, ...socialSpringMobileProps }
-        }
+        style={!phonePortraitView ? socialSpring : socialMobileSpring}
       >
         <Link
           className={`title-text main-text ${sectionData.name}-title`}
@@ -77,9 +78,7 @@ const Social = ({ index, phonePortraitView, changeIndex, sectionData }) => {
               : { cursor: "pointer" }
           }
         >
-          <animated.p style={{ opacity, ...socialSpringProps }}>
-            {sectionData.text}
-          </animated.p>
+          <animated.p style={textSpring}>{sectionData.text}</animated.p>
         </Link>
         <Switch>
           <Route

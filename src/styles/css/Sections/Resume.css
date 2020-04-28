@@ -12,7 +12,7 @@
 }
 #linkedin-svg:hover #color path,
 #linkedin-svg:hover #color circle,
-#linkedin-svg:hover #color rect {
+#linkedin-svg:hover #color #rect-fill {
   fill: #e3dde9;
 }
 #linkedin-svg:hover #line path,

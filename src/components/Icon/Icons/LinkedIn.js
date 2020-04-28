@@ -13,7 +13,7 @@ const LinkedIn = ({ style = {}, id, className, stroke = "#ddd6e5" }) => (
   >
     <g id="color">
       <rect x="11" y="11" rx="3" width="50" height="50" fill="none" />
-      <rect x="20" y="30" width="6" height="21" fill={stroke} />
+      <rect id="rect-fill" x="20" y="30" width="6" height="21" fill={stroke} />
       <circle cx="23" cy="22" r="3.5" fill={stroke} />
       <path
         fill={stroke}

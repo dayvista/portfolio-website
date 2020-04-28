@@ -1,5 +1,6 @@
 // Library dependencies
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
+import { animated, useSpring } from "react-spring";
 
 // Stylesheets
 import "../styles/css/App.css";
@@ -15,9 +16,23 @@ import About from "./Sections/About";
 import Titles from "./Sections/Titles";
 
 const App = () => {
+  const [loadedStatus, setLoadedStatus] = useState(false);
   const [index, setIndex] = useState(null);
   const [phonePortraitView, setPhonePortraitView] = useState(false);
 
+  // Fade in on page load
+  useEffect(() => {
+    setLoadedStatus(true);
+  }, []);
+
+  const loadedFadeIn = useSpring({
+    opacity: loadedStatus ? 1 : 0,
+    from: {
+      opacity: 0,
+    },
+  });
+
+  // Adjust from portrait to landscape view on mobile
   let mediaQueryListener = window.matchMedia("(max-width: 500px)");
 
   useEffect(() => {
@@ -37,6 +52,7 @@ const App = () => {
     };
   }, []);
 
+  // Set index state according to URL route address
   const setPage = () => {
     if (window.location.href.includes("projects")) {
       setIndex("projects");
@@ -51,6 +67,7 @@ const App = () => {
     }
   };
 
+  // Listen for back and forward buttons in browser
   useEffect(() => {
     setPage();
     window.addEventListener("popstate", () => {
@@ -64,43 +81,46 @@ const App = () => {
     };
   }, []);
 
+  // Set index from index prop passed upwards via callback from children
   const setSelectedIndex = (section) => {
     setIndex(section);
   };
 
   return (
-    <div className="container">
-      <Projects
-        index={index}
-        phonePortraitView={phonePortraitView}
-        changeIndex={setSelectedIndex}
-        sectionData={sectionData[0]}
-      />
-      <Resume
-        index={index}
-        phonePortraitView={phonePortraitView}
-        changeIndex={setSelectedIndex}
-        sectionData={sectionData[1]}
-      />
-      <Social
-        index={index}
-        phonePortraitView={phonePortraitView}
-        changeIndex={setSelectedIndex}
-        sectionData={sectionData[2]}
-      />
-      <About
-        index={index}
-        phonePortraitView={phonePortraitView}
-        changeIndex={setSelectedIndex}
-        sectionData={sectionData[3]}
-      />
-      <Titles
-        index={index}
-        phonePortraitView={phonePortraitView}
-        changeIndex={setSelectedIndex}
-        sectionData={sectionData[4]}
-      />
-    </div>
+    <Fragment>
+      <animated.div className="container" style={loadedFadeIn}>
+        <Projects
+          index={index}
+          phonePortraitView={phonePortraitView}
+          changeIndex={setSelectedIndex}
+          sectionData={sectionData[0]}
+        />
+        <Resume
+          index={index}
+          phonePortraitView={phonePortraitView}
+          changeIndex={setSelectedIndex}
+          sectionData={sectionData[1]}
+        />
+        <Social
+          index={index}
+          phonePortraitView={phonePortraitView}
+          changeIndex={setSelectedIndex}
+          sectionData={sectionData[2]}
+        />
+        <About
+          index={index}
+          phonePortraitView={phonePortraitView}
+          changeIndex={setSelectedIndex}
+          sectionData={sectionData[3]}
+        />
+        <Titles
+          index={index}
+          phonePortraitView={phonePortraitView}
+          changeIndex={setSelectedIndex}
+          sectionData={sectionData[4]}
+        />
+      </animated.div>
+    </Fragment>
   );
 };
 
