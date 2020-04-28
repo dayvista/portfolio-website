@@ -66,6 +66,16 @@ const Social = ({ index, phonePortraitView, changeIndex, sectionData }) => {
           className={`title-text main-text ${sectionData.name}-title`}
           to={`/${sectionData.name}`}
           onClick={handleClick}
+          style={
+            index === `${sectionData.name}`
+              ? {
+                  cursor: "default",
+                  MozBoxShadow: "none",
+                  WebkitBoxShadow: "none",
+                  boxShadow: "none",
+                }
+              : { cursor: "pointer" }
+          }
         >
           <animated.p style={{ opacity, ...socialSpringProps }}>
             {sectionData.text}

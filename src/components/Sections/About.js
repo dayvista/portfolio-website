@@ -64,8 +64,18 @@ const About = ({ index, phonePortraitView, changeIndex, sectionData }) => {
       >
         <Link
           className={`title-text main-text ${sectionData.name}-title`}
-          to="/about"
+          to="about"
           onClick={handleClick}
+          style={
+            index === `${sectionData.name}`
+              ? {
+                  cursor: "default",
+                  MozBoxShadow: "none",
+                  WebkitBoxShadow: "none",
+                  boxShadow: "none",
+                }
+              : { cursor: "pointer" }
+          }
         >
           <animated.p style={{ opacity, ...aboutSpringProps }}>
             {sectionData.text}
