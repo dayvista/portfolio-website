@@ -1,6 +1,7 @@
 .about-toggle {
   background: #fbd7c3;
   border-radius: 0.5rem;
+  margin-top: 0.75rem;
 }
 #email-svg {
   transition: filter 0.3s, -webkit-filter 0.3s;
