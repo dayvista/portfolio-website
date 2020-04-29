@@ -8,7 +8,7 @@ import Icon from "../Icon/IconIndex";
 const stroke = "#FAEDDB";
 const homeStroke = "#492b05";
 
-const Titles = ({ index, phonePortraitView, changeIndex }) => {
+const Titles = ({ index, viewport, changeIndex }) => {
   const sectionSpring = useSpring({
     width: index === null ? "20%" : "5%",
     from: {
@@ -33,12 +33,12 @@ const Titles = ({ index, phonePortraitView, changeIndex }) => {
   });
 
   const iconsSpring = useSpring({
-    width: index === null ? "0%" : "5%",
+    width: index === null ? "0vw" : "5vw",
     opacity: index === null ? 0 : 1,
     pointerEvents: index === null ? "none" : "auto",
 
     from: {
-      width: "0%",
+      width: "0vw",
       opacity: 0,
       pointerEvents: "none",
     },
@@ -52,7 +52,9 @@ const Titles = ({ index, phonePortraitView, changeIndex }) => {
     <Router>
       <animated.section
         className="titles-section"
-        style={!phonePortraitView ? sectionSpring : sectionMobileSpring}
+        style={
+          viewport !== "mobile-portrait" ? sectionSpring : sectionMobileSpring
+        }
       >
         <animated.a
           id="github-icon"

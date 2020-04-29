@@ -7,7 +7,7 @@ import Icon from "../Icon/IconIndex";
 
 import ProjectsToggle from "./SectionToggles/ProjectsToggle";
 
-const Projects = ({ index, phonePortraitView, changeIndex, sectionData }) => {
+const Projects = ({ index, viewport, changeIndex, sectionData }) => {
   const sectionSpring = useSpring({
     width:
       index === null ? "20%" : index === `${sectionData.name}` ? "80%" : "5%",
@@ -32,14 +32,12 @@ const Projects = ({ index, phonePortraitView, changeIndex, sectionData }) => {
   });
 
   const iconSpring = useSpring({
-    width: index === null ? "5%" : "0%",
-    height: index === null ? "5%" : "0%",
+    width: index === null ? "5vw" : "0vw",
     opacity: index === null ? 1 : 0,
     pointerEvents: index === null ? "auto" : "none",
 
     from: {
-      width: "5%",
-      height: "5%",
+      width: "5vw",
       opacity: 1,
       pointerEvents: "auto",
     },
@@ -53,7 +51,9 @@ const Projects = ({ index, phonePortraitView, changeIndex, sectionData }) => {
     <Router>
       <animated.section
         className={`main-section ${sectionData.name}-section`}
-        style={!phonePortraitView ? sectionSpring : sectionMobileSpring}
+        style={
+          viewport !== "mobile-portrait" ? sectionSpring : sectionMobileSpring
+        }
       >
         <Link
           className={`title-text main-text ${sectionData.name}-title`}
