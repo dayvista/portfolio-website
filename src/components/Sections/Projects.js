@@ -10,25 +10,17 @@ import ProjectsToggle from "./SectionToggles/ProjectsToggle";
 const Projects = ({ index, phonePortraitView, changeIndex, sectionData }) => {
   const sectionSpring = useSpring({
     width:
-      index === null
-        ? "20vw"
-        : index === `${sectionData.name}`
-        ? "80vw"
-        : "5vw",
+      index === null ? "20%" : index === `${sectionData.name}` ? "80%" : "5%",
     from: {
-      width: "20vw",
+      width: "20%",
     },
   });
 
   const sectionMobileSpring = useSpring({
     height:
-      index === null
-        ? "20vh"
-        : index === `${sectionData.name}`
-        ? "80vh"
-        : "5vh",
+      index === null ? "20%" : index === `${sectionData.name}` ? "80%" : "5%",
     from: {
-      height: "20vh",
+      height: "20%",
     },
   });
 
@@ -40,14 +32,14 @@ const Projects = ({ index, phonePortraitView, changeIndex, sectionData }) => {
   });
 
   const iconSpring = useSpring({
-    width: index === null ? "5vw" : "0vw",
-    height: index === null ? "5vh" : "0vh",
+    width: index === null ? "5%" : "0%",
+    height: index === null ? "5%" : "0%",
     opacity: index === null ? 1 : 0,
     pointerEvents: index === null ? "auto" : "none",
 
     from: {
-      width: "5vw",
-      height: "5vh",
+      width: "5%",
+      height: "5%",
       opacity: 1,
       pointerEvents: "auto",
     },

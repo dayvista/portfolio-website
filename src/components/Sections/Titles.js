@@ -10,35 +10,35 @@ const homeStroke = "#492b05";
 
 const Titles = ({ index, phonePortraitView, changeIndex }) => {
   const sectionSpring = useSpring({
-    width: index === null ? "20vw" : "5vw",
+    width: index === null ? "20%" : "5%",
     from: {
-      width: "20vw",
+      width: "20%",
     },
   });
 
   const sectionMobileSpring = useSpring({
-    height: index === null ? "20vh" : "5vh",
+    height: index === null ? "20%" : "5%",
     from: {
-      height: "20vh",
+      height: "20%",
     },
   });
 
   const textSpring = useSpring({
     opacity: index === null ? 1 : 0,
-    fontSize: index === null ? "2vw" : "0vw",
+    fontSize: index === null ? "2rem" : "0rem",
     from: {
       opacity: 1,
-      fontSize: "2vw",
+      fontSize: "2rem",
     },
   });
 
   const iconsSpring = useSpring({
-    width: index === null ? "0vw" : "5vw",
+    width: index === null ? "0%" : "5%",
     opacity: index === null ? 0 : 1,
     pointerEvents: index === null ? "none" : "auto",
 
     from: {
-      width: "0vw",
+      width: "0%",
       opacity: 0,
       pointerEvents: "none",
     },
