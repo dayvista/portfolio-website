@@ -8,7 +8,7 @@ import Icon from "../Icon/IconIndex";
 const stroke = "#FAEDDB";
 const homeStroke = "#492b05";
 
-const Titles = ({ index, viewport, changeIndex }) => {
+const Titles = ({ index, mobileViewportPortrait, changeIndex }) => {
   const sectionSpring = useSpring({
     width: index === null ? "20%" : "5%",
     from: {
@@ -52,9 +52,7 @@ const Titles = ({ index, viewport, changeIndex }) => {
     <Router>
       <animated.section
         className="titles-section"
-        style={
-          viewport !== "mobile-portrait" ? sectionSpring : sectionMobileSpring
-        }
+        style={!mobileViewportPortrait ? sectionSpring : sectionMobileSpring}
       >
         <animated.a
           id="github-icon"

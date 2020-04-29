@@ -7,7 +7,12 @@ import Icon from "../Icon/IconIndex";
 
 import SocialToggle from "./SectionToggles/SocialToggle";
 
-const Social = ({ index, viewport, changeIndex, sectionData }) => {
+const Social = ({
+  index,
+  mobileViewportPortrait,
+  changeIndex,
+  sectionData,
+}) => {
   const sectionSpring = useSpring({
     width:
       index === null ? "20%" : index === `${sectionData.name}` ? "80%" : "5%",
@@ -51,9 +56,7 @@ const Social = ({ index, viewport, changeIndex, sectionData }) => {
     <Router>
       <animated.section
         className={`main-section ${sectionData.name}-section`}
-        style={
-          viewport !== "mobile-portrait" ? sectionSpring : sectionMobileSpring
-        }
+        style={!mobileViewportPortrait ? sectionSpring : sectionMobileSpring}
       >
         <Link
           className={`title-text main-text ${sectionData.name}-title`}

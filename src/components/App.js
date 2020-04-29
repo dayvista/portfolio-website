@@ -18,7 +18,7 @@ import Titles from "./Sections/Titles";
 const App = () => {
   const [loadedStatus, setLoadedStatus] = useState(false);
   const [index, setIndex] = useState(null);
-  const [viewport, setViewport] = useState("desktop");
+  const [mobileViewportPortrait, setMobileViewportPortrait] = useState(false);
 
   // Fade in on page load
   useEffect(() => {
@@ -34,29 +34,21 @@ const App = () => {
 
   // Make viewport adjustments for mobile responsiveness
   let mqMobilePortrait = window.matchMedia("(max-width: 500px)");
-  let mqMobileLandscape = window.matchMedia(
-    "(max-width: 815px) and (orientation: landscape)"
-  );
 
   useEffect(() => {
     const mediaQueryResponse = (mq) => {
       if (mq.matches && mq.media.includes("500px")) {
-        setViewport("mobile-portrait");
-      } else if (mq.matches && mq.media.includes("landscape")) {
-        setViewport("mobile-landscape");
+        setMobileViewportPortrait(true);
       } else {
-        setViewport("desktop");
+        setMobileViewportPortrait(false);
       }
     };
 
     mediaQueryResponse(mqMobilePortrait);
-    mediaQueryResponse(mqMobileLandscape);
-    mqMobileLandscape.addListener(mediaQueryResponse);
     mqMobilePortrait.addListener(mediaQueryResponse);
 
     return () => {
       mqMobilePortrait.removeListener(mediaQueryResponse);
-      mqMobileLandscape.removeListener(mediaQueryResponse);
     };
   }, []);
 
@@ -99,31 +91,31 @@ const App = () => {
       <animated.div className="container" style={loadedFadeIn}>
         <Projects
           index={index}
-          viewport={viewport}
+          mobileViewportPortrait={mobileViewportPortrait}
           changeIndex={setSelectedIndex}
           sectionData={sectionData[0]}
         />
         <Resume
           index={index}
-          viewport={viewport}
+          mobileViewportPortrait={mobileViewportPortrait}
           changeIndex={setSelectedIndex}
           sectionData={sectionData[1]}
         />
         <Social
           index={index}
-          viewport={viewport}
+          mobileViewportPortrait={mobileViewportPortrait}
           changeIndex={setSelectedIndex}
           sectionData={sectionData[2]}
         />
         <About
           index={index}
-          viewport={viewport}
+          mobileViewportPortrait={mobileViewportPortrait}
           changeIndex={setSelectedIndex}
           sectionData={sectionData[3]}
         />
         <Titles
           index={index}
-          viewport={viewport}
+          mobileViewportPortrait={mobileViewportPortrait}
           changeIndex={setSelectedIndex}
         />
       </animated.div>
