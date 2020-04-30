@@ -27,43 +27,49 @@ const Resume = ({
   const sectionMobileSpring = useSpring({
     height:
       index === null ? "20%" : index === `${sectionData.name}` ? "80%" : "5%",
-    flexDirection:
-      (index === `${sectionData.name}`) & mobileViewportPortrait
-        ? "column"
-        : "row",
     from: {
       height: "20%",
-      flexDirection: "row",
     },
   });
 
   const linkSpring = useSpring({
     cursor: index === `${sectionData.name}` ? "default" : "pointer",
-    width: (index !== `${sectionData.name}`) & (index !== null) ? "75%" : "90%",
+    width:
+      index === `${sectionData.name}`
+        ? "95%"
+        : (index !== `${sectionData.name}`) & (index !== null)
+        ? "75%"
+        : "90%",
     height:
-      (index !== `${sectionData.name}`) & (index !== null) ? "7.5%" : "10%",
+      index === `${sectionData.name}`
+        ? "97.5%"
+        : (index !== `${sectionData.name}`) & (index !== null)
+        ? "7.5%"
+        : "10%",
+    pointerEvents: index === `${sectionData.name}` ? "none" : "auto",
     from: {
       cursor: "pointer",
       width: "90%",
       height: "10%",
+      pointerEvents: "auto",
     },
   });
 
   const linkMobileSpring = useSpring({
-    opacity: index === `${sectionData.name}` ? 0 : 1,
-    width: index === `${sectionData.name}` ? "0%" : "60%",
-    height: index === `${sectionData.name}` ? "0%" : "45%",
+    width: index === `${sectionData.name}` ? "90%" : "60%",
+    height: index === `${sectionData.name}` ? "95%" : "45%",
     from: {
-      opacity: 1,
       width: "60%",
       height: "45%",
     },
   });
 
   const textSpring = useSpring({
-    opacity: (index === null) | (index === `${sectionData.name}`) ? 1 : 0,
+    opacity: index === null ? 1 : 0,
+    fontSize: index === null ? "2rem" : "0rem",
     from: {
       opacity: 1,
+      fontSize: "2rem",
     },
   });
 

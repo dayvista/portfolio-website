@@ -1,3 +1,35 @@
+#about-container {
+  display: flex;
+}
+@media (max-width: 500px) {
+  #about-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+@media (min-width: 500px) {
+  #about-container {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+.about-toggle {
+  background: #fbd7c3;
+  border-radius: 0.5rem;
+}
+#selfie {
+  width: 35%;
+  height: auto;
+  margin-left: 0.5rem;
+  transition: filter 0.3s, -webkit-filter 0.3s;
+}
+@media (max-width: 500px) {
+  #selfie {
+    margin-top: 0.5rem;
+  }
+}
 @media (min-width: 501px) {
   #email-svg {
     transition: filter 0.3s, -webkit-filter 0.3s;
@@ -12,13 +44,4 @@
   #email-svg:hover g path {
     stroke: #fefcfa;
   }
-}
-.about-toggle {
-  background: #fbd7c3;
-  border-radius: 0.5rem;
-}
-#selfie {
-  width: 25%;
-  margin-left: 0.5rem;
-  transition: filter 0.3s, -webkit-filter 0.3s;
 }

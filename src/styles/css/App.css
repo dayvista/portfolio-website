@@ -240,11 +240,19 @@ section .titles-title {
 .titles-section {
   display: flex;
 }
-@media (min-width: 501px) {
+@media (max-width: 500px) {
   .titles-section {
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+  }
+}
+@media (min-width: 501px) {
+  .titles-section {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
   }
 }
 .main-text {

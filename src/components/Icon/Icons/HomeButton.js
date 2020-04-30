@@ -3,9 +3,18 @@
 import React from "react";
 import { animated, useSpring } from "react-spring";
 
-const HomeButton = ({ index, stroke, className }) => {
+const HomeButton = ({ index, mobileViewportPortrait, stroke, className }) => {
   const homeButtonSpring = useSpring({
     width: index !== null ? "5vw" : "0vw",
+    opacity: index !== null ? 1 : 0,
+    from: {
+      width: "0vw",
+      opacity: 0,
+    },
+  });
+
+  const homeButtonMobileSpring = useSpring({
+    width: index !== null ? "9vw" : "0vw",
     opacity: index !== null ? 1 : 0,
     from: {
       width: "0vw",
@@ -17,7 +26,9 @@ const HomeButton = ({ index, stroke, className }) => {
     <animated.svg
       id="back-arrow-svg"
       className={className}
-      style={homeButtonSpring}
+      style={
+        !mobileViewportPortrait ? homeButtonSpring : homeButtonMobileSpring
+      }
       viewBox="0 0 72 72"
       xmlns="http://www.w3.org/2000/svg"
     >

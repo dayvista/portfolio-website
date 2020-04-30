@@ -1,6 +1,7 @@
-#titles-logo svg {
-  height: auto;
-  margin-top: -4.5vw;
+@media (min-width: 501px) {
+  #titles-logo {
+    margin-top: -4.5vw;
+  }
 }
 @media (min-width: 501px) {
   .sidebar-icon {

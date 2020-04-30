@@ -114,8 +114,14 @@ section {
 
 .titles-section {
   display: flex;
+
+  @media (max-width: 500px) {
+    .flex-attributes(row, center, center);
+  }
+
   @media (min-width: 501px) {
-    .flex-attributes(column, center, center);
+    .flex-attributes(row, center, center);
+    flex-wrap: wrap;
   }
 }
 

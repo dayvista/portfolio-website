@@ -51,8 +51,8 @@ const About = ({ index, mobileViewportPortrait, changeIndex, sectionData }) => {
   });
 
   const linkMobileSpring = useSpring({
-    width: index === `${sectionData.name}` ? "75%" : "60%",
-    height: index === `${sectionData.name}` ? "75%" : "45%",
+    width: index === `${sectionData.name}` ? "90%" : "60%",
+    height: index === `${sectionData.name}` ? "95%" : "45%",
     from: {
       width: "60%",
       height: "45%",
@@ -60,16 +60,11 @@ const About = ({ index, mobileViewportPortrait, changeIndex, sectionData }) => {
   });
 
   const textSpring = useSpring({
-    opacity: (index === null) | (index === `${sectionData.name}`) ? 1 : 0,
-    from: {
-      opacity: 1,
-    },
-  });
-
-  const textMobileSpring = useSpring({
     opacity: index === null ? 1 : 0,
+    fontSize: index === null ? "2rem" : "0rem",
     from: {
       opacity: 1,
+      fontSize: "2rem",
     },
   });
 
@@ -107,11 +102,7 @@ const About = ({ index, mobileViewportPortrait, changeIndex, sectionData }) => {
           onClick={handleClick}
           style={!mobileViewportPortrait ? linkSpring : linkMobileSpring}
         >
-          <animated.p
-            style={!mobileViewportPortrait ? textSpring : textMobileSpring}
-          >
-            {sectionData.text}
-          </animated.p>
+          <animated.p style={textSpring}>{sectionData.text}</animated.p>
           <Switch>
             <Route
               exact

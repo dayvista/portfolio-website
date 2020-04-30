@@ -19,10 +19,10 @@ const AboutToggle = ({ index, sectionData, mobileViewportPortrait }) => {
     },
   });
 
-  const toggledMobile = useSpring({});
+  // const toggledMobile = useSpring({});
 
   return (
-    <animated.div style={toggled}>
+    <animated.div id="about-container" style={toggled}>
       <AnimatedIcon name="selfie" />
     </animated.div>
   );

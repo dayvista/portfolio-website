@@ -3,7 +3,7 @@
 import React from "react";
 import { animated, useSpring } from "react-spring";
 
-const Sunrise = ({ index, stroke = "#492b05" }) => {
+const Sunrise = ({ id, index, stroke = "#492b05" }) => {
   const titlesLogoSpring = useSpring({
     width: index === null ? "15vw" : "0vw",
     opacity: index !== null ? 0 : 1,
@@ -15,7 +15,7 @@ const Sunrise = ({ index, stroke = "#492b05" }) => {
 
   return (
     <animated.svg
-      id="sunrise-svg"
+      id={id}
       style={titlesLogoSpring}
       viewBox="0 0 72 72"
       xmlns="http://www.w3.org/2000/svg"
