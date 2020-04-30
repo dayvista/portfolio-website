@@ -2,28 +2,30 @@
 @import (reference) "../mixins";
 
 // Icon SVG hover transition
-.about-toggle {
-  background: lighten(@color-4-orange, 25%);
-  border-radius: 0.5rem;
-  margin-top: 0.75rem;
-}
-
 #email-svg {
-  transition: filter 0.3s, -webkit-filter 0.3s;
-  g {
-    path {
-      transition: stroke 0.3s;
-    }
-  }
-  &:hover {
-    filter: drop-shadow(0px 2px 2px #843408);
-    -webkit-filter: drop-shadow(0px 2px 2px #843408);
+  @media (min-width: 501px) {
+    transition: filter 0.3s, -webkit-filter 0.3s;
     g {
       path {
-        stroke: #fefcfa;
+        transition: stroke 0.3s;
+      }
+    }
+    &:hover {
+      filter: drop-shadow(0px 2px 2px #843408);
+      -webkit-filter: drop-shadow(0px 2px 2px #843408);
+      g {
+        path {
+          stroke: #fefcfa;
+        }
       }
     }
   }
+}
+
+// Toggled section
+.about-toggle {
+  background: lighten(@color-4-orange, 25%);
+  border-radius: 0.5rem;
 }
 
 #selfie {

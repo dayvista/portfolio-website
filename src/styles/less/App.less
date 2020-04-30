@@ -29,7 +29,7 @@ body {
 
 section {
   p,
-  img {
+  svg {
     user-select: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -51,12 +51,6 @@ section {
     p {
       font-size: 2rem;
     }
-
-    a {
-      svg {
-        height: 5vw;
-      }
-    }
   }
 
   // Tablet displays
@@ -76,12 +70,6 @@ section {
   // Tablet and Desktop displays
   @media (min-width: 501px) {
     height: 100%;
-
-    a {
-      svg {
-        width: 5vw;
-      }
-    }
   }
 
   .title-text {
@@ -129,6 +117,10 @@ section {
   @media (min-width: 501px) {
     .flex-attributes(column, center, center);
   }
+}
+
+.main-text {
+  margin-top: 0.5rem;
 }
 
 @import "./Sections/Global";

@@ -7,13 +7,16 @@
 
   .projects-title {
     background: lighten(@color-1-purple, 30%);
-    transition: background 0.25s, box-shadow 0.25s;
 
-    &:hover {
-      background: lighten(@color-1-purple, 35%);
-      box-shadow: @bs-dimensions darken(@color-1-purple, 35%);
-      -moz-box-shadow: @bs-dimensions darken(@color-1-purple, 35%);
-      -webkit-box-shadow: @bs-dimensions darken(@color-1-purple, 35%);
+    @media (min-width: 501px) {
+      transition: background 0.25s, box-shadow 0.25s;
+
+      &:hover {
+        background: lighten(@color-1-purple, 35%);
+        box-shadow: @bs-dimensions darken(@color-1-purple, 35%);
+        -moz-box-shadow: @bs-dimensions darken(@color-1-purple, 35%);
+        -webkit-box-shadow: @bs-dimensions darken(@color-1-purple, 35%);
+      }
     }
   }
 }
@@ -24,13 +27,16 @@
 
   .resume-title {
     background: lighten(@color-2-blue, 30%);
-    transition: background 0.25s, box-shadow 0.25s;
 
-    &:hover {
-      background: lighten(@color-2-blue, 33%);
-      box-shadow: @bs-dimensions darken(@color-2-blue, 35%);
-      -moz-box-shadow: @bs-dimensions darken(@color-2-blue, 35%);
-      -webkit-box-shadow: @bs-dimensions darken(@color-2-blue, 35%);
+    @media (min-width: 501px) {
+      transition: background 0.25s, box-shadow 0.25s;
+
+      &:hover {
+        background: lighten(@color-2-blue, 33%);
+        box-shadow: @bs-dimensions darken(@color-2-blue, 35%);
+        -moz-box-shadow: @bs-dimensions darken(@color-2-blue, 35%);
+        -webkit-box-shadow: @bs-dimensions darken(@color-2-blue, 35%);
+      }
     }
   }
 }
@@ -41,13 +47,16 @@
 
   .social-title {
     background: lighten(@color-3-red, 25%);
-    transition: background 0.25s, box-shadow 0.25s;
 
-    &:hover {
-      background: lighten(@color-3-red, 27.5%);
-      box-shadow: @bs-dimensions darken(@color-3-red, 35%);
-      -moz-box-shadow: @bs-dimensions darken(@color-3-red, 35%);
-      -webkit-box-shadow: @bs-dimensions darken(@color-3-red, 35%);
+    @media (min-width: 501px) {
+      transition: background 0.25s, box-shadow 0.25s;
+
+      &:hover {
+        background: lighten(@color-3-red, 27.5%);
+        box-shadow: @bs-dimensions darken(@color-3-red, 35%);
+        -moz-box-shadow: @bs-dimensions darken(@color-3-red, 35%);
+        -webkit-box-shadow: @bs-dimensions darken(@color-3-red, 35%);
+      }
     }
   }
 }
@@ -58,13 +67,16 @@
 
   .about-title {
     background: lighten(@color-4-orange, 25%);
-    transition: background 0.25s, box-shadow 0.25s;
 
-    &:hover {
-      background: lighten(@color-4-orange, 27.5%);
-      box-shadow: @bs-dimensions darken(@color-4-orange, 35%);
-      -moz-box-shadow: @bs-dimensions darken(@color-4-orange, 35%);
-      -webkit-box-shadow: @bs-dimensions darken(@color-4-orange, 35%);
+    @media (min-width: 501px) {
+      transition: background 0.25s, box-shadow 0.25s;
+
+      &:hover {
+        background: lighten(@color-4-orange, 27.5%);
+        box-shadow: @bs-dimensions darken(@color-4-orange, 35%);
+        -moz-box-shadow: @bs-dimensions darken(@color-4-orange, 35%);
+        -webkit-box-shadow: @bs-dimensions darken(@color-4-orange, 35%);
+      }
     }
   }
 }
@@ -78,9 +90,4 @@
     transition: background 0.25s, box-shadow 0.25s;
     z-index: 0;
   }
-}
-
-svg {
-  width: 7.5vw;
-  height: auto;
 }

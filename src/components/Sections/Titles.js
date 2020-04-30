@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 
 import Icon from "../Icon/IconIndex";
 
+const AnimatedIcon = animated(Icon);
+
 const stroke = "#FAEDDB";
 const homeStroke = "#492b05";
 
@@ -32,15 +34,22 @@ const Titles = ({ index, mobileViewportPortrait, changeIndex }) => {
     },
   });
 
-  const iconsSpring = useSpring({
-    width: index === null ? "0vw" : "5vw",
+  const iconLinksSpring = useSpring({
     opacity: index === null ? 0 : 1,
     pointerEvents: index === null ? "none" : "auto",
 
     from: {
-      width: "0vw",
       opacity: 0,
       pointerEvents: "none",
+    },
+  });
+
+  const iconsSpring = useSpring({
+    width: index === null ? "0vw" : "5vw",
+    height: index === null ? "0vw" : "5vw",
+    from: {
+      width: "0vw",
+      height: "0vw",
     },
   });
 
@@ -59,18 +68,28 @@ const Titles = ({ index, mobileViewportPortrait, changeIndex }) => {
           href="https://github.com/dayvista"
           target="_blank"
           rel="noopener noreferrer"
-          style={iconsSpring}
+          style={iconLinksSpring}
         >
-          <Icon name="github" className="sidebar-icon" stroke={stroke} />
+          <AnimatedIcon
+            name="github"
+            className="sidebar-icon"
+            stroke={stroke}
+            style={iconsSpring}
+          />
         </animated.a>
         <animated.a
           id="linkedin-icon"
           href="https://linkedin.com/in/wjdiii"
           target="_blank"
           rel="noopener noreferrer"
-          style={iconsSpring}
+          style={iconLinksSpring}
         >
-          <Icon name="linkedin" className="sidebar-icon" stroke={stroke} />
+          <AnimatedIcon
+            name="linkedin"
+            className="sidebar-icon"
+            stroke={stroke}
+            style={iconsSpring}
+          />
         </animated.a>
         <animated.div className="title-text titles-title" style={textSpring}>
           <animated.p style={textSpring}>
@@ -97,18 +116,28 @@ const Titles = ({ index, mobileViewportPortrait, changeIndex }) => {
           href="https://twitter.com/dayvista_dev"
           target="_blank"
           rel="noopener noreferrer"
-          style={iconsSpring}
+          style={iconLinksSpring}
         >
-          <Icon name="twitter" className="sidebar-icon" stroke={stroke} />
+          <AnimatedIcon
+            name="twitter"
+            className="sidebar-icon"
+            stroke={stroke}
+            style={iconsSpring}
+          />
         </animated.a>
         <animated.a
           id="email-icon"
           href="mailto:liam@dayvista.dev"
           target="_blank"
           rel="noopener noreferrer"
-          style={iconsSpring}
+          style={iconLinksSpring}
         >
-          <Icon name="email" className="sidebar-icon" stroke={stroke} />
+          <AnimatedIcon
+            name="email"
+            className="sidebar-icon"
+            stroke={stroke}
+            style={iconsSpring}
+          />
         </animated.a>
       </animated.section>
     </Router>

@@ -6,6 +6,7 @@ const Twitter = ({ style = {}, className, stroke = "#fde3de", id }) => (
   <svg
     id={id}
     className={className}
+    style={style}
     viewBox="0 0 72 72"
     xmlns="http://www.w3.org/2000/svg"
   >
