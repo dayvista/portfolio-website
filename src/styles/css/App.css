@@ -249,10 +249,9 @@ section .titles-title {
 }
 @media (min-width: 501px) {
   .titles-section {
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
   }
 }
 .main-text {
