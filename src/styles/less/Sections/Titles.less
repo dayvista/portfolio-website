@@ -7,12 +7,14 @@
   }
 }
 
-.sidebar-icon {
+.sidebar-icon,
+#homebutton-svg {
   @media (min-width: 501px) {
     transition: filter 0.3s, -webkit-filter 0.3s;
 
     g {
       path,
+      polyline,
       circle,
       rect {
         transition: stroke 0.3s, fill 0.3s;
@@ -38,6 +40,7 @@
 
       #line {
         path,
+        polyline,
         circle,
         rect {
           stroke: #fcf3e8;
@@ -47,13 +50,13 @@
   }
 }
 
-#back-arrow-svg {
-  @media (min-width: 501px) {
-    transition: filter 0.3s, -webkit-filter 0.3s;
+// #back-arrow-svg {
+//   @media (min-width: 501px) {
+//     transition: filter 0.3s, -webkit-filter 0.3s;
 
-    &:hover {
-      filter: drop-shadow(0px 2px 2px #894a06);
-      -webkit-filter: drop-shadow(0px 2px 2px #894a06);
-    }
-  }
-}
+//     &:hover {
+//       filter: drop-shadow(0px 2px 2px #894a06);
+//       -webkit-filter: drop-shadow(0px 2px 2px #894a06);
+//     }
+//   }
+// }

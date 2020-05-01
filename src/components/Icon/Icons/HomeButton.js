@@ -24,7 +24,7 @@ const HomeButton = ({ index, mobileViewportPortrait, stroke, className }) => {
 
   return (
     <animated.svg
-      id="back-arrow-svg"
+      id="homebutton-svg"
       className={className}
       style={
         !mobileViewportPortrait ? homeButtonSpring : homeButtonMobileSpring

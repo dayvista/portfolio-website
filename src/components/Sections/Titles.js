@@ -7,8 +7,7 @@ import Icon from "../Icon/IconIndex";
 
 const AnimatedIcon = animated(Icon);
 
-const stroke = "#FAEDDB";
-const homeStroke = "#492b05";
+const stroke = "#492b05";
 
 const Titles = ({ index, mobileViewportPortrait, changeIndex }) => {
   const sectionSpring = useSpring({
@@ -138,7 +137,7 @@ const Titles = ({ index, mobileViewportPortrait, changeIndex }) => {
           <Icon
             name="home-button"
             index={index}
-            stroke={homeStroke}
+            stroke={stroke}
             mobileViewportPortrait={mobileViewportPortrait}
           />
         </Link>
