@@ -41,12 +41,10 @@ const About = ({ index, mobileViewportPortrait, changeIndex, sectionData }) => {
         : (index !== `${sectionData.name}`) & (index !== null)
         ? "7.5%"
         : "10%",
-    pointerEvents: index === `${sectionData.name}` ? "none" : "auto",
     from: {
       cursor: "pointer",
       width: "90%",
       height: "10%",
-      pointerEvents: "auto",
     },
   });
 
@@ -98,6 +96,9 @@ const About = ({ index, mobileViewportPortrait, changeIndex, sectionData }) => {
       >
         <AnimatedLink
           className={`title-text main-text ${sectionData.name}-title`}
+          id={
+            index !== `${sectionData.name}` ? `${sectionData.name}-hover` : ``
+          }
           to="about"
           onClick={handleClick}
           style={!mobileViewportPortrait ? linkSpring : linkMobileSpring}

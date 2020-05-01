@@ -1,4 +1,5 @@
 #about-container {
+  color: #4a1e07;
   display: flex;
 }
 @media (max-width: 500px) {
@@ -12,7 +13,27 @@
   #about-container {
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
+  }
+}
+@media (min-width: 501px) {
+  #about-container {
+    scrollbar-color: #fbd7c3 #843408;
+    scrollbar-width: thin;
+  }
+  #about-container ::-webkit-scrollbar {
+    width: 1rem;
+    background: inherit;
+  }
+  #about-container ::-webkit-scrollbar-track {
+    background-clip: content-box;
+  }
+  #about-container ::-webkit-scrollbar-thumb {
+    background: #843408;
+    border-radius: 0.5rem;
+  }
+  #about-container ::-webkit-scrollbar-thumb:hover {
+    background: #a8420a;
   }
 }
 .about-toggle {
@@ -20,14 +41,61 @@
   border-radius: 0.5rem;
 }
 #selfie {
-  width: 35%;
   height: auto;
-  margin-left: 0.5rem;
   transition: filter 0.3s, -webkit-filter 0.3s;
 }
 @media (max-width: 500px) {
   #selfie {
     margin-top: 0.5rem;
+    width: 100%;
+  }
+  #selfie svg {
+    margin: 0.5rem 0 0 1.5rem;
+  }
+}
+@media (min-width: 501px) {
+  #selfie {
+    width: 35%;
+    margin: 0.5rem 0 0 1.5rem;
+  }
+}
+#about-text-container {
+  font-weight: normal;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+#about-text-container p {
+  font-family: "Jost", sans-serif;
+  text-align: justify;
+  text-indent: 2rem;
+}
+@media (max-width: 500px) {
+  #about-text-container p {
+    line-height: 2.5rem;
+    margin: 0 1.1rem 1.1rem 1.1rem;
+  }
+}
+@media (min-width: 501px) {
+  #about-text-container p {
+    line-height: 3rem;
+    margin: 0 4rem 1.1rem 1.1rem;
+  }
+}
+@media (max-width: 500px) {
+  #about-text-container {
+    width: 100%;
+    height: 95%;
+    font-size: 2.25rem;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #843408 5%, #843408 95%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #843408 5%, #843408 95%, transparent 100%);
+  }
+}
+@media (min-width: 501px) {
+  #about-text-container {
+    width: 60%;
+    height: 95%;
+    font-size: 2.5rem;
+    margin: 1.1rem 2rem 1.1rem 1.1rem;
   }
 }
 @media (min-width: 501px) {

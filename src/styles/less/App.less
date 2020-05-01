@@ -12,7 +12,8 @@ body {
   color: white;
 }
 
-.container {
+// Body of application
+#display {
   display: flex;
   width: 100%;
   height: calc(100%);
@@ -28,8 +29,7 @@ body {
 }
 
 section {
-  p,
-  svg {
+  p {
     user-select: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -47,24 +47,6 @@ section {
   @media (max-width: 500px) {
     width: 100%;
     .flex-attributes(row, center, center);
-
-    p {
-      font-size: 2rem;
-    }
-  }
-
-  // Tablet displays
-  @media (min-width: 501px) and (max-width: 1024px) {
-    p {
-      font-size: 1.25rem;
-    }
-  }
-
-  // Desktop displays
-  @media (min-width: 1025px) {
-    p {
-      font-size: 2.25rem;
-    }
   }
 
   // Tablet and Desktop displays
@@ -85,14 +67,7 @@ section {
     .flex-attributes(column, center, center);
 
     @media (max-width: 500px) {
-      width: 60%;
-      height: 45%;
       margin: 0 1rem;
-    }
-
-    @media (min-width: 501px) {
-      width: 90%;
-      height: 15%;
     }
   }
 

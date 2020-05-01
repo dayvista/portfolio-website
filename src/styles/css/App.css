@@ -133,21 +133,21 @@ body {
   font-family: "Montserrat", sans-serif;
   color: white;
 }
-.container {
+#display {
   display: flex;
   width: 100%;
   height: calc(100%);
   position: fixed;
 }
 @media (max-width: 500px) {
-  .container {
+  #display {
     flex-direction: column-reverse;
     justify-content: flex-start;
     align-items: flex-start;
   }
 }
 @media (min-width: 501px) {
-  .container {
+  #display {
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
@@ -156,8 +156,7 @@ body {
 section {
   display: flex;
 }
-section p,
-section svg {
+section p {
   user-select: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -173,19 +172,6 @@ section p {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-  }
-  section p {
-    font-size: 2rem;
-  }
-}
-@media (min-width: 501px) and (max-width: 1024px) {
-  section p {
-    font-size: 1.25rem;
-  }
-}
-@media (min-width: 1025px) {
-  section p {
-    font-size: 2.25rem;
   }
 }
 @media (min-width: 501px) {
@@ -208,15 +194,7 @@ section .title-text {
 }
 @media (max-width: 500px) {
   section .title-text {
-    width: 60%;
-    height: 45%;
     margin: 0 1rem;
-  }
-}
-@media (min-width: 501px) {
-  section .title-text {
-    width: 90%;
-    height: 15%;
   }
 }
 section .titles-title {
@@ -265,10 +243,10 @@ section .titles-title {
   background: #a999bc;
 }
 @media (min-width: 501px) {
-  .projects-section .projects-title {
+  .projects-section #projects-hover {
     transition: background 0.25s, box-shadow 0.25s;
   }
-  .projects-section .projects-title:hover {
+  .projects-section #projects-hover:hover {
     background: #b6a8c7;
     box-shadow: 0px 2px 4px 1px #050406;
     -moz-box-shadow: 0px 2px 4px 1px #050406;
@@ -283,10 +261,10 @@ section .titles-title {
   background: #dabac3;
 }
 @media (min-width: 501px) {
-  .resume-section .resume-title {
+  .resume-section #resume-hover {
     transition: background 0.25s, box-shadow 0.25s;
   }
-  .resume-section .resume-title:hover {
+  .resume-section #resume-hover:hover {
     background: #dfc4cc;
     box-shadow: 0px 2px 4px 1px #2f191f;
     -moz-box-shadow: 0px 2px 4px 1px #2f191f;
@@ -301,10 +279,10 @@ section .titles-title {
   background: #fbcfc6;
 }
 @media (min-width: 501px) {
-  .social-section .social-title {
+  .social-section #social-hover {
     transition: background 0.25s, box-shadow 0.25s;
   }
-  .social-section .social-title:hover {
+  .social-section #social-hover:hover {
     background: #fcd9d2;
     box-shadow: 0px 2px 4px 1px #871e08;
     -moz-box-shadow: 0px 2px 4px 1px #871e08;
@@ -319,10 +297,10 @@ section .titles-title {
   background: #fbd7c3;
 }
 @media (min-width: 501px) {
-  .about-section .about-title {
+  .about-section #about-hover {
     transition: background 0.25s, box-shadow 0.25s;
   }
-  .about-section .about-title:hover {
+  .about-section #about-hover:hover {
     background: #fcdfcf;
     box-shadow: 0px 2px 4px 1px #843408;
     -moz-box-shadow: 0px 2px 4px 1px #843408;

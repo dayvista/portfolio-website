@@ -88,7 +88,7 @@ const App = () => {
 
   return (
     <Fragment>
-      <animated.div className="container" style={loadedFadeIn}>
+      <animated.div id="display" style={loadedFadeIn}>
         <Projects
           index={index}
           mobileViewportPortrait={mobileViewportPortrait}

@@ -103,6 +103,9 @@ const Social = ({
       >
         <AnimatedLink
           className={`title-text main-text ${sectionData.name}-title`}
+          id={
+            index !== `${sectionData.name}` ? `${sectionData.name}-hover` : ``
+          }
           to={`/${sectionData.name}`}
           onClick={handleClick}
           style={!mobileViewportPortrait ? linkSpring : linkMobileSpring}
