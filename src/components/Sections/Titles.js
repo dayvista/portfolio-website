@@ -86,6 +86,25 @@ const Titles = ({ index, mobileViewportPortrait, changeIndex }) => {
 
   const handleClick = () => {
     changeIndex(null);
+    editLinks();
+  };
+
+  const editLinks = () => {
+    let allLinks = document.querySelectorAll(".main-text");
+
+    allLinks.forEach((node) => {
+      if (node.id !== "selected-link" && !node.hasAttribute("href")) {
+        if (node.classList[2] === "projects-title") {
+          node.href = "/projects";
+        } else if (node.classList[2] === "resume-title") {
+          node.href = "/resume";
+        } else if (node.classList[2] === "social-title") {
+          node.href = "/social";
+        } else if (node.classList[2] === "about-title") {
+          node.href = "/about";
+        }
+      }
+    });
   };
 
   return (

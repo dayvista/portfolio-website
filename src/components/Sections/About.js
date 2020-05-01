@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { animated, useSpring } from "react-spring";
@@ -11,6 +11,10 @@ const AnimatedLink = animated(Link);
 const AnimatedIcon = animated(Icon);
 
 const About = ({ index, mobileViewportPortrait, changeIndex, sectionData }) => {
+  useEffect(() => {
+    editLinks();
+  }, [index === `${sectionData.name}`]);
+
   const sectionSpring = useSpring({
     width:
       index === null ? "20%" : index === `${sectionData.name}` ? "80%" : "5%",
@@ -85,7 +89,32 @@ const About = ({ index, mobileViewportPortrait, changeIndex, sectionData }) => {
   });
 
   const handleClick = () => {
-    changeIndex("about");
+    changeIndex(`${sectionData.name}`);
+    editLinks();
+  };
+
+  const editLinks = () => {
+    if (document.getElementById(`selected-link`)) {
+      if (document.getElementById(`selected-link`).hasAttribute("href")) {
+        document.getElementById(`selected-link`).removeAttribute("href");
+      }
+    }
+
+    let notSelected = document.querySelectorAll(".main-text");
+
+    notSelected.forEach((node) => {
+      if (node.id !== "selected-link" && !node.hasAttribute("href")) {
+        if (node.classList[2] === "projects-title") {
+          node.href = "/projects";
+        } else if (node.classList[2] === "resume-title") {
+          node.href = "/resume";
+        } else if (node.classList[2] === "social-title") {
+          node.href = "/social";
+        } else if (node.classList[2] === "about-title") {
+          node.href = "/about";
+        }
+      }
+    });
   };
 
   return (
@@ -97,7 +126,9 @@ const About = ({ index, mobileViewportPortrait, changeIndex, sectionData }) => {
         <AnimatedLink
           className={`title-text main-text ${sectionData.name}-title`}
           id={
-            index !== `${sectionData.name}` ? `${sectionData.name}-hover` : ``
+            index !== `${sectionData.name}`
+              ? `${sectionData.name}-hover`
+              : `selected-link`
           }
           to="about"
           onClick={handleClick}

@@ -44,22 +44,32 @@
   border-radius: 0.5rem;
 }
 
-#selfie {
-  height: auto;
-  transition: filter 0.3s, -webkit-filter 0.3s;
+#portrait-container {
+  width: 35%;
 
-  @media (max-width: 500px) {
-    margin-top: 0.5rem;
-    width: 100%;
-    svg {
+  display: flex;
+  .flex-attributes(column, center, center);
+
+  #selfie {
+    height: auto;
+    transition: filter 0.3s, -webkit-filter 0.3s;
+
+    @media (max-width: 500px) {
+      margin-top: 0.5rem;
+      width: 100%;
+      svg {
+        margin: 0.5rem 0 0 1.5rem;
+      }
+    }
+
+    @media (min-width: 501px) {
+      width: 100%;
       margin: 0.5rem 0 0 1.5rem;
     }
   }
 
-  @media (min-width: 501px) {
-    width: 35%;
-
-    margin: 0.5rem 0 0 1.5rem;
+  .skill-icon {
+    width: 2vw;
   }
 }
 

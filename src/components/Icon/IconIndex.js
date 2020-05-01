@@ -1,7 +1,7 @@
 // THANKS TO THE OPENMOJI TEAM @ https://openmoji.org/ for supplying the open-source emoji icons used in this project
 // All emojis designed by OpenMoji – the open-source emoji and icon project. License: CC BY-SA 4.0
 
-import React from "react";
+import React, { Fragment } from "react";
 
 import HomeButton from "./Icons/HomeButton";
 import GitHub from "./Icons/GitHub";
@@ -10,6 +10,13 @@ import Twitter from "./Icons/Twitter";
 import Email from "./Icons/Email";
 import Sunrise from "./Icons/Sunrise";
 import Selfie from "./Icons/Selfie";
+
+import Html from "./Icons/Skills/Html";
+import Css from "./Icons/Skills/Css";
+import JavaScript from "./Icons/Skills/JavaScript";
+import ReactJS from "./Icons/Skills/ReactJS";
+import NodeJS from "./Icons/Skills/NodeJS";
+import Python from "./Icons/Skills/Python";
 
 const Icon = (props) => {
   switch (props.name) {
@@ -27,8 +34,20 @@ const Icon = (props) => {
       return <HomeButton {...props} />;
     case "selfie":
       return <Selfie {...props} />;
+    case "html":
+      return <Html {...props} />;
+    case "css":
+      return <Css {...props} />;
+    case "javascript":
+      return <JavaScript {...props} />;
+    case "react":
+      return <ReactJS {...props} />;
+    case "node":
+      return <NodeJS {...props} />;
+    case "python":
+      return <Python {...props} />;
     default:
-      return <div />;
+      return <Fragment />;
   }
 };
 
