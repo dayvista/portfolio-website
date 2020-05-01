@@ -66,8 +66,19 @@
     margin: 0.5rem 0 0 1.5rem;
   }
 }
-#portrait-container .skill-icon {
-  width: 2vw;
+#portrait-container #skills-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#portrait-container #skills-container .row {
+  margin: 0.5rem 0;
+}
+#portrait-container #skills-container .row .skill-icon {
+  margin: 0 1rem;
+  width: 4vw;
+  height: 4vw;
 }
 #about-text-container {
   font-weight: normal;

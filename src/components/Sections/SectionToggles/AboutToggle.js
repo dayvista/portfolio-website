@@ -37,42 +37,46 @@ const AboutToggle = ({ index, sectionData, mobileViewportPortrait }) => {
           id="skills-container"
           style={{ opacity, ...toggledProps }}
         >
-          <AnimatedIcon
-            name="html"
-            className="skill-icon"
-            fill="#4A1E07"
-            style={{ opacity, ...toggledProps }}
-          />
-          <AnimatedIcon
-            name="css"
-            className="skill-icon"
-            fill="#4A1E07"
-            style={{ opacity, ...toggledProps }}
-          />
-          <AnimatedIcon
-            name="javascript"
-            className="skill-icon"
-            fill="#4A1E07"
-            style={{ opacity, ...toggledProps }}
-          />
-          <AnimatedIcon
-            name="react"
-            className="skill-icon"
-            fill="#4A1E07"
-            style={{ opacity, ...toggledProps }}
-          />
-          <AnimatedIcon
-            name="node"
-            className="skill-icon"
-            fill="#4A1E07"
-            style={{ opacity, ...toggledProps }}
-          />
-          <AnimatedIcon
-            name="python"
-            className="skill-icon"
-            fill="#4A1E07"
-            style={{ opacity, ...toggledProps }}
-          />
+          <animated.div className="row" style={{ opacity, ...toggledProps }}>
+            <AnimatedIcon
+              name="html"
+              className="skill-icon"
+              fill="#4A1E07"
+              style={{ opacity, ...toggledProps }}
+            />
+            <AnimatedIcon
+              name="css"
+              className="skill-icon"
+              fill="#4A1E07"
+              style={{ opacity, ...toggledProps }}
+            />
+            <AnimatedIcon
+              name="javascript"
+              className="skill-icon"
+              fill="#4A1E07"
+              style={{ opacity, ...toggledProps }}
+            />
+          </animated.div>
+          <animated.div className="row" style={{ opacity, ...toggledProps }}>
+            <AnimatedIcon
+              name="react"
+              className="skill-icon"
+              fill="#4A1E07"
+              style={{ opacity, ...toggledProps }}
+            />
+            <AnimatedIcon
+              name="node"
+              className="skill-icon"
+              fill="#4A1E07"
+              style={{ opacity, ...toggledProps }}
+            />
+            <AnimatedIcon
+              name="python"
+              className="skill-icon"
+              fill="#4A1E07"
+              style={{ opacity, ...toggledProps }}
+            />
+          </animated.div>
         </animated.div>
       </animated.div>
       <animated.div

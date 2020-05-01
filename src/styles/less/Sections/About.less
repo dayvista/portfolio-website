@@ -68,8 +68,20 @@
     }
   }
 
-  .skill-icon {
-    width: 2vw;
+  #skills-container {
+    display: flex;
+    .flex-attributes(column, center, center);
+
+    .row {
+      margin: 0.5rem 0;
+
+      .skill-icon {
+        margin: 0 1rem;
+
+        width: 4vw;
+        height: 4vw;
+      }
+    }
   }
 }
 
