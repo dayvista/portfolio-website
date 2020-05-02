@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { animated, interpolate, useSpring } from "react-spring";
 
 import Icon from "../../Icon/IconIndex";
@@ -8,6 +8,12 @@ const AnimatedIcon = animated(Icon);
 import "../../../styles/css/Sections/About.css";
 
 const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
+  // useEffect(() => {
+  //   if (document.querySelector("#about-text-container")) {
+  //     console.log(document.querySelector("#about-text-container").style.zIndex);
+  //   }
+  // }, []);
+
   const { opacity, width, height, ...toggledProps } = useSpring({
     opacity: index === `${sectionData.name}` ? 1 : 0,
     width: index === `${sectionData.name}` ? "100%" : "0%",
@@ -43,8 +49,10 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
 
   const textSectionSpring = useSpring({
     opacity: index === `${sectionData.name}` ? 1 : 0,
+    pointerEvents: index === `${sectionData.name}` ? "auto" : "inherit",
     from: {
       opacity: 0,
+      pointerEvents: "inherit",
     },
   });
 
@@ -222,6 +230,7 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
             range: [0, 0.5, 1],
             output: [0, 1, 1],
           }),
+          pointerEvents: textSectionSpring.pointerEvents,
         }}
       >
         <animated.p style={{ opacity, ...toggledProps }}>

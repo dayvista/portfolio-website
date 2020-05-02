@@ -11,6 +11,10 @@ const AnimatedLink = animated(Link);
 const AnimatedIcon = animated(Icon);
 
 const About = ({ index, mVP, tVP, changeIndex, sectionData }) => {
+  // useEffect(() => {
+  //   console.log(document.querySelector(".about-title"));
+  // }, []);
+
   useEffect(() => {
     editLinks();
   }, [index === `${sectionData.name}`]);
@@ -55,9 +59,11 @@ const About = ({ index, mVP, tVP, changeIndex, sectionData }) => {
   const linkTabletSpring = useSpring({
     width: index === `${sectionData.name}` ? "90%" : "80%",
     height: index === `${sectionData.name}` ? "95%" : "45%",
+    pointerEvents: index === `${sectionData.name}` ? "none" : "auto",
     from: {
       width: "80%",
       height: "45%",
+      pointerEvents: "none",
     },
   });
 
@@ -68,6 +74,7 @@ const About = ({ index, mVP, tVP, changeIndex, sectionData }) => {
     from: {
       width: "60%",
       height: "45%",
+      pointerEvents: "none",
     },
   });
 
