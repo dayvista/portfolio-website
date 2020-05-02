@@ -8,12 +8,6 @@ const AnimatedIcon = animated(Icon);
 import "../../../styles/css/Sections/About.css";
 
 const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
-  // useEffect(() => {
-  //   if (document.querySelector("#about-text-container")) {
-  //     console.log(document.querySelector("#about-text-container").style.zIndex);
-  //   }
-  // }, []);
-
   const { opacity, width, height, ...toggledProps } = useSpring({
     opacity: index === `${sectionData.name}` ? 1 : 0,
     width: index === `${sectionData.name}` ? "100%" : "0%",

@@ -164,21 +164,22 @@ const Projects = ({ index, mVP, tVP, changeIndex, sectionData }) => {
           <animated.p style={!tVP ? textSpring : textTabletSpring}>
             {sectionData.text}
           </animated.p>
+          <Switch>
+            <Route
+              exact
+              path="/projects"
+              render={(props) => (
+                <ProjectsToggle
+                  {...props}
+                  index={index}
+                  sectionData={sectionData}
+                  mVP={mVP}
+                  tVP={tVP}
+                />
+              )}
+            />
+          </Switch>
         </AnimatedLink>
-        <Switch>
-          <Route
-            exact
-            path="/projects"
-            render={(props) => (
-              <ProjectsToggle
-                {...props}
-                index={index}
-                sectionData={sectionData}
-                mVP={mVP}
-              />
-            )}
-          />
-        </Switch>
         <animated.a
           id={`${sectionData.name}-icon`}
           href={`${sectionData.link}`}

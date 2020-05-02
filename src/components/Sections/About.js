@@ -11,10 +11,6 @@ const AnimatedLink = animated(Link);
 const AnimatedIcon = animated(Icon);
 
 const About = ({ index, mVP, tVP, changeIndex, sectionData }) => {
-  // useEffect(() => {
-  //   console.log(document.querySelector(".about-title"));
-  // }, []);
-
   useEffect(() => {
     editLinks();
   }, [index === `${sectionData.name}`]);

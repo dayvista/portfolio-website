@@ -1,6 +1,34 @@
 @import (reference) "../variables";
 @import (reference) "../mixins";
 
+#projects-container {
+  display: flex;
+  .flex-attributes(row, center, center);
+}
+
+.carousel-container {
+  overflow: hidden;
+  .flex-attributes(row, center, center);
+  display: flex;
+}
+
+.carousel-slider {
+  display: flex;
+  .flex-attributes(row, center, center);
+  overflow: hidden;
+
+  img {
+    margin: 0 2rem;
+    width: 15%;
+  }
+}
+
+#back-arrow-icon,
+#next-arrow-icon {
+  width: 5rem;
+  height: 5rem;
+}
+
 // Icon SVG hover transition
 #github-svg {
   @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {

@@ -3,6 +3,7 @@
 
 import React, { Fragment } from "react";
 
+// UI icons
 import HomeButton from "./Icons/HomeButton";
 import GitHub from "./Icons/GitHub";
 import LinkedIn from "./Icons/LinkedIn";
@@ -11,12 +12,17 @@ import Email from "./Icons/Email";
 import Sunrise from "./Icons/Sunrise";
 import Selfie from "./Icons/Selfie";
 
+// Skill icons
 import Html from "./Icons/Skills/Html";
 import Css from "./Icons/Skills/Css";
 import JavaScript from "./Icons/Skills/JavaScript";
 import ReactJS from "./Icons/Skills/ReactJS";
 import NodeJS from "./Icons/Skills/NodeJS";
 import Python from "./Icons/Skills/Python";
+
+// Carousel icons
+import BackArrow from "./Icons/Carousel/BackArrow";
+import NextArrow from "./Icons/Carousel/NextArrow";
 
 const Icon = (props) => {
   switch (props.name) {
@@ -46,6 +52,10 @@ const Icon = (props) => {
       return <NodeJS {...props} />;
     case "python":
       return <Python {...props} />;
+    case "back-arrow":
+      return <BackArrow {...props} />;
+    case "next-arrow":
+      return <NextArrow {...props} />;
     default:
       return <Fragment />;
   }

@@ -1,3 +1,32 @@
+#projects-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.carousel-container {
+  overflow: hidden;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.carousel-slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.carousel-slider img {
+  margin: 0 2rem;
+  width: 15%;
+}
+#back-arrow-icon,
+#next-arrow-icon {
+  width: 5rem;
+  height: 5rem;
+}
 @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
   #github-svg {
     margin-top: 1.25rem;
