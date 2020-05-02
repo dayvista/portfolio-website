@@ -10,12 +10,7 @@ import ProjectsToggle from "./SectionToggles/ProjectsToggle";
 const AnimatedLink = animated(Link);
 const AnimatedIcon = animated(Icon);
 
-const Projects = ({
-  index,
-  mobileViewportPortrait,
-  changeIndex,
-  sectionData,
-}) => {
+const Projects = ({ index, mVP, tVP, changeIndex, sectionData }) => {
   useEffect(() => {
     editLinks();
   }, [index === `${sectionData.name}`]);
@@ -57,6 +52,15 @@ const Projects = ({
     },
   });
 
+  const linkTabletSpring = useSpring({
+    width: index === `${sectionData.name}` ? "90%" : "80%",
+    height: index === `${sectionData.name}` ? "95%" : "45%",
+    from: {
+      width: "80%",
+      height: "45%",
+    },
+  });
+
   const linkMobileSpring = useSpring({
     width: index === `${sectionData.name}` ? "90%" : "60%",
     height: index === `${sectionData.name}` ? "95%" : "45%",
@@ -75,6 +79,15 @@ const Projects = ({
     },
   });
 
+  const textTabletSpring = useSpring({
+    opacity: index === null ? 1 : 0,
+    fontSize: index === null ? "4rem" : "0rem",
+    from: {
+      opacity: 1,
+      fontSize: "4rem",
+    },
+  });
+
   const iconLinkSpring = useSpring({
     opacity: index === null ? 1 : 0,
     pointerEvents: index === null ? "auto" : "none",
@@ -90,6 +103,15 @@ const Projects = ({
     from: {
       width: "5.5rem",
       height: "5.5rem",
+    },
+  });
+
+  const iconTabletSpring = useSpring({
+    width: index === null ? "6.5rem" : "0rem",
+    height: index === null ? "6.5rem" : "0rem",
+    from: {
+      width: "6.5rem",
+      height: "6.5rem",
     },
   });
 
@@ -126,7 +148,7 @@ const Projects = ({
     <Router>
       <animated.section
         className={`main-section ${sectionData.name}-section`}
-        style={!mobileViewportPortrait ? sectionSpring : sectionMobileSpring}
+        style={!mVP ? sectionSpring : sectionMobileSpring}
       >
         <AnimatedLink
           className={`title-text main-text ${sectionData.name}-title`}
@@ -137,9 +159,11 @@ const Projects = ({
           }
           to={`/${sectionData.name}`}
           onClick={handleClick}
-          style={!mobileViewportPortrait ? linkSpring : linkMobileSpring}
+          style={!mVP ? linkSpring : tVP ? linkTabletSpring : linkMobileSpring}
         >
-          <animated.p style={textSpring}>{sectionData.text}</animated.p>
+          <animated.p style={!tVP ? textSpring : textTabletSpring}>
+            {sectionData.text}
+          </animated.p>
         </AnimatedLink>
         <Switch>
           <Route
@@ -150,7 +174,7 @@ const Projects = ({
                 {...props}
                 index={index}
                 sectionData={sectionData}
-                mobileViewportPortrait={mobileViewportPortrait}
+                mVP={mVP}
               />
             )}
           />
@@ -165,7 +189,7 @@ const Projects = ({
           <AnimatedIcon
             name={`${sectionData.icon}`}
             id={`${sectionData.icon}-svg`}
-            style={iconSpring}
+            style={!tVP ? iconSpring : iconTabletSpring}
           />
         </animated.a>
       </animated.section>

@@ -141,7 +141,7 @@ body {
 }
 @media (max-width: 500px) {
   #display {
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
   }
@@ -155,7 +155,7 @@ body {
 }
 @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
   #display {
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
   }
@@ -212,12 +212,9 @@ section .title-text {
     margin: 0 1rem;
   }
 }
-section .titles-title {
-  cursor: default;
-}
-@media (max-width: 500px) {
+@media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
   section .titles-title {
-    width: 40%;
+    margin: 0 5rem;
   }
 }
 .main-section {

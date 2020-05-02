@@ -18,7 +18,8 @@ import Titles from "./Sections/Titles";
 const App = () => {
   const [loadedStatus, setLoadedStatus] = useState(false);
   const [index, setIndex] = useState(null);
-  const [mobileViewportPortrait, setMobileViewportPortrait] = useState(false);
+  const [mVP, setMVP] = useState(false);
+  const [tVP, setTVP] = useState(false);
 
   // Fade in on page load
   useEffect(() => {
@@ -40,13 +41,13 @@ const App = () => {
 
   useEffect(() => {
     const mediaQueryResponse = (mq) => {
-      console.log(mq);
       if (mq.matches && mq.media.includes("500px")) {
-        setMobileViewportPortrait(true);
+        setMVP(true);
       } else if (mq.matches && mq.media.includes("portrait")) {
-        setMobileViewportPortrait(true);
+        setMVP(true);
+        setTVP(true);
       } else {
-        setMobileViewportPortrait(false);
+        setMVP(false);
       }
     };
 
@@ -101,31 +102,36 @@ const App = () => {
       <animated.div id="display" style={loadedFadeIn}>
         <Projects
           index={index}
-          mobileViewportPortrait={mobileViewportPortrait}
+          mVP={mVP}
+          tVP={tVP}
           changeIndex={setSelectedIndex}
           sectionData={sectionData[0]}
         />
         <Resume
           index={index}
-          mobileViewportPortrait={mobileViewportPortrait}
+          mVP={mVP}
+          tVP={tVP}
           changeIndex={setSelectedIndex}
           sectionData={sectionData[1]}
         />
         <Social
           index={index}
-          mobileViewportPortrait={mobileViewportPortrait}
+          mVP={mVP}
+          tVP={tVP}
           changeIndex={setSelectedIndex}
           sectionData={sectionData[2]}
         />
         <About
           index={index}
-          mobileViewportPortrait={mobileViewportPortrait}
+          mVP={mVP}
+          tVP={tVP}
           changeIndex={setSelectedIndex}
           sectionData={sectionData[3]}
         />
         <Titles
           index={index}
-          mobileViewportPortrait={mobileViewportPortrait}
+          mVP={mVP}
+          tVP={tVP}
           changeIndex={setSelectedIndex}
         />
       </animated.div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { animated, useSpring } from "react-spring";
+import { animated, interpolate, useSpring } from "react-spring";
 
 import Icon from "../../Icon/IconIndex";
 
@@ -7,7 +7,7 @@ const AnimatedIcon = animated(Icon);
 
 import "../../../styles/css/Sections/About.css";
 
-const AboutToggle = ({ index, sectionData, mobileViewportPortrait }) => {
+const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
   const { opacity, width, height, ...toggledProps } = useSpring({
     opacity: index === `${sectionData.name}` ? 1 : 0,
     width: index === `${sectionData.name}` ? "100%" : "0%",
@@ -19,18 +19,18 @@ const AboutToggle = ({ index, sectionData, mobileViewportPortrait }) => {
     },
   });
 
-  const iconSpring = useSpring({
+  const iconsSpring = useSpring({
     opacity: index === `${sectionData.name}` ? 1 : 0,
-    width: index === `${sectionData.name}` ? "4vw" : "0vw",
-    height: index === `${sectionData.name}` ? "4vw" : "0vw",
+    width: index === `${sectionData.name}` ? 1 : 0,
+    height: index === `${sectionData.name}` ? 1 : 0,
     from: {
       opacity: 0,
-      width: "0vw",
-      height: "0vw",
+      width: 0,
+      height: 0,
     },
   });
 
-  const iconMobileSpring = useSpring({
+  const iconsMobileSpring = useSpring({
     opacity: index === `${sectionData.name}` ? 1 : 0,
     width: index === `${sectionData.name}` ? "9vw" : "0vw",
     height: index === `${sectionData.name}` ? "9vw" : "0vw",
@@ -38,6 +38,13 @@ const AboutToggle = ({ index, sectionData, mobileViewportPortrait }) => {
       opacity: 0,
       width: "0vw",
       height: "0vw",
+    },
+  });
+
+  const textSectionSpring = useSpring({
+    opacity: index === `${sectionData.name}` ? 1 : 0,
+    from: {
+      opacity: 0,
     },
   });
 
@@ -53,7 +60,12 @@ const AboutToggle = ({ index, sectionData, mobileViewportPortrait }) => {
         <AnimatedIcon
           name="selfie"
           fill="#4A1E07"
-          style={{ opacity, ...toggledProps }}
+          style={{
+            opacity: iconsSpring.opacity.interpolate({
+              range: [0, 0.5, 1],
+              output: [0, 1, 1],
+            }),
+          }}
         />
         <animated.div
           id="skills-container"
@@ -64,19 +76,70 @@ const AboutToggle = ({ index, sectionData, mobileViewportPortrait }) => {
               name="html"
               className="skill-icon"
               fill="#4A1E07"
-              style={!mobileViewportPortrait ? iconSpring : iconMobileSpring}
+              style={
+                !mVP
+                  ? {
+                      opacity: iconsSpring.opacity.interpolate({
+                        range: [0, 0.5, 1],
+                        output: [0, 1, 1],
+                      }),
+                      width: iconsSpring.width.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "4vw"],
+                      }),
+                      height: iconsSpring.height.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "4vw"],
+                      }),
+                    }
+                  : iconsMobileSpring
+              }
             />
             <AnimatedIcon
               name="css"
               className="skill-icon"
               fill="#4A1E07"
-              style={!mobileViewportPortrait ? iconSpring : iconMobileSpring}
+              style={
+                !mVP
+                  ? {
+                      opacity: iconsSpring.opacity.interpolate({
+                        range: [0, 0.5, 1],
+                        output: [0, 1, 1],
+                      }),
+                      width: iconsSpring.width.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "4vw"],
+                      }),
+                      height: iconsSpring.height.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "4vw"],
+                      }),
+                    }
+                  : iconsMobileSpring
+              }
             />
             <AnimatedIcon
               name="javascript"
               className="skill-icon"
               fill="#4A1E07"
-              style={!mobileViewportPortrait ? iconSpring : iconMobileSpring}
+              style={
+                !mVP
+                  ? {
+                      opacity: iconsSpring.opacity.interpolate({
+                        range: [0, 0.5, 1],
+                        output: [0, 1, 1],
+                      }),
+                      width: iconsSpring.width.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "4vw"],
+                      }),
+                      height: iconsSpring.height.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "4vw"],
+                      }),
+                    }
+                  : iconsMobileSpring
+              }
             />
           </animated.div>
           <animated.div className="row" style={{ opacity, ...toggledProps }}>
@@ -84,26 +147,82 @@ const AboutToggle = ({ index, sectionData, mobileViewportPortrait }) => {
               name="react"
               className="skill-icon"
               fill="#4A1E07"
-              style={!mobileViewportPortrait ? iconSpring : iconMobileSpring}
+              style={
+                !mVP
+                  ? {
+                      opacity: iconsSpring.opacity.interpolate({
+                        range: [0, 0.5, 1],
+                        output: [0, 1, 1],
+                      }),
+                      width: iconsSpring.width.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "4vw"],
+                      }),
+                      height: iconsSpring.height.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "4vw"],
+                      }),
+                    }
+                  : iconsMobileSpring
+              }
             />
             <AnimatedIcon
               name="node"
               className="skill-icon"
               fill="#4A1E07"
-              style={!mobileViewportPortrait ? iconSpring : iconMobileSpring}
+              style={
+                !mVP
+                  ? {
+                      opacity: iconsSpring.opacity.interpolate({
+                        range: [0, 0.5, 1],
+                        output: [0, 1, 1],
+                      }),
+                      width: iconsSpring.width.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "4vw"],
+                      }),
+                      height: iconsSpring.height.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "4vw"],
+                      }),
+                    }
+                  : iconsMobileSpring
+              }
             />
             <AnimatedIcon
               name="python"
               className="skill-icon"
               fill="#4A1E07"
-              style={!mobileViewportPortrait ? iconSpring : iconMobileSpring}
+              style={
+                !mVP
+                  ? {
+                      opacity: iconsSpring.opacity.interpolate({
+                        range: [0, 0.5, 1],
+                        output: [0, 1, 1],
+                      }),
+                      width: iconsSpring.width.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "4vw"],
+                      }),
+                      height: iconsSpring.height.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "4vw"],
+                      }),
+                    }
+                  : iconsMobileSpring
+              }
             />
           </animated.div>
         </animated.div>
       </animated.div>
       <animated.div
         id="about-text-container"
-        style={{ opacity, ...toggledProps }}
+        style={{
+          opacity: textSectionSpring.opacity.interpolate({
+            range: [0, 0.5, 1],
+            output: [0, 1, 1],
+          }),
+        }}
       >
         <animated.p style={{ opacity, ...toggledProps }}>
           Born and raised in a rural New England town, I've had a deep interest

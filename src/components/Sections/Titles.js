@@ -9,7 +9,7 @@ const AnimatedIcon = animated(Icon);
 
 const stroke = "#492b05";
 
-const Titles = ({ index, mobileViewportPortrait, changeIndex }) => {
+const Titles = ({ index, mVP, tVP, changeIndex }) => {
   const sectionSpring = useSpring({
     width: index === null ? "20%" : "5%",
     from: {
@@ -33,6 +33,17 @@ const Titles = ({ index, mobileViewportPortrait, changeIndex }) => {
     },
   });
 
+  const titlesTabletSpring = useSpring({
+    width: index === null ? "30%" : "0%",
+    height: index === null ? "45%" : "0%",
+    opacity: index === null ? 1 : 0,
+    from: {
+      width: "30%",
+      height: "45%",
+      opacity: 1,
+    },
+  });
+
   const titlesMobileSpring = useSpring({
     width: index === null ? "60%" : "0%",
     height: index === null ? "45%" : "0%",
@@ -50,6 +61,15 @@ const Titles = ({ index, mobileViewportPortrait, changeIndex }) => {
     from: {
       opacity: 1,
       fontSize: "2rem",
+    },
+  });
+
+  const textTabletSpring = useSpring({
+    opacity: index === null ? 1 : 0,
+    fontSize: index === null ? "4rem" : "0rem",
+    from: {
+      opacity: 1,
+      fontSize: "4rem",
     },
   });
 
@@ -72,10 +92,20 @@ const Titles = ({ index, mobileViewportPortrait, changeIndex }) => {
   });
 
   const iconsMobileSpring = useSpring({
-    width: index === null ? "0vw" : "7.vw",
+    width: index === null ? "0vw" : "7vw",
     height: index === null ? "0vw" : "7vw",
-    marginRight: index !== null ? "2rem" : "0rem",
-    marginLeft: index !== null ? "2rem" : "0rem",
+    marginRight:
+      (index !== null) & !tVP
+        ? "2rem"
+        : (index !== null) & tVP
+        ? "4rem"
+        : "0rem",
+    marginLeft:
+      (index !== null) & !tVP
+        ? "2rem"
+        : (index !== null) & tVP
+        ? "4rem"
+        : "0rem",
     from: {
       width: "0vw",
       height: "0vw",
@@ -111,7 +141,7 @@ const Titles = ({ index, mobileViewportPortrait, changeIndex }) => {
     <Router>
       <animated.section
         className="titles-section"
-        style={!mobileViewportPortrait ? sectionSpring : sectionMobileSpring}
+        style={!mVP ? sectionSpring : sectionMobileSpring}
       >
         <animated.a
           id="github-icon"
@@ -124,7 +154,7 @@ const Titles = ({ index, mobileViewportPortrait, changeIndex }) => {
             name="github"
             className="sidebar-icon"
             stroke={stroke}
-            style={!mobileViewportPortrait ? iconsSpring : iconsMobileSpring}
+            style={!mVP ? iconsSpring : iconsMobileSpring}
           />
         </animated.a>
         <animated.a
@@ -138,14 +168,16 @@ const Titles = ({ index, mobileViewportPortrait, changeIndex }) => {
             name="linkedin"
             className="sidebar-icon"
             stroke={stroke}
-            style={!mobileViewportPortrait ? iconsSpring : iconsMobileSpring}
+            style={!mVP ? iconsSpring : iconsMobileSpring}
           />
         </animated.a>
         <animated.div
           className="title-text titles-title"
-          style={!mobileViewportPortrait ? titlesSpring : titlesMobileSpring}
+          style={
+            !mVP ? titlesSpring : tVP ? titlesTabletSpring : titlesMobileSpring
+          }
         >
-          <animated.p style={textSpring}>
+          <animated.p style={tVP ? textTabletSpring : textSpring}>
             William
             <br />
             Davis
@@ -153,18 +185,15 @@ const Titles = ({ index, mobileViewportPortrait, changeIndex }) => {
         </animated.div>
         <Icon name="sunrise" id="titles-logo" index={index} />
         <Link to="" onClick={handleClick}>
-          <Icon
-            name="home-button"
-            index={index}
-            stroke={stroke}
-            mobileViewportPortrait={mobileViewportPortrait}
-          />
+          <Icon name="home-button" index={index} stroke={stroke} mVP={mVP} />
         </Link>
         <animated.div
           className="title-text titles-title"
-          style={!mobileViewportPortrait ? titlesSpring : titlesMobileSpring}
+          style={
+            !mVP ? titlesSpring : tVP ? titlesTabletSpring : titlesMobileSpring
+          }
         >
-          <animated.p style={textSpring}>
+          <animated.p style={tVP ? textTabletSpring : textSpring}>
             Web
             <br />
             Developer
@@ -181,7 +210,7 @@ const Titles = ({ index, mobileViewportPortrait, changeIndex }) => {
             name="twitter"
             className="sidebar-icon"
             stroke={stroke}
-            style={!mobileViewportPortrait ? iconsSpring : iconsMobileSpring}
+            style={!mVP ? iconsSpring : iconsMobileSpring}
           />
         </animated.a>
         <animated.a
@@ -195,7 +224,7 @@ const Titles = ({ index, mobileViewportPortrait, changeIndex }) => {
             name="email"
             className="sidebar-icon"
             stroke={stroke}
-            style={!mobileViewportPortrait ? iconsSpring : iconsMobileSpring}
+            style={!mVP ? iconsSpring : iconsMobileSpring}
           />
         </animated.a>
       </animated.section>

@@ -72,6 +72,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-left: 15vw;
   }
 }
 #portrait-container #selfie {
@@ -121,7 +122,7 @@
     margin: 1.25rem 0 1.25rem 1.2rem;
   }
   #portrait-container #skills-container .row .skill-icon {
-    margin: 0 2rem;
+    margin: 0 1rem;
   }
 }
 @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
@@ -190,6 +191,11 @@
     font-size: 3.5rem;
     -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #843408 5%, #843408 95%, transparent 100%);
     mask-image: linear-gradient(to bottom, transparent 0%, #843408 5%, #843408 95%, transparent 100%);
+  }
+}
+@media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+  #email-svg {
+    margin-top: 1.25rem;
   }
 }
 @media (min-width: 501px) {
