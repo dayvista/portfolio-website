@@ -4,45 +4,40 @@
   }
 }
 @media (min-width: 501px) {
-  .sidebar-icon,
-  #homebutton-svg {
+  .sidebar-icon {
     transition: filter 0.3s, -webkit-filter 0.3s;
   }
   .sidebar-icon g path,
-  #homebutton-svg g path,
   .sidebar-icon g polyline,
-  #homebutton-svg g polyline,
   .sidebar-icon g circle,
-  #homebutton-svg g circle,
-  .sidebar-icon g rect,
-  #homebutton-svg g rect {
+  .sidebar-icon g rect {
     transition: stroke 0.3s, fill 0.3s;
   }
-  .sidebar-icon:hover,
-  #homebutton-svg:hover {
+  .sidebar-icon:hover {
     filter: drop-shadow(0px 2px 2px #894a06);
     -webkit-filter: drop-shadow(0px 2px 2px #894a06);
   }
-  .sidebar-icon:hover g path,
-  #homebutton-svg:hover g path {
+  .sidebar-icon:hover g path {
     stroke: #fcf3e8;
   }
   .sidebar-icon:hover #color path,
-  #homebutton-svg:hover #color path,
   .sidebar-icon:hover #color circle,
-  #homebutton-svg:hover #color circle,
-  .sidebar-icon:hover #color #rect-fill,
-  #homebutton-svg:hover #color #rect-fill {
+  .sidebar-icon:hover #color #rect-fill {
     fill: #fcf3e8;
   }
   .sidebar-icon:hover #line path,
-  #homebutton-svg:hover #line path,
   .sidebar-icon:hover #line polyline,
-  #homebutton-svg:hover #line polyline,
   .sidebar-icon:hover #line circle,
-  #homebutton-svg:hover #line circle,
-  .sidebar-icon:hover #line rect,
-  #homebutton-svg:hover #line rect {
+  .sidebar-icon:hover #line rect {
     stroke: #fcf3e8;
+  }
+}
+@media (min-width: 501px) {
+  #homebutton-svg {
+    transition: filter 0.3s, -webkit-filter 0.3s;
+  }
+  #homebutton-svg:hover {
+    filter: drop-shadow(0px 2px 2px #894a06);
+    -webkit-filter: drop-shadow(0px 2px 2px #894a06);
   }
 }

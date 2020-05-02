@@ -19,6 +19,28 @@ const AboutToggle = ({ index, sectionData, mobileViewportPortrait }) => {
     },
   });
 
+  const iconSpring = useSpring({
+    opacity: index === `${sectionData.name}` ? 1 : 0,
+    width: index === `${sectionData.name}` ? "4vw" : "0vw",
+    height: index === `${sectionData.name}` ? "4vw" : "0vw",
+    from: {
+      opacity: 0,
+      width: "0vw",
+      height: "0vw",
+    },
+  });
+
+  const iconMobileSpring = useSpring({
+    opacity: index === `${sectionData.name}` ? 1 : 0,
+    width: index === `${sectionData.name}` ? "9vw" : "0vw",
+    height: index === `${sectionData.name}` ? "9vw" : "0vw",
+    from: {
+      opacity: 0,
+      width: "0vw",
+      height: "0vw",
+    },
+  });
+
   return (
     <animated.div
       id="about-container"
@@ -42,19 +64,19 @@ const AboutToggle = ({ index, sectionData, mobileViewportPortrait }) => {
               name="html"
               className="skill-icon"
               fill="#4A1E07"
-              style={{ opacity, ...toggledProps }}
+              style={!mobileViewportPortrait ? iconSpring : iconMobileSpring}
             />
             <AnimatedIcon
               name="css"
               className="skill-icon"
               fill="#4A1E07"
-              style={{ opacity, ...toggledProps }}
+              style={!mobileViewportPortrait ? iconSpring : iconMobileSpring}
             />
             <AnimatedIcon
               name="javascript"
               className="skill-icon"
               fill="#4A1E07"
-              style={{ opacity, ...toggledProps }}
+              style={!mobileViewportPortrait ? iconSpring : iconMobileSpring}
             />
           </animated.div>
           <animated.div className="row" style={{ opacity, ...toggledProps }}>
@@ -62,19 +84,19 @@ const AboutToggle = ({ index, sectionData, mobileViewportPortrait }) => {
               name="react"
               className="skill-icon"
               fill="#4A1E07"
-              style={{ opacity, ...toggledProps }}
+              style={!mobileViewportPortrait ? iconSpring : iconMobileSpring}
             />
             <AnimatedIcon
               name="node"
               className="skill-icon"
               fill="#4A1E07"
-              style={{ opacity, ...toggledProps }}
+              style={!mobileViewportPortrait ? iconSpring : iconMobileSpring}
             />
             <AnimatedIcon
               name="python"
               className="skill-icon"
               fill="#4A1E07"
-              style={{ opacity, ...toggledProps }}
+              style={!mobileViewportPortrait ? iconSpring : iconMobileSpring}
             />
           </animated.div>
         </animated.div>

@@ -14,7 +14,7 @@ const HomeButton = ({ index, mobileViewportPortrait, stroke, className }) => {
   });
 
   const homeButtonMobileSpring = useSpring({
-    width: index !== null ? "9vw" : "0vw",
+    width: index !== null ? "7vw" : "0vw",
     opacity: index !== null ? 1 : 0,
     from: {
       width: "0vw",

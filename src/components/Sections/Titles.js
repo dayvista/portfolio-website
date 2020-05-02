@@ -72,8 +72,8 @@ const Titles = ({ index, mobileViewportPortrait, changeIndex }) => {
   });
 
   const iconsMobileSpring = useSpring({
-    width: index === null ? "0vw" : "9vw",
-    height: index === null ? "0vw" : "9vw",
+    width: index === null ? "0vw" : "7.vw",
+    height: index === null ? "0vw" : "7vw",
     marginRight: index !== null ? "2rem" : "0rem",
     marginLeft: index !== null ? "2rem" : "0rem",
     from: {

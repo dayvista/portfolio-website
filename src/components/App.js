@@ -32,12 +32,18 @@ const App = () => {
     },
   });
 
-  // Make viewport adjustments for mobile responsiveness
+  // Make viewport adjustments for mobile and tablet (portrait views) responsiveness
   let mqMobilePortrait = window.matchMedia("(max-width: 500px)");
+  let mqTabletPortrait = window.matchMedia(
+    "(min-width: 768px) and (max-width: 1366px) and (orientation: portrait)"
+  );
 
   useEffect(() => {
     const mediaQueryResponse = (mq) => {
+      console.log(mq);
       if (mq.matches && mq.media.includes("500px")) {
+        setMobileViewportPortrait(true);
+      } else if (mq.matches && mq.media.includes("portrait")) {
         setMobileViewportPortrait(true);
       } else {
         setMobileViewportPortrait(false);
@@ -47,8 +53,12 @@ const App = () => {
     mediaQueryResponse(mqMobilePortrait);
     mqMobilePortrait.addListener(mediaQueryResponse);
 
+    mediaQueryResponse(mqTabletPortrait);
+    mqTabletPortrait.addListener(mediaQueryResponse);
+
     return () => {
       mqMobilePortrait.removeListener(mediaQueryResponse);
+      mqTabletPortrait.removeListener(mediaQueryResponse);
     };
   }, []);
 
