@@ -43,9 +43,6 @@ const App = () => {
     const mediaQueryResponse = (mq) => {
       if (mq.matches && mq.media.includes("500px")) {
         setMVP(true);
-      } else if (mq.matches && mq.media.includes("portrait")) {
-        setMVP(true);
-        setTVP(true);
       } else {
         setMVP(false);
       }
@@ -54,11 +51,25 @@ const App = () => {
     mediaQueryResponse(mqMobilePortrait);
     mqMobilePortrait.addListener(mediaQueryResponse);
 
+    return () => {
+      mqMobilePortrait.removeListener(mediaQueryResponse);
+    };
+  }, []);
+
+  useEffect(() => {
+    const mediaQueryResponse = (mq) => {
+      if (mq.matches && mq.media.includes("portrait")) {
+        setTVP(true);
+        setMVP(true);
+      } else {
+        setTVP(false);
+      }
+    };
+
     mediaQueryResponse(mqTabletPortrait);
     mqTabletPortrait.addListener(mediaQueryResponse);
 
     return () => {
-      mqMobilePortrait.removeListener(mediaQueryResponse);
       mqTabletPortrait.removeListener(mediaQueryResponse);
     };
   }, []);
@@ -92,7 +103,7 @@ const App = () => {
     };
   }, []);
 
-  // Set index from index prop passed upwards via callback from children
+  // Set index from index prop passed up from children via callback
   const setSelectedIndex = (section) => {
     setIndex(section);
   };

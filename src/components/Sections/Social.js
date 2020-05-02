@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { animated, useSpring } from "react-spring";
 
 import Icon from "../Icon/IconIndex";

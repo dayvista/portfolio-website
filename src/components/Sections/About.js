@@ -64,6 +64,7 @@ const About = ({ index, mVP, tVP, changeIndex, sectionData }) => {
   const linkMobileSpring = useSpring({
     width: index === `${sectionData.name}` ? "90%" : "60%",
     height: index === `${sectionData.name}` ? "95%" : "45%",
+    pointerEvents: index === `${sectionData.name}` ? "none" : "auto",
     from: {
       width: "60%",
       height: "45%",

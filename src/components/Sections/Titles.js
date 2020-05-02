@@ -1,7 +1,7 @@
 import React from "react";
-import { animated, useSpring } from "react-spring";
-import { BrowserRouter as Router } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { animated, useSpring } from "react-spring";
 
 import Icon from "../Icon/IconIndex";
 
