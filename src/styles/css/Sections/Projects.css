@@ -6,31 +6,53 @@
 }
 .carousel-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   cursor: default;
+  width: 97.5%;
+  height: 95%;
+  background-color: #c3b7d1;
+  border-radius: 0.5rem;
 }
 .carousel-slider {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  width: 90%;
+  align-items: flex-end;
 }
 .carousel-slider img {
-  margin: 0 1rem;
+  margin: 2rem 2rem 0 2rem;
+  border-radius: 0.5rem;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  width: 100%;
+  transform: translateX(1020px);
+}
+.carousel-slider #proj-4-clone {
+  -webkit-mask-image: linear-gradient(to left, #000 0%, transparent 15%, transparent 100%);
+  mask-image: linear-gradient(to left, #000 0%, transparent 15%, transparent 100%);
+  clip-path: inset(0% 0% 0% 85%);
+}
+.carousel-slider #proj-2 {
+  -webkit-mask-image: linear-gradient(to right, #000 0%, transparent 15%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 0%, transparent 15%, transparent 100%);
+  clip-path: inset(0% 85% 0% 0%);
+}
+.arrow-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 7.5vw;
 }
 #back-arrow-icon,
 #next-arrow-icon {
+  width: 5%;
+  height: auto;
+  padding: 0 10vw;
   cursor: pointer;
-  width: 25rem;
-  height: 10rem;
   z-index: 1;
 }
 @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
