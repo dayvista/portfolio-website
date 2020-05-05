@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { animated, useSpring } from "react-spring";
 
 import Icon from "../../Icon/IconIndex";
@@ -10,21 +10,6 @@ const AnimatedIcon = animated(Icon);
 const stroke = "#050406";
 
 const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
-  // useEffect(() => {
-  //   findCarouselWidth();
-  // }, []);
-
-  const findCarouselWidth = () => {
-    // const carouselImages = document.querySelectorAll(".carousel-slider img");
-
-    // let imgWidth = carouselImages[2].clientWidth;
-
-    // console.log(imgWidth);
-
-    // return imgWidth;
-    return;
-  };
-
   const [carouselIndex, setCarouselIndex] = useState(2);
 
   const modifyCarouselIndex = (event) => {
@@ -42,29 +27,62 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
     }
   };
 
-  const toggled = useSpring({
+  const { opacity, width, height, cursor, ...toggledProps } = useSpring({
     opacity: index === `${sectionData.name}` ? 1 : 0,
     width: index === `${sectionData.name}` ? "100%" : "0%",
     height: index === `${sectionData.name}` ? "100%" : "0%",
+    cursor: index === `${sectionData.name}` ? "default" : "pointer",
     from: {
       opacity: 0,
       width: "0%",
       height: "0%",
+      cursor: "pointer",
     },
   });
 
-  const { opacity, ...carouselProps } = useSpring({
-    opacity: index === "projects" ? 1 : 0,
-    from: { opacity: 0 },
-    delay: index === "projects" ? 1000 : 0,
+  const carouselSpring = useSpring({
+    opacity: index === `${sectionData.name}` ? 1 : 0,
+    width: index === `${sectionData.name}` ? 1 : 0,
+    height: index === `${sectionData.name}` ? 1 : 0,
+    from: {
+      opacity: 0,
+      width: 0,
+      height: 0,
+    },
+    delay: index === `${sectionData.name}` ? 800 : 0,
   });
 
   return (
-    <animated.div id="projects-container" style={toggled}>
+    <animated.div
+      id="projects-container"
+      style={{ opacity, width, height, cursor, ...toggledProps }}
+    >
       <animated.div className="carousel-container">
         <animated.div
           className="carousel-slider"
-          style={{ opacity, ...carouselProps }}
+          style={{
+            opacity: carouselSpring.opacity,
+            width:
+              index === `${sectionData.name}`
+                ? carouselSpring.width.interpolate({
+                    range: [0, 0.05, 1],
+                    output: ["0%", "100%", "100%"],
+                  })
+                : carouselSpring.width.interpolate({
+                    range: [0, 0.5, 1],
+                    output: ["0%", "50%", "100%"],
+                  }),
+            height:
+              index === `${sectionData.name}`
+                ? carouselSpring.height.interpolate({
+                    range: [0, 0.05, 1],
+                    output: ["0%", "100%", "100%"],
+                  })
+                : carouselSpring.height.interpolate({
+                    range: [0, 0.5, 1],
+                    output: ["0%", "50%", "100%"],
+                  }),
+          }}
         >
           <animated.img
             id="proj-4-clone"
@@ -91,17 +109,40 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
             src="../../temp/img/earth.jpg"
           ></animated.img>
         </animated.div>
-        <animated.div className="arrow-container">
+        <animated.div
+          className="arrow-container"
+          style={{
+            opacity: carouselSpring.opacity,
+            width:
+              index === `${sectionData.name}`
+                ? carouselSpring.width.interpolate({
+                    range: [0, 0.05, 1],
+                    output: ["0%", "100%", "100%"],
+                  })
+                : carouselSpring.width.interpolate({
+                    range: [0, 0.5, 1],
+                    output: ["0%", "50%", "100%"],
+                  }),
+            height:
+              index === `${sectionData.name}`
+                ? carouselSpring.height.interpolate({
+                    range: [0, 0.05, 1],
+                    output: ["0%", "100%", "100%"],
+                  })
+                : carouselSpring.height.interpolate({
+                    range: [0, 0.5, 1],
+                    output: ["0%", "50%", "100%"],
+                  }),
+          }}
+        >
           <AnimatedIcon
             name="back-arrow"
             stroke={stroke}
-            style={{ opacity, ...carouselProps }}
             handleClick={modifyCarouselIndex}
           />
           <AnimatedIcon
             name="next-arrow"
             stroke={stroke}
-            style={{ opacity, ...carouselProps }}
             handleClick={modifyCarouselIndex}
           />
         </animated.div>

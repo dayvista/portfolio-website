@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { animated, interpolate, useSpring } from "react-spring";
+import React from "react";
+import { animated, useSpring } from "react-spring";
 
 import Icon from "../../Icon/IconIndex";
 
