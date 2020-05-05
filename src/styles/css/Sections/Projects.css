@@ -1,31 +1,37 @@
 #projects-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .carousel-container {
-  overflow: hidden;
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  display: flex;
+  cursor: default;
 }
 .carousel-slider {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  width: 90%;
 }
 .carousel-slider img {
-  margin: 0 2rem;
-  width: 15%;
+  margin: 0 1rem;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  width: 100%;
 }
 #back-arrow-icon,
 #next-arrow-icon {
-  width: 5rem;
-  height: 5rem;
+  cursor: pointer;
+  width: 25rem;
+  height: 10rem;
+  z-index: 1;
 }
 @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
   #github-svg {

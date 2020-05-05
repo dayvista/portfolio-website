@@ -221,8 +221,8 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
         id="about-text-container"
         style={{
           opacity: textSectionSpring.opacity.interpolate({
-            range: [0, 0.5, 1],
-            output: [0, 1, 1],
+            range: [0, 0.9, 1],
+            output: [0, 0, 1],
           }),
           pointerEvents: textSectionSpring.pointerEvents,
         }}

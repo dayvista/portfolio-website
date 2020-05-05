@@ -3,30 +3,39 @@
 
 #projects-container {
   display: flex;
-  .flex-attributes(row, center, center);
+  .flex-attributes(column, center, center);
+  // overflow: hidden;
 }
 
 .carousel-container {
-  overflow: hidden;
-  .flex-attributes(row, center, center);
   display: flex;
+  .flex-attributes(row, center, center);
+  // overflow: hidden;
+  cursor: default;
 }
 
 .carousel-slider {
   display: flex;
   .flex-attributes(row, center, center);
-  overflow: hidden;
+  width: 90%;
+  // overflow: hidden;
 
   img {
-    margin: 0 2rem;
-    width: 15%;
+    margin: 0 1rem;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    width: 100%;
   }
 }
 
 #back-arrow-icon,
 #next-arrow-icon {
-  width: 5rem;
-  height: 5rem;
+  cursor: pointer;
+  width: 25rem;
+  height: 10rem;
+  z-index: 1;
 }
 
 // Icon SVG hover transition

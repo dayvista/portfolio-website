@@ -4,7 +4,7 @@
 
 import React from "react";
 
-const BackArrow = ({ style, stroke }) => (
+const BackArrow = ({ style, stroke, handleClick }) => (
   <svg
     id="back-arrow-icon"
     style={style}
@@ -12,6 +12,7 @@ const BackArrow = ({ style, stroke }) => (
     width="512"
     height="512"
     viewBox="0 0 512 512"
+    onClick={handleClick}
   >
     <polyline
       points="249.38 336 170 256 249.38 176"

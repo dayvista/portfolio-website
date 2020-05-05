@@ -63,6 +63,7 @@ const App = () => {
         setMVP(true);
       } else {
         setTVP(false);
+        setMVP(false);
       }
     };
 

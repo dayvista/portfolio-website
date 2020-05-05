@@ -4,7 +4,7 @@
 
 import React from "react";
 
-const NextArrow = ({ style, stroke }) => (
+const NextArrow = ({ style, stroke, handleClick }) => (
   <svg
     id="next-arrow-icon"
     style={style}
@@ -12,6 +12,7 @@ const NextArrow = ({ style, stroke }) => (
     width="512"
     height="512"
     viewBox="0 0 512 512"
+    onClick={handleClick}
   >
     <polyline
       points="262.62 336 342 256 262.62 176"
