@@ -28,9 +28,10 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
   const [carouselIndex, setCarouselIndex] = useState(2);
 
   const modifyCarouselIndex = (event) => {
-    console.log(carouselIndex);
+    const carouselImages = document.querySelectorAll("img");
+    console.log(carouselImages.length - 2);
+    console.log(document.querySelector(".carousel-slider").clientWidth);
     let counter = carouselIndex;
-    console.log(counter);
 
     if (event.target.id === "back-arrow-icon") {
       counter--;
@@ -39,8 +40,6 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       counter++;
       setCarouselIndex(counter);
     }
-
-    console.log(counter);
   };
 
   const toggled = useSpring({
@@ -68,10 +67,6 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
           style={{ opacity, ...carouselProps }}
         >
           <animated.img
-            id="proj-3-clone"
-            src="../../temp/img/wind.jpg"
-          ></animated.img>
-          <animated.img
             id="proj-4-clone"
             src="../../temp/img/fire.jpg"
           ></animated.img>
@@ -94,10 +89,6 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
           <animated.img
             id="proj-1-clone"
             src="../../temp/img/earth.jpg"
-          ></animated.img>
-          <animated.img
-            id="proj-2-clone"
-            src="../../temp/img/water.jpg"
           ></animated.img>
         </animated.div>
         <animated.div className="arrow-container">
