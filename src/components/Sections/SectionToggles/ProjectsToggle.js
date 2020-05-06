@@ -20,15 +20,17 @@ const useComponentWillMount = (func) => {
 };
 
 let ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
-  const [carouselIndex, setCarouselIndex] = useState(2);
-  const [windowWidth, setWindowWidth] = useState(0);
+  const [carouselIndex, setCarouselIndex] = useState(1);
+  const [imageWidth, setImageWidth] = useState(0);
+  const [carouselLength, setCarouselLength] = useState(0);
 
   let resizeWindow = () => {
-    setWindowWidth(window.innerWidth);
+    setImageWidth(window.innerWidth * 0.55 + 40);
   };
 
   useComponentWillMount(() => {
     resizeWindow();
+    setCarouselLength(document.querySelectorAll("img").length);
   });
 
   useEffect(() => {
@@ -37,18 +39,19 @@ let ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
     return () => window.removeEventListener("resize", resizeWindow);
   }, []);
 
-  const modifyCarouselIndex = (event) => {
-    const carouselImages = document.querySelectorAll("img");
-    console.log(carouselImages.length - 2);
-    console.log(document.querySelector(".carousel-slider").clientWidth);
+  const carouselCounter = (event) => {
     let counter = carouselIndex;
 
     if (event.target.id === "back-arrow-icon") {
-      counter--;
-      setCarouselIndex(counter);
+      if (counter > 0) {
+        counter--;
+        setCarouselIndex(counter);
+      }
     } else if (event.target.id === "next-arrow-icon") {
-      counter++;
-      setCarouselIndex(counter);
+      if (counter < carouselLength - 1) {
+        counter++;
+        setCarouselIndex(counter);
+      }
     }
   };
 
@@ -75,6 +78,23 @@ let ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       height: 0,
     },
     delay: index === `${sectionData.name}` ? 850 : 0,
+  });
+
+  const imageSpring = useSpring({
+    transform:
+      (carouselIndex !== 1) & (carouselLength % 2 === 0)
+        ? "translateX(" + imageWidth * 1 + "px)"
+        : carouselIndex !== 1
+        ? "translateX(" + imageWidth * 1 + "px)"
+        : carouselLength % 2 === 0
+        ? "translateX(" + imageWidth * 1.5 + "px)"
+        : "translateX(" + imageWidth * 1 + "px)",
+    from: {
+      transform:
+        carouselLength % 2 === 0
+          ? "translateX(" + imageWidth * 1.5 + "px)"
+          : "translateX(" + imageWidth * 1 + "px)",
+    },
   });
 
   return (
@@ -112,26 +132,32 @@ let ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
           <animated.img
             id="proj-4-clone"
             src="../../temp/img/fire.jpg"
+            style={imageSpring}
           ></animated.img>
           <animated.img
             id="proj-1"
             src="../../temp/img/earth.jpg"
+            style={imageSpring}
           ></animated.img>
           <animated.img
             id="proj-2"
             src="../../temp/img/water.jpg"
+            style={imageSpring}
           ></animated.img>
           <animated.img
             id="proj-3"
             src="../../temp/img/wind.jpg"
+            style={imageSpring}
           ></animated.img>
           <animated.img
             id="proj-4"
             src="../../temp/img/fire.jpg"
+            style={imageSpring}
           ></animated.img>
           <animated.img
             id="proj-1-clone"
             src="../../temp/img/earth.jpg"
+            style={imageSpring}
           ></animated.img>
         </animated.div>
         <animated.div
@@ -163,12 +189,12 @@ let ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
           <AnimatedIcon
             name="back-arrow"
             stroke={stroke}
-            handleClick={modifyCarouselIndex}
+            handleClick={carouselCounter}
           />
           <AnimatedIcon
             name="next-arrow"
             stroke={stroke}
-            handleClick={modifyCarouselIndex}
+            handleClick={carouselCounter}
           />
         </animated.div>
       </animated.div>

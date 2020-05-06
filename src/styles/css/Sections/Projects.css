@@ -27,8 +27,7 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  transform: translateX(calc(744px * 1.5));
-  width: 80vw;
+  width: 55vw;
 }
 .carousel-slider #proj-4-clone {
   -webkit-mask-image: linear-gradient(to left, #000 0%, transparent 10%, transparent 100%);
