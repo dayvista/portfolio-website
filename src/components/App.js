@@ -63,7 +63,9 @@ const App = () => {
         setMVP(true);
       } else {
         setTVP(false);
-        setMVP(false);
+        if (window.screen.width > 500) {
+          setMVP(false);
+        }
       }
     };
 

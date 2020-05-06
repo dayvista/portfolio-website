@@ -9,10 +9,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 97.5%;
-  height: 95%;
   background-color: #c3b7d1;
   border-radius: 0.5rem;
+  width: 97.5%;
+  height: 97.5%;
 }
 .carousel-slider {
   display: flex;
@@ -27,25 +27,24 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  transform: translateX(calc(680px * 1.5));
-  width: 100%;
+  transform: translateX(calc(744px * 1.5));
+  width: 80vw;
 }
 .carousel-slider #proj-4-clone {
-  -webkit-mask-image: linear-gradient(to left, #000 0%, transparent 15%, transparent 100%);
-  mask-image: linear-gradient(to left, #000 0%, transparent 15%, transparent 100%);
-  clip-path: inset(0% 0% 0% 85%);
+  -webkit-mask-image: linear-gradient(to left, #000 0%, transparent 10%, transparent 100%);
+  mask-image: linear-gradient(to left, #000 0%, transparent 10%, transparent 100%);
+  clip-path: inset(0% 0% 0% 90%);
 }
 .carousel-slider #proj-2 {
-  -webkit-mask-image: linear-gradient(to right, #000 0%, transparent 15%, transparent 100%);
-  mask-image: linear-gradient(to right, #000 0%, transparent 15%, transparent 100%);
-  clip-path: inset(0% 85% 0% 0%);
+  -webkit-mask-image: linear-gradient(to right, #000 0%, transparent 10%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 0%, transparent 10%, transparent 100%);
+  clip-path: inset(0% 90% 0% 0%);
 }
 .arrow-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 7.5vw;
 }
 #back-arrow-icon,
 #next-arrow-icon {

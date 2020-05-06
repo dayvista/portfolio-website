@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useLayoutEffect, useEffect } from "react";
 import { animated, useSpring } from "react-spring";
 
 import Icon from "../../Icon/IconIndex";
@@ -9,8 +9,33 @@ const AnimatedIcon = animated(Icon);
 
 const stroke = "#050406";
 
-const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
+const useComponentWillMount = (func) => {
+  const willMount = useRef(true);
+
+  if (willMount.current) {
+    func();
+  }
+
+  willMount.current = false;
+};
+
+let ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
   const [carouselIndex, setCarouselIndex] = useState(2);
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  let resizeWindow = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  useComponentWillMount(() => {
+    resizeWindow();
+  });
+
+  useEffect(() => {
+    resizeWindow();
+    window.addEventListener("resize", resizeWindow);
+    return () => window.removeEventListener("resize", resizeWindow);
+  }, []);
 
   const modifyCarouselIndex = (event) => {
     const carouselImages = document.querySelectorAll("img");
@@ -49,7 +74,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       width: 0,
       height: 0,
     },
-    delay: index === `${sectionData.name}` ? 800 : 0,
+    delay: index === `${sectionData.name}` ? 850 : 0,
   });
 
   return (
@@ -65,22 +90,22 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
             width:
               index === `${sectionData.name}`
                 ? carouselSpring.width.interpolate({
-                    range: [0, 0.05, 1],
+                    range: [0, 0.1, 1],
                     output: ["0%", "100%", "100%"],
                   })
                 : carouselSpring.width.interpolate({
-                    range: [0, 0.5, 1],
-                    output: ["0%", "50%", "100%"],
+                    range: [0, 0.9, 1],
+                    output: ["0%", "0%", "100%"],
                   }),
             height:
               index === `${sectionData.name}`
                 ? carouselSpring.height.interpolate({
-                    range: [0, 0.05, 1],
+                    range: [0, 0.1, 1],
                     output: ["0%", "100%", "100%"],
                   })
                 : carouselSpring.height.interpolate({
-                    range: [0, 0.5, 1],
-                    output: ["0%", "50%", "100%"],
+                    range: [0, 0.9, 1],
+                    output: ["0%", "0%", "100%"],
                   }),
           }}
         >
@@ -116,22 +141,22 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
             width:
               index === `${sectionData.name}`
                 ? carouselSpring.width.interpolate({
-                    range: [0, 0.05, 1],
+                    range: [0, 0.1, 1],
                     output: ["0%", "100%", "100%"],
                   })
                 : carouselSpring.width.interpolate({
-                    range: [0, 0.5, 1],
-                    output: ["0%", "50%", "100%"],
+                    range: [0, 0.9, 1],
+                    output: ["0%", "0%", "100%"],
                   }),
             height:
               index === `${sectionData.name}`
                 ? carouselSpring.height.interpolate({
-                    range: [0, 0.05, 1],
+                    range: [0, 0.1, 1],
                     output: ["0%", "100%", "100%"],
                   })
                 : carouselSpring.height.interpolate({
-                    range: [0, 0.5, 1],
-                    output: ["0%", "50%", "100%"],
+                    range: [0, 0.9, 1],
+                    output: ["0%", "0%", "100%"],
                   }),
           }}
         >
