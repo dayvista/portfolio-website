@@ -29,16 +29,6 @@
   -ms-user-select: none;
   width: 55vw;
 }
-.carousel-slider #proj-4-clone {
-  -webkit-mask-image: linear-gradient(to left, #000 0%, transparent 10%, transparent 100%);
-  mask-image: linear-gradient(to left, #000 0%, transparent 10%, transparent 100%);
-  clip-path: inset(0% 0% 0% 90%);
-}
-.carousel-slider #proj-2 {
-  -webkit-mask-image: linear-gradient(to right, #000 0%, transparent 10%, transparent 100%);
-  mask-image: linear-gradient(to right, #000 0%, transparent 10%, transparent 100%);
-  clip-path: inset(0% 90% 0% 0%);
-}
 .arrow-container {
   display: flex;
   flex-direction: row;
@@ -47,9 +37,9 @@
 }
 #back-arrow-icon,
 #next-arrow-icon {
-  width: 5%;
+  width: 5vw;
   height: auto;
-  padding: 0 10vw;
+  margin: 0 10vw;
   cursor: pointer;
   z-index: 1;
 }

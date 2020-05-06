@@ -20,9 +20,10 @@ const useComponentWillMount = (func) => {
 };
 
 let ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
-  const [carouselIndex, setCarouselIndex] = useState(1);
   const [imageWidth, setImageWidth] = useState(0);
   const [carouselLength, setCarouselLength] = useState(0);
+  const [carouselIndex, setCarouselIndex] = useState(1);
+  // const [carouselFocus, setCarouselFocus] = useState(0)
 
   let resizeWindow = () => {
     setImageWidth(window.innerWidth * 0.55 + 40);
@@ -42,18 +43,32 @@ let ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
   const carouselCounter = (event) => {
     let counter = carouselIndex;
 
-    if (event.target.id === "back-arrow-icon") {
-      if (counter > 0) {
-        counter--;
-        setCarouselIndex(counter);
-      }
-    } else if (event.target.id === "next-arrow-icon") {
-      if (counter < carouselLength - 1) {
+    if (
+      event.target.id === "back-arrow-icon" ||
+      event.target.parentElement.id === "back-arrow-icon"
+    ) {
+      if (counter < 2) {
         counter++;
         setCarouselIndex(counter);
+        // setCarouselFocus(-(counter - 1));
+      }
+    } else if (
+      event.target.id === "next-arrow-icon" ||
+      event.target.parentElement.id === "next-arrow-icon"
+    ) {
+      if (counter > -3) {
+        counter--;
+        setCarouselIndex(counter);
+        // setCarouselFocus(-(counter - 1));
       }
     }
+
+    console.log(counter);
   };
+
+  useEffect(() => {
+    console.log(carouselIndex);
+  }, [carouselIndex]);
 
   const { opacity, width, height, cursor, ...toggledProps } = useSpring({
     opacity: index === `${sectionData.name}` ? 1 : 0,
@@ -82,18 +97,16 @@ let ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
 
   const imageSpring = useSpring({
     transform:
-      (carouselIndex !== 1) & (carouselLength % 2 === 0)
-        ? "translateX(" + imageWidth * 1 + "px)"
-        : carouselIndex !== 1
-        ? "translateX(" + imageWidth * 1 + "px)"
-        : carouselLength % 2 === 0
-        ? "translateX(" + imageWidth * 1.5 + "px)"
-        : "translateX(" + imageWidth * 1 + "px)",
+      carouselLength % 2 === 0
+        ? "translateX(" + imageWidth * (carouselIndex + 0.5) + "px)"
+        : "translateX(" + imageWidth * carouselIndex + "px)",
+    // clipPath:  inset("0%", "0%", "0%", "0%"),
     from: {
       transform:
         carouselLength % 2 === 0
-          ? "translateX(" + imageWidth * 1.5 + "px)"
-          : "translateX(" + imageWidth * 1 + "px)",
+          ? "translateX(" + imageWidth * (carouselIndex + 0.5) + "px)"
+          : "translateX(" + imageWidth * carouselIndex + "px)",
+      // clipPath: inset("0%", "0%", "0%", "0%")
     },
   });
 
@@ -130,33 +143,43 @@ let ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
           }}
         >
           <animated.img
-            id="proj-4-clone"
-            src="../../temp/img/fire.jpg"
-            style={imageSpring}
-          ></animated.img>
-          <animated.img
-            id="proj-1"
-            src="../../temp/img/earth.jpg"
-            style={imageSpring}
-          ></animated.img>
-          <animated.img
-            id="proj-2"
-            src="../../temp/img/water.jpg"
-            style={imageSpring}
-          ></animated.img>
-          <animated.img
-            id="proj-3"
+            id="-2"
             src="../../temp/img/wind.jpg"
             style={imageSpring}
           ></animated.img>
           <animated.img
-            id="proj-4"
+            id="-1"
             src="../../temp/img/fire.jpg"
             style={imageSpring}
           ></animated.img>
           <animated.img
-            id="proj-1-clone"
+            id="0"
             src="../../temp/img/earth.jpg"
+            style={imageSpring}
+          ></animated.img>
+          <animated.img
+            id="1"
+            src="../../temp/img/water.jpg"
+            style={imageSpring}
+          ></animated.img>
+          <animated.img
+            id="2"
+            src="../../temp/img/wind.jpg"
+            style={imageSpring}
+          ></animated.img>
+          <animated.img
+            id="3"
+            src="../../temp/img/fire.jpg"
+            style={imageSpring}
+          ></animated.img>
+          <animated.img
+            id="4"
+            src="../../temp/img/earth.jpg"
+            style={imageSpring}
+          ></animated.img>
+          <animated.img
+            id="5"
+            src="../../temp/img/water.jpg"
             style={imageSpring}
           ></animated.img>
         </animated.div>
