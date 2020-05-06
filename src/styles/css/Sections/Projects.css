@@ -28,6 +28,17 @@
   -webkit-user-select: none;
   -ms-user-select: none;
   width: 55vw;
+  transition: -webkit-mask-image 0.25s, mask-image 0.25s, clip-path 0.25s;
+}
+.carousel-slider .left-slide {
+  -webkit-mask-image: linear-gradient(to left, #000 0%, transparent 10%, transparent 100%);
+  mask-image: linear-gradient(to left, #000 0%, transparent 10%, transparent 100%);
+  clip-path: inset(0% 0% 0% 90%);
+}
+.carousel-slider .right-slide {
+  -webkit-mask-image: linear-gradient(to right, #000 0%, transparent 10%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 0%, transparent 10%, transparent 100%);
+  clip-path: inset(0% 90% 0% 0%);
 }
 .arrow-container {
   display: flex;

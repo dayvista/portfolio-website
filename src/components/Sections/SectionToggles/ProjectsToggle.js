@@ -1,4 +1,4 @@
-import React, { useState, useRef, useLayoutEffect, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { animated, useSpring } from "react-spring";
 
 import Icon from "../../Icon/IconIndex";
@@ -23,7 +23,6 @@ let ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
   const [imageWidth, setImageWidth] = useState(0);
   const [carouselLength, setCarouselLength] = useState(0);
   const [carouselIndex, setCarouselIndex] = useState(1);
-  // const [carouselFocus, setCarouselFocus] = useState(0)
 
   let resizeWindow = () => {
     setImageWidth(window.innerWidth * 0.55 + 40);
@@ -41,34 +40,28 @@ let ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
   }, []);
 
   const carouselCounter = (event) => {
-    let counter = carouselIndex;
+    let indexCounter = carouselIndex;
 
     if (
       event.target.id === "back-arrow-icon" ||
       event.target.parentElement.id === "back-arrow-icon"
     ) {
-      if (counter < 2) {
-        counter++;
-        setCarouselIndex(counter);
-        // setCarouselFocus(-(counter - 1));
+      if (indexCounter < 2) {
+        indexCounter++;
+        setCarouselIndex(indexCounter);
       }
     } else if (
       event.target.id === "next-arrow-icon" ||
       event.target.parentElement.id === "next-arrow-icon"
     ) {
-      if (counter > -3) {
-        counter--;
-        setCarouselIndex(counter);
-        // setCarouselFocus(-(counter - 1));
+      if (indexCounter > -3) {
+        indexCounter--;
+        setCarouselIndex(indexCounter);
       }
     }
 
-    console.log(counter);
+    console.log(indexCounter);
   };
-
-  useEffect(() => {
-    console.log(carouselIndex);
-  }, [carouselIndex]);
 
   const { opacity, width, height, cursor, ...toggledProps } = useSpring({
     opacity: index === `${sectionData.name}` ? 1 : 0,
@@ -100,13 +93,11 @@ let ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       carouselLength % 2 === 0
         ? "translateX(" + imageWidth * (carouselIndex + 0.5) + "px)"
         : "translateX(" + imageWidth * carouselIndex + "px)",
-    // clipPath:  inset("0%", "0%", "0%", "0%"),
     from: {
       transform:
         carouselLength % 2 === 0
           ? "translateX(" + imageWidth * (carouselIndex + 0.5) + "px)"
           : "translateX(" + imageWidth * carouselIndex + "px)",
-      // clipPath: inset("0%", "0%", "0%", "0%")
     },
   });
 
@@ -143,42 +134,42 @@ let ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
           }}
         >
           <animated.img
-            id="-2"
+            id="slide-3"
             src="../../temp/img/wind.jpg"
             style={imageSpring}
           ></animated.img>
           <animated.img
-            id="-1"
+            id="slide-2"
             src="../../temp/img/fire.jpg"
             style={imageSpring}
           ></animated.img>
           <animated.img
-            id="0"
+            id="slide-1"
             src="../../temp/img/earth.jpg"
             style={imageSpring}
           ></animated.img>
           <animated.img
-            id="1"
+            id="slide-0"
             src="../../temp/img/water.jpg"
             style={imageSpring}
           ></animated.img>
           <animated.img
-            id="2"
+            id="slide--1"
             src="../../temp/img/wind.jpg"
             style={imageSpring}
           ></animated.img>
           <animated.img
-            id="3"
+            id="slide--2"
             src="../../temp/img/fire.jpg"
             style={imageSpring}
           ></animated.img>
           <animated.img
-            id="4"
+            id="slide--3"
             src="../../temp/img/earth.jpg"
             style={imageSpring}
           ></animated.img>
           <animated.img
-            id="5"
+            id="slide--4"
             src="../../temp/img/water.jpg"
             style={imageSpring}
           ></animated.img>
