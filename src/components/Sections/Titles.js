@@ -57,11 +57,19 @@ const Titles = ({ index, mVP, tVP, changeIndex }) => {
 
   const textSpring = useSpring({
     opacity: index === null ? 1 : 0,
-    fontSize:
-      (index === null) & tVP ? "4rem" : index === null ? "2rem" : "0rem",
+    fontSize: index === null ? "2rem" : "0rem",
     from: {
       opacity: 1,
-      fontSize: tVP ? "4rem" : "2rem",
+      fontSize: "2rem",
+    },
+  });
+
+  const textTabletSpring = useSpring({
+    opacity: index === null ? 1 : 0,
+    fontSize: index === null ? "4rem" : "0rem",
+    from: {
+      opacity: 1,
+      fontSize: "4rem",
     },
   });
 
@@ -169,7 +177,7 @@ const Titles = ({ index, mVP, tVP, changeIndex }) => {
             !mVP ? titlesSpring : tVP ? titlesTabletSpring : titlesMobileSpring
           }
         >
-          <animated.p style={textSpring}>
+          <animated.p style={!tVP ? textSpring : textTabletSpring}>
             William
             <br />
             Davis
