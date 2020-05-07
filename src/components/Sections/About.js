@@ -76,19 +76,11 @@ const About = ({ index, mVP, tVP, changeIndex, sectionData }) => {
 
   const textSpring = useSpring({
     opacity: index === null ? 1 : 0,
-    fontSize: index === null ? "2rem" : "0rem",
+    fontSize:
+      (index === null) & tVP ? "4rem" : index === null ? "2rem" : "0rem",
     from: {
       opacity: 1,
-      fontSize: "2rem",
-    },
-  });
-
-  const textTabletSpring = useSpring({
-    opacity: index === null ? 1 : 0,
-    fontSize: index === null ? "4rem" : "0rem",
-    from: {
-      opacity: 1,
-      fontSize: "4rem",
+      fontSize: tVP ? "4rem" : "2rem",
     },
   });
 
@@ -165,9 +157,7 @@ const About = ({ index, mVP, tVP, changeIndex, sectionData }) => {
           onClick={handleClick}
           style={!mVP ? linkSpring : tVP ? linkTabletSpring : linkMobileSpring}
         >
-          <animated.p style={!tVP ? textSpring : textTabletSpring}>
-            {sectionData.text}
-          </animated.p>
+          <animated.p style={textSpring}>{sectionData.text}</animated.p>
           <Switch>
             <Route
               exact

@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-import { animated, useSpring } from "react-spring";
+import { animated, useSpring, useSprings } from "react-spring";
 
 import Icon from "../../Icon/IconIndex";
+
+import projectsData from "../data/projectsData";
 
 import "../../../styles/css/Sections/Projects.css";
 
@@ -64,10 +66,16 @@ let ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
   };
 
   const { opacity, width, height, cursor, ...toggledProps } = useSpring({
-    opacity: index === `${sectionData.name}` ? 1 : 0,
-    width: index === `${sectionData.name}` ? "100%" : "0%",
-    height: index === `${sectionData.name}` ? "100%" : "0%",
-    cursor: index === `${sectionData.name}` ? "default" : "pointer",
+    to: [
+      {
+        width: index === `${sectionData.name}` ? "100%" : "0%",
+        height: index === `${sectionData.name}` ? "100%" : "0%",
+      },
+      {
+        opacity: index === `${sectionData.name}` ? 1 : 0,
+        cursor: index === `${sectionData.name}` ? "default" : "pointer",
+      },
+    ],
     from: {
       opacity: 0,
       width: "0%",
@@ -100,6 +108,8 @@ let ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
           : "translateX(" + imageWidth * carouselIndex + "px)",
     },
   });
+
+  // const imgSprings = useSprings(projectsData.length, images.)
 
   return (
     <animated.div

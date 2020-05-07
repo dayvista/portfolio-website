@@ -57,19 +57,11 @@ const Titles = ({ index, mVP, tVP, changeIndex }) => {
 
   const textSpring = useSpring({
     opacity: index === null ? 1 : 0,
-    fontSize: index === null ? "2rem" : "0rem",
+    fontSize:
+      (index === null) & tVP ? "4rem" : index === null ? "2rem" : "0rem",
     from: {
       opacity: 1,
-      fontSize: "2rem",
-    },
-  });
-
-  const textTabletSpring = useSpring({
-    opacity: index === null ? 1 : 0,
-    fontSize: index === null ? "4rem" : "0rem",
-    from: {
-      opacity: 1,
-      fontSize: "4rem",
+      fontSize: tVP ? "4rem" : "2rem",
     },
   });
 
@@ -177,7 +169,7 @@ const Titles = ({ index, mVP, tVP, changeIndex }) => {
             !mVP ? titlesSpring : tVP ? titlesTabletSpring : titlesMobileSpring
           }
         >
-          <animated.p style={tVP ? textTabletSpring : textSpring}>
+          <animated.p style={textSpring}>
             William
             <br />
             Davis
@@ -193,7 +185,7 @@ const Titles = ({ index, mVP, tVP, changeIndex }) => {
             !mVP ? titlesSpring : tVP ? titlesTabletSpring : titlesMobileSpring
           }
         >
-          <animated.p style={tVP ? textTabletSpring : textSpring}>
+          <animated.p style={textSpring}>
             Web
             <br />
             Developer
@@ -201,7 +193,7 @@ const Titles = ({ index, mVP, tVP, changeIndex }) => {
         </animated.div>
         <animated.a
           id="twitter-icon"
-          href="https://twitter.com/dayvista_dev"
+          href="https://twitter.com/liamdavis_dev"
           target="_blank"
           rel="noopener noreferrer"
           style={iconLinksSpring}
@@ -215,7 +207,7 @@ const Titles = ({ index, mVP, tVP, changeIndex }) => {
         </animated.a>
         <animated.a
           id="email-icon"
-          href="mailto:liam@dayvista.dev"
+          href="mailto:wil@liamdavis.dev"
           target="_blank"
           rel="noopener noreferrer"
           style={iconLinksSpring}

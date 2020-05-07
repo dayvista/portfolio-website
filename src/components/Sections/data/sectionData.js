@@ -15,13 +15,13 @@ export default [
     name: "social",
     text: "Social",
     icon: "twitter",
-    link: "https://twitter.com/dayvista_dev",
+    link: "https://twitter.com/liamdavis_dev",
   },
   {
     name: "about",
     text: "About",
     icon: "email",
-    link: "mailto:liam@dayvista.dev",
+    link: "mailto:wil@liamdavis.dev",
   },
   {
     name: "titles",
