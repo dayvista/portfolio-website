@@ -24,7 +24,8 @@ const useComponentWillMount = (func) => {
 const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
   const [imageWidth, setImageWidth] = useState(0);
   const [carouselLength, setCarouselLength] = useState(0);
-  const [carouselIndex, setCarouselIndex] = useState(1);
+  const [carouselTransformCounter, setCarouselTransformCounter] = useState(1);
+  const [carouselIndex, setCarouselIndex] = useState(0);
 
   let resizeWindow = () => {
     setImageWidth(window.innerWidth * 0.55 + 40);
@@ -44,27 +45,38 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
   }, []);
 
   const carouselCounter = (event) => {
-    let indexCounter = carouselIndex;
+    let counter = carouselTransformCounter;
+    let index = carouselIndex;
 
     if (
       event.target.id === "back-arrow-icon" ||
       event.target.parentElement.id === "back-arrow-icon"
     ) {
-      if (indexCounter < 2) {
-        indexCounter++;
-        setCarouselIndex(indexCounter);
+      if (counter < 2) {
+        counter++;
+        setCarouselTransformCounter(counter);
+      }
+
+      if (index > -1) {
+        index--;
+        setCarouselIndex(index);
       }
     } else if (
       event.target.id === "next-arrow-icon" ||
       event.target.parentElement.id === "next-arrow-icon"
     ) {
-      if (indexCounter > -3) {
-        indexCounter--;
-        setCarouselIndex(indexCounter);
+      if (counter > -3) {
+        counter--;
+        setCarouselTransformCounter(counter);
+      }
+
+      if (index < projectsData.length + 1) {
+        index++;
+        setCarouselIndex(index);
       }
     }
 
-    console.log(indexCounter);
+    console.log(index);
   };
 
   const { opacity, width, height, cursor, ...toggledProps } = useSpring({
@@ -110,47 +122,134 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
     },
   });
 
-  const imageSpring = useSpring({
-    transform:
-      carouselLength % 2 === 0
-        ? "translateX(" + imageWidth * (carouselIndex + 0.5) + "px)"
-        : "translateX(" + imageWidth * carouselIndex + "px)",
-    from: {
-      transform:
-        carouselLength % 2 === 0
-          ? "translateX(" + imageWidth * (carouselIndex + 0.5) + "px)"
-          : "translateX(" + imageWidth * carouselIndex + "px)",
-    },
-  });
-
+  // transition: from "initial" to "none"
   const imgSprings = useSprings(
     projectsData.length,
     projectsData.map((project, i) => ({
-      transform:
-        carouselLength % 2 === 0
-          ? "translateX(" + imageWidth * (carouselIndex + 0.5) + "px)"
-          : "translateX(" + imageWidth * carouselIndex + "px)",
+      to:
+        i !== carouselIndex
+          ? [
+              { opacity: 0 },
+              {
+                transform:
+                  carouselLength % 2 === 0
+                    ? "translateX(" +
+                      imageWidth * (carouselTransformCounter + 0.5) +
+                      "px)"
+                    : "translateX(" +
+                      imageWidth * carouselTransformCounter +
+                      "px)",
+              },
+            ]
+          : [
+              {
+                transform:
+                  carouselLength % 2 === 0
+                    ? "translateX(" +
+                      imageWidth * (carouselTransformCounter + 0.5) +
+                      "px)"
+                    : "translateX(" +
+                      imageWidth * carouselTransformCounter +
+                      "px)",
+              },
+              { opacity: 1 },
+            ],
       from: {
+        opacity: i === carouselIndex ? 1 : 0,
         transform:
           carouselLength % 2 === 0
-            ? "translateX(" + imageWidth * (carouselIndex + 0.5) + "px)"
-            : "translateX(" + imageWidth * carouselIndex + "px)",
+            ? "translateX(" +
+              imageWidth * (carouselTransformCounter + 0.5) +
+              "px)"
+            : "translateX(" + imageWidth * carouselTransformCounter + "px)",
       },
     }))
   );
 
-  const imgClonesSprings = useSprings(
+  // i = [projectsData.length + i]
+  const lastImgClonesSprings = useSprings(
     2,
     projectsData.map((project, i) => ({
-      transform:
-        carouselLength % 2 === 0
-          ? "translateX(" + imageWidth * (carouselIndex + 0.5) + "px)"
-          : "translateX(" + imageWidth * carouselIndex + "px)",
+      to:
+        i !== carouselIndex
+          ? [
+              { opacity: i === carouselIndex ? 1 : 0 },
+              {
+                transform:
+                  carouselLength % 2 === 0
+                    ? "translateX(" +
+                      imageWidth * (carouselTransformCounter + 0.5) +
+                      "px)"
+                    : "translateX(" +
+                      imageWidth * carouselTransformCounter +
+                      "px)",
+              },
+            ]
+          : [
+              {
+                transform:
+                  carouselLength % 2 === 0
+                    ? "translateX(" +
+                      imageWidth * (carouselTransformCounter + 0.5) +
+                      "px)"
+                    : "translateX(" +
+                      imageWidth * carouselTransformCounter +
+                      "px)",
+              },
+              { opacity: i === carouselIndex ? 1 : 0 },
+            ],
       from: {
+        opacity: i === carouselIndex ? 1 : 0,
         transform:
           carouselLength % 2 === 0
-            ? "translateX(" + imageWidth * (carouselIndex + 0.5) + "px)"
-            : "translateX(" + imageWidth * carouselIndex + "px)",
+            ? "translateX(" +
+              imageWidth * (carouselTransformCounter + 0.5) +
+              "px)"
+            : "translateX(" + imageWidth * carouselTransformCounter + "px)",
+      },
+    }))
+  );
+
+  // i = i - 2
+  const firstImgClonesSprings = useSprings(
+    2,
+    projectsData.map((project, i) => ({
+      to:
+        i !== carouselIndex
+          ? [
+              { opacity: i === carouselIndex ? 1 : 0 },
+              {
+                transform:
+                  carouselLength % 2 === 0
+                    ? "translateX(" +
+                      imageWidth * (carouselTransformCounter + 0.5) +
+                      "px)"
+                    : "translateX(" +
+                      imageWidth * carouselTransformCounter +
+                      "px)",
+              },
+            ]
+          : [
+              {
+                transform:
+                  carouselLength % 2 === 0
+                    ? "translateX(" +
+                      imageWidth * (carouselTransformCounter + 0.5) +
+                      "px)"
+                    : "translateX(" +
+                      imageWidth * carouselTransformCounter +
+                      "px)",
+              },
+              { opacity: i === carouselIndex ? 1 : 0 },
+            ],
+      from: {
+        opacity: i === carouselIndex ? 1 : 0,
+        transform:
+          carouselLength % 2 === 0
+            ? "translateX(" +
+              imageWidth * (carouselTransformCounter + 0.5) +
+              "px)"
+            : "translateX(" + imageWidth * carouselTransformCounter + "px)",
       },
     }))
   );
@@ -163,7 +262,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       <animated.div className="carousel-container">
         <animated.div className="carousel-slider" style={carouselSpring}>
           {/* Clone of last 2 images in carousel */}
-          {imgClonesSprings.map((prop, i) => (
+          {lastImgClonesSprings.map((prop, i) => (
             <animated.img
               key={i - 2}
               id={
@@ -190,7 +289,8 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
               style={prop}
             ></animated.img>
           ))}
-          {imgClonesSprings.map((prop, i) => (
+          {/* Clone of first 2 images in carousel */}
+          {firstImgClonesSprings.map((prop, i) => (
             <animated.img
               key={i + projectsData.length}
               id={`slide-${projectsData[i].id}-clone`}
