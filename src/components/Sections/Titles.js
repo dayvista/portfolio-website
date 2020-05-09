@@ -173,14 +173,13 @@ const Titles = ({ index, mVP, tVP, changeIndex }) => {
         </animated.a>
         <animated.div
           className="title-text titles-title"
+          id="title-1"
           style={
             !mVP ? titlesSpring : tVP ? titlesTabletSpring : titlesMobileSpring
           }
         >
           <animated.p style={!tVP ? textSpring : textTabletSpring}>
-            William
-            <br />
-            Davis
+            William <br /> Davis
           </animated.p>
         </animated.div>
         <Icon name="sunrise" id="titles-logo" index={index} />
@@ -189,11 +188,12 @@ const Titles = ({ index, mVP, tVP, changeIndex }) => {
         </Link>
         <animated.div
           className="title-text titles-title"
+          id="title-2"
           style={
             !mVP ? titlesSpring : tVP ? titlesTabletSpring : titlesMobileSpring
           }
         >
-          <animated.p style={textSpring}>
+          <animated.p style={!tVP ? textSpring : textTabletSpring}>
             Web
             <br />
             Developer

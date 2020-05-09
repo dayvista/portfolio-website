@@ -1,6 +1,39 @@
 @media (min-width: 501px) {
+  .titles-section > .titles-title {
+    margin-bottom: 5rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+  .titles-section > .titles-title {
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 501px) {
+  .titles-section > .titles-title ~ .titles-title {
+    margin-top: 5rem;
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+  .titles-section > .titles-title ~ .titles-title {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 501px) {
   #titles-logo {
-    margin-top: -2vw;
+    position: fixed;
+    margin-top: -2.5vw;
+  }
+}
+@media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+  #titles-logo {
+    position: inherit;
+  }
+}
+@media (max-width: 500px) {
+  #titles-logo {
+    position: inherit;
   }
 }
 @media (min-width: 501px) {

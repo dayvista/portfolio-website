@@ -340,5 +340,4 @@ section .title-text {
 .titles-section .titles-title {
   background: #fce9d1;
   transition: background 0.25s, box-shadow 0.25s;
-  z-index: 0;
 }
