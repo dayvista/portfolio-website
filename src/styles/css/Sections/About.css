@@ -3,14 +3,14 @@
   display: flex;
   cursor: default;
 }
-@media (max-width: 500px) {
+@media (max-width: 840px) {
   #about-container {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
   }
 }
-@media (min-width: 500px) {
+@media (min-width: 841px) {
   #about-container {
     flex-direction: row;
     justify-content: flex-start;
@@ -24,7 +24,7 @@
     align-items: center;
   }
 }
-@media (min-width: 501px) {
+@media (min-width: 500px) {
   #about-container {
     scrollbar-color: #fbd7c3 #843408;
     scrollbar-width: thin;
@@ -51,7 +51,7 @@
 #portrait-container {
   display: flex;
 }
-@media (max-width: 500px) {
+@media (max-width: 840px) {
   #portrait-container {
     flex-direction: row;
     justify-content: center;
@@ -59,7 +59,7 @@
     width: 100%;
   }
 }
-@media (min-width: 501px) {
+@media (min-width: 841px) {
   #portrait-container {
     flex-direction: column;
     justify-content: center;
@@ -81,12 +81,12 @@
   transition: filter 0.3s, -webkit-filter 0.3s;
   margin: 0.5rem 0 0.5rem 1.5rem;
 }
-@media (max-width: 500px) {
+@media (max-width: 840px) {
   #portrait-container #selfie {
     width: 55%;
   }
 }
-@media (min-width: 501px) {
+@media (min-width: 841px) {
   #portrait-container #selfie {
     width: 75%;
   }
@@ -113,7 +113,21 @@
     margin: 1rem 0;
   }
 }
-@media (min-width: 501px) {
+@media (min-width: 501px) and (max-width: 840px) {
+  #portrait-container #skills-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  #portrait-container #skills-container .row {
+    width: 15%;
+    margin: 0 4rem;
+  }
+  #portrait-container #skills-container .row .skill-icon {
+    margin: 1rem 0;
+  }
+}
+@media (min-width: 841px) {
   #portrait-container #skills-container {
     flex-direction: column;
     justify-content: center;
@@ -123,7 +137,7 @@
     margin: 1.25rem 0 1.25rem 1.2rem;
   }
   #portrait-container #skills-container .row .skill-icon {
-    margin: 0 1rem;
+    margin: 1rem;
   }
 }
 @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
@@ -168,7 +182,7 @@
     margin: 1rem 2rem 1.1rem 1.1rem;
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 840px) {
   #about-text-container {
     width: 100%;
     height: 95%;
@@ -177,7 +191,7 @@
     mask-image: linear-gradient(to bottom, transparent 0%, #843408 5%, #843408 95%, transparent 100%);
   }
 }
-@media (min-width: 501px) {
+@media (min-width: 841px) {
   #about-text-container {
     width: 60%;
     height: 95%;

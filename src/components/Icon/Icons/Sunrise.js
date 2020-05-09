@@ -5,11 +5,21 @@ import { animated, useSpring } from "react-spring";
 
 const Sunrise = ({ id, index, stroke = "#492b05" }) => {
   const titlesLogoSpring = useSpring({
+    onStart: () => {
+      if (index === null && document.getElementById("titles-logo")) {
+        document.getElementById("titles-logo").style.display = "inherit";
+      }
+    },
     width: index === null ? "15vw" : "0vw",
     opacity: index !== null ? 0 : 1,
     from: {
       width: "15vw",
       opacity: 1,
+    },
+    onRest: () => {
+      if (index !== null) {
+        document.getElementById("titles-logo").style.display = "none";
+      }
     },
   });
 

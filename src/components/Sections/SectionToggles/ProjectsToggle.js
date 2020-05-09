@@ -21,7 +21,7 @@ const useComponentWillMount = (func) => {
   willMount.current = false;
 };
 
-let ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
+const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
   const [imageWidth, setImageWidth] = useState(0);
   const [carouselLength, setCarouselLength] = useState(0);
   const [carouselIndex, setCarouselIndex] = useState(1);
@@ -38,7 +38,9 @@ let ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
   useEffect(() => {
     resizeWindow();
     window.addEventListener("resize", resizeWindow);
-    return () => window.removeEventListener("resize", resizeWindow);
+    return () => {
+      window.removeEventListener("resize", resizeWindow);
+    };
   }, []);
 
   const carouselCounter = (event) => {

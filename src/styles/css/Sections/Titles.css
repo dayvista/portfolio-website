@@ -3,9 +3,6 @@
     margin-top: -2vw;
   }
 }
-.sidebar-icon {
-  z-index: 10;
-}
 @media (min-width: 501px) {
   .sidebar-icon {
     transition: filter 0.3s, -webkit-filter 0.3s;

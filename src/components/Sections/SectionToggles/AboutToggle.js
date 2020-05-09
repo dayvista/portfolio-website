@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { animated, useSpring } from "react-spring";
 
 import Icon from "../../Icon/IconIndex";
@@ -7,15 +7,52 @@ const AnimatedIcon = animated(Icon);
 
 import "../../../styles/css/Sections/About.css";
 
+const useComponentWillMount = (func) => {
+  const willMount = useRef(true);
+
+  if (willMount.current) {
+    func();
+  }
+
+  willMount.current = false;
+};
+
 const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  let resizeWindow = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  useComponentWillMount(() => {
+    resizeWindow();
+  });
+
+  useEffect(() => {
+    resizeWindow();
+    window.addEventListener("resize", resizeWindow);
+    return () => {
+      window.removeEventListener("resize", resizeWindow);
+    };
+  }, []);
+
   const { opacity, width, height, ...toggledProps } = useSpring({
-    to: [
-      {
-        width: index === `${sectionData.name}` ? "100%" : "0%",
-        height: index === `${sectionData.name}` ? "100%" : "0%",
-      },
-      { opacity: index === `${sectionData.name}` ? 1 : 0 },
-    ],
+    to:
+      index === `${sectionData.name}`
+        ? [
+            {
+              width: index === `${sectionData.name}` ? "100%" : "0%",
+              height: index === `${sectionData.name}` ? "100%" : "0%",
+            },
+            { opacity: index === `${sectionData.name}` ? 1 : 0 },
+          ]
+        : [
+            {
+              opacity: index === `${sectionData.name}` ? 1 : 0,
+              width: index === `${sectionData.name}` ? "100%" : "0%",
+              height: index === `${sectionData.name}` ? "100%" : "0%",
+            },
+          ],
     from: {
       opacity: 0,
       width: "0%",
@@ -30,6 +67,10 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
         ? "100%"
         : (index === `${sectionData.name}`) & tVP
         ? "100%"
+        : (index === `${sectionData.name}`) &
+          (windowWidth > 500) &
+          (windowWidth < 841)
+        ? "100%"
         : index === `${sectionData.name}`
         ? "35%"
         : "0%",
@@ -38,15 +79,6 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
       width: "0%",
     },
   });
-
-  // const skillsContainerSpring = useSpring({
-  //   opacity: index === `${sectionData.name}` ? 1 : 0,
-  //   width: index === `${sectionData.name}` & mVP ? "100%" : index === `${sectionData.name}` & tVP ? "100%" : index === `${sectionData.name}` ? "35%" : "0%",
-  //   from: {
-  //     opacity: 0,
-  //     width: "0%",
-  //   },
-  // })
 
   const iconsSpring = useSpring({
     opacity: index === `${sectionData.name}` ? 1 : 0,
@@ -88,12 +120,21 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
         <AnimatedIcon
           name="selfie"
           fill="#4A1E07"
-          style={{
-            opacity: iconsSpring.opacity.interpolate({
-              range: [0, 0.5, 1],
-              output: [0, 1, 1],
-            }),
-          }}
+          style={
+            index === `${sectionData.name}`
+              ? {
+                  opacity: iconsSpring.opacity.interpolate({
+                    range: [0, 0.5, 1],
+                    output: [0, 1, 1],
+                  }),
+                }
+              : {
+                  opacity: iconsSpring.opacity.interpolate({
+                    range: [0, 0.5, 1],
+                    output: [0, 0, 1],
+                  }),
+                }
+          }
         />
         <animated.div
           id="skills-container"
@@ -105,7 +146,7 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
               className="skill-icon"
               fill="#4A1E07"
               style={
-                !mVP
+                !mVP & (index === `${sectionData.name}`)
                   ? {
                       opacity: iconsSpring.opacity.interpolate({
                         range: [0, 0.5, 1],
@@ -113,11 +154,26 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
                       }),
                       width: iconsSpring.width.interpolate({
                         range: [0, 0.9, 1],
-                        output: ["0vw", "2vw", "4vw"],
+                        output: ["0vw", "3vw", "6vw"],
                       }),
                       height: iconsSpring.height.interpolate({
                         range: [0, 0.9, 1],
-                        output: ["0vw", "2vw", "4vw"],
+                        output: ["0vw", "3vw", "6vw"],
+                      }),
+                    }
+                  : !mVP & (index !== `${sectionData.name}`)
+                  ? {
+                      opacity: iconsSpring.opacity.interpolate({
+                        range: [0, 0.5, 1],
+                        output: [0, 0, 1],
+                      }),
+                      width: iconsSpring.width.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "6vw"],
+                      }),
+                      height: iconsSpring.height.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "6vw"],
                       }),
                     }
                   : iconsMobileSpring
@@ -128,7 +184,7 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
               className="skill-icon"
               fill="#4A1E07"
               style={
-                !mVP
+                !mVP & (index === `${sectionData.name}`)
                   ? {
                       opacity: iconsSpring.opacity.interpolate({
                         range: [0, 0.5, 1],
@@ -136,11 +192,26 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
                       }),
                       width: iconsSpring.width.interpolate({
                         range: [0, 0.9, 1],
-                        output: ["0vw", "2vw", "4vw"],
+                        output: ["0vw", "3vw", "6vw"],
                       }),
                       height: iconsSpring.height.interpolate({
                         range: [0, 0.9, 1],
-                        output: ["0vw", "2vw", "4vw"],
+                        output: ["0vw", "3vw", "6vw"],
+                      }),
+                    }
+                  : !mVP & (index !== `${sectionData.name}`)
+                  ? {
+                      opacity: iconsSpring.opacity.interpolate({
+                        range: [0, 0.5, 1],
+                        output: [0, 0, 1],
+                      }),
+                      width: iconsSpring.width.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "6vw"],
+                      }),
+                      height: iconsSpring.height.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "6vw"],
                       }),
                     }
                   : iconsMobileSpring
@@ -151,7 +222,7 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
               className="skill-icon"
               fill="#4A1E07"
               style={
-                !mVP
+                !mVP & (index === `${sectionData.name}`)
                   ? {
                       opacity: iconsSpring.opacity.interpolate({
                         range: [0, 0.5, 1],
@@ -159,11 +230,26 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
                       }),
                       width: iconsSpring.width.interpolate({
                         range: [0, 0.9, 1],
-                        output: ["0vw", "2vw", "4vw"],
+                        output: ["0vw", "3vw", "6vw"],
                       }),
                       height: iconsSpring.height.interpolate({
                         range: [0, 0.9, 1],
-                        output: ["0vw", "2vw", "4vw"],
+                        output: ["0vw", "3vw", "6vw"],
+                      }),
+                    }
+                  : !mVP & (index !== `${sectionData.name}`)
+                  ? {
+                      opacity: iconsSpring.opacity.interpolate({
+                        range: [0, 0.5, 1],
+                        output: [0, 0, 1],
+                      }),
+                      width: iconsSpring.width.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "6vw"],
+                      }),
+                      height: iconsSpring.height.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "6vw"],
                       }),
                     }
                   : iconsMobileSpring
@@ -176,7 +262,7 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
               className="skill-icon"
               fill="#4A1E07"
               style={
-                !mVP
+                !mVP & (index === `${sectionData.name}`)
                   ? {
                       opacity: iconsSpring.opacity.interpolate({
                         range: [0, 0.5, 1],
@@ -184,11 +270,26 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
                       }),
                       width: iconsSpring.width.interpolate({
                         range: [0, 0.9, 1],
-                        output: ["0vw", "2vw", "4vw"],
+                        output: ["0vw", "3vw", "6vw"],
                       }),
                       height: iconsSpring.height.interpolate({
                         range: [0, 0.9, 1],
-                        output: ["0vw", "2vw", "4vw"],
+                        output: ["0vw", "3vw", "6vw"],
+                      }),
+                    }
+                  : !mVP & (index !== `${sectionData.name}`)
+                  ? {
+                      opacity: iconsSpring.opacity.interpolate({
+                        range: [0, 0.5, 1],
+                        output: [0, 0, 1],
+                      }),
+                      width: iconsSpring.width.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "6vw"],
+                      }),
+                      height: iconsSpring.height.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "6vw"],
                       }),
                     }
                   : iconsMobileSpring
@@ -199,7 +300,7 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
               className="skill-icon"
               fill="#4A1E07"
               style={
-                !mVP
+                !mVP & (index === `${sectionData.name}`)
                   ? {
                       opacity: iconsSpring.opacity.interpolate({
                         range: [0, 0.5, 1],
@@ -207,11 +308,26 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
                       }),
                       width: iconsSpring.width.interpolate({
                         range: [0, 0.9, 1],
-                        output: ["0vw", "2vw", "4vw"],
+                        output: ["0vw", "3vw", "6vw"],
                       }),
                       height: iconsSpring.height.interpolate({
                         range: [0, 0.9, 1],
-                        output: ["0vw", "2vw", "4vw"],
+                        output: ["0vw", "3vw", "6vw"],
+                      }),
+                    }
+                  : !mVP & (index !== `${sectionData.name}`)
+                  ? {
+                      opacity: iconsSpring.opacity.interpolate({
+                        range: [0, 0.5, 1],
+                        output: [0, 0, 1],
+                      }),
+                      width: iconsSpring.width.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "6vw"],
+                      }),
+                      height: iconsSpring.height.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "6vw"],
                       }),
                     }
                   : iconsMobileSpring
@@ -222,7 +338,7 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
               className="skill-icon"
               fill="#4A1E07"
               style={
-                !mVP
+                !mVP & (index === `${sectionData.name}`)
                   ? {
                       opacity: iconsSpring.opacity.interpolate({
                         range: [0, 0.5, 1],
@@ -230,11 +346,26 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
                       }),
                       width: iconsSpring.width.interpolate({
                         range: [0, 0.9, 1],
-                        output: ["0vw", "2vw", "4vw"],
+                        output: ["0vw", "3vw", "6vw"],
                       }),
                       height: iconsSpring.height.interpolate({
                         range: [0, 0.9, 1],
-                        output: ["0vw", "2vw", "4vw"],
+                        output: ["0vw", "3vw", "6vw"],
+                      }),
+                    }
+                  : !mVP & (index !== `${sectionData.name}`)
+                  ? {
+                      opacity: iconsSpring.opacity.interpolate({
+                        range: [0, 0.5, 1],
+                        output: [0, 0, 1],
+                      }),
+                      width: iconsSpring.width.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "6vw"],
+                      }),
+                      height: iconsSpring.height.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "2vw", "6vw"],
                       }),
                     }
                   : iconsMobileSpring

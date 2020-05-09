@@ -23,6 +23,7 @@ const App = () => {
 
   // Fade in on page load
   useEffect(() => {
+    console.log(window);
     setLoadedStatus(true);
   }, []);
 
@@ -63,7 +64,7 @@ const App = () => {
         setMVP(true);
       } else {
         setTVP(false);
-        if (window.screen.width > 500) {
+        if (window.innerWidth > 500) {
           setMVP(false);
         }
       }
