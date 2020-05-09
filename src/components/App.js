@@ -23,7 +23,6 @@ const App = () => {
 
   // Fade in on page load
   useEffect(() => {
-    console.log(window);
     setLoadedStatus(true);
   }, []);
 

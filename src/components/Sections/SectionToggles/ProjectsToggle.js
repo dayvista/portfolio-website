@@ -87,15 +87,27 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
   });
 
   const carouselSpring = useSpring({
-    opacity: index === `${sectionData.name}` ? 1 : 0,
-    width: index === `${sectionData.name}` ? 1 : 0,
-    height: index === `${sectionData.name}` ? 1 : 0,
+    to:
+      index === `${sectionData.name}`
+        ? [
+            {
+              width: index === `${sectionData.name}` ? "100%" : "0%",
+              height: index === `${sectionData.name}` ? "100%" : "0%",
+            },
+            { opacity: index === `${sectionData.name}` ? 1 : 0 },
+          ]
+        : [
+            {
+              width: index === `${sectionData.name}` ? "100%" : "0%",
+              height: index === `${sectionData.name}` ? "100%" : "0%",
+              opacity: index === `${sectionData.name}` ? 1 : 0,
+            },
+          ],
     from: {
       opacity: 0,
-      width: 0,
-      height: 0,
+      width: "0%",
+      height: "0%",
     },
-    delay: index === `${sectionData.name}` ? 850 : 0,
   });
 
   const imageSpring = useSpring({
@@ -111,7 +123,37 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
     },
   });
 
-  // const imgSprings = useSprings(projectsData.length, images.)
+  const imgSprings = useSprings(
+    projectsData.length,
+    projectsData.map((project, i) => ({
+      transform:
+        carouselLength % 2 === 0
+          ? "translateX(" + imageWidth * (carouselIndex + 0.5) + "px)"
+          : "translateX(" + imageWidth * carouselIndex + "px)",
+      from: {
+        transform:
+          carouselLength % 2 === 0
+            ? "translateX(" + imageWidth * (carouselIndex + 0.5) + "px)"
+            : "translateX(" + imageWidth * carouselIndex + "px)",
+      },
+    }))
+  );
+
+  const imgClonesSprings = useSprings(
+    2,
+    projectsData.map((project, i) => ({
+      transform:
+        carouselLength % 2 === 0
+          ? "translateX(" + imageWidth * (carouselIndex + 0.5) + "px)"
+          : "translateX(" + imageWidth * carouselIndex + "px)",
+      from: {
+        transform:
+          carouselLength % 2 === 0
+            ? "translateX(" + imageWidth * (carouselIndex + 0.5) + "px)"
+            : "translateX(" + imageWidth * carouselIndex + "px)",
+      },
+    }))
+  );
 
   return (
     <animated.div
@@ -119,72 +161,43 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       style={{ opacity, width, height, cursor, ...toggledProps }}
     >
       <animated.div className="carousel-container">
-        <animated.div
-          className="carousel-slider"
-          style={{
-            opacity: carouselSpring.opacity,
-            width:
-              index === `${sectionData.name}`
-                ? carouselSpring.width.interpolate({
-                    range: [0, 0.1, 1],
-                    output: ["0%", "100%", "100%"],
-                  })
-                : carouselSpring.width.interpolate({
-                    range: [0, 0.9, 1],
-                    output: ["0%", "0%", "100%"],
-                  }),
-            height:
-              index === `${sectionData.name}`
-                ? carouselSpring.height.interpolate({
-                    range: [0, 0.1, 1],
-                    output: ["0%", "100%", "100%"],
-                  })
-                : carouselSpring.height.interpolate({
-                    range: [0, 0.9, 1],
-                    output: ["0%", "0%", "100%"],
-                  }),
-          }}
-        >
-          <animated.img
-            id="slide-3"
-            src="../../temp/img/wind.jpg"
-            style={imageSpring}
-          ></animated.img>
-          <animated.img
-            id="slide-2"
-            src="../../temp/img/fire.jpg"
-            style={imageSpring}
-          ></animated.img>
-          <animated.img
-            id="slide-1"
-            src="../../temp/img/earth.jpg"
-            style={imageSpring}
-          ></animated.img>
-          <animated.img
-            id="slide-0"
-            src="../../temp/img/water.jpg"
-            style={imageSpring}
-          ></animated.img>
-          <animated.img
-            id="slide--1"
-            src="../../temp/img/wind.jpg"
-            style={imageSpring}
-          ></animated.img>
-          <animated.img
-            id="slide--2"
-            src="../../temp/img/fire.jpg"
-            style={imageSpring}
-          ></animated.img>
-          <animated.img
-            id="slide--3"
-            src="../../temp/img/earth.jpg"
-            style={imageSpring}
-          ></animated.img>
-          <animated.img
-            id="slide--4"
-            src="../../temp/img/water.jpg"
-            style={imageSpring}
-          ></animated.img>
+        <animated.div className="carousel-slider" style={carouselSpring}>
+          {/* Clone of last 2 images in carousel */}
+          {imgClonesSprings.map((prop, i) => (
+            <animated.img
+              key={i - 2}
+              id={
+                i === 0
+                  ? `slide-${
+                      projectsData[projectsData.length - i - 2].id
+                    }-clone`
+                  : `slide-${projectsData[projectsData.length - i].id}-clone`
+              }
+              src={
+                i === 0
+                  ? `slide-${projectsData[projectsData.length - i - 2].src}`
+                  : `slide-${projectsData[projectsData.length - i].src}`
+              }
+              style={prop}
+            ></animated.img>
+          ))}
+          {/* Main carousel images */}
+          {imgSprings.map((prop, i) => (
+            <animated.img
+              key={i}
+              id={`slide-${projectsData[i].id}`}
+              src={`${projectsData[i].src}`}
+              style={prop}
+            ></animated.img>
+          ))}
+          {imgClonesSprings.map((prop, i) => (
+            <animated.img
+              key={i + projectsData.length}
+              id={`slide-${projectsData[i].id}-clone`}
+              src={`${projectsData[i].src}`}
+              style={prop}
+            ></animated.img>
+          ))}
         </animated.div>
         <animated.div
           className="arrow-container"
