@@ -28,22 +28,35 @@
 
 .carousel-slider {
   display: flex;
-  .flex-attributes(row, center, flex-start);
+  .flex-attributes(column, center, flex-start);
 
-  img {
-    margin: 0.5vw 0 0 0;
-    border-radius: 0.5rem;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    width: 60vw;
+  .projects-container {
     position: absolute;
+    height: 85%;
+    display: flex;
+    .flex-attributes(column, flex-start, center);
+
+    svg {
+      margin: 1vw 0 0 0;
+      border-radius: 0.5rem;
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      width: 30vw;
+    }
   }
 
-  p {
+  .text-container {
     align-self: flex-end;
     position: absolute;
+    background-color: lighten(@color-1-purple, 45%);
+    height: 92.5%;
+    border-radius: 0.5rem;
+
+    p {
+      font-size: 1.5vw;
+    }
   }
 }
 

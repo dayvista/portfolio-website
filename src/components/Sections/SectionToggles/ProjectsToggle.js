@@ -11,16 +11,6 @@ const AnimatedIcon = animated(Icon);
 
 const stroke = "#050406";
 
-const useComponentWillMount = (func) => {
-  const willMount = useRef(true);
-
-  if (willMount.current) {
-    func();
-  }
-
-  willMount.current = false;
-};
-
 const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
   const [carouselIndex, setCarouselIndex] = useState(0);
 
@@ -153,15 +143,42 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
               {/* Carousel images */}
               {imgSprings.map((prop, i) => (
                 <Fragment key={`${i}-fragment`}>
-                  <animated.img
-                    key={i}
-                    id={`slide-${projectsData[i].id}`}
-                    src={`${projectsData[i].src}`}
+                  <animated.div className="projects-container">
+                    <AnimatedIcon
+                      name="desktop-template"
+                      stroke={stroke}
+                      style={prop}
+                    />
+                    <AnimatedIcon
+                      name="mobile-template"
+                      stroke={stroke}
+                      style={prop}
+                    />
+                  </animated.div>
+                  <animated.div className="text-container">
+                    <animated.p style={prop}>{projectsData[i].text}</animated.p>
+                  </animated.div>
+                  {/* <animated.div
+                    key={`slide-${i}-img-container`}
+                    className="image-container"
                     style={prop}
-                  ></animated.img>
-                  <animated.p key={`slide-${i}-text`} style={prop}>
-                    {projectsData[i].text}
-                  </animated.p>
+                  >
+                    <animated.img
+                      key={i}
+                      id={`slide-${projectsData[i].id}`}
+                      src={`${projectsData[i].src}`}
+                      // style={prop}
+                    ></animated.img>
+                  </animated.div>
+                  <animated.div
+                    key={`slide-${i}-text-container`}
+                    className="text-container"
+                    style={prop}
+                  >
+                    <animated.p key={`slide-${i}-text`}>
+                      {projectsData[i].text}
+                    </animated.p>
+                  </animated.div> */}
                 </Fragment>
               ))}
             </animated.div>
@@ -208,52 +225,3 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
 };
 
 export default ProjectsToggle;
-
-// {/* <animated.div className="carousel-slider" style={carouselSpring}>
-//           {/* Carousel images */}
-//           {imgSprings.map((prop, i) => (
-//             <animated.img
-//               key={i}
-//               id={`slide-${projectsData[i].id}`}
-//               src={`${projectsData[i].src}`}
-//               style={prop}
-//             ></animated.img>
-//           ))}
-//         </animated.div>
-//         <animated.div
-//           className="arrow-container"
-//           style={{
-//             opacity: carouselSpring.opacity,
-//             width:
-//               index === `${sectionData.name}`
-//                 ? carouselSpring.width.interpolate({
-//                     range: [0, 0.1, 1],
-//                     output: ["0%", "100%", "100%"],
-//                   })
-//                 : carouselSpring.width.interpolate({
-//                     range: [0, 0.9, 1],
-//                     output: ["0%", "0%", "100%"],
-//                   }),
-//             height:
-//               index === `${sectionData.name}`
-//                 ? carouselSpring.height.interpolate({
-//                     range: [0, 0.1, 1],
-//                     output: ["0%", "15%", "15%"],
-//                   })
-//                 : carouselSpring.height.interpolate({
-//                     range: [0, 0.9, 1],
-//                     output: ["0%", "0%", "15%"],
-//                   }),
-//           }}
-//         >
-//           <AnimatedIcon
-//             name="back-arrow"
-//             stroke={stroke}
-//             handleClick={carouselCounter}
-//           />
-//           <AnimatedIcon
-//             name="next-arrow"
-//             stroke={stroke}
-//             handleClick={carouselCounter}
-//           />
-//         </animated.div> */}

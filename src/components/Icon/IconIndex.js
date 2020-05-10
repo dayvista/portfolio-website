@@ -21,6 +21,8 @@ import NodeJS from "./Icons/Skills/NodeJS";
 import Python from "./Icons/Skills/Python";
 
 // Carousel icons
+import DesktopTemplate from "./Icons/Carousel/DesktopTemplate";
+import MobileTemplate from "./Icons/Carousel/MobileTemplate";
 import BackArrow from "./Icons/Carousel/BackArrow";
 import NextArrow from "./Icons/Carousel/NextArrow";
 import RadioButtonOn from "./Icons/Carousel/RadioButtonOn";
@@ -28,6 +30,7 @@ import RadioButtonOff from "./Icons/Carousel/RadioButtonOff";
 
 const Icon = (props) => {
   switch (props.name) {
+    // Contact/social media links
     case "github":
       return <GitHub {...props} />;
     case "linkedin":
@@ -36,10 +39,12 @@ const Icon = (props) => {
       return <Twitter {...props} />;
     case "email":
       return <Email {...props} />;
+    // Sidebar SVGs
     case "sunrise":
       return <Sunrise {...props} />;
     case "home-button":
       return <HomeButton {...props} />;
+    // About section SVGs
     case "selfie":
       return <Selfie {...props} />;
     case "html":
@@ -54,6 +59,7 @@ const Icon = (props) => {
       return <NodeJS {...props} />;
     case "python":
       return <Python {...props} />;
+    // Projects Section SVGs
     case "back-arrow":
       return <BackArrow {...props} />;
     case "next-arrow":
@@ -62,6 +68,10 @@ const Icon = (props) => {
       return <RadioButtonOn {...props} />;
     case "radio-button-off":
       return <RadioButtonOff {...props} />;
+    case "desktop-template":
+      return <DesktopTemplate {...props} />;
+    case "mobile-template":
+      return <MobileTemplate {...props} />;
     default:
       return <Fragment style={{ display: "none" }} />;
   }
