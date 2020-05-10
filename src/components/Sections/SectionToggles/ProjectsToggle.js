@@ -86,7 +86,6 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
     },
   });
 
-  // transition: from "initial" to "none"
   const imgSprings = useSprings(
     projectsData.length,
     projectsData.map((project, i) => ({
@@ -114,11 +113,11 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
                   index === `${sectionData.name}`
                     ? carouselSpring.width.interpolate({
                         range: [0, 0.1, 1],
-                        output: ["0vw", "10vw", "10vw"],
+                        output: ["0vw", "9.26vw", "9.26vw"],
                       })
                     : carouselSpring.width.interpolate({
                         range: [0, 0.9, 1],
-                        output: ["0vw", "0vw", "10vw"],
+                        output: ["0vw", "0vw", "9.26vw"],
                       }),
                 height:
                   index === `${sectionData.name}`
@@ -142,43 +141,35 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
             <animated.div className="carousel-slider" style={carouselSpring}>
               {/* Carousel images */}
               {imgSprings.map((prop, i) => (
-                <Fragment key={`${i}-fragment`}>
-                  <animated.div className="projects-container">
+                <Fragment key={i}>
+                  <animated.div
+                    key={`project-${i}-container`}
+                    className="projects-container"
+                  >
                     <AnimatedIcon
+                      key={`desktop-template-${i}`}
                       name="desktop-template"
                       stroke={stroke}
                       style={prop}
+                      src={`${projectsData[i].desktopSrc}`}
                     />
                     <AnimatedIcon
+                      key={`mobile-template-${i}`}
                       name="mobile-template"
                       stroke={stroke}
                       style={prop}
+                      src={`${projectsData[i].mobileSrc}`}
                     />
                   </animated.div>
-                  <animated.div className="text-container">
-                    <animated.p style={prop}>{projectsData[i].text}</animated.p>
-                  </animated.div>
-                  {/* <animated.div
-                    key={`slide-${i}-img-container`}
-                    className="image-container"
-                    style={prop}
-                  >
-                    <animated.img
-                      key={i}
-                      id={`slide-${projectsData[i].id}`}
-                      src={`${projectsData[i].src}`}
-                      // style={prop}
-                    ></animated.img>
-                  </animated.div>
                   <animated.div
-                    key={`slide-${i}-text-container`}
+                    key={`text-${i}-container`}
                     className="text-container"
                     style={prop}
                   >
-                    <animated.p key={`slide-${i}-text`}>
+                    <animated.p key={`project-${i}-text`}>
                       {projectsData[i].text}
                     </animated.p>
-                  </animated.div> */}
+                  </animated.div>
                 </Fragment>
               ))}
             </animated.div>
@@ -191,11 +182,11 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
                   index === `${sectionData.name}`
                     ? carouselSpring.width.interpolate({
                         range: [0, 0.1, 1],
-                        output: ["0vw", "10vw", "10vw"],
+                        output: ["0vw", "9.26vw", "9.26vw"],
                       })
                     : carouselSpring.width.interpolate({
                         range: [0, 0.9, 1],
-                        output: ["0vw", "0vw", "10vw"],
+                        output: ["0vw", "0vw", "9.26vw"],
                       }),
                 height:
                   index === `${sectionData.name}`

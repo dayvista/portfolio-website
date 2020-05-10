@@ -10,7 +10,7 @@
   display: flex;
   background-color: lighten(@color-1-purple, 40%);
   border-radius: 0.5rem;
-  width: 97.5%;
+  width: 74.1vw;
   height: 97.5%;
 
   @media (min-width: 501px) {
@@ -32,18 +32,18 @@
 
   .projects-container {
     position: absolute;
-    height: 85%;
+    width: 27.78vw;
+    height: 90%;
+    padding: 0 0 2.5% 0;
     display: flex;
     .flex-attributes(column, flex-start, center);
 
     svg {
-      margin: 1vw 0 0 0;
       border-radius: 0.5rem;
       user-select: none;
       -moz-user-select: none;
       -webkit-user-select: none;
       -ms-user-select: none;
-      width: 30vw;
     }
   }
 
@@ -52,6 +52,7 @@
     position: absolute;
     background-color: lighten(@color-1-purple, 45%);
     height: 92.5%;
+    width: 27.78vw;
     border-radius: 0.5rem;
 
     p {
@@ -69,6 +70,7 @@
     width: 5vw;
     height: auto;
     cursor: pointer;
+    z-index: 1;
   }
 }
 
