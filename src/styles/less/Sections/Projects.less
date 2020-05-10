@@ -8,73 +8,55 @@
 
 .carousel-container {
   display: flex;
-  .flex-attributes(column, center, center);
   background-color: lighten(@color-1-purple, 40%);
   border-radius: 0.5rem;
   width: 97.5%;
   height: 97.5%;
+
+  @media (min-width: 501px) {
+    .flex-attributes(row, center, center);
+  }
+
+  @media (max-width: 500px) {
+    .flex-attributes(column, center, center);
+  }
+
+  @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+    .flex-attributes(column, center, center);
+  }
 }
 
 .carousel-slider {
   display: flex;
-  .flex-attributes(row, center, flex-end);
+  .flex-attributes(row, center, flex-start);
 
   img {
-    margin: 2rem 2rem 0 2rem;
+    margin: 0.5vw 0 0 0;
     border-radius: 0.5rem;
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    width: 55vw;
-    transition: -webkit-mask-image 0.25s, mask-image 0.25s, clip-path 0.25s;
+    width: 60vw;
+    position: absolute;
   }
 
-  // #slide-4-clone {
-  //   -webkit-mask-image: linear-gradient(
-  //     to left,
-  //     #000 0%,
-  //     transparent 10%,
-  //     transparent 100%
-  //   );
-  //   mask-image: linear-gradient(
-  //     to left,
-  //     #000 0%,
-  //     transparent 10%,
-  //     transparent 100%
-  //   );
-  //   clip-path: inset(0% 0% 0% 90%);
-  // }
-
-  // #slide-2 {
-  //   -webkit-mask-image: linear-gradient(
-  //     to right,
-  //     #000 0%,
-  //     transparent 10%,
-  //     transparent 100%
-  //   );
-  //   mask-image: linear-gradient(
-  //     to right,
-  //     #000 0%,
-  //     transparent 10%,
-  //     transparent 100%
-  //   );
-  //   clip-path: inset(0% 90% 0% 0%);
-  // }
+  p {
+    align-self: flex-end;
+    position: absolute;
+  }
 }
 
 .arrow-container {
   display: flex;
   .flex-attributes(row, center, center);
-}
 
-#back-arrow-icon,
-#next-arrow-icon {
-  width: 5vw;
-  height: auto;
-  margin: 0 10vw;
-  cursor: pointer;
-  z-index: 1;
+  #back-arrow-icon,
+  #next-arrow-icon {
+    width: 5vw;
+    height: auto;
+    cursor: pointer;
+  }
 }
 
 // Icon SVG hover transition

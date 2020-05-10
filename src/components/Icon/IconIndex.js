@@ -23,6 +23,8 @@ import Python from "./Icons/Skills/Python";
 // Carousel icons
 import BackArrow from "./Icons/Carousel/BackArrow";
 import NextArrow from "./Icons/Carousel/NextArrow";
+import RadioButtonOn from "./Icons/Carousel/RadioButtonOn";
+import RadioButtonOff from "./Icons/Carousel/RadioButtonOff";
 
 const Icon = (props) => {
   switch (props.name) {
@@ -56,8 +58,12 @@ const Icon = (props) => {
       return <BackArrow {...props} />;
     case "next-arrow":
       return <NextArrow {...props} />;
+    case "radio-button-on":
+      return <RadioButtonOn {...props} />;
+    case "radio-button-off":
+      return <RadioButtonOff {...props} />;
     default:
-      return <Fragment />;
+      return <Fragment style={{ display: "none" }} />;
   }
 };
 
