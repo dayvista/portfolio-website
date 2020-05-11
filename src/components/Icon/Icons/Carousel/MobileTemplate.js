@@ -28,13 +28,6 @@ const MobileTemplate = ({ style, stroke, src, i }) => {
         .getBoundingClientRect().height /
         2;
 
-    console.log(
-      document
-        .getElementById(`mobile-template-${i}`)
-        .querySelector("rect")
-        .getBoundingClientRect()
-    );
-
     document.getElementById(`mobile-img-${i}`).width = svgWidth;
     document.getElementById(`mobile-img-${i}`).height = svgHeight;
     document.getElementById(

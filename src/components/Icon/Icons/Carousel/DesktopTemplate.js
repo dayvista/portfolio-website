@@ -68,10 +68,7 @@ const DesktopTemplate = ({ style, stroke, src, i }) => {
         .getElementById(`desktop-template-${i}`)
         .querySelector("rect")
         .getBoundingClientRect().top -
-      document
-        .getElementById(`desktop-template-${i}`)
-        .querySelector(".carousel-container")
-        .getBoundingClientRect().top;
+      document.querySelector(".carousel-container").getBoundingClientRect().top;
 
     document.getElementById(`desktop-img-${i}`).width = svgWidth;
     document.getElementById(`desktop-img-${i}`).height = svgHeight;
