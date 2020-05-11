@@ -148,6 +148,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
                   >
                     <AnimatedIcon
                       key={`desktop-template-${i}`}
+                      i={i}
                       name="desktop-template"
                       stroke={stroke}
                       style={prop}
@@ -155,6 +156,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
                     />
                     <AnimatedIcon
                       key={`mobile-template-${i}`}
+                      i={i}
                       name="mobile-template"
                       stroke={stroke}
                       style={prop}
