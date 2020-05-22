@@ -26,14 +26,46 @@
   }
 }
 
+.radio-button-container {
+  svg {
+    position: absolute;
+  }
+}
+
 .carousel-slider {
   display: flex;
   .flex-attributes(column, center, center);
+
+  width: 60vw;
+
+  .projects-container {
+    position: absolute;
+    padding-bottom: 50vh;
+
+    @desktop-image: 35vw;
+    @mobile-image: 20vw;
+
+    .project-images-desktop {
+      width: @desktop-image;
+      height: auto;
+      margin: 0 5vw;
+      border-radius: 0.5rem;
+    }
+
+    .project-images-mobile {
+      width: auto;
+      height: @mobile-image;
+      margin: 0 5vw;
+      border-radius: 0.5rem;
+    }
+  }
 
   .text-container {
     position: absolute;
     background-color: lighten(@color-1-purple, 45%);
     border-radius: 0.5rem;
+    margin-top: 15vh;
+    width: 70vw;
 
     p {
       font-size: 1.5vw;

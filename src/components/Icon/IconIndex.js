@@ -68,10 +68,6 @@ const Icon = (props) => {
       return <RadioButtonOn {...props} />;
     case "radio-button-off":
       return <RadioButtonOff {...props} />;
-    case "desktop-template":
-      return <DesktopTemplate {...props} />;
-    case "mobile-template":
-      return <MobileTemplate {...props} />;
     default:
       return <Fragment style={{ display: "none" }} />;
   }

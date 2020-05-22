@@ -104,40 +104,6 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       <animated.div className="carousel-container">
         {!mVP && !tVP ? (
           <Fragment>
-            <animated.div
-              className="arrow-container"
-              id="arrow-container-1"
-              style={{
-                opacity: carouselSpring.opacity,
-                width:
-                  index === `${sectionData.name}`
-                    ? carouselSpring.width.interpolate({
-                        range: [0, 0.1, 1],
-                        output: ["0vw", "9.26vw", "9.26vw"],
-                      })
-                    : carouselSpring.width.interpolate({
-                        range: [0, 0.9, 1],
-                        output: ["0vw", "0vw", "9.26vw"],
-                      }),
-                height:
-                  index === `${sectionData.name}`
-                    ? carouselSpring.height.interpolate({
-                        range: [0, 0.1, 1],
-                        output: ["0%", "15%", "15%"],
-                      })
-                    : carouselSpring.height.interpolate({
-                        range: [0, 0.9, 1],
-                        output: ["0%", "0%", "15%"],
-                      }),
-              }}
-            >
-              <AnimatedIcon
-                name="back-arrow"
-                key="back-arrow"
-                stroke={stroke}
-                handleClick={carouselCounter}
-              />
-            </animated.div>
             <animated.div className="carousel-slider" style={carouselSpring}>
               {/* Carousel */}
               {imgSprings.map((prop, i) => (
@@ -176,6 +142,86 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
                   </animated.div>
                 </Fragment>
               ))}
+            </animated.div>
+            <animated.div
+              className="arrow-container"
+              id="arrow-container-1"
+              style={{
+                opacity: carouselSpring.opacity,
+                width:
+                  index === `${sectionData.name}`
+                    ? carouselSpring.width.interpolate({
+                        range: [0, 0.1, 1],
+                        output: ["0vw", "9.26vw", "9.26vw"],
+                      })
+                    : carouselSpring.width.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "0vw", "9.26vw"],
+                      }),
+                height:
+                  index === `${sectionData.name}`
+                    ? carouselSpring.height.interpolate({
+                        range: [0, 0.1, 1],
+                        output: ["0%", "15%", "15%"],
+                      })
+                    : carouselSpring.height.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0%", "0%", "15%"],
+                      }),
+              }}
+            >
+              <AnimatedIcon
+                name="back-arrow"
+                key="back-arrow"
+                stroke={stroke}
+                handleClick={carouselCounter}
+              />
+            </animated.div>
+            <animated.div
+              className="radio-button-container"
+              style={{
+                opacity: carouselSpring.opacity,
+                width:
+                  index === `${sectionData.name}`
+                    ? carouselSpring.width.interpolate({
+                        range: [0, 0.1, 1],
+                        output: ["0vw", "9.26vw", "9.26vw"],
+                      })
+                    : carouselSpring.width.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "0vw", "9.26vw"],
+                      }),
+                height:
+                  index === `${sectionData.name}`
+                    ? carouselSpring.height.interpolate({
+                        range: [0, 0.1, 1],
+                        output: ["0%", "15%", "15%"],
+                      })
+                    : carouselSpring.height.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0%", "0%", "15%"],
+                      }),
+              }}
+            >
+              {projectsData.map((button, i) =>
+                i === carouselIndex ? (
+                  <AnimatedIcon
+                    key={`radio-button-${i}`}
+                    id={`radio-button-${i}`}
+                    className="radio-button"
+                    name="radio-button-on"
+                    stroke={stroke}
+                  />
+                ) : (
+                  <AnimatedIcon
+                    key={`radio-button-${i}`}
+                    id={`radio-button-${i}`}
+                    className="radio-button"
+                    name="radio-button-off"
+                    stroke={stroke}
+                  />
+                )
+              )}
             </animated.div>
             <animated.div
               className="arrow-container"
