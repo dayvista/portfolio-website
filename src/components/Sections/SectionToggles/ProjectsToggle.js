@@ -139,36 +139,38 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
               />
             </animated.div>
             <animated.div className="carousel-slider" style={carouselSpring}>
-              {/* Carousel images */}
+              {/* Carousel */}
               {imgSprings.map((prop, i) => (
                 <Fragment key={i}>
                   <animated.div
                     key={`project-${i}-container`}
+                    id={`project-${i}-container`}
                     className="projects-container"
+                    style={prop}
                   >
-                    <AnimatedIcon
-                      key={`desktop-template-${i}`}
-                      i={i}
-                      name="desktop-template"
-                      stroke={stroke}
-                      style={prop}
-                      src={`${projectsData[i].desktopSrc}`}
+                    <animated.img
+                      key={`project-${i}-image-desktop`}
+                      id={`project-${i}-image-desktop`}
+                      className="project-images-desktop"
+                      src={projectsData[i].desktopSrc}
                     />
-                    <AnimatedIcon
-                      key={`mobile-template-${i}`}
-                      i={i}
-                      name="mobile-template"
-                      stroke={stroke}
-                      style={prop}
-                      src={`${projectsData[i].mobileSrc}`}
+                    <animated.img
+                      key={`project-${i}-image-mobile`}
+                      id={`project-${i}-image-mobile`}
+                      className="project-images-mobile"
+                      src={projectsData[i].mobileSrc}
                     />
                   </animated.div>
                   <animated.div
-                    key={`text-${i}-container`}
+                    key={`project-${i}-text-container`}
+                    id={`project-${i}-text-container`}
                     className="text-container"
                     style={prop}
                   >
-                    <animated.p key={`project-${i}-text`}>
+                    <animated.p
+                      key={`project-${i}-text`}
+                      id={`project-${i}-text`}
+                    >
                       {projectsData[i].text}
                     </animated.p>
                   </animated.div>

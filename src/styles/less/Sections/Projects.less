@@ -28,31 +28,11 @@
 
 .carousel-slider {
   display: flex;
-  .flex-attributes(column, center, flex-start);
-
-  .projects-container {
-    position: absolute;
-    width: 27.78vw;
-    height: 90%;
-    padding: 0 0 2.5% 0;
-    display: flex;
-    .flex-attributes(column, flex-start, center);
-
-    svg {
-      border-radius: 0.5rem;
-      user-select: none;
-      -moz-user-select: none;
-      -webkit-user-select: none;
-      -ms-user-select: none;
-    }
-  }
+  .flex-attributes(column, center, center);
 
   .text-container {
-    align-self: flex-end;
     position: absolute;
     background-color: lighten(@color-1-purple, 45%);
-    height: 92.5%;
-    width: 27.78vw;
     border-radius: 0.5rem;
 
     p {

@@ -7,67 +7,77 @@ import React, { useEffect, Fragment } from "react";
 import "../../../../styles/css/Sections/ProjectsToggle/MobileTemplate.css";
 
 const MobileTemplate = ({ style, stroke, src, i }) => {
-  const resizeImgOnLoad = () => {
-    let svgWidth = document
-      .getElementById(`mobile-template-${i}`)
-      .querySelector("rect")
-      .getBoundingClientRect().width;
-    let svgHeight = document
-      .getElementById(`mobile-template-${i}`)
-      .querySelector("rect")
-      .getBoundingClientRect().height;
+  // const resizeImgOnLoad = () => {
+  //   let svgWidth = document
+  //     .getElementById(`mobile-template-${i}`)
+  //     .querySelector("rect")
+  //     .getBoundingClientRect().width;
+  //   let svgHeight =
+  //     document
+  //       .getElementById(`mobile-template-${i}`)
+  //       .querySelector("rect")
+  //       .getBoundingClientRect().height -
+  //     document
+  //       .getElementById(`mobile-template-${i}`)
+  //       .querySelector("path")
+  //       .getBoundingClientRect().height /
+  //       2;
 
-    let imgMarginTop =
-      document
-        .getElementById(`mobile-template-${i}`)
-        .querySelector("rect")
-        .getBoundingClientRect().bottom -
-      document
-        .getElementById(`mobile-template-${i}`)
-        .querySelector("path")
-        .getBoundingClientRect().height /
-        2;
+  //   let imgMarginTop =
+  //     document
+  //       .getElementById(`mobile-template-${i}`)
+  //       .querySelector("rect")
+  //       .getBoundingClientRect().bottom -
+  //     document
+  //       .getElementById(`mobile-template-${i}`)
+  //       .querySelector("path")
+  //       .getBoundingClientRect().height /
+  //       2;
 
-    document.getElementById(`mobile-img-${i}`).width = svgWidth;
-    document.getElementById(`mobile-img-${i}`).height = svgHeight;
-    document.getElementById(
-      `mobile-img-${i}`
-    ).style.marginTop = `${imgMarginTop}px`;
-  };
+  //   document.getElementById(`mobile-img-${i}`).width = svgWidth;
+  //   document.getElementById(`mobile-img-${i}`).height = svgHeight;
+  //   document.getElementById(
+  //     `mobile-img-${i}`
+  //   ).style.marginTop = `${imgMarginTop}px`;
+  // };
 
-  const resizeImgOnWindowResize = () => {
-    let svgWidth =
-      document
-        .getElementById(`mobile-template-${i}`)
-        .querySelector("rect")
-        .getBoundingClientRect().width * 0.95;
-    let svgHeight =
-      document
-        .getElementById(`mobile-template-${i}`)
-        .querySelector("rect")
-        .getBoundingClientRect().height * 0.97;
+  // const resizeImgOnWindowResize = () => {
+  //   let svgWidth =
+  //     document
+  //       .getElementById(`mobile-template-${i}`)
+  //       .querySelector("rect")
+  //       .getBoundingClientRect().width * 0.95;
+  //   let svgHeight =
+  //     document
+  //       .getElementById(`mobile-template-${i}`)
+  //       .querySelector("rect")
+  //       .getBoundingClientRect().height * 0.97;
 
-    let imgMarginTop =
-      document
-        .getElementById(`mobile-template-${i}`)
-        .querySelector("rect")
-        .getBoundingClientRect().top -
-      document.querySelector(".carousel-container").getBoundingClientRect().top;
+  //   let imgMarginTop =
+  //     document
+  //       .getElementById(`mobile-template-${i}`)
+  //       .querySelector("rect")
+  //       .getBoundingClientRect().top +
+  //     document
+  //       .getElementById(`mobile-template-${i}`)
+  //       .querySelector("path")
+  //       .getBoundingClientRect().height /
+  //       2;
 
-    document.getElementById(`mobile-img-${i}`).width = svgWidth;
-    document.getElementById(`mobile-img-${i}`).height = svgHeight;
-    document.getElementById(
-      `mobile-img-${i}`
-    ).style.marginTop = `${imgMarginTop}px`;
-  };
+  //   document.getElementById(`mobile-img-${i}`).width = svgWidth;
+  //   document.getElementById(`mobile-img-${i}`).height = svgHeight;
+  //   document.getElementById(
+  //     `mobile-img-${i}`
+  //   ).style.marginTop = `${imgMarginTop}px`;
+  // };
 
-  useEffect(() => {
-    resizeImgOnLoad();
-    window.addEventListener("resize", resizeImgOnWindowResize);
-    return () => {
-      window.removeEventListener("resize", resizeImgOnWindowResize);
-    };
-  }, []);
+  // useEffect(() => {
+  //   resizeImgOnLoad();
+  //   window.addEventListener("resize", resizeImgOnWindowResize);
+  //   return () => {
+  //     window.removeEventListener("resize", resizeImgOnWindowResize);
+  //   };
+  // }, []);
 
   return (
     <Fragment>

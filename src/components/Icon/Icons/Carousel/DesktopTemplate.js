@@ -7,83 +7,86 @@ import React, { useEffect, Fragment } from "react";
 import "../../../../styles/css/Sections/ProjectsToggle/DesktopTemplate.css";
 
 const DesktopTemplate = ({ style, stroke, src, i }) => {
-  const resizeImgOnLoad = () => {
-    let svgWidth =
-      document
-        .getElementById(`desktop-template-${i}`)
-        .querySelector("rect")
-        .getBoundingClientRect().width -
-      document
-        .getElementById(`desktop-template-${i}`)
-        .querySelector("rect")
-        .getBoundingClientRect().width /
-        15;
-    let svgHeight =
-      document
-        .getElementById(`desktop-template-${i}`)
-        .querySelector("rect")
-        .getBoundingClientRect().height -
-      document
-        .getElementById(`desktop-template-${i}`)
-        .querySelector("path")
-        .getBoundingClientRect().height *
-        0.8543;
+  // const resizeImgOnLoad = () => {
+  //   let svgWidth =
+  //     document
+  //       .getElementById(`desktop-template-${i}`)
+  //       .querySelector("rect")
+  //       .getBoundingClientRect().width -
+  //     document
+  //       .getElementById(`desktop-template-${i}`)
+  //       .querySelector("rect")
+  //       .getBoundingClientRect().width /
+  //       15;
+  //   let svgHeight =
+  //     document
+  //       .getElementById(`desktop-template-${i}`)
+  //       .querySelector("rect")
+  //       .getBoundingClientRect().height * 0.7182;
 
-    let imgMarginTop = -document
-      .getElementById(`desktop-template-${i}`)
-      .querySelector("rect")
-      .getBoundingClientRect().bottom;
+  //   let imgMarginTop = -document
+  //     .getElementById(`desktop-template-${i}`)
+  //     .querySelector("rect")
+  //     .getBoundingClientRect().bottom;
 
-    document.getElementById(`desktop-img-${i}`).width = svgWidth;
-    document.getElementById(`desktop-img-${i}`).height = svgHeight;
-    document.getElementById(
-      `desktop-img-${i}`
-    ).style.marginTop = `${imgMarginTop}px`;
-  };
+  //   console.log(imgMarginTop);
 
-  const resizeImgOnWindowResize = () => {
-    let svgWidth =
-      document
-        .getElementById(`desktop-template-${i}`)
-        .querySelector("rect")
-        .getBoundingClientRect().width -
-      document
-        .getElementById(`desktop-template-${i}`)
-        .querySelector("rect")
-        .getBoundingClientRect().width /
-        15;
-    let svgHeight =
-      document
-        .getElementById(`desktop-template-${i}`)
-        .querySelector("rect")
-        .getBoundingClientRect().height -
-      document
-        .getElementById(`desktop-template-${i}`)
-        .querySelector("path")
-        .getBoundingClientRect().height *
-        0.8543;
+  //   document.getElementById(`desktop-img-${i}`).width = svgWidth;
+  //   document.getElementById(`desktop-img-${i}`).height = svgHeight;
+  //   document.getElementById(
+  //     `desktop-img-${i}`
+  //   ).style.marginTop = `${imgMarginTop}px`;
+  // };
 
-    let imgMarginTop =
-      document
-        .getElementById(`desktop-template-${i}`)
-        .querySelector("rect")
-        .getBoundingClientRect().top -
-      document.querySelector(".carousel-container").getBoundingClientRect().top;
+  // const resizeImgOnWindowResize = () => {
+  //   let svgWidth =
+  //     document
+  //       .getElementById(`desktop-template-${i}`)
+  //       .querySelector("rect")
+  //       .getBoundingClientRect().width -
+  //     document
+  //       .getElementById(`desktop-template-${i}`)
+  //       .querySelector("rect")
+  //       .getBoundingClientRect().width /
+  //       15;
+  //   let svgHeight =
+  //     document
+  //       .getElementById(`desktop-template-${i}`)
+  //       .querySelector("rect")
+  //       .getBoundingClientRect().height * 0.7182;
 
-    document.getElementById(`desktop-img-${i}`).width = svgWidth;
-    document.getElementById(`desktop-img-${i}`).height = svgHeight;
-    document.getElementById(
-      `desktop-img-${i}`
-    ).style.marginTop = `${imgMarginTop}px`;
-  };
+  //   let imgMarginTop =
+  //     document
+  //       .getElementById(`desktop-template-${i}`)
+  //       .querySelector("rect")
+  //       .getBoundingClientRect().top +
+  //     document
+  //       .getElementById(`desktop-template-${i}`)
+  //       .querySelector("rect")
+  //       .getBoundingClientRect().height *
+  //       0.04911;
 
-  useEffect(() => {
-    resizeImgOnLoad();
-    window.addEventListener("resize", resizeImgOnWindowResize);
-    return () => {
-      window.removeEventListener("resize", resizeImgOnWindowResize);
-    };
-  }, []);
+  //   console.log(
+  //     document
+  //       .getElementById(`desktop-template-${i}`)
+  //       .querySelector("rect")
+  //       .getBoundingClientRect()
+  //   );
+
+  //   document.getElementById(`desktop-img-${i}`).width = svgWidth;
+  //   document.getElementById(`desktop-img-${i}`).height = svgHeight;
+  //   document.getElementById(
+  //     `desktop-img-${i}`
+  //   ).style.marginTop = `${imgMarginTop}px`;
+  // };
+
+  // useEffect(() => {
+  //   resizeImgOnLoad();
+  //   window.addEventListener("resize", resizeImgOnWindowResize);
+  //   return () => {
+  //     window.removeEventListener("resize", resizeImgOnWindowResize);
+  //   };
+  // }, []);
 
   return (
     <Fragment>
