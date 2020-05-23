@@ -6,14 +6,13 @@
 }
 .carousel-container {
   display: flex;
-  background-color: #c3b7d1;
   border-radius: 0.5rem;
   width: 74.1vw;
   height: 97.5%;
 }
 @media (min-width: 501px) {
   .carousel-container {
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
@@ -32,19 +31,21 @@
     align-items: center;
   }
 }
-.radio-button-container svg {
-  position: absolute;
-}
 .carousel-slider {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  margin-bottom: 1.5vh;
   width: 60vw;
 }
 .carousel-slider .projects-container {
   position: absolute;
-  padding-bottom: 50vh;
+  padding: 3.5vh 0;
+  background-color: white;
+  border-radius: 0.5rem;
+  width: 70vw;
+  background-color: #c3b7d1;
 }
 .carousel-slider .projects-container .project-images-desktop {
   width: 35vw;
@@ -54,32 +55,64 @@
 }
 .carousel-slider .projects-container .project-images-mobile {
   width: auto;
-  height: 20vw;
+  height: 35vh;
   margin: 0 5vw;
   border-radius: 0.5rem;
 }
 .carousel-slider .text-container {
   position: absolute;
-  background-color: #d0c7db;
+  align-self: flex-end;
+  background-color: #c3b7d1;
   border-radius: 0.5rem;
-  margin-top: 15vh;
   width: 70vw;
+  height: 35vh;
 }
 .carousel-slider .text-container p {
   font-size: 1.5vw;
 }
-.arrow-container {
+.counter-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+.counter-container .arrow-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-.arrow-container #back-arrow-icon,
-.arrow-container #next-arrow-icon {
-  width: 5vw;
+.counter-container .arrow-container #back-arrow-icon,
+.counter-container .arrow-container #next-arrow-icon {
+  width: 4vw;
   height: auto;
   cursor: pointer;
-  z-index: 2;
+  transition: filter 0.3s, -webkit-filter 0.3s;
+}
+.counter-container .arrow-container #back-arrow-icon:hover,
+.counter-container .arrow-container #next-arrow-icon:hover {
+  filter: drop-shadow(0px 2px 2px #050406);
+  -webkit-filter: drop-shadow(0px 2px 2px #050406);
+}
+.counter-container .radio-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.counter-container .radio-button-container svg {
+  width: 4vw;
+  height: auto;
+  transition: filter 0.3s, -webkit-filter 0.3s;
+}
+.counter-container .radio-button-container .radio-button-off {
+  cursor: pointer;
+}
+.counter-container .radio-button-container .radio-button-off:hover {
+  filter: drop-shadow(0px 2px 2px #050406);
+  -webkit-filter: drop-shadow(0px 2px 2px #050406);
 }
 @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
   #github-svg {

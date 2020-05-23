@@ -8,6 +8,7 @@ import "../styles/css/Sections/Titles.css";
 
 // Components
 import sectionData from "./Sections/data/sectionData";
+import projectsData from "./Sections/data/projectsData";
 
 import Projects from "./Sections/Projects";
 import Resume from "./Sections/Resume";

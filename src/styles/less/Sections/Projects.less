@@ -8,13 +8,12 @@
 
 .carousel-container {
   display: flex;
-  background-color: lighten(@color-1-purple, 40%);
   border-radius: 0.5rem;
   width: 74.1vw;
   height: 97.5%;
 
   @media (min-width: 501px) {
-    .flex-attributes(row, center, center);
+    .flex-attributes(column, center, center);
   }
 
   @media (max-width: 500px) {
@@ -26,27 +25,23 @@
   }
 }
 
-.radio-button-container {
-  svg {
-    position: absolute;
-  }
-}
-
 .carousel-slider {
   display: flex;
-  .flex-attributes(column, center, center);
+  .flex-attributes(row, center, flex-start);
+  margin-bottom: 1.5vh;
 
   width: 60vw;
 
   .projects-container {
     position: absolute;
-    padding-bottom: 50vh;
-
-    @desktop-image: 35vw;
-    @mobile-image: 20vw;
+    padding: 3.5vh 0;
+    background-color: white;
+    border-radius: 0.5rem;
+    width: 70vw;
+    background-color: lighten(@color-1-purple, 40%);
 
     .project-images-desktop {
-      width: @desktop-image;
+      width: 35vw;
       height: auto;
       margin: 0 5vw;
       border-radius: 0.5rem;
@@ -54,7 +49,7 @@
 
     .project-images-mobile {
       width: auto;
-      height: @mobile-image;
+      height: 35vh;
       margin: 0 5vw;
       border-radius: 0.5rem;
     }
@@ -62,10 +57,11 @@
 
   .text-container {
     position: absolute;
-    background-color: lighten(@color-1-purple, 45%);
+    align-self: flex-end;
+    background-color: lighten(@color-1-purple, 40%);
     border-radius: 0.5rem;
-    margin-top: 15vh;
     width: 70vw;
+    height: 35vh;
 
     p {
       font-size: 1.5vw;
@@ -73,16 +69,49 @@
   }
 }
 
-.arrow-container {
+.counter-container {
   display: flex;
-  .flex-attributes(row, center, center);
+  .flex-attributes(row, space-around, center);
 
-  #back-arrow-icon,
-  #next-arrow-icon {
-    width: 5vw;
-    height: auto;
-    cursor: pointer;
-    z-index: 2;
+  width: 100%;
+  height: auto;
+
+  .arrow-container {
+    display: flex;
+    .flex-attributes(row, center, center);
+
+    #back-arrow-icon,
+    #next-arrow-icon {
+      width: 4vw;
+      height: auto;
+      cursor: pointer;
+      transition: filter 0.3s, -webkit-filter 0.3s;
+
+      &:hover {
+        filter: drop-shadow(0px 2px 2px #050406);
+        -webkit-filter: drop-shadow(0px 2px 2px #050406);
+      }
+    }
+  }
+
+  .radio-button-container {
+    display: flex;
+    .flex-attributes(row, space-around, center);
+
+    svg {
+      width: 4vw;
+      height: auto;
+
+      transition: filter 0.3s, -webkit-filter 0.3s;
+    }
+
+    .radio-button-off {
+      cursor: pointer;
+      &:hover {
+        filter: drop-shadow(0px 2px 2px #050406);
+        -webkit-filter: drop-shadow(0px 2px 2px #050406);
+      }
+    }
   }
 }
 
