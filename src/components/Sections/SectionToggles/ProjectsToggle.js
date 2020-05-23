@@ -1,4 +1,4 @@
-import React, { useState, useRef, Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import { animated, useSpring, useSprings } from "react-spring";
 
 import Icon from "../../Icon/IconIndex";
@@ -94,8 +94,10 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
     projectsData.length,
     projectsData.map((project, i) => ({
       opacity: i === carouselIndex ? 1 : 0,
+      zIndex: i === carouselIndex ? 1 : 0,
       from: {
         opacity: i === carouselIndex ? 1 : 0,
+        zIndex: i === carouselIndex ? 1 : 0,
       },
       config: { duration: 200 },
     }))
@@ -111,6 +113,18 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
           <Fragment>
             <animated.div className="carousel-slider" style={carouselSpring}>
               {/* Carousel */}
+              <div id="project-base-container" className="projects-container">
+                <img
+                  className="project-images-desktop"
+                  src={projectsData[0].desktopSrc}
+                  style={{ opacity: 0 }}
+                />
+                <img
+                  className="project-images-mobile"
+                  src={projectsData[0].mobileSrc}
+                  style={{ opacity: 0 }}
+                />
+              </div>
               {carouselSprings.map((prop, i) => (
                 <Fragment key={i}>
                   <animated.div
@@ -119,36 +133,50 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
                     className="projects-container"
                     style={prop}
                   >
-                    <animated.img
+                    <img
                       key={`project-${i}-image-desktop`}
                       id={`project-${i}-image-desktop`}
                       className="project-images-desktop"
                       src={projectsData[i].desktopSrc}
                     />
-                    <animated.img
+                    <img
                       key={`project-${i}-image-mobile`}
                       id={`project-${i}-image-mobile`}
                       className="project-images-mobile"
                       src={projectsData[i].mobileSrc}
                     />
                   </animated.div>
-                  <animated.div
+                  <div
                     key={`project-${i}-text-container`}
                     id={`project-${i}-text-container`}
                     className="text-container"
-                    style={prop}
                   >
-                    <animated.p
-                      key={`project-${i}-text`}
-                      id={`project-${i}-text`}
+                    <animated.h1
+                      key={`project-${i}-header`}
+                      id={`project-${i}-header`}
+                      style={prop}
                     >
-                      {projectsData[i].text}
+                      {projectsData[i].header}
+                    </animated.h1>
+                    <animated.p
+                      key={`project-${i}-skills-text`}
+                      id={`project-${i}-skills-text`}
+                      style={prop}
+                    >
+                      {projectsData[i].skillsText}
                     </animated.p>
-                  </animated.div>
+                    <animated.p
+                      key={`project-${i}-about-text`}
+                      id={`project-${i}-about-text`}
+                      style={prop}
+                    >
+                      {projectsData[i].aboutText}
+                    </animated.p>
+                  </div>
                 </Fragment>
               ))}
             </animated.div>
-            <animated.div className="counter-container">
+            <div className="counter-container">
               <animated.div
                 className="arrow-container"
                 id="arrow-container-1"
@@ -176,7 +204,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
                         }),
                 }}
               >
-                <AnimatedIcon
+                <Icon
                   name="back-arrow"
                   key="back-arrow"
                   stroke={stroke}
@@ -258,13 +286,13 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
                         }),
                 }}
               >
-                <AnimatedIcon
+                <Icon
                   name="next-arrow"
                   stroke={stroke}
                   handleClick={carouselCounter}
                 />
               </animated.div>
-            </animated.div>
+            </div>
           </Fragment>
         ) : (
           <span style={{ display: "none" }}></span>
