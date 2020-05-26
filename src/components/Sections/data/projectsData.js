@@ -3,28 +3,16 @@ export default [
     desktopSrc: "../../temp/img/desktoptemplate.gif",
     mobileSrc: "../../temp/img/mobiletemplate.gif",
     header: "Portfolio Website - liamdavis.dev",
-    skillsText: "Skills & Tech Used: blablabla",
-    aboutText: "This is information about my first project.",
+    skillsText:
+      "Tech Used: HTML, CSS, JavaScript, React & React Spring (an animation library for React)",
+    aboutText:
+      "I imagined the concept for this website, my portfolio, without knowing how to create it. I experimented with various React animation libraries before settling on React Spring. Each component of the website was storyboarded. Much was learned in CSS, JavaScript, and React. I had to essentially learn how to make the website as I was making it.",
   },
   {
     desktopSrc: "../../temp/img/desktoptemplate.gif",
     mobileSrc: "../../temp/img/mobiletemplate.gif",
-    header: "Name of Project 2",
-    skillsText: "Skills & Tech Used: more blah",
-    aboutText: "Here's some more info about another project.",
-  },
-  {
-    desktopSrc: "../../temp/img/desktoptemplate.gif",
-    mobileSrc: "../../temp/img/mobiletemplate.gif",
-    header: "Name of Project 3",
-    skillsText: "Skills & Tech Used: hlab",
-    aboutText: "How about some more, eh?",
-  },
-  {
-    desktopSrc: "../../temp/img/desktoptemplate.gif",
-    mobileSrc: "../../temp/img/mobiletemplate.gif",
-    header: "Name of Project 4",
-    skillsText: "Skills & Tech Used: skunko",
-    aboutText: "Please, no more!",
+    header: "Placeholder Project",
+    skillsText: "Tech Used: none",
+    aboutText: "This is a placeholder card for UI/UX testing.",
   },
 ];
