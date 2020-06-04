@@ -135,7 +135,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       width: index === `${sectionData.name}` ? "70%" : "0%",
       height: index === `${sectionData.name}` ? "35.22%" : "0%",
     },
-    config: { duration: 300 },
+    config: { duration: 200 },
   });
 
   const desktopImageSpring = useSpring({
@@ -145,7 +145,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       width: index === `${sectionData.name}` ? "50%" : "0%",
       height: index === `${sectionData.name}` ? "100%" : "0%",
     },
-    config: { duration: 300 },
+    config: { duration: 200 },
   });
 
   const mobileImageSpring = useSpring({
@@ -155,7 +155,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       width: index === `${sectionData.name}` ? "13.5%" : "0%",
       height: index === `${sectionData.name}` ? "100%" : "0%",
     },
-    config: { duration: 300 },
+    config: { duration: 200 },
   });
 
   const textContainerSpring = useSpring({
@@ -167,7 +167,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       height: index === `${sectionData.name}` ? "33.5%" : "0%",
       opacity: index === `${sectionData.name}` ? 1 : 0,
     },
-    config: { duration: 300 },
+    config: { duration: 200 },
   });
 
   const headerSpring = useSpring({
@@ -175,7 +175,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
     from: {
       fontSize: index === `${sectionData.name}` ? "1.75vw" : "0vw",
     },
-    config: { duration: 300 },
+    config: { duration: 200 },
   });
 
   const textSpring = useSpring({
@@ -183,7 +183,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
     from: {
       fontSize: index === `${sectionData.name}` ? "1.5vw" : "0vw",
     },
-    config: { duration: 300 },
+    config: { duration: 200 },
   });
 
   return (

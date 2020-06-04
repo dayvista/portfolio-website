@@ -1,3 +1,6 @@
+.titles-section > .titles-title {
+  cursor: default;
+}
 @media (min-width: 501px) {
   .titles-section > .titles-title {
     margin-bottom: 5rem;
