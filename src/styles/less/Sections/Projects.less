@@ -4,6 +4,30 @@
 #projects-container {
   display: flex;
   .flex-attributes(column, center, center);
+
+  // Custom scrollbar
+  @media (min-width: 501px) {
+    ::-webkit-scrollbar {
+      width: 1rem;
+      background: inherit;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-clip: content-box;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #5c4a72;
+      border-radius: 0.5rem;
+
+      &:hover {
+        background: lighten(#5c4a72, 7.5%);
+      }
+    }
+
+    scrollbar-color: #e0dae7 #5c4a72;
+    scrollbar-width: thin;
+  }
 }
 
 .carousel-container {
@@ -46,11 +70,31 @@
       margin-top: 1.5vh;
       background-color: lighten(@color-1-purple, 40%);
 
+      @media (max-width: 500px) {
+        width: 85%;
+        height: 25%;
+      }
+
+      @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+        width: 85%;
+        height: 25%;
+      }
+
       .project-images-desktop {
         width: 50%;
         height: 100%;
         margin: 0 5vw;
         border-radius: 0.5rem;
+
+        @media (max-width: 500px) {
+          position: absolute;
+          margin: 0;
+        }
+
+        @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+          position: absolute;
+          margin: 0;
+        }
       }
 
       .project-images-mobile {
@@ -66,9 +110,8 @@
       align-self: flex-end;
       background-color: lighten(@color-1-purple, 40%);
       border-radius: 0.5rem;
-      width: 70%;
-      height: 33.5%;
-
+      overflow-x: hidden;
+      overflow-y: scroll;
       text-align: justify;
       font-family: "Jost", sans-serif;
 
@@ -80,6 +123,14 @@
         font-size: 1.75vw;
         align-self: center;
         text-decoration: underline;
+
+        @media (max-width: 500px) {
+          font-size: 5.5vw;
+        }
+
+        @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+          font-size: 5.5vw;
+        }
       }
 
       p {
@@ -88,6 +139,31 @@
         text-align: left;
         font-size: 1.5vw;
         line-height: 2.5rem;
+
+        @media (max-width: 500px) {
+          font-size: 5vw;
+          margin: 2vh 2vw 0 2vw;
+
+          -webkit-mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            #c3b7d1 5%,
+            #c3b7d1 95%,
+            transparent 100%
+          );
+          mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            #c3b7d1 5%,
+            #c3b7d1 95%,
+            transparent 100%
+          );
+        }
+
+        @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+          font-size: 5vw;
+          margin: 2vh 2vw 0 2vw;
+        }
       }
     }
   }
@@ -96,6 +172,14 @@
 .counter-container {
   display: flex;
   .flex-attributes(row, space-around, center);
+
+  @media (max-width: 500px) {
+    .flex-attributes(row, space-between, center);
+  }
+
+  @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+    .flex-attributes(row, space-between, center);
+  }
 
   width: 100%;
   height: auto;
@@ -106,12 +190,28 @@
     display: flex;
     .flex-attributes(row, center, center);
 
+    @media (max-width: 500px) {
+      margin: 0 5%;
+    }
+
+    @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+      margin: 0 5%;
+    }
+
     #back-arrow-icon,
     #next-arrow-icon {
       width: 40%;
       height: auto;
       cursor: pointer;
       transition: filter 0.3s, -webkit-filter 0.3s;
+
+      @media (max-width: 500px) {
+        width: 80%;
+      }
+
+      @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+        width: 80%;
+      }
 
       &:hover {
         filter: drop-shadow(0px 2px 2px #050406);
@@ -129,6 +229,14 @@
       height: auto;
 
       transition: filter 0.3s, -webkit-filter 0.3s;
+
+      // @media (max-width: 500px) {
+      //   width: 40%;
+      // }
+
+      // @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+      //   width: 40%;
+      // }
     }
 
     .radio-button-off {

@@ -163,6 +163,7 @@ body {
 section {
   display: flex;
 }
+section h1,
 section p {
   user-select: none;
   -webkit-user-select: none;

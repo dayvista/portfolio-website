@@ -96,7 +96,9 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       to:
         i === carouselIndex
           ? [
-              { zIndex: i === carouselIndex ? 1 : -1 },
+              {
+                zIndex: i === carouselIndex ? 1 : -1,
+              },
               {
                 opacity: i === carouselIndex ? 1 : 0,
               },
@@ -115,6 +117,37 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
     }))
   );
 
+  // Instead of making separate mobile spring - use this method???
+  const projectContainerSpring = useSpring({
+    width:
+      (index === `${sectionData.name}`) & !mVP
+        ? "74%"
+        : (index === `${sectionData.name}`) & mVP
+        ? "85%"
+        : "0%",
+    height:
+      (index === `${sectionData.name}`) & !mVP
+        ? "35.22%"
+        : index === `${sectionData.name}`
+        ? "25%"
+        : "0%",
+    from: {
+      width:
+        (index === `${sectionData.name}`) & !mVP
+          ? "74%"
+          : (index === `${sectionData.name}`) & mVP
+          ? "85%"
+          : "0%",
+      height:
+        (index === `${sectionData.name}`) & !mVP
+          ? "35.22%"
+          : index === `${sectionData.name}`
+          ? "25%"
+          : "0%",
+    },
+    config: { duration: 275 },
+  });
+
   const radioButtonSprings = useSprings(
     projectsData.length,
     projectsData.map((project, i) => ({
@@ -128,16 +161,6 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
     }))
   );
 
-  const projectContainerSpring = useSpring({
-    width: index === `${sectionData.name}` ? "70%" : "0%",
-    height: index === `${sectionData.name}` ? "35.22%" : "0%",
-    from: {
-      width: index === `${sectionData.name}` ? "70%" : "0%",
-      height: index === `${sectionData.name}` ? "35.22%" : "0%",
-    },
-    config: { duration: 200 },
-  });
-
   const desktopImageSpring = useSpring({
     width: index === `${sectionData.name}` ? "50%" : "0%",
     height: index === `${sectionData.name}` ? "100%" : "0%",
@@ -145,7 +168,18 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       width: index === `${sectionData.name}` ? "50%" : "0%",
       height: index === `${sectionData.name}` ? "100%" : "0%",
     },
-    config: { duration: 200 },
+    config: { duration: 275 },
+  });
+
+  // ADJUST WIDTH AND HEIGHT TO MOBILE/TABLET VALUES (perhaps create a tablet spring?)
+  const desktopImageMobileSpring = useSpring({
+    width: index === `${sectionData.name}` ? "95%" : "0%",
+    height: index === `${sectionData.name}` ? "45.1573%" : "0%",
+    from: {
+      width: index === `${sectionData.name}` ? "95%" : "0%",
+      height: index === `${sectionData.name}` ? "45.1573%" : "0%",
+    },
+    config: { duration: 275 },
   });
 
   const mobileImageSpring = useSpring({
@@ -155,19 +189,49 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       width: index === `${sectionData.name}` ? "13.5%" : "0%",
       height: index === `${sectionData.name}` ? "100%" : "0%",
     },
-    config: { duration: 200 },
+    config: { duration: 275 },
+  });
+
+  const mobileImageMobileSpring = useSpring({
+    width: index === `${sectionData.name}` ? "13.5%" : "0%",
+    height: index === `${sectionData.name}` ? "100%" : "0%",
+    from: {
+      width: index === `${sectionData.name}` ? "13.5%" : "0%",
+      height: index === `${sectionData.name}` ? "100%" : "0%",
+    },
+    config: { duration: 275 },
   });
 
   const textContainerSpring = useSpring({
-    width: index === `${sectionData.name}` ? "70%" : "0%",
-    height: index === `${sectionData.name}` ? "33.5%" : "0%",
+    width:
+      (index === `${sectionData.name}`) & !mVP
+        ? "74%"
+        : (index === `${sectionData.name}`) & mVP
+        ? "85%"
+        : "0%",
+    height:
+      (index === `${sectionData.name}`) & !mVP
+        ? "33.5%"
+        : (index === `${sectionData.name}`) & mVP
+        ? "25%"
+        : "0%",
     opacity: index === `${sectionData.name}` ? 1 : 0,
     from: {
-      width: index === `${sectionData.name}` ? "70%" : "0%",
-      height: index === `${sectionData.name}` ? "33.5%" : "0%",
+      width:
+        (index === `${sectionData.name}`) & !mVP
+          ? "74%"
+          : (index === `${sectionData.name}`) & mVP
+          ? "85%"
+          : "0%",
+      height:
+        (index === `${sectionData.name}`) & !mVP
+          ? "33.5%"
+          : (index === `${sectionData.name}`) & mVP
+          ? "25%"
+          : "0%",
       opacity: index === `${sectionData.name}` ? 1 : 0,
     },
-    config: { duration: 200 },
+    config: { duration: 275 },
   });
 
   const headerSpring = useSpring({
@@ -175,7 +239,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
     from: {
       fontSize: index === `${sectionData.name}` ? "1.75vw" : "0vw",
     },
-    config: { duration: 200 },
+    config: { duration: 275 },
   });
 
   const textSpring = useSpring({
@@ -183,7 +247,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
     from: {
       fontSize: index === `${sectionData.name}` ? "1.5vw" : "0vw",
     },
-    config: { duration: 200 },
+    config: { duration: 275 },
   });
 
   return (
@@ -195,213 +259,205 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
         className="carousel-container"
         style={{ opacity, width, height, ...toggledProps }}
       >
-        {!mVP && !tVP ? (
-          <Fragment>
-            <animated.div className="carousel-slider" style={carouselSpring}>
-              {/* Carousel */}
-              <animated.div
-                id="project-base-container"
-                className="individual-project-container"
-                style={projectContainerSpring}
-              >
-                <animated.img
-                  id="base-desktop-image"
-                  className="project-images-desktop"
-                  src={projectsData[0].desktopSrc}
-                  style={desktopImageSpring}
-                />
-                <animated.img
-                  id="base-mobile-image"
-                  className="project-images-mobile"
-                  src={projectsData[0].mobileSrc}
-                  style={mobileImageSpring}
-                />
-              </animated.div>
-              {carouselSprings.map((prop, i) => (
-                <Fragment key={i}>
-                  <animated.div
-                    key={`project-${i}-container`}
-                    id={`project-${i}-container`}
-                    className="individual-project-container"
+        <Fragment>
+          <animated.div className="carousel-slider" style={carouselSpring}>
+            {/* Carousel */}
+            <animated.div
+              id="project-base-container"
+              className="individual-project-container"
+              style={projectContainerSpring}
+            >
+              <animated.img
+                id="base-desktop-image"
+                className="project-images-desktop"
+                src={projectsData[0].desktopSrc}
+                style={!mVP ? desktopImageSpring : desktopImageMobileSpring}
+              />
+              <animated.img
+                id="base-mobile-image"
+                className="project-images-mobile"
+                src={projectsData[0].mobileSrc}
+                style={!mVP ? mobileImageSpring : mobileImageMobileSpring}
+              />
+            </animated.div>
+            {carouselSprings.map((prop, i) => (
+              <Fragment key={i}>
+                <animated.div
+                  key={`project-${i}-container`}
+                  id={`project-${i}-container`}
+                  className="individual-project-container"
+                  style={
+                    index === `${sectionData.name}`
+                      ? prop
+                      : projectContainerSpring
+                  }
+                >
+                  <animated.img
+                    key={`project-${i}-image-desktop`}
+                    id={`project-${i}-image-desktop`}
+                    className="project-images-desktop"
+                    src={projectsData[i].desktopSrc}
+                    style={!mVP ? desktopImageSpring : desktopImageMobileSpring}
+                  />
+                  <animated.img
+                    key={`project-${i}-image-mobile`}
+                    id={`project-${i}-image-mobile`}
+                    className="project-images-mobile"
+                    src={projectsData[i].mobileSrc}
+                    style={!mVP ? mobileImageSpring : mobileImageMobileSpring}
+                  />
+                </animated.div>
+                <animated.div
+                  key={`project-${i}-text-container`}
+                  id={`project-${i}-text-container`}
+                  className="text-container"
+                  style={textContainerSpring}
+                >
+                  <animated.h1
+                    key={`project-${i}-header`}
+                    id={`project-${i}-header`}
                     style={
-                      index === `${sectionData.name}`
-                        ? prop
-                        : projectContainerSpring
+                      index === `${sectionData.name}` ? prop : headerSpring
                     }
                   >
-                    <animated.img
-                      key={`project-${i}-image-desktop`}
-                      id={`project-${i}-image-desktop`}
-                      className="project-images-desktop"
-                      src={projectsData[i].desktopSrc}
-                      style={desktopImageSpring}
-                    />
-                    <animated.img
-                      key={`project-${i}-image-mobile`}
-                      id={`project-${i}-image-mobile`}
-                      className="project-images-mobile"
-                      src={projectsData[i].mobileSrc}
-                      style={mobileImageSpring}
-                    />
-                  </animated.div>
-                  <animated.div
-                    key={`project-${i}-text-container`}
-                    id={`project-${i}-text-container`}
-                    className="text-container"
-                    style={textContainerSpring}
+                    {projectsData[i].header}
+                  </animated.h1>
+                  <animated.p
+                    key={`project-${i}-skills-text`}
+                    id={`project-${i}-skills-text`}
+                    style={index === `${sectionData.name}` ? prop : textSpring}
                   >
-                    <animated.h1
-                      key={`project-${i}-header`}
-                      id={`project-${i}-header`}
-                      style={
-                        index === `${sectionData.name}` ? prop : headerSpring
-                      }
-                    >
-                      {projectsData[i].header}
-                    </animated.h1>
-                    <animated.p
-                      key={`project-${i}-skills-text`}
-                      id={`project-${i}-skills-text`}
-                      style={
-                        index === `${sectionData.name}` ? prop : textSpring
-                      }
-                    >
-                      {projectsData[i].skillsText}
-                    </animated.p>
-                    <animated.p
-                      key={`project-${i}-about-text`}
-                      id={`project-${i}-about-text`}
-                      style={
-                        index === `${sectionData.name}` ? prop : textSpring
-                      }
-                    >
-                      {projectsData[i].aboutText}
-                    </animated.p>
-                  </animated.div>
-                </Fragment>
-              ))}
+                    {projectsData[i].skillsText}
+                  </animated.p>
+                  <animated.p
+                    key={`project-${i}-about-text`}
+                    id={`project-${i}-about-text`}
+                    style={index === `${sectionData.name}` ? prop : textSpring}
+                  >
+                    {projectsData[i].aboutText}
+                  </animated.p>
+                </animated.div>
+              </Fragment>
+            ))}
+          </animated.div>
+          <div className="counter-container">
+            <animated.div
+              className="arrow-container"
+              id="arrow-container-1"
+              style={{
+                opacity: carouselSpring.opacity,
+                width:
+                  index === `${sectionData.name}`
+                    ? carouselSpring.width.interpolate({
+                        range: [0, 0.1, 1],
+                        output: ["0vw", "9.26vw", "9.26vw"],
+                      })
+                    : carouselSpring.width.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "0vw", "9.26vw"],
+                      }),
+                height:
+                  index === `${sectionData.name}`
+                    ? carouselSpring.height.interpolate({
+                        range: [0, 0.1, 1],
+                        output: ["0%", "15%", "15%"],
+                      })
+                    : carouselSpring.height.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0%", "0%", "15%"],
+                      }),
+              }}
+            >
+              <Icon
+                name="back-arrow"
+                key="back-arrow"
+                stroke={stroke}
+                handleClick={carouselCounter}
+              />
             </animated.div>
-            <div className="counter-container">
-              <animated.div
-                className="arrow-container"
-                id="arrow-container-1"
-                style={{
-                  opacity: carouselSpring.opacity,
-                  width:
-                    index === `${sectionData.name}`
-                      ? carouselSpring.width.interpolate({
-                          range: [0, 0.1, 1],
-                          output: ["0vw", "9.26vw", "9.26vw"],
-                        })
-                      : carouselSpring.width.interpolate({
-                          range: [0, 0.9, 1],
-                          output: ["0vw", "0vw", "9.26vw"],
-                        }),
-                  height:
-                    index === `${sectionData.name}`
-                      ? carouselSpring.height.interpolate({
-                          range: [0, 0.1, 1],
-                          output: ["0%", "15%", "15%"],
-                        })
-                      : carouselSpring.height.interpolate({
-                          range: [0, 0.9, 1],
-                          output: ["0%", "0%", "15%"],
-                        }),
-                }}
-              >
-                <Icon
-                  name="back-arrow"
-                  key="back-arrow"
-                  stroke={stroke}
-                  handleClick={carouselCounter}
-                />
-              </animated.div>
-              <animated.div
-                className="radio-button-container"
-                style={{
-                  opacity: carouselSpring.opacity,
-                  width:
-                    index === `${sectionData.name}`
-                      ? carouselSpring.width.interpolate({
-                          range: [0, 0.1, 1],
-                          output: ["0vw", "9.26vw", "9.26vw"],
-                        })
-                      : carouselSpring.width.interpolate({
-                          range: [0, 0.9, 1],
-                          output: ["0vw", "0vw", "9.26vw"],
-                        }),
-                  height:
-                    index === `${sectionData.name}`
-                      ? carouselSpring.height.interpolate({
-                          range: [0, 0.1, 1],
-                          output: ["0%", "15%", "15%"],
-                        })
-                      : carouselSpring.height.interpolate({
-                          range: [0, 0.9, 1],
-                          output: ["0%", "0%", "15%"],
-                        }),
-                }}
-              >
-                {radioButtonSprings.map((prop, i) =>
-                  i === carouselIndex ? (
-                    <AnimatedIcon
-                      key={`radio-button-${i}`}
-                      id={`radio-button-${i}`}
-                      name="radio-button-on"
-                      stroke={stroke}
-                      style={prop}
-                    />
-                  ) : (
-                    <AnimatedIcon
-                      key={`radio-button-${i}`}
-                      id={`radio-button-${i}`}
-                      name="radio-button-off"
-                      stroke={stroke}
-                      style={prop}
-                      changeIndex={changeIndexWithRadioButton}
-                      index={i}
-                    />
-                  )
-                )}
-              </animated.div>
-              <animated.div
-                className="arrow-container"
-                id="arrow-container-2"
-                style={{
-                  opacity: carouselSpring.opacity,
-                  width:
-                    index === `${sectionData.name}`
-                      ? carouselSpring.width.interpolate({
-                          range: [0, 0.1, 1],
-                          output: ["0vw", "9.26vw", "9.26vw"],
-                        })
-                      : carouselSpring.width.interpolate({
-                          range: [0, 0.9, 1],
-                          output: ["0vw", "0vw", "9.26vw"],
-                        }),
-                  height:
-                    index === `${sectionData.name}`
-                      ? carouselSpring.height.interpolate({
-                          range: [0, 0.1, 1],
-                          output: ["0%", "15%", "15%"],
-                        })
-                      : carouselSpring.height.interpolate({
-                          range: [0, 0.9, 1],
-                          output: ["0%", "0%", "15%"],
-                        }),
-                }}
-              >
-                <Icon
-                  name="next-arrow"
-                  stroke={stroke}
-                  handleClick={carouselCounter}
-                />
-              </animated.div>
-            </div>
-          </Fragment>
-        ) : (
-          <span style={{ display: "none" }}></span>
-        )}
+            <animated.div
+              className="radio-button-container"
+              style={{
+                opacity: carouselSpring.opacity,
+                width:
+                  index === `${sectionData.name}`
+                    ? carouselSpring.width.interpolate({
+                        range: [0, 0.1, 1],
+                        output: ["0vw", "9.26vw", "9.26vw"],
+                      })
+                    : carouselSpring.width.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "0vw", "9.26vw"],
+                      }),
+                height:
+                  index === `${sectionData.name}`
+                    ? carouselSpring.height.interpolate({
+                        range: [0, 0.1, 1],
+                        output: ["0%", "15%", "15%"],
+                      })
+                    : carouselSpring.height.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0%", "0%", "15%"],
+                      }),
+              }}
+            >
+              {radioButtonSprings.map((prop, i) =>
+                i === carouselIndex ? (
+                  <AnimatedIcon
+                    key={`radio-button-${i}`}
+                    id={`radio-button-${i}`}
+                    name="radio-button-on"
+                    stroke={stroke}
+                    style={prop}
+                  />
+                ) : (
+                  <AnimatedIcon
+                    key={`radio-button-${i}`}
+                    id={`radio-button-${i}`}
+                    name="radio-button-off"
+                    stroke={stroke}
+                    style={prop}
+                    changeIndex={changeIndexWithRadioButton}
+                    index={i}
+                  />
+                )
+              )}
+            </animated.div>
+            <animated.div
+              className="arrow-container"
+              id="arrow-container-2"
+              style={{
+                opacity: carouselSpring.opacity,
+                width:
+                  index === `${sectionData.name}`
+                    ? carouselSpring.width.interpolate({
+                        range: [0, 0.1, 1],
+                        output: ["0vw", "9.26vw", "9.26vw"],
+                      })
+                    : carouselSpring.width.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "0vw", "9.26vw"],
+                      }),
+                height:
+                  index === `${sectionData.name}`
+                    ? carouselSpring.height.interpolate({
+                        range: [0, 0.1, 1],
+                        output: ["0%", "15%", "15%"],
+                      })
+                    : carouselSpring.height.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0%", "0%", "15%"],
+                      }),
+              }}
+            >
+              <Icon
+                name="next-arrow"
+                stroke={stroke}
+                handleClick={carouselCounter}
+              />
+            </animated.div>
+          </div>
+        </Fragment>
       </animated.div>
     </animated.div>
   );
