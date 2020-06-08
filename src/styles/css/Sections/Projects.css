@@ -177,31 +177,18 @@
 .counter-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: auto;
   margin-bottom: 1.5vh;
-}
-@media (max-width: 500px) {
-  .counter-container {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-@media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
-  .counter-container {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
 }
 .counter-container .arrow-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin: 0 -2.5%;
 }
 @media (max-width: 500px) {
   .counter-container .arrow-container {

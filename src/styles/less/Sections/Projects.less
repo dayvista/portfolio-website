@@ -199,15 +199,7 @@
 
 .counter-container {
   display: flex;
-  .flex-attributes(row, space-around, center);
-
-  @media (max-width: 500px) {
-    .flex-attributes(row, space-between, center);
-  }
-
-  @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
-    .flex-attributes(row, space-between, center);
-  }
+  .flex-attributes(row, space-between, center);
 
   width: 100%;
   height: auto;
@@ -217,6 +209,8 @@
   .arrow-container {
     display: flex;
     .flex-attributes(row, center, center);
+
+    margin: 0 -2.5%;
 
     @media (max-width: 500px) {
       margin: 0 5%;

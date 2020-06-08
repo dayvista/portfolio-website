@@ -1,18 +1,17 @@
-import React from "react";
-import { animated, useSpring } from "react-spring";
+import React, { useState } from "react";
+import { animated } from "react-spring";
+import { Document, Page } from "react-pdf";
+
+const AnimatedDocument = animated(Document);
+const AnimatedPage = animated(Page);
 
 import "../../../styles/css/Sections/Resume.css";
 
 const ResumeToggle = (props) => {
   return (
     <animated.div>
-      <animated.iframe
-        src=""
-        frameBorder="0"
-        scrolling="auto"
-        height="100%"
-        width="100%"
-      ></animated.iframe>
+      <animated.object src="../../../img/resume/resume.pdf" />
+      <animated.object src="../../../img/resume/lor.pdf" />
     </animated.div>
   );
 };

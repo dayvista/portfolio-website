@@ -164,21 +164,21 @@ const Resume = ({ index, mVP, tVP, changeIndex, sectionData }) => {
           <animated.p style={!tVP ? textSpring : textTabletSpring}>
             {sectionData.text}
           </animated.p>
+          <Switch>
+            <Route
+              exact
+              path="/resume"
+              render={(props) => (
+                <ResumeToggle
+                  {...props}
+                  index={index}
+                  sectionData={sectionData}
+                  mVP={mVP}
+                />
+              )}
+            />
+          </Switch>
         </AnimatedLink>
-        <Switch>
-          <Route
-            exact
-            path="/resume"
-            render={(props) => (
-              <ResumeToggle
-                {...props}
-                index={index}
-                sectionData={sectionData}
-                mVP={mVP}
-              />
-            )}
-          />
-        </Switch>
         <animated.a
           id={`${sectionData.name}-icon`}
           href={`${sectionData.link}`}
