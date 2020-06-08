@@ -76,17 +76,23 @@
   .carousel-container .carousel-slider .individual-project-container {
     width: 85%;
     height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
   .carousel-container .carousel-slider .individual-project-container {
     width: 85%;
     height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 .carousel-container .carousel-slider .individual-project-container .project-images-desktop {
-  width: 50%;
-  height: 100%;
   margin: 0 5vw;
   border-radius: 0.5rem;
 }
@@ -103,10 +109,20 @@
   }
 }
 .carousel-container .carousel-slider .individual-project-container .project-images-mobile {
-  width: 13.5%;
-  height: 100%;
   margin: 0 5vw;
   border-radius: 0.5rem;
+}
+@media (max-width: 500px) {
+  .carousel-container .carousel-slider .individual-project-container .project-images-mobile {
+    position: absolute;
+    margin: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+  .carousel-container .carousel-slider .individual-project-container .project-images-mobile {
+    position: absolute;
+    margin: 0;
+  }
 }
 .carousel-container .carousel-slider .text-container {
   position: absolute;
@@ -135,7 +151,7 @@
 }
 @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
   .carousel-container .carousel-slider .text-container h1 {
-    font-size: 5.5vw;
+    font-size: 5vw;
   }
 }
 .carousel-container .carousel-slider .text-container p {
@@ -149,14 +165,13 @@
   .carousel-container .carousel-slider .text-container p {
     font-size: 5vw;
     margin: 2vh 2vw 0 2vw;
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #c3b7d1 5%, #c3b7d1 95%, transparent 100%);
-    mask-image: linear-gradient(to bottom, transparent 0%, #c3b7d1 5%, #c3b7d1 95%, transparent 100%);
   }
 }
 @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
   .carousel-container .carousel-slider .text-container p {
-    font-size: 5vw;
+    font-size: 4vw;
     margin: 2vh 2vw 0 2vw;
+    line-height: 3.75rem;
   }
 }
 .counter-container {
@@ -205,10 +220,20 @@
   cursor: pointer;
   transition: filter 0.3s, -webkit-filter 0.3s;
 }
+.counter-container .arrow-container #back-arrow-icon:hover,
+.counter-container .arrow-container #next-arrow-icon:hover {
+  filter: drop-shadow(0px 2px 2px #050406);
+  -webkit-filter: drop-shadow(0px 2px 2px #050406);
+}
 @media (max-width: 500px) {
   .counter-container .arrow-container #back-arrow-icon,
   .counter-container .arrow-container #next-arrow-icon {
     width: 80%;
+  }
+  .counter-container .arrow-container #back-arrow-icon:hover,
+  .counter-container .arrow-container #next-arrow-icon:hover {
+    filter: none;
+    -webkit-filter: none;
   }
 }
 @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
@@ -216,11 +241,11 @@
   .counter-container .arrow-container #next-arrow-icon {
     width: 80%;
   }
-}
-.counter-container .arrow-container #back-arrow-icon:hover,
-.counter-container .arrow-container #next-arrow-icon:hover {
-  filter: drop-shadow(0px 2px 2px #050406);
-  -webkit-filter: drop-shadow(0px 2px 2px #050406);
+  .counter-container .arrow-container #back-arrow-icon:hover,
+  .counter-container .arrow-container #next-arrow-icon:hover {
+    filter: none;
+    -webkit-filter: none;
+  }
 }
 .counter-container .radio-button-container {
   display: flex;
@@ -232,6 +257,16 @@
   width: 40%;
   height: auto;
   transition: filter 0.3s, -webkit-filter 0.3s;
+}
+@media (max-width: 500px) {
+  .counter-container .radio-button-container svg {
+    width: 45%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+  .counter-container .radio-button-container svg {
+    width: 45%;
+  }
 }
 .counter-container .radio-button-container .radio-button-off {
   cursor: pointer;

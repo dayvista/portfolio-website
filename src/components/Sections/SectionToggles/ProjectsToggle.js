@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { animated, useSpring, useSprings } from "react-spring";
 
 import Icon from "../../Icon/IconIndex";
@@ -13,6 +13,21 @@ const stroke = "#050406";
 
 const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const [visibleProjectOnMobile, setVisibleProjectOnMobile] = useState(null);
+
+  useEffect(() => {
+    setVisibleProjectOnMobile("mobile");
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (visibleProjectOnMobile === "mobile") {
+        setVisibleProjectOnMobile("desktop");
+      } else if (visibleProjectOnMobile === "desktop") {
+        setVisibleProjectOnMobile("mobile");
+      }
+    }, 10000);
+  }, [visibleProjectOnMobile]);
 
   const carouselCounter = (event) => {
     let index = carouselIndex;
@@ -21,7 +36,6 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       event.target.id === "back-arrow-icon" ||
       event.target.parentElement.id === "back-arrow-icon"
     ) {
-      console.log(index);
       if (index === 0) {
         index = projectsData.length - 1;
         setCarouselIndex(index);
@@ -117,7 +131,6 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
     }))
   );
 
-  // Instead of making separate mobile spring - use this method???
   const projectContainerSpring = useSpring({
     width:
       (index === `${sectionData.name}`) & !mVP
@@ -171,13 +184,24 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
     config: { duration: 275 },
   });
 
-  // ADJUST WIDTH AND HEIGHT TO MOBILE/TABLET VALUES (perhaps create a tablet spring?)
   const desktopImageMobileSpring = useSpring({
     width: index === `${sectionData.name}` ? "95%" : "0%",
-    height: index === `${sectionData.name}` ? "45.1573%" : "0%",
+    height:
+      (index === `${sectionData.name}`) & !tVP
+        ? "45.1573%"
+        : (index === `${sectionData.name}`) & tVP
+        ? "62.7465%"
+        : "0%",
+    opacity: visibleProjectOnMobile === "desktop" ? 1 : 0,
     from: {
       width: index === `${sectionData.name}` ? "95%" : "0%",
-      height: index === `${sectionData.name}` ? "45.1573%" : "0%",
+      height:
+        (index === `${sectionData.name}`) & !tVP
+          ? "45.1573%"
+          : (index === `${sectionData.name}`) & tVP
+          ? "62.7465%"
+          : "0%",
+      opacity: visibleProjectOnMobile === "desktop" ? 1 : 0,
     },
     config: { duration: 275 },
   });
@@ -193,11 +217,23 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
   });
 
   const mobileImageMobileSpring = useSpring({
-    width: index === `${sectionData.name}` ? "13.5%" : "0%",
-    height: index === `${sectionData.name}` ? "100%" : "0%",
+    width:
+      (index === `${sectionData.name}`) & !tVP
+        ? "50.9828%"
+        : (index === `${sectionData.name}`) & tVP
+        ? "28.8818%"
+        : "0%",
+    height: index === `${sectionData.name}` ? "90%" : "0%",
+    opacity: visibleProjectOnMobile === "mobile" ? 1 : 0,
     from: {
-      width: index === `${sectionData.name}` ? "13.5%" : "0%",
-      height: index === `${sectionData.name}` ? "100%" : "0%",
+      width:
+        (index === `${sectionData.name}`) & !tVP
+          ? "50.9828%"
+          : (index === `${sectionData.name}`) & tVP
+          ? "28.8818%"
+          : "0%",
+      height: index === `${sectionData.name}` ? "90%" : "0%",
+      opacity: visibleProjectOnMobile === "mobile" ? 1 : 0,
     },
     config: { duration: 275 },
   });
