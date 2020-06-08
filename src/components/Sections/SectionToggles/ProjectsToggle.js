@@ -380,24 +380,44 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
               style={{
                 opacity: carouselSpring.opacity,
                 width:
-                  index === `${sectionData.name}`
+                  index === `${sectionData.name}` && !mVP
                     ? carouselSpring.width.interpolate({
                         range: [0, 0.1, 1],
                         output: ["0vw", "9.26vw", "9.26vw"],
                       })
-                    : carouselSpring.width.interpolate({
+                    : index === `${sectionData.name}` && mVP
+                    ? carouselSpring.width.interpolate({
+                        range: [0, 0.1, 1],
+                        output: ["0vw", "15vw", "15vw"],
+                      })
+                    : index !== `${sectionData.name}` && !mVP
+                    ? carouselSpring.width.interpolate({
                         range: [0, 0.9, 1],
                         output: ["0vw", "0vw", "9.26vw"],
+                      })
+                    : carouselSpring.width.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0vw", "0vw", "15vw"],
                       }),
                 height:
-                  index === `${sectionData.name}`
+                  index === `${sectionData.name}` && !mVP
                     ? carouselSpring.height.interpolate({
                         range: [0, 0.1, 1],
                         output: ["0%", "15%", "15%"],
                       })
-                    : carouselSpring.height.interpolate({
+                    : index === `${sectionData.name}` && mVP
+                    ? carouselSpring.height.interpolate({
+                        range: [0, 0.1, 1],
+                        output: ["0%", "20%", "20%"],
+                      })
+                    : index !== `${sectionData.name}` && !mVP
+                    ? carouselSpring.height.interpolate({
                         range: [0, 0.9, 1],
                         output: ["0%", "0%", "15%"],
+                      })
+                    : carouselSpring.height.interpolate({
+                        range: [0, 0.9, 1],
+                        output: ["0%", "0%", "20%"],
                       }),
               }}
             >
