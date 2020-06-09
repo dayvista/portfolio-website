@@ -21,7 +21,7 @@ const ResumeToggle = ({ index, sectionData, mVP, tVP }) => {
             },
             {
               opacity: index === `${sectionData.name}` ? 1 : 0,
-              cursor: index === `${sectionData.name}` ? "default" : "pointer",
+              // cursor: index === `${sectionData.name}` ? "default" : "pointer",
             },
           ]
         : [
@@ -30,15 +30,15 @@ const ResumeToggle = ({ index, sectionData, mVP, tVP }) => {
               width: index === `${sectionData.name}` ? "100%" : "0%",
               height: index === `${sectionData.name}` ? "100%" : "0%",
             },
-            {
-              cursor: index === `${sectionData.name}` ? "default" : "pointer",
-            },
+            // {
+            //   cursor: index === `${sectionData.name}` ? "default" : "pointer",
+            // },
           ],
     from: {
       opacity: 0,
       width: "0%",
       height: "0%",
-      cursor: "pointer",
+      // cursor: "pointer",
     },
   });
 
@@ -55,7 +55,7 @@ const ResumeToggle = ({ index, sectionData, mVP, tVP }) => {
 
   return (
     <animated.div
-      className="container"
+      id="resume-container"
       style={{ width, height, opacity, cursor, ...toggledSection }}
     >
       <AnimatedDocument

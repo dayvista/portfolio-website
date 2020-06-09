@@ -10,6 +10,8 @@ import ResumeToggle from "./SectionToggles/ResumeToggle";
 const AnimatedLink = animated(Link);
 const AnimatedIcon = animated(Icon);
 
+import "../../styles/css/Sections/Resume.css";
+
 const Resume = ({ index, mVP, tVP, changeIndex, sectionData }) => {
   useEffect(() => {
     editLinks();

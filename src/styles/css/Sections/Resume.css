@@ -1,4 +1,25 @@
-.container {
+@media (min-width: 501px) {
+  .title-text {
+    scrollbar-color: #dabac3 #2f191f;
+    scrollbar-width: thin;
+  }
+  .title-text ::-webkit-scrollbar {
+    width: 1rem;
+    background: inherit;
+  }
+  .title-text ::-webkit-scrollbar-track {
+    background-clip: content-box;
+  }
+  .title-text ::-webkit-scrollbar-thumb {
+    background: #2f191f;
+    border-radius: 0.5rem;
+  }
+  .title-text ::-webkit-scrollbar-thumb:hover {
+    background: #48262f;
+  }
+}
+#resume-container {
+  cursor: default;
   overflow-y: scroll;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #2f191f 7.5%, #2f191f 92.5%, transparent 100%);
   mask-image: linear-gradient(to bottom, transparent 0%, #2f191f 7.5%, #2f191f 92.5%, transparent 100%);
@@ -7,26 +28,45 @@
   justify-content: flex-start;
   align-items: center;
 }
-.container ::-webkit-scrollbar {
-  width: 1rem;
-  background: inherit;
+@media (min-width: 501px) {
+  #resume-container {
+    margin: 3vh 4vw 3vh 0;
+  }
 }
-.container ::-webkit-scrollbar-track {
-  background-clip: content-box;
+@media (max-width: 500px) {
+  #resume-container {
+    margin: 2vh 0 2vh 0;
+  }
 }
-.container ::-webkit-scrollbar-thumb {
-  background: #2f191f;
-  border-radius: 0.5rem;
+@media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+  #resume-container {
+    margin: 1.5vh 4vw 1.5vh 0;
+  }
 }
-.container ::-webkit-scrollbar-thumb:hover {
-  background: #48262f;
-}
-.container .react-pdf__Document {
+#resume-container .react-pdf__Document {
   user-select: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -o-user-select: none;
+}
+@media (max-width: 500px) {
+  #resume-container .react-pdf__Document .react-pdf__Page canvas {
+    width: 85vw !important;
+    height: auto !important;
+  }
+}
+@media (min-width: 501px) {
+  #resume-container .react-pdf__Document .react-pdf__Page canvas {
+    width: 67.5vw !important;
+    height: auto !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+  #resume-container .react-pdf__Document .react-pdf__Page canvas {
+    width: 79vw !important;
+    height: auto !important;
+  }
 }
 @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
   #linkedin-svg {
