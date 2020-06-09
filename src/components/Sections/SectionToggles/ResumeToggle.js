@@ -21,7 +21,6 @@ const ResumeToggle = ({ index, sectionData, mVP, tVP }) => {
             },
             {
               opacity: index === `${sectionData.name}` ? 1 : 0,
-              // cursor: index === `${sectionData.name}` ? "default" : "pointer",
             },
           ]
         : [
@@ -30,26 +29,18 @@ const ResumeToggle = ({ index, sectionData, mVP, tVP }) => {
               width: index === `${sectionData.name}` ? "100%" : "0%",
               height: index === `${sectionData.name}` ? "100%" : "0%",
             },
-            // {
-            //   cursor: index === `${sectionData.name}` ? "default" : "pointer",
-            // },
           ],
     from: {
       opacity: 0,
       width: "0%",
       height: "0%",
-      // cursor: "pointer",
     },
   });
 
   const documentSpring = useSpring({
-    width: index === `${sectionData.name}` ? "100vw" : "0vw",
-    // height: index === `${sectionData.name}` ? "100%" : "0%",
     opacity: index === `${sectionData.name}` ? 1 : 0,
     from: {
       opacity: index === `${sectionData.name}` ? 1 : 0,
-      width: index === `${sectionData.name}` ? "100vw" : "0vw",
-      // height: "0%",
     },
   });
 

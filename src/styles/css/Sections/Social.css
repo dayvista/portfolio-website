@@ -1,3 +1,6 @@
+#social-container {
+  cursor: default;
+}
 @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
   #twitter-svg {
     margin-top: 1.25rem;
