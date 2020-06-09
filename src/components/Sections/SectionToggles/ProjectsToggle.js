@@ -61,17 +61,29 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
     setCarouselIndex(index);
   };
 
-  const { opacity, width, height, cursor, ...toggledProps } = useSpring({
-    to: [
-      {
-        width: index === `${sectionData.name}` ? "100%" : "0%",
-        height: index === `${sectionData.name}` ? "100%" : "0%",
-      },
-      {
-        opacity: index === `${sectionData.name}` ? 1 : 0,
-        cursor: index === `${sectionData.name}` ? "default" : "pointer",
-      },
-    ],
+  const { opacity, width, height, cursor, ...toggledSection } = useSpring({
+    to:
+      index === `${sectionData.name}`
+        ? [
+            {
+              width: index === `${sectionData.name}` ? "100%" : "0%",
+              height: index === `${sectionData.name}` ? "100%" : "0%",
+            },
+            {
+              opacity: index === `${sectionData.name}` ? 1 : 0,
+              cursor: index === `${sectionData.name}` ? "default" : "pointer",
+            },
+          ]
+        : [
+            {
+              opacity: index === `${sectionData.name}` ? 1 : 0,
+              width: index === `${sectionData.name}` ? "100%" : "0%",
+              height: index === `${sectionData.name}` ? "100%" : "0%",
+            },
+            {
+              cursor: index === `${sectionData.name}` ? "default" : "pointer",
+            },
+          ],
     from: {
       opacity: 0,
       width: "0%",
@@ -158,7 +170,6 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
           ? "25%"
           : "0%",
     },
-    config: { duration: 275 },
   });
 
   const radioButtonSprings = useSprings(
@@ -181,7 +192,6 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       width: index === `${sectionData.name}` ? "50%" : "0%",
       height: index === `${sectionData.name}` ? "100%" : "0%",
     },
-    config: { duration: 275 },
   });
 
   const desktopImageMobileSpring = useSpring({
@@ -203,7 +213,6 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
           : "0%",
       opacity: visibleProjectOnMobile === "desktop" ? 1 : 0,
     },
-    config: { duration: 275 },
   });
 
   const mobileImageSpring = useSpring({
@@ -213,7 +222,6 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       width: index === `${sectionData.name}` ? "13.5%" : "0%",
       height: index === `${sectionData.name}` ? "100%" : "0%",
     },
-    config: { duration: 275 },
   });
 
   const mobileImageMobileSpring = useSpring({
@@ -235,7 +243,6 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       height: index === `${sectionData.name}` ? "90%" : "0%",
       opacity: visibleProjectOnMobile === "mobile" ? 1 : 0,
     },
-    config: { duration: 275 },
   });
 
   const textContainerSpring = useSpring({
@@ -267,7 +274,6 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
           : "0%",
       opacity: index === `${sectionData.name}` ? 1 : 0,
     },
-    config: { duration: 275 },
   });
 
   const headerSpring = useSpring({
@@ -275,7 +281,6 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
     from: {
       fontSize: index === `${sectionData.name}` ? "1.75vw" : "0vw",
     },
-    config: { duration: 275 },
   });
 
   const textSpring = useSpring({
@@ -283,17 +288,16 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
     from: {
       fontSize: index === `${sectionData.name}` ? "1.5vw" : "0vw",
     },
-    config: { duration: 275 },
   });
 
   return (
     <animated.div
       id="projects-container"
-      style={{ opacity, width, height, cursor, ...toggledProps }}
+      style={{ opacity, width, height, cursor, ...toggledSection }}
     >
       <animated.div
         className="carousel-container"
-        style={{ opacity, width, height, ...toggledProps }}
+        style={{ opacity, width, height, ...toggledSection }}
       >
         <Fragment>
           <animated.div className="carousel-slider" style={carouselSpring}>

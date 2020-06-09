@@ -36,7 +36,7 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
     };
   }, []);
 
-  const { opacity, width, height, ...toggledProps } = useSpring({
+  const { opacity, width, height, ...toggledSection } = useSpring({
     to:
       index === `${sectionData.name}`
         ? [
@@ -114,7 +114,7 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
   return (
     <animated.div
       id="about-container"
-      style={{ opacity, width, height, ...toggledProps }}
+      style={{ opacity, width, height, ...toggledSection }}
     >
       <animated.div id="portrait-container" style={portraitContainerSpring}>
         <AnimatedIcon
@@ -138,9 +138,9 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
         />
         <animated.div
           id="skills-container"
-          style={{ opacity, width, height, ...toggledProps }}
+          style={{ opacity, width, height, ...toggledSection }}
         >
-          <animated.div className="row" style={{ opacity, ...toggledProps }}>
+          <animated.div className="row" style={{ opacity, ...toggledSection }}>
             <AnimatedIcon
               name="html"
               className="skill-icon"
@@ -256,7 +256,7 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
               }
             />
           </animated.div>
-          <animated.div className="row" style={{ opacity, ...toggledProps }}>
+          <animated.div className="row" style={{ opacity, ...toggledSection }}>
             <AnimatedIcon
               name="react"
               className="skill-icon"
@@ -384,20 +384,20 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
           pointerEvents: textSectionSpring.pointerEvents,
         }}
       >
-        <animated.p style={{ opacity, ...toggledProps }}>
+        <animated.p style={{ opacity, ...toggledSection }}>
           I've had a deep interest in technology, sustainable agriculture, and
           nutrition from a young age. In 2019, I attained a BS degree in
           Sustainable Food & Farming from UMass Amherst. My love of technology
           was only surface-deep until the fall of that year. I began investing
           the majority of my time away from work and school on learning to code.
         </animated.p>
-        <animated.p style={{ opacity, ...toggledProps }}>
+        <animated.p style={{ opacity, ...toggledSection }}>
           I practiced by creating websites and apps that I had imagined but
           didn't know how to create. Since then, I've been pursuing an education
           in web development thanks to a wealth of knowledge available both
           online and in the developer community.
         </animated.p>
-        <animated.p style={{ opacity, ...toggledProps }}>
+        <animated.p style={{ opacity, ...toggledSection }}>
           Specializing in the Front End (particularly HTML, CSS, JavaScript, and
           React), I help deliver seamless user experiences via websites and web
           apps. Nowadays, when not coding, I maintain a number of

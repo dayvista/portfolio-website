@@ -1,6 +1,60 @@
 @import (reference) "../variables";
 @import (reference) "../mixins";
 
+.container {
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    width: 1rem;
+    background: inherit;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2f191f;
+    border-radius: 0.5rem;
+
+    &:hover {
+      background: lighten(#2f191f, 7.5%);
+    }
+  }
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #2f191f 7.5%,
+    #2f191f 92.5%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #2f191f 7.5%,
+    #2f191f 92.5%,
+    transparent 100%
+  );
+
+  display: flex;
+  .flex-attributes(column, flex-start, center);
+
+  .react-pdf__Document {
+    user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+
+    // .react-pdf__Page {
+    //   canvas {
+    //     width: 93vw !important;
+    //     height: auto !important;
+    //   }
+    // }
+  }
+}
+
 // Icon SVG hover transition
 #linkedin-svg {
   @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
