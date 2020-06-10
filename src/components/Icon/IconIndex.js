@@ -26,10 +26,6 @@ import NextArrow from "./Icons/Carousel/NextArrow";
 import RadioButtonOn from "./Icons/Carousel/RadioButtonOn";
 import RadioButtonOff from "./Icons/Carousel/RadioButtonOff";
 
-// Resume PDFs
-import Resume from "./Icons/ResumeFiles/Resume";
-import LOR from "./Icons/ResumeFiles/LOR";
-
 const Icon = (props) => {
   switch (props.name) {
     // Contact/social media links
@@ -70,11 +66,6 @@ const Icon = (props) => {
       return <RadioButtonOn {...props} />;
     case "radio-button-off":
       return <RadioButtonOff {...props} />;
-    // Resume Section SVGs
-    case "resume":
-      return <Resume {...props} />;
-    case "lor":
-      return <LOR {...props} />;
     default:
       return <Fragment style={{ display: "none" }} />;
   }

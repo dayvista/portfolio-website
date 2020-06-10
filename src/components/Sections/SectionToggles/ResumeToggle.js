@@ -3,8 +3,6 @@ import { animated, useSpring } from "react-spring";
 
 import Icon from "../../Icon/IconIndex";
 
-const AnimatedIcon = animated(Icon);
-
 import "../../../styles/css/Sections/Resume.css";
 
 const ResumeToggle = ({ index, sectionData, mVP, tVP }) => {
@@ -65,8 +63,14 @@ const ResumeToggle = ({ index, sectionData, mVP, tVP }) => {
 
   return (
     <animated.div id="resume-container" style={toggledSection}>
-      <AnimatedIcon name="resume" id="resume" style={resumeSpring} />
-      <AnimatedIcon name="lor" id="lor" style={lorSpring} />
+      <animated.img
+        src="https://raw.githubusercontent.com/dayvista/portfolio-website/master/src/img/resume/resume.png"
+        style={resumeSpring}
+      ></animated.img>
+      <animated.img
+        src="https://raw.githubusercontent.com/dayvista/portfolio-website/master/src/img/resume/lor.png"
+        style={lorSpring}
+      ></animated.img>
     </animated.div>
   );
 };
