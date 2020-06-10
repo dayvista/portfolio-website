@@ -4,8 +4,6 @@ import { Timeline } from "react-twitter-widgets";
 
 import "../../../styles/css/Sections/Social.css";
 
-const AnimatedTimeline = animated(Timeline);
-
 const SocialToggle = ({ index, sectionData, mVP, tVP }) => {
   const toggledSection = useSpring({
     to:
@@ -60,11 +58,14 @@ const SocialToggle = ({ index, sectionData, mVP, tVP }) => {
       height: "0%",
       marginTop: "0vh",
     },
+    config: {
+      duration: index === `${sectionData.name}` ? undefined : 250,
+    },
   });
 
   return (
     <animated.div id="social-container" style={toggledSection}>
-      <AnimatedTimeline
+      <Timeline
         dataSource={{
           sourceType: "profile",
           screenName: "liamdavis_dev",
