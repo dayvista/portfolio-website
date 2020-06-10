@@ -195,6 +195,9 @@ section p {
     align-items: center;
   }
 }
+section .main-text {
+  margin-top: 1.75vh;
+}
 section .title-text {
   border-radius: 0.5rem;
   font-weight: bold;
@@ -235,6 +238,26 @@ section .title-text {
     align-items: center;
   }
 }
+@media (min-width: 501px) and (orientation: landscape) {
+  .social-section {
+    scrollbar-color: #fbcfc6 #871e08;
+    scrollbar-width: thin;
+  }
+  .social-section ::-webkit-scrollbar {
+    width: 1rem;
+    background: inherit;
+  }
+  .social-section ::-webkit-scrollbar-track {
+    background-clip: content-box;
+  }
+  .social-section ::-webkit-scrollbar-thumb {
+    background: #871e08;
+    border-radius: 0.5rem;
+  }
+  .social-section ::-webkit-scrollbar-thumb:hover {
+    background: #ab260a;
+  }
+}
 .titles-section {
   display: flex;
 }
@@ -258,9 +281,6 @@ section .title-text {
     justify-content: center;
     align-items: center;
   }
-}
-.main-text {
-  margin-top: 0.5rem;
 }
 .projects-section {
   background-color: #5c4a72;

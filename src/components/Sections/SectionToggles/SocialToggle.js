@@ -1,16 +1,33 @@
 import React from "react";
 import { animated, useSpring } from "react-spring";
+import { Timeline } from "react-twitter-widgets";
 
 import "../../../styles/css/Sections/Social.css";
 
+const AnimatedTimeline = animated(Timeline);
+
 const SocialToggle = ({ index, sectionData, mVP, tVP }) => {
-  const { width, height, opacity, cursor, ...toggledSection } = useSpring({
+  const toggledSection = useSpring({
     to:
       index === `${sectionData.name}`
         ? [
             {
-              width: index === `${sectionData.name}` ? "100%" : "0%",
-              height: index === `${sectionData.name}` ? "100%" : "0%",
+              width:
+                (index === `${sectionData.name}`) & !mVP & !tVP
+                  ? "74.5%"
+                  : index === `${sectionData.name}`
+                  ? "87.5%"
+                  : "0%",
+              height:
+                (index === `${sectionData.name}`) & !mVP & !tVP
+                  ? "95%"
+                  : index === `${sectionData.name}`
+                  ? "73.5%"
+                  : "0%",
+              marginTop:
+                (index === `${sectionData.name}`) & !mVP & !tVP
+                  ? "2.25vh"
+                  : "0vh",
             },
             {
               opacity: index === `${sectionData.name}` ? 1 : 0,
@@ -19,22 +36,44 @@ const SocialToggle = ({ index, sectionData, mVP, tVP }) => {
         : [
             {
               opacity: index === `${sectionData.name}` ? 1 : 0,
-              width: index === `${sectionData.name}` ? "100%" : "0%",
-              height: index === `${sectionData.name}` ? "100%" : "0%",
+              width:
+                (index === `${sectionData.name}`) & !mVP & !tVP
+                  ? "74.5%"
+                  : index === `${sectionData.name}`
+                  ? "87.5%"
+                  : "0%",
+              height:
+                (index === `${sectionData.name}`) & !mVP & !tVP
+                  ? "95%"
+                  : index === `${sectionData.name}`
+                  ? "73.5%"
+                  : "0%",
+              marginTop:
+                (index === `${sectionData.name}`) & !mVP & !tVP
+                  ? "2.25vh"
+                  : "0vh",
             },
           ],
     from: {
       opacity: 0,
       width: "0%",
       height: "0%",
+      marginTop: "0vh",
     },
   });
 
   return (
-    <animated.div
-      id="social-container"
-      style={{ width, height, opacity, ...toggledSection }}
-    ></animated.div>
+    <animated.div id="social-container" style={toggledSection}>
+      <AnimatedTimeline
+        dataSource={{
+          sourceType: "profile",
+          screenName: "liamdavis_dev",
+        }}
+        options={{
+          dnt: "true",
+        }}
+      />
+    </animated.div>
   );
 };
 
