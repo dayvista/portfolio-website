@@ -1,23 +1,24 @@
 import React from "react";
 import { animated, useSpring } from "react-spring";
-import { Document, Page } from "react-pdf";
 
-const AnimatedDocument = animated(Document);
-const AnimatedPage = animated(Page);
+import Icon from "../../Icon/IconIndex";
 
-import resume from "../../../img/resume/resume.pdf";
-import letterOfRec from "../../../img/resume/lor.pdf";
+const AnimatedIcon = animated(Icon);
 
 import "../../../styles/css/Sections/Resume.css";
 
 const ResumeToggle = ({ index, sectionData, mVP, tVP }) => {
-  const { width, height, opacity, cursor, ...toggledSection } = useSpring({
+  const toggledSection = useSpring({
     to:
       index === `${sectionData.name}`
         ? [
             {
               width: index === `${sectionData.name}` ? "100%" : "0%",
               height: index === `${sectionData.name}` ? "100%" : "0%",
+              marginRight:
+                (index === `${sectionData.name}`) & !mVP & !tVP
+                  ? "1.5vw"
+                  : "0vw",
             },
             {
               opacity: index === `${sectionData.name}` ? 1 : 0,
@@ -28,41 +29,44 @@ const ResumeToggle = ({ index, sectionData, mVP, tVP }) => {
               opacity: index === `${sectionData.name}` ? 1 : 0,
               width: index === `${sectionData.name}` ? "100%" : "0%",
               height: index === `${sectionData.name}` ? "100%" : "0%",
+              marginRight:
+                (index === `${sectionData.name}`) & !mVP & !tVP
+                  ? "1.5vw"
+                  : "0vw",
             },
           ],
     from: {
       opacity: 0,
       width: "0%",
       height: "0%",
+      marginRight: "0vw",
     },
   });
 
-  const documentSpring = useSpring({
-    opacity: index === `${sectionData.name}` ? 1 : 0,
+  const resumeSpring = useSpring({
+    width: index === `${sectionData.name}` ? "95%" : "0%",
+    marginLeft: index === `${sectionData.name}` ? "2.25vw" : "0vw",
+    marginBottom: index === `${sectionData.name}` ? "2.5vh" : "0vh",
     from: {
-      opacity: index === `${sectionData.name}` ? 1 : 0,
+      width: index === `${sectionData.name}` ? "95%" : "0%",
+      marginLeft: index === `${sectionData.name}` ? "2.25vw" : "0vw",
+      marginBottom: index === `${sectionData.name}` ? "2.5vh" : "0vh",
+    },
+  });
+
+  const lorSpring = useSpring({
+    width: index === `${sectionData.name}` ? "95%" : "0%",
+    marginLeft: index === `${sectionData.name}` ? "2.25vw" : "0vw",
+    from: {
+      width: index === `${sectionData.name}` ? "95%" : "0%",
+      marginLeft: index === `${sectionData.name}` ? "2.25vw" : "0vw",
     },
   });
 
   return (
-    <animated.div
-      id="resume-container"
-      style={{ width, height, opacity, cursor, ...toggledSection }}
-    >
-      <AnimatedDocument
-        id="resume-document"
-        style={documentSpring}
-        file={resume}
-      >
-        <AnimatedPage id="resume-pages" pageNumber={1} />
-      </AnimatedDocument>
-      <AnimatedDocument
-        id="lor-document"
-        style={documentSpring}
-        file={letterOfRec}
-      >
-        <AnimatedPage id="lor-pages" pageNumber={1} />
-      </AnimatedDocument>
+    <animated.div id="resume-container" style={toggledSection}>
+      <AnimatedIcon name="resume" id="resume" style={resumeSpring} />
+      <AnimatedIcon name="lor" id="lor" style={lorSpring} />
     </animated.div>
   );
 };

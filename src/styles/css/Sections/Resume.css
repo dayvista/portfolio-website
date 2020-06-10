@@ -1,4 +1,4 @@
-@media (min-width: 501px) {
+@media (min-width: 501px) and (orientation: landscape) {
   .title-text {
     scrollbar-color: #dabac3 #2f191f;
     scrollbar-width: thin;
@@ -20,53 +20,17 @@
 }
 #resume-container {
   cursor: default;
+  overflow-x: hidden;
   overflow-y: scroll;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #2f191f 7.5%, #2f191f 92.5%, transparent 100%);
   mask-image: linear-gradient(to bottom, transparent 0%, #2f191f 7.5%, #2f191f 92.5%, transparent 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
 }
-@media (min-width: 501px) {
-  #resume-container {
-    margin: 3vh 4vw 3vh 0;
-  }
-}
-@media (max-width: 500px) {
-  #resume-container {
-    margin: 2vh 0 2vh 0;
-  }
-}
-@media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
-  #resume-container {
-    margin: 1.5vh 4vw 1.5vh 0;
-  }
-}
-#resume-container .react-pdf__Document {
+#resume-container svg {
   user-select: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -o-user-select: none;
-}
-@media (max-width: 500px) {
-  #resume-container .react-pdf__Document .react-pdf__Page canvas {
-    width: 85vw !important;
-    height: auto !important;
-  }
-}
-@media (min-width: 501px) {
-  #resume-container .react-pdf__Document .react-pdf__Page canvas {
-    width: 67.5vw !important;
-    height: auto !important;
-  }
-}
-@media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
-  #resume-container .react-pdf__Document .react-pdf__Page canvas {
-    width: 79vw !important;
-    height: auto !important;
-  }
 }
 @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
   #linkedin-svg {

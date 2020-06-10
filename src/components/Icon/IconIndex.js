@@ -21,12 +21,14 @@ import NodeJS from "./Icons/Skills/NodeJS";
 import Python from "./Icons/Skills/Python";
 
 // Carousel icons
-import DesktopTemplate from "./Icons/Carousel/DesktopTemplate";
-import MobileTemplate from "./Icons/Carousel/MobileTemplate";
 import BackArrow from "./Icons/Carousel/BackArrow";
 import NextArrow from "./Icons/Carousel/NextArrow";
 import RadioButtonOn from "./Icons/Carousel/RadioButtonOn";
 import RadioButtonOff from "./Icons/Carousel/RadioButtonOff";
+
+// Resume PDFs
+import Resume from "./Icons/ResumeFiles/Resume";
+import LOR from "./Icons/ResumeFiles/LOR";
 
 const Icon = (props) => {
   switch (props.name) {
@@ -68,6 +70,11 @@ const Icon = (props) => {
       return <RadioButtonOn {...props} />;
     case "radio-button-off":
       return <RadioButtonOff {...props} />;
+    // Resume Section SVGs
+    case "resume":
+      return <Resume {...props} />;
+    case "lor":
+      return <LOR {...props} />;
     default:
       return <Fragment style={{ display: "none" }} />;
   }
