@@ -198,7 +198,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
     width: index === `${sectionData.name}` ? "95%" : "0%",
     height:
       (index === `${sectionData.name}`) & !tVP
-        ? "45.1573%"
+        ? "53%"
         : (index === `${sectionData.name}`) & tVP
         ? "62.7465%"
         : "0%",
@@ -207,7 +207,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       width: index === `${sectionData.name}` ? "95%" : "0%",
       height:
         (index === `${sectionData.name}`) & !tVP
-          ? "45.1573%"
+          ? "53%"
           : (index === `${sectionData.name}`) & tVP
           ? "62.7465%"
           : "0%",
@@ -227,7 +227,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
   const mobileImageMobileSpring = useSpring({
     width:
       (index === `${sectionData.name}`) & !tVP
-        ? "50.9828%"
+        ? "43%"
         : (index === `${sectionData.name}`) & tVP
         ? "28.8818%"
         : "0%",
@@ -236,7 +236,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
     from: {
       width:
         (index === `${sectionData.name}`) & !tVP
-          ? "50.9828%"
+          ? "43%"
           : (index === `${sectionData.name}`) & tVP
           ? "28.8818%"
           : "0%",

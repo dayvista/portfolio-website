@@ -8,7 +8,7 @@ export default [
     skillsText:
       "Technologies Used: HTML, CSS, JavaScript, React, & React Spring (React animation library)",
     aboutText:
-      "This website was built from scratch after the general layout was conceptualized in my head. I had never seen a website built in this way before. Having, at most, built simple websites in both React and Vanilla JavaScript, I kinda just made it up as I went. Experimenting with various React animation libraries, I eventually settled on using React Spring for it's fluidity and overall performance.",
+      "My portfolio website (this one) was built from scratch after the general layout was conceptualized in my head. I had never seen a website built in this way before. Having, at most, built simple websites in both React and Vanilla JavaScript, I kinda just made it up as I went. Experimenting with various React animation libraries, I eventually settled on using React Spring for it's fluidity and overall performance.",
   },
   {
     desktopSrc:

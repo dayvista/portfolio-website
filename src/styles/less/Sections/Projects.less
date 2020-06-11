@@ -55,6 +55,21 @@
     .flex-attributes(row, center, flex-start);
     margin-bottom: 1.5vh;
 
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      #c3b7d1 2.5%,
+      #c3b7d1 97.5%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      #c3b7d1 2.5%,
+      #c3b7d1 97.5%,
+      transparent 100%
+    );
+
     #project-base-container {
       #base-desktop-image,
       #base-mobile-image {
@@ -157,42 +172,12 @@
         @media (max-width: 500px) {
           font-size: 5vw;
           margin: 2vh 2vw 0 2vw;
-
-          // -webkit-mask-image: linear-gradient(
-          //   to bottom,
-          //   transparent 0%,
-          //   #c3b7d1 5%,
-          //   #c3b7d1 95%,
-          //   transparent 100%
-          // );
-          // mask-image: linear-gradient(
-          //   to bottom,
-          //   transparent 0%,
-          //   #c3b7d1 5%,
-          //   #c3b7d1 95%,
-          //   transparent 100%
-          // );
         }
 
         @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
           font-size: 4vw;
           margin: 2vh 2vw 0 2vw;
           line-height: 3.75rem;
-
-          // -webkit-mask-image: linear-gradient(
-          //   to bottom,
-          //   transparent 0%,
-          //   #c3b7d1 5%,
-          //   #c3b7d1 95%,
-          //   transparent 100%
-          // );
-          // mask-image: linear-gradient(
-          //   to bottom,
-          //   transparent 0%,
-          //   #c3b7d1 5%,
-          //   #c3b7d1 95%,
-          //   transparent 100%
-          // );
         }
       }
     }
