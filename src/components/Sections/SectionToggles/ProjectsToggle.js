@@ -254,7 +254,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
         : "0%",
     height:
       (index === `${sectionData.name}`) & !mVP
-        ? "33.5%"
+        ? "32%"
         : (index === `${sectionData.name}`) & mVP
         ? "25%"
         : "0%",
@@ -268,7 +268,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
           : "0%",
       height:
         (index === `${sectionData.name}`) & !mVP
-          ? "33.5%"
+          ? "32%"
           : (index === `${sectionData.name}`) & mVP
           ? "25%"
           : "0%",
