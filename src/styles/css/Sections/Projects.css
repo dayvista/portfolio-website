@@ -5,6 +5,26 @@
   justify-content: center;
   align-items: center;
 }
+@media (min-width: 501px) {
+  #projects-container {
+    scrollbar-color: #e0dae7 #5c4a72;
+    scrollbar-width: thin;
+  }
+  #projects-container ::-webkit-scrollbar {
+    width: 1rem;
+    background: inherit;
+  }
+  #projects-container ::-webkit-scrollbar-track {
+    background-clip: content-box;
+  }
+  #projects-container ::-webkit-scrollbar-thumb {
+    background: #5c4a72;
+    border-radius: 0.5rem;
+  }
+  #projects-container ::-webkit-scrollbar-thumb:hover {
+    background: #6f5989;
+  }
+}
 .carousel-container {
   border-radius: 0.5rem;
   width: 97.5%;
@@ -96,6 +116,15 @@
   align-self: center;
   text-decoration: underline;
 }
+@media (min-width: 501px) {
+  .carousel-container .carousel-slider .text-container h1 {
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  .carousel-container .carousel-slider .text-container h1:hover {
+    color: #2b2b2b;
+  }
+}
 @media (max-width: 500px) {
   .carousel-container .carousel-slider .text-container h1 {
     font-size: 5.5vw;
@@ -104,6 +133,7 @@
 @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
   .carousel-container .carousel-slider .text-container h1 {
     font-size: 5vw;
+    cursor: default;
   }
 }
 .carousel-container .carousel-slider .text-container p {

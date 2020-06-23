@@ -181,6 +181,7 @@ const Social = ({ index, mVP, tVP, changeIndex, sectionData }) => {
         </Switch>
         <animated.a
           id={`${sectionData.name}-icon`}
+          className="external-section-link"
           href={`${sectionData.link}`}
           target="_blank"
           rel="noopener noreferrer"

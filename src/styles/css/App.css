@@ -163,6 +163,11 @@ body {
 section {
   display: flex;
 }
+@media (min-width: 501px) and (orientation: landscape) {
+  section .external-section-link {
+    margin-top: 0.5vh;
+  }
+}
 section h1,
 section p {
   user-select: none;

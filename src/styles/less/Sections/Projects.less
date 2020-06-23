@@ -8,28 +8,28 @@
   .flex-attributes(column, center, center);
 
   // Custom scrollbar
-  // @media (min-width: 501px) {
-  //   ::-webkit-scrollbar {
-  //     width: 1rem;
-  //     background: inherit;
-  //   }
+  @media (min-width: 501px) {
+    ::-webkit-scrollbar {
+      width: 1rem;
+      background: inherit;
+    }
 
-  //   ::-webkit-scrollbar-track {
-  //     background-clip: content-box;
-  //   }
+    ::-webkit-scrollbar-track {
+      background-clip: content-box;
+    }
 
-  //   ::-webkit-scrollbar-thumb {
-  //     background: #5c4a72;
-  //     border-radius: 0.5rem;
+    ::-webkit-scrollbar-thumb {
+      background: #5c4a72;
+      border-radius: 0.5rem;
 
-  //     &:hover {
-  //       background: lighten(#5c4a72, 7.5%);
-  //     }
-  //   }
+      &:hover {
+        background: lighten(#5c4a72, 7.5%);
+      }
+    }
 
-  //   scrollbar-color: #e0dae7 #5c4a72;
-  //   scrollbar-width: thin;
-  // }
+    scrollbar-color: #e0dae7 #5c4a72;
+    scrollbar-width: thin;
+  }
 }
 
 .carousel-container {
@@ -129,12 +129,22 @@
         align-self: center;
         text-decoration: underline;
 
+        @media (min-width: 501px) {
+          cursor: pointer;
+          transition: color 0.3s;
+
+          &:hover {
+            color: #2b2b2b;
+          }
+        }
+
         @media (max-width: 500px) {
           font-size: 5.5vw;
         }
 
         @media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
           font-size: 5vw;
+          cursor: default;
         }
       }
 

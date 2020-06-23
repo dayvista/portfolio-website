@@ -186,6 +186,7 @@ const About = ({ index, mVP, tVP, changeIndex, sectionData }) => {
         </AnimatedLink>
         <animated.a
           id={`${sectionData.name}-icon`}
+          className="external-section-link"
           href={`${sectionData.link}`}
           target="_blank"
           rel="noopener noreferrer"

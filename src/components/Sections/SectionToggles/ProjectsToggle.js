@@ -124,20 +124,63 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
           ? [
               {
                 zIndex: i === carouselIndex ? 1 : -1,
+                width:
+                  (index === `${sectionData.name}`) & !mVP
+                    ? "74%"
+                    : (index === `${sectionData.name}`) & mVP
+                    ? "85%"
+                    : "0%",
+                height:
+                  (index === `${sectionData.name}`) & !mVP
+                    ? "32%"
+                    : (index === `${sectionData.name}`) & mVP
+                    ? "25%"
+                    : "0%",
               },
               {
-                opacity: i === carouselIndex ? 1 : 0,
+                opacity:
+                  (i === carouselIndex) & (index === `${sectionData.name}`)
+                    ? 1
+                    : 0,
               },
             ]
           : [
               {
                 zIndex: i === carouselIndex ? 1 : -1,
-                opacity: i === carouselIndex ? 1 : 0,
+                opacity:
+                  (i === carouselIndex) & (index === `${sectionData.name}`)
+                    ? 1
+                    : 0,
+                width:
+                  (index === `${sectionData.name}`) & !mVP
+                    ? "74%"
+                    : (index === `${sectionData.name}`) & mVP
+                    ? "85%"
+                    : "0%",
+                height:
+                  (index === `${sectionData.name}`) & !mVP
+                    ? "32%"
+                    : (index === `${sectionData.name}`) & mVP
+                    ? "25%"
+                    : "0%",
               },
             ],
       from: {
-        opacity: i === carouselIndex ? 1 : 0,
+        opacity:
+          (i === carouselIndex) & (index === `${sectionData.name}`) ? 1 : 0,
         zIndex: i === carouselIndex ? 1 : -1,
+        width:
+          (index === `${sectionData.name}`) & !mVP
+            ? "74%"
+            : (index === `${sectionData.name}`) & mVP
+            ? "85%"
+            : "0%",
+        height:
+          (index === `${sectionData.name}`) & !mVP
+            ? "32%"
+            : (index === `${sectionData.name}`) & mVP
+            ? "25%"
+            : "0%",
       },
       config: { duration: 600 },
     }))
@@ -277,16 +320,44 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
   });
 
   const headerSpring = useSpring({
-    fontSize: index === `${sectionData.name}` ? "1.75vw" : "0vw",
+    fontSize:
+      (index === `${sectionData.name}`) & !mVP & !tVP
+        ? "1.75vw"
+        : (index === `${sectionData.name}`) & mVP & !tVP
+        ? "5.5vw"
+        : (index === `${sectionData.name}`) & !mVP & tVP
+        ? "5vw"
+        : "0vw",
     from: {
-      fontSize: index === `${sectionData.name}` ? "1.75vw" : "0vw",
+      fontSize:
+        (index === `${sectionData.name}`) & !mVP & !tVP
+          ? "1.75vw"
+          : (index === `${sectionData.name}`) & mVP & !tVP
+          ? "5.5vw"
+          : (index === `${sectionData.name}`) & !mVP & tVP
+          ? "5vw"
+          : "0vw",
     },
   });
 
   const textSpring = useSpring({
-    fontSize: index === `${sectionData.name}` ? "1.5vw" : "0vw",
+    fontSize:
+      (index === `${sectionData.name}`) & !mVP & !tVP
+        ? "1.5vw"
+        : (index === `${sectionData.name}`) & mVP & !tVP
+        ? "5vw"
+        : (index === `${sectionData.name}`) & !mVP & tVP
+        ? "4vw"
+        : "0vw",
     from: {
-      fontSize: index === `${sectionData.name}` ? "1.5vw" : "0vw",
+      fontSize:
+        (index === `${sectionData.name}`) & !mVP & !tVP
+          ? "1.5vw"
+          : (index === `${sectionData.name}`) & mVP & !tVP
+          ? "5vw"
+          : (index === `${sectionData.name}`) & !mVP & tVP
+          ? "4vw"
+          : "0vw",
     },
   });
 
@@ -320,65 +391,87 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
                 style={!mVP ? mobileImageSpring : mobileImageMobileSpring}
               />
             </animated.div>
-            {carouselSprings.map((prop, i) => (
-              <Fragment key={i}>
-                <animated.div
-                  key={`project-${i}-container`}
-                  id={`project-${i}-container`}
-                  className="individual-project-container"
-                  style={
-                    index === `${sectionData.name}`
-                      ? prop
-                      : projectContainerSpring
-                  }
-                >
-                  <animated.img
-                    key={`project-${i}-image-desktop`}
-                    id={`project-${i}-image-desktop`}
-                    className="project-images-desktop"
-                    src={projectsData[i].desktopSrc}
-                    style={!mVP ? desktopImageSpring : desktopImageMobileSpring}
-                  />
-                  <animated.img
-                    key={`project-${i}-image-mobile`}
-                    id={`project-${i}-image-mobile`}
-                    className="project-images-mobile"
-                    src={projectsData[i].mobileSrc}
-                    style={!mVP ? mobileImageSpring : mobileImageMobileSpring}
-                  />
-                </animated.div>
-                <animated.div
-                  key={`project-${i}-text-container`}
-                  id={`project-${i}-text-container`}
-                  className="text-container"
-                  style={textContainerSpring}
-                >
-                  <animated.h1
-                    key={`project-${i}-header`}
-                    id={`project-${i}-header`}
+            <animated.div
+              id="project-base-text-container"
+              className="text-container"
+              style={textContainerSpring}
+            ></animated.div>
+            {carouselSprings.map(
+              ({ width, height, zIndex, opacity, ...props }, i) => (
+                <Fragment key={i}>
+                  <animated.div
+                    key={`project-${i}-container`}
+                    id={`project-${i}-container`}
+                    className="individual-project-container"
                     style={
-                      index === `${sectionData.name}` ? prop : headerSpring
+                      index === `${sectionData.name}`
+                        ? { zIndex, opacity, ...props }
+                        : projectContainerSpring
                     }
                   >
-                    {projectsData[i].header}
-                  </animated.h1>
-                  <animated.p
-                    key={`project-${i}-skills-text`}
-                    id={`project-${i}-skills-text`}
-                    style={index === `${sectionData.name}` ? prop : textSpring}
+                    <animated.img
+                      key={`project-${i}-image-desktop`}
+                      id={`project-${i}-image-desktop`}
+                      className="project-images-desktop"
+                      src={projectsData[i].desktopSrc}
+                      style={
+                        !mVP ? desktopImageSpring : desktopImageMobileSpring
+                      }
+                    />
+                    <animated.img
+                      key={`project-${i}-image-mobile`}
+                      id={`project-${i}-image-mobile`}
+                      className="project-images-mobile"
+                      src={projectsData[i].mobileSrc}
+                      style={!mVP ? mobileImageSpring : mobileImageMobileSpring}
+                    />
+                  </animated.div>
+                  <animated.div
+                    key={`project-${i}-text-container`}
+                    id={`project-${i}-text-container`}
+                    className="text-container"
+                    style={{ width, height, zIndex, opacity, ...props }}
                   >
-                    {projectsData[i].skillsText}
-                  </animated.p>
-                  <animated.p
-                    key={`project-${i}-about-text`}
-                    id={`project-${i}-about-text`}
-                    style={index === `${sectionData.name}` ? prop : textSpring}
-                  >
-                    {projectsData[i].aboutText}
-                  </animated.p>
-                </animated.div>
-              </Fragment>
-            ))}
+                    <animated.h1
+                      key={`project-${i}-header`}
+                      id={`project-${i}-header`}
+                      style={
+                        index === `${sectionData.name}`
+                          ? { zIndex, opacity, ...props }
+                          : headerSpring
+                      }
+                      onClick={() => {
+                        window.open(projectsData[i].projectLink);
+                      }}
+                    >
+                      {projectsData[i].header}
+                    </animated.h1>
+                    <animated.p
+                      key={`project-${i}-skills-text`}
+                      id={`project-${i}-skills-text`}
+                      style={
+                        index === `${sectionData.name}`
+                          ? { zIndex, opacity, ...props }
+                          : textSpring
+                      }
+                    >
+                      {projectsData[i].skillsText}
+                    </animated.p>
+                    <animated.p
+                      key={`project-${i}-about-text`}
+                      id={`project-${i}-about-text`}
+                      style={
+                        index === `${sectionData.name}`
+                          ? { zIndex, opacity, ...props }
+                          : textSpring
+                      }
+                    >
+                      {projectsData[i].aboutText}
+                    </animated.p>
+                  </animated.div>
+                </Fragment>
+              )
+            )}
           </animated.div>
           <div className="counter-container">
             <animated.div
