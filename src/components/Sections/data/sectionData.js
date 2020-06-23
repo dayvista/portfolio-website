@@ -1,7 +1,7 @@
 export default [
   {
     name: "projects",
-    text: "Projects",
+    text: "Portfolio",
     icon: "github",
     link: "https://github.com/dayvista",
   },

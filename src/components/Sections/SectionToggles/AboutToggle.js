@@ -385,24 +385,24 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
         }}
       >
         <animated.p style={{ opacity, ...toggledSection }}>
-          I've had a deep interest in technology, sustainable agriculture, and
-          nutrition from a young age. In 2019, I attained a BS degree in
-          Sustainable Food & Farming from UMass Amherst. My love of technology
-          was only surface-deep until the fall of that year. I began investing
-          the majority of my time away from work and school on learning to code.
+          Technology has been a passion of mine from a young age. In 2019, I
+          completed a 4-year degree in Sustainable Food & Farming from UMass
+          Amherst. After leaving college to find few jobs in that field, I
+          became determined to expand my skillset without becoming further
+          roiled in debt. I began investing the majority of my time away from
+          work on learning how to code.
         </animated.p>
         <animated.p style={{ opacity, ...toggledSection }}>
-          I practiced by creating websites and apps that I had imagined but
-          didn't know how to create. Since then, I've been pursuing an education
-          in web development thanks to a wealth of knowledge available both
-          online and in the developer community.
+          I practiced by creating websites and apps from tutorials, prompts, and
+          my imagination. Since then, I've been pursuing an education in web
+          development thanks to a wealth of knowledge available both online and
+          in the developer community.
         </animated.p>
         <animated.p style={{ opacity, ...toggledSection }}>
           Specializing in the Front End (particularly HTML, CSS, JavaScript, and
-          React), I help deliver seamless user experiences via websites and web
-          apps. Nowadays, when not coding, I maintain a number of
-          non-tech-related YouTube channels and play with robotics and
-          automation using Python on a Raspberry Pi.
+          React), I aim to deliver seamless user experiences on the web.
+          Nowadays, when not coding, I research nutrition, walk in the woods,
+          and play with robotics and automation on a Raspberry Pi.
         </animated.p>
       </animated.div>
     </animated.div>

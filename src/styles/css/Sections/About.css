@@ -154,6 +154,22 @@
     margin: 1rem 0;
   }
 }
+@media (min-width: 501px) {
+  .skill-icon {
+    cursor: pointer;
+    transition: filter 0.3s, -webkit-filter 0.3s;
+  }
+  .skill-icon path {
+    transition: fill 0.3s;
+  }
+  .skill-icon:hover {
+    filter: drop-shadow(0px 2px 2px #331405);
+    -webkit-filter: drop-shadow(0px 2px 2px #331405);
+  }
+  .skill-icon:hover path {
+    fill: #562606;
+  }
+}
 #about-text-container {
   font-weight: normal;
   overflow-x: hidden;
