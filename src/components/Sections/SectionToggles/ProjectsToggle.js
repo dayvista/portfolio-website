@@ -200,7 +200,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
       (index === `${sectionData.name}`) & !tVP
         ? "53%"
         : (index === `${sectionData.name}`) & tVP
-        ? "62.7465%"
+        ? "70%"
         : "0%",
     opacity: visibleProjectOnMobile === "desktop" ? 1 : 0,
     from: {
@@ -209,7 +209,7 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
         (index === `${sectionData.name}`) & !tVP
           ? "53%"
           : (index === `${sectionData.name}`) & tVP
-          ? "62.7465%"
+          ? "70%"
           : "0%",
       opacity: visibleProjectOnMobile === "desktop" ? 1 : 0,
     },
