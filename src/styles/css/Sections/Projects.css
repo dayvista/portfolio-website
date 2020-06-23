@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
 }
-@media (min-width: 501px) {
+@media (min-width: 501px) and (orientation: landscape) {
   #projects-container {
     scrollbar-color: #e0dae7 #5c4a72;
     scrollbar-width: thin;
@@ -13,6 +13,7 @@
   #projects-container ::-webkit-scrollbar {
     width: 1rem;
     background: inherit;
+    border-radius: 0.5rem;
   }
   #projects-container ::-webkit-scrollbar-track {
     background-clip: content-box;

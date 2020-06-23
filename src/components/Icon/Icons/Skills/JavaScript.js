@@ -13,6 +13,9 @@ const JavaScript = ({ id, className, style, fill }) => (
     width="512"
     height="512"
     viewBox="0 0 512 512"
+    onClick={() => {
+      window.open("https://developer.mozilla.org/en-US/docs/Web/javascript");
+    }}
   >
     <path
       fill={fill}

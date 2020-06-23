@@ -13,6 +13,9 @@ const Python = ({ id, className, style, fill }) => (
     width="512"
     height="512"
     viewBox="0 0 512 512"
+    onClick={() => {
+      window.open("https://www.python.org/");
+    }}
   >
     <path
       fill={fill}

@@ -8,10 +8,11 @@
   .flex-attributes(column, center, center);
 
   // Custom scrollbar
-  @media (min-width: 501px) {
+  @media (min-width: 501px) and (orientation: landscape) {
     ::-webkit-scrollbar {
       width: 1rem;
       background: inherit;
+      border-radius: 0.5rem;
     }
 
     ::-webkit-scrollbar-track {
