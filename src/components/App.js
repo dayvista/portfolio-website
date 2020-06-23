@@ -80,13 +80,25 @@ const App = () => {
 
   // Set index state according to URL route address
   const setPage = () => {
-    if (window.location.href.includes("projects")) {
+    if (
+      window.location.href === "http://localhost:3000/projects" ||
+      window.location.href === "https://liamdavis.dev/projects"
+    ) {
       setIndex("projects");
-    } else if (window.location.href.includes("resume")) {
+    } else if (
+      window.location.href === "http://localhost:3000/resume" ||
+      window.location.href === "https://liamdavis.dev/resume"
+    ) {
       setIndex("resume");
-    } else if (window.location.href.includes("social")) {
+    } else if (
+      window.location.href === "http://localhost:3000/social" ||
+      window.location.href === "https://liamdavis.dev/social"
+    ) {
       setIndex("social");
-    } else if (window.location.href.includes("about")) {
+    } else if (
+      window.location.href === "http://localhost:3000/about" ||
+      window.location.href === "https://liamdavis.dev/about"
+    ) {
       setIndex("about");
     } else {
       setIndex(null);

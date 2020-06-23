@@ -390,7 +390,7 @@ const AboutToggle = ({ index, sectionData, mVP, tVP }) => {
           Amherst. After leaving college to find few jobs in that field, I
           became determined to expand my skillset without becoming further
           roiled in debt. I began investing the majority of my time away from
-          work on learning how to code.
+          work into learning how to code.
         </animated.p>
         <animated.p style={{ opacity, ...toggledSection }}>
           I practiced by creating websites and apps from tutorials, prompts, and

@@ -123,7 +123,7 @@
     transition: color 0.3s;
   }
   .carousel-container .carousel-slider .text-container h1:hover {
-    color: #2b2b2b;
+    color: #5d4267;
   }
 }
 @media (max-width: 500px) {
