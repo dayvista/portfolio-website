@@ -1,8 +1,8 @@
 ## My (Liam Davis') Portfolio Website
 
-![Mobile version of website](https://github.com/dayvista/portfolio-website/blob/master/src/img/projects/mobile-portfolioproject.gif)
+<span style="display:block;text-align:center">![Mobile version of website](https://github.com/dayvista/portfolio-website/blob/master/src/img/projects/mobile-portfolioproject.gif)</span>
 
-![Desktop version of website](https://github.com/dayvista/portfolio-website/blob/master/src/img/projects/desktop-portfolioproject.gif)
+<span style="display:block;text-align:center">![Desktop version of website](https://github.com/dayvista/portfolio-website/blob/master/src/img/projects/desktop-portfolioproject.gif)</span>
 
 # Welcome to my portfolio website! 
 
