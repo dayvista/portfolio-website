@@ -1,6 +1,6 @@
 {
   "name": "williamdaviswebsiteportfolio",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "William Davis' Portfolio Website for his Web Development Work",
   "main": "index.js",
   "scripts": {
