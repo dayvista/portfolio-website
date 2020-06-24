@@ -3,7 +3,8 @@ export default [
     header: "Calculator - calc-u-now.netlify.app",
     projectLink: "https://calc-u-now.netlify.app",
     skillsText: "Technologies Used: HTML, CSS, JavaScript, & React",
-    aboutText: "",
+    aboutText:
+      "Completed as a project prompt from freeCodeCamp, this particular project was one of my first forays into creating single-page web apps with React. Figuring out the mathematical logic of the inner workings of the calculator took over a week. I would like to figure out how to prevent the user from inputting an infinite amount of digits.",
     desktopSrc:
       "https://raw.githubusercontent.com/dayvista/portfolio-website/master/src/img/projects/calculator/desktop-calculatorproject.gif",
     mobileSrc:
@@ -13,11 +14,12 @@ export default [
     header: "Random Quote Generator - kanyewestquotegenerator.netlify.app",
     projectLink: "https://kanyewestquotegenerator.netlify.app",
     skillsText: "Technologies Used: HTML, CSS, JavaScript, & React",
-    aboutText: "",
+    aboutText:
+      "Quotes are obtained from the REST API at kanye.rest using Fetch and async/await. Individual quotes are displayed to the user, who is able to then retweet them. This project marks my first experience figuring out how to communicate with an external REST API and relay information to the user.",
     desktopSrc:
       "https://raw.githubusercontent.com/dayvista/portfolio-website/master/src/img/projects/randomquotegenerator/desktop-randomquotegeneratorproject.gif",
     mobileSrc:
-      "https://raw.githubusercontent.com/dayvista/portfolio-website/master/src/img/projects/portfolio/mobile-randomquotegeneratorproject.gif",
+      "https://raw.githubusercontent.com/dayvista/portfolio-website/master/src/img/projects/randomquotegenerator/mobile-randomquotegeneratorproject.gif",
   },
   {
     header: "Portfolio - liamdavis.dev",
