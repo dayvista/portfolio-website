@@ -64,11 +64,11 @@ const ResumeToggle = ({ index, sectionData, mVP, tVP }) => {
   return (
     <animated.div id="resume-container" style={toggledSection}>
       <animated.img
-        src="https://raw.githubusercontent.com/dayvista/portfolio-website/master/src/img/resume/resume.png"
+        src="http://u.cubeupload.com/dayvista/resume.png"
         style={resumeSpring}
       ></animated.img>
       <animated.img
-        src="https://raw.githubusercontent.com/dayvista/portfolio-website/master/src/img/resume/lor.png"
+        src="https://u.cubeupload.com/dayvista/lor.png"
         style={lorSpring}
       ></animated.img>
     </animated.div>
