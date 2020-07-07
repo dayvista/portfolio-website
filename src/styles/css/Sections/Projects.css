@@ -157,6 +157,26 @@
     line-height: 3.75rem;
   }
 }
+.carousel-container .carousel-slider .text-container .project-skills-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.carousel-container .carousel-slider .text-container .project-skills-icons .skill-svg {
+  cursor: pointer;
+  transition: filter 0.3s, -webkit-filter 0.3s;
+}
+.carousel-container .carousel-slider .text-container .project-skills-icons .skill-svg path {
+  transition: fill 0.3s;
+}
+.carousel-container .carousel-slider .text-container .project-skills-icons .skill-svg:hover {
+  filter: drop-shadow(0px 1px 1px #050406);
+  -webkit-filter: drop-shadow(0px 1px 1px #050406);
+}
+.carousel-container .carousel-slider .text-container .project-skills-icons .skill-svg:hover path {
+  fill: #3b324e;
+}
 .counter-container {
   display: flex;
   flex-direction: row;

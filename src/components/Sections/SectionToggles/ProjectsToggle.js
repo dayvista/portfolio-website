@@ -13,21 +13,6 @@ const stroke = "#050406";
 
 const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
   const [carouselIndex, setCarouselIndex] = useState(0);
-  const [visibleProjectOnMobile, setVisibleProjectOnMobile] = useState(null);
-
-  useEffect(() => {
-    setVisibleProjectOnMobile("mobile");
-  }, []);
-
-  useEffect(() => {
-    setTimeout(() => {
-      if (visibleProjectOnMobile === "mobile") {
-        setVisibleProjectOnMobile("desktop");
-      } else if (visibleProjectOnMobile === "desktop") {
-        setVisibleProjectOnMobile("mobile");
-      }
-    }, 10000);
-  }, [visibleProjectOnMobile]);
 
   const carouselCounter = (event) => {
     let index = carouselIndex;
@@ -245,7 +230,12 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
         : (index === `${sectionData.name}`) & tVP
         ? "70%"
         : "0%",
-    opacity: visibleProjectOnMobile === "desktop" ? 1 : 0,
+    opacity:
+      tVP & (index === `${sectionData.name}`)
+        ? 1
+        : !mVP & (index === `${sectionData.name}`)
+        ? 1
+        : 0,
     from: {
       width: index === `${sectionData.name}` ? "95%" : "0%",
       height:
@@ -254,7 +244,12 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
           : (index === `${sectionData.name}`) & tVP
           ? "70%"
           : "0%",
-      opacity: visibleProjectOnMobile === "desktop" ? 1 : 0,
+      opacity:
+        tVP & (index === `${sectionData.name}`)
+          ? 1
+          : !mVP & (index === `${sectionData.name}`)
+          ? 1
+          : 0,
     },
   });
 
@@ -275,7 +270,12 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
         ? "28.8818%"
         : "0%",
     height: index === `${sectionData.name}` ? "90%" : "0%",
-    opacity: visibleProjectOnMobile === "mobile" ? 1 : 0,
+    opacity:
+      (index === `${sectionData.name}`) & !tVP & mVP
+        ? 1
+        : (index === `${sectionData.name}`) & !tVP & mVP
+        ? 1
+        : 0,
     from: {
       width:
         (index === `${sectionData.name}`) & !tVP
@@ -284,7 +284,12 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
           ? "28.8818%"
           : "0%",
       height: index === `${sectionData.name}` ? "90%" : "0%",
-      opacity: visibleProjectOnMobile === "mobile" ? 1 : 0,
+      opacity:
+        (index === `${sectionData.name}`) & !tVP & mVP
+          ? 1
+          : (index === `${sectionData.name}`) & !tVP & mVP
+          ? 1
+          : 0,
     },
   });
 
@@ -356,6 +361,58 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
           : (index === `${sectionData.name}`) & mVP & !tVP
           ? "5vw"
           : (index === `${sectionData.name}`) & !mVP & tVP
+          ? "4vw"
+          : "0vw",
+    },
+  });
+
+  const skillIconsContainerSpring = useSpring({
+    width: index === `${sectionData.name}` ? "100%" : "0%",
+    height: index === `${sectionData.name}` ? "auto" : "inherit",
+    margin:
+      index === `${sectionData.name}` ? "2.5vh 0vw 0vh 0vw" : "0vh 0vw 0vh 0vw",
+    from: {
+      width: index === `${sectionData.name}` ? "100%" : "0%",
+      height: index === `${sectionData.name}` ? "auto" : "inherit",
+      margin:
+        index === `${sectionData.name}`
+          ? "2.5vh 0vw 0vh 0vw"
+          : "0vh 0vw 0vh 0vw",
+    },
+  });
+
+  const skillIconsSpring = useSpring({
+    width:
+      (index === `${sectionData.name}`) & tVP
+        ? "7vw"
+        : (index === `${sectionData.name}`) & mVP
+        ? "9vw"
+        : index === `${sectionData.name}`
+        ? "4vw"
+        : "0vw",
+    height:
+      (index === `${sectionData.name}`) & tVP
+        ? "7vw"
+        : (index === `${sectionData.name}`) & mVP
+        ? "9vw"
+        : index === `${sectionData.name}`
+        ? "4vw"
+        : "0vw",
+    from: {
+      width:
+        (index === `${sectionData.name}`) & tVP
+          ? "7vw"
+          : (index === `${sectionData.name}`) & mVP
+          ? "9vw"
+          : index === `${sectionData.name}`
+          ? "4vw"
+          : "0vw",
+      height:
+        (index === `${sectionData.name}`) & tVP
+          ? "7vw"
+          : (index === `${sectionData.name}`) & mVP
+          ? "9vw"
+          : index === `${sectionData.name}`
           ? "4vw"
           : "0vw",
     },
@@ -446,17 +503,25 @@ const ProjectsToggle = ({ index, sectionData, mVP, tVP }) => {
                     >
                       {projectsData[i].header}
                     </animated.h1>
-                    <animated.p
-                      key={`project-${i}-skills-text`}
-                      id={`project-${i}-skills-text`}
+                    <animated.div
+                      key={`project-${i}-skills-icons`}
+                      id={`project-${i}-skills-icons`}
+                      className="project-skills-icons"
                       style={
-                        index === `${sectionData.name}`
-                          ? { zIndex, opacity, ...props }
-                          : textSpring
+                        ({ zIndex, opacity, ...props },
+                        skillIconsContainerSpring)
                       }
                     >
-                      {projectsData[i].skillsText}
-                    </animated.p>
+                      {projectsData[i].projectTech.map((tech, i) => (
+                        <AnimatedIcon
+                          key={`${tech.name}-skill-svg-${Math.random()}`}
+                          name={`${tech.name}`}
+                          id={`${tech.name}-skill-svg`}
+                          className="skill-svg"
+                          style={skillIconsSpring}
+                        />
+                      ))}
+                    </animated.div>
                     <animated.p
                       key={`project-${i}-about-text`}
                       id={`project-${i}-about-text`}

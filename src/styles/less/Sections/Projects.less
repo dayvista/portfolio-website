@@ -167,6 +167,29 @@
           line-height: 3.75rem;
         }
       }
+
+      .project-skills-icons {
+        display: flex;
+        .flex-attributes(row, space-around, center);
+
+        .skill-svg {
+          cursor: pointer;
+          transition: filter 0.3s, -webkit-filter 0.3s;
+
+          path {
+            transition: fill 0.3s;
+          }
+
+          &:hover {
+            filter: drop-shadow(0px 1px 1px #050406);
+            -webkit-filter: drop-shadow(0px 1px 1px #050406);
+
+            path {
+              fill: #3b324e;
+            }
+          }
+        }
+      }
     }
   }
 }
