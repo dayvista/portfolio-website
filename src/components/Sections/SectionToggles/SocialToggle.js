@@ -18,7 +18,7 @@ const SocialToggle = ({ index, sectionData, mVP, tVP }) => {
                   : "0%",
               height:
                 (index === `${sectionData.name}`) & !mVP & !tVP
-                  ? "95%"
+                  ? "90.5%"
                   : index === `${sectionData.name}`
                   ? "73.5%"
                   : "0%",
@@ -42,7 +42,7 @@ const SocialToggle = ({ index, sectionData, mVP, tVP }) => {
                   : "0%",
               height:
                 (index === `${sectionData.name}`) & !mVP & !tVP
-                  ? "95%"
+                  ? "90.5%"
                   : index === `${sectionData.name}`
                   ? "73.5%"
                   : "0%",

@@ -43,14 +43,16 @@ const Resume = ({ index, mVP, tVP, changeIndex, sectionData }) => {
         : "90%",
     height:
       index === `${sectionData.name}`
-        ? "97.5%"
+        ? "91.71%"
         : (index !== `${sectionData.name}`) & (index !== null)
         ? "7.5%"
         : "10%",
+    marginTop: index === null ? "5vh" : "1.75vh",
     from: {
       cursor: "pointer",
       width: "90%",
       height: "10%",
+      marginTop: index === null ? "5vh" : "1.75vh",
     },
   });
 
@@ -100,11 +102,11 @@ const Resume = ({ index, mVP, tVP, changeIndex, sectionData }) => {
   });
 
   const iconSpring = useSpring({
-    width: index === null ? "5.5rem" : "0rem",
-    height: index === null ? "5.5rem" : "0rem",
+    width: index === null ? "7.5rem" : "0rem",
+    height: index === null ? "7.5rem" : "0rem",
     from: {
-      width: "5.5rem",
-      height: "5.5rem",
+      width: "7.5rem",
+      height: "7.5rem",
     },
   });
 
@@ -114,6 +116,15 @@ const Resume = ({ index, mVP, tVP, changeIndex, sectionData }) => {
     from: {
       width: "6.5rem",
       height: "6.5rem",
+    },
+  });
+
+  const iconMobileSpring = useSpring({
+    width: index === null ? "5.5rem" : "0rem",
+    height: index === null ? "5.5rem" : "0rem",
+    from: {
+      width: "5.5rem",
+      height: "5.5rem",
     },
   });
 
@@ -192,8 +203,13 @@ const Resume = ({ index, mVP, tVP, changeIndex, sectionData }) => {
           <AnimatedIcon
             name={`${sectionData.icon}`}
             id={`${sectionData.icon}-svg`}
-            index={index}
-            style={!tVP ? iconSpring : iconTabletSpring}
+            style={
+              !tVP & !mVP
+                ? iconSpring
+                : !tVP & mVP
+                ? iconMobileSpring
+                : iconTabletSpring
+            }
           />
         </animated.a>
       </animated.section>
