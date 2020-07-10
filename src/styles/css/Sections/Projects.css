@@ -41,8 +41,8 @@
   justify-content: center;
   align-items: flex-start;
   margin-bottom: 1.5vh;
-  -webkit-mask-image: linear-gradient(to bottom, #c3b7d1 0%, #c3b7d1 5%, #c3b7d1 97.5%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #c3b7d1 0%, #c3b7d1 5%, #c3b7d1 97.5%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #c3b7d1 98%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #c3b7d1 98%, transparent 100%);
 }
 .carousel-container .carousel-slider #project-base-container #base-desktop-image,
 .carousel-container .carousel-slider #project-base-container #base-mobile-image {

@@ -43,16 +43,16 @@ const Resume = ({ index, mVP, tVP, changeIndex, sectionData }) => {
         : "90%",
     height:
       index === `${sectionData.name}`
-        ? "97.5%"
+        ? "91.71%"
         : (index !== `${sectionData.name}`) & (index !== null)
         ? "7.5%"
         : "10%",
-    marginTop: index === null ? "5vh" : "1.75vh",
+    marginTop: index === null ? "3.5vh" : "1.75vh",
     from: {
       cursor: "pointer",
       width: "90%",
       height: "10%",
-      marginTop: index === null ? "5vh" : "1.75vh",
+      marginTop: "3.5vh",
     },
   });
 
