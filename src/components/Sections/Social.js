@@ -170,7 +170,9 @@ const Social = ({ index, mVP, tVP, changeIndex, sectionData }) => {
           }
           to={`/${sectionData.name}`}
           onClick={handleClick}
-          style={!mVP ? linkSpring : tVP ? linkTabletSpring : linkMobileSpring}
+          style={
+            !mVP & !tVP ? linkSpring : tVP ? linkTabletSpring : linkMobileSpring
+          }
         >
           <animated.p style={!tVP ? textSpring : textTabletSpring}>
             {sectionData.text}

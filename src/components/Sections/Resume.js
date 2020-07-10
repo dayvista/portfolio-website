@@ -43,7 +43,7 @@ const Resume = ({ index, mVP, tVP, changeIndex, sectionData }) => {
         : "90%",
     height:
       index === `${sectionData.name}`
-        ? "91.71%"
+        ? "97.5%"
         : (index !== `${sectionData.name}`) & (index !== null)
         ? "7.5%"
         : "10%",
