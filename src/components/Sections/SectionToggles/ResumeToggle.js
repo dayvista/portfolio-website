@@ -1,8 +1,6 @@
 import React from "react";
 import { animated, useSpring } from "react-spring";
 
-import Icon from "../../Icon/IconIndex";
-
 import "../../../styles/css/Sections/Resume.css";
 
 const ResumeToggle = ({ index, sectionData, mVP, tVP }) => {
@@ -64,11 +62,11 @@ const ResumeToggle = ({ index, sectionData, mVP, tVP }) => {
   return (
     <animated.div id="resume-container" style={toggledSection}>
       <animated.img
-        src="http://u.cubeupload.com/dayvista/resume.png"
+        src="https://i.postimg.cc/4yZ6JXWn/resume.png"
         style={resumeSpring}
       ></animated.img>
       <animated.img
-        src="https://u.cubeupload.com/dayvista/lor.png"
+        src="https://i.postimg.cc/mByVwKcn/lor.png"
         style={lorSpring}
       ></animated.img>
     </animated.div>

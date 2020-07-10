@@ -21,7 +21,7 @@ export default [
     name: "about",
     text: "About",
     icon: "email",
-    link: "mailto:wil@liamdavis.dev",
+    link: "mailto:liamdavis@tuta.io",
   },
   {
     name: "titles",
